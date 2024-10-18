@@ -1,0 +1,7 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Age verification attestation cross device","Display QR code on Relying Party service","SUCCESS","2024-10-08T15:16:32.370694+03:00[Europe/Athens]","0.0","6.72"
+"Age verification attestation cross device","User scans the QR code","SUCCESS","2024-10-08T15:16:39.104889+03:00[Europe/Athens]","0.0","6.67"
+"Age verification attestation cross device","Inform user about age verification request","SUCCESS","2024-10-08T15:16:45.789613+03:00[Europe/Athens]","0.0","6.72"
+"Age verification attestation cross device","User attempts to share age verification attestation","SUCCESS","2024-10-08T15:16:52.519232+03:00[Europe/Athens]","0.0","6.57"
+"Age verification attestation cross device","User enters incorrect PIN","SUCCESS","2024-10-08T15:16:59.099246+03:00[Europe/Athens]","0.0","6.91"
+"Age verification attestation cross device","User re-enters correct PIN","SUCCESS","2024-10-08T15:17:06.020569+03:00[Europe/Athens]","0.0","6.61"

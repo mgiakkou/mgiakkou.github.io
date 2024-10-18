@@ -1,0 +1,8 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Pre-authorization code cross device","User visits the Issuer service","SUCCESS","2024-10-08T15:19:50.992304+03:00[Europe/Athens]","0.0","6.44"
+"Pre-authorization code cross device","User is presented with a QR for the issuance process","SUCCESS","2024-10-08T15:19:57.442079+03:00[Europe/Athens]","0.0","6.49"
+"Pre-authorization code cross device","Wallet app is initiated","SUCCESS","2024-10-08T15:20:03.941047+03:00[Europe/Athens]","0.0","6.42"
+"Pre-authorization code cross device","Initiating QR Scan from Add Document Screen","SUCCESS","2024-10-08T15:20:10.371828+03:00[Europe/Athens]","0.0","6.49"
+"Pre-authorization code cross device","QR code verification","SUCCESS","2024-10-08T15:20:16.869719+03:00[Europe/Athens]","0.0","6.56"
+"Pre-authorization code cross device","Issuing the new document via QR code","SUCCESS","2024-10-08T15:20:23.44077+03:00[Europe/Athens]","0.0","6.38"
+"Pre-authorization code cross device","Document display","SUCCESS","2024-10-08T15:20:29.83047+03:00[Europe/Athens]","0.0","6.54"

@@ -1,0 +1,7 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Selective Disclosure","View Requested Data from Verifier","SUCCESS","2024-10-08T15:49:05.196042+03:00[Europe/Athens]","0.0","63.47"
+"Selective Disclosure","View Actual Values of Requested Data","SUCCESS","2024-10-08T15:50:08.67864+03:00[Europe/Athens]","0.0","64.2"
+"Selective Disclosure","Expand Verification Section","SUCCESS","2024-10-08T15:51:12.887016+03:00[Europe/Athens]","0.0","65.99"
+"Selective Disclosure","Unselect Some Data","SUCCESS","2024-10-08T15:52:18.890666+03:00[Europe/Athens]","0.0","65.38"
+"Selective Disclosure","Initiate Sharing Process","SUCCESS","2024-10-08T15:53:24.281148+03:00[Europe/Athens]","0.0","66.69"
+"Selective Disclosure","Enter PIN Correctly for Data Sharing","SUCCESS","2024-10-08T15:54:30.985761+03:00[Europe/Athens]","0.0","74.01"

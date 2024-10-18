@@ -1,0 +1,8 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Dynamic issuance process","User Initiates Credential Issuance","SUCCESS","2024-10-08T15:27:22.017687+03:00[Europe/Athens]","0.0","6.56"
+"Dynamic issuance process","Wallet Initiation and Credential Details Presentation","SUCCESS","2024-10-08T15:27:28.586155+03:00[Europe/Athens]","0.0","6.37"
+"Dynamic issuance process","User Proceeds with Credential Issuance","SUCCESS","2024-10-08T15:27:34.968664+03:00[Europe/Athens]","0.0","6.6"
+"Dynamic issuance process","Presentation Request for PID","SUCCESS","2024-10-08T15:27:41.578417+03:00[Europe/Athens]","0.0","6.33"
+"Dynamic issuance process","User Consents to Share PID","SUCCESS","2024-10-08T15:27:47.920992+03:00[Europe/Athens]","0.0","6.41"
+"Dynamic issuance process","Successful PID Presentation","SUCCESS","2024-10-08T15:27:54.348894+03:00[Europe/Athens]","0.0","6.41"
+"Dynamic issuance process","Successful Credential Issuance","SUCCESS","2024-10-08T15:28:00.77585+03:00[Europe/Athens]","0.0","6.46"

@@ -1,0 +1,4 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Credential Issuance Cancellation","User initiates credential issuance","SUCCESS","2024-10-08T15:18:52.62735+03:00[Europe/Athens]","0.0","6.69"
+"Credential Issuance Cancellation","User cancels the issuance process","SUCCESS","2024-10-08T15:18:59.327897+03:00[Europe/Athens]","0.0","6.32"
+"Credential Issuance Cancellation","User confirms cancellation","SUCCESS","2024-10-08T15:19:05.660253+03:00[Europe/Athens]","0.0","6.36"

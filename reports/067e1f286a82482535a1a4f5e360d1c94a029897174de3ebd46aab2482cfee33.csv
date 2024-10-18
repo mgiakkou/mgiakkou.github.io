@@ -1,0 +1,6 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Delete age verification attestation","User enters PIN and selects an age verification document","SUCCESS","2024-10-08T15:17:59.428913+03:00[Europe/Athens]","0.0","6.54"
+"Delete age verification attestation","User initiates document deletion","SUCCESS","2024-10-08T15:18:05.977515+03:00[Europe/Athens]","0.0","6.7"
+"Delete age verification attestation","User cancels the document deletion","SUCCESS","2024-10-08T15:18:12.68697+03:00[Europe/Athens]","0.0","6.57"
+"Delete age verification attestation","User re-initiates document deletion","SUCCESS","2024-10-08T15:18:19.267198+03:00[Europe/Athens]","0.0","6.88"
+"Delete age verification attestation","User confirms the document deletion","SUCCESS","2024-10-08T15:18:26.15734+03:00[Europe/Athens]","0.0","6.66"

@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Stories</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.13.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.13.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.13.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+<!-- JQuery-UI -->
+<link type="text/css" href="jqueryui/1.11.2-start/jquery-ui.min.css" rel="Stylesheet" />
+<script type="text/javascript" src="jqueryui/1.11.2-start/jquery-ui.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.13.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.13.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.13.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+
+
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            $("#scenario-results").DataTable({
+                "order": [[0, "asc",], [3, "asc",]],
+                "language": {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                },
+                columnDefs: [
+                    {type: 'time-elapsed-dhms', targets: 4}
+                ]
+            })
+            $("#manual-scenario-results").DataTable({
+                "order": [[0, "asc",], [1, "asc",]],
+                "language": {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                },
+            })
+
+            $('.example-table table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('.example-table-in-scenario table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('#evidence-table').DataTable(
+                {
+                    searching: false,
+                    ordering: false,
+                    paging: false,
+                    info: false
+                }
+            );
+
+
+            $(".scenario-docs .card-body table").wrap("<div class='table-responsive'></div>");
+
+            $("#requirements-tabs").tabs();
+            $("#test-tabs").tabs();
+
+            var requirementsTree = [{"text":"Av poc-viewing deleting age verification attestation 44","type":"story","href":"ca6bd0c69a2a97451137f3c74e18208eaf5969bf8facdc01e3beeea606c2327b.html","nodes":[{"text":"Delete age verification attestation","type":"feature","href":"219aa8fb109a4c1c619bd9b86e293a43078cff1432b25c5eca898f849abb05bd.html","nodes":[],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027bi bi-check-circle-fill success-icon \u0027 title\u003d\u0027SUCCESS\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e5 scenarios\u003c/span\u003e, \u003cspan class\u003d\u0027feature-count\u0027\u003e5 test cases\u003c/span\u003e"]},{"text":"View age verification attestation","type":"feature","href":"138d7ae09afc75b5f1e54ec25398bd56f9edf0e944b4478e00eb1f5fecb015e1.html","nodes":[],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027bi bi-check-circle-fill success-icon \u0027 title\u003d\u0027SUCCESS\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e3 scenarios\u003c/span\u003e, \u003cspan class\u003d\u0027feature-count\u0027\u003e3 test cases\u003c/span\u003e"]}],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027bi bi-check-circle-fill success-icon \u0027 title\u003d\u0027SUCCESS\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e2 features\u003c/span\u003e "]}];
+
+            $('#tree').treeview({
+                data: requirementsTree,
+                enableLinks: true,
+                levels: 10,
+                showTags: true,
+                expandIcon: "bi bi-journal-plus",
+                collapseIcon: "bi bi-journal-minus",
+                emptyIcon: "bi bi-journal"
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".scenario-docs > div > p").html(function () {
+                var text = $(this).text().trim().split(" ");
+                var first = text.shift();
+                return (text.length > 0 ? "<strong>" + first + "</strong> " : first) + text.join(" ");
+            });
+        });
+    </script>
+</head>
+
+
+<body class="results-page">
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">EUDI Wallet Test Report</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+            <a href='index.html'>Home</a> > <a href="capabilities.html">Requirements</a>
+
+                > <a href="db2d584c807a5eb4c12718a8741b388d8c45387d293549c32cc66c55e051a9ea.html">Android</a>
+                > <a href="5d6d0f7c88239fa93c02c5ded52ebfeebcf8c438465a591f7fc1810eca9e929b.html">Age verification using age over 18 pseudonym attestation poc 16</a>
+
+
+                    > <span class="truncate-40">Av poc-viewing deleting age verification attestation 44</span>
+
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li >
+            <a href="index.html"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="dd7750c6dc86be28f39572a355a41442ba81daa3e70b6c781cfbc96e905bd672.html"><i class="bi bi-chat-text"></i> Platforms</a>
+        </li>
+        <li >
+            <a href="0272dadd83d6e6ac748d9a947522ca78b8873f5156f9bd38d6a0eb735ee5993b.html"><i class="bi bi-chat-text"></i> Epics</a>
+        </li>
+        <li class="active">
+            <a href="#"><i class="bi bi-chat-text"></i> Stories</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 08-10-2024 14:33</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+    <div id="beforetable"></div>
+    <div id="results-dashboard">
+        <div class="table">
+            <div class=row">
+                <div class="col-sm-12">
+                    <div>
+                        <div clas="table">
+                            <div class="row">
+
+                                    <div class="col-sm-12">
+                                        <span>
+                                            <h2><i class="bi bi-book"></i> Story: Av poc-viewing deleting age verification attestation 44</h2>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="requirementNarrativeTitle">
+                                
+                            </div>
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <!-- Requirements result tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab" href="#specs"><i class="bi bi-journal-text"></i> Specifications</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#results"><i class="bi bi-speedometer"></i> Test Results</a>
+                            </li>
+                        </ul>
+
+                        <!-- Specifications and Results tabs -->
+                        <div class="card border">
+                            <div class="tab-content" id="pills-tabContent">
+                                <div id="specs" class="tab-pane fade in active">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <h3>Feature Coverage By Scenario</h3>
+
+                                                <!-- REQUIREMENTS PIE CHART -->
+                                                    <div class="chart-container" style="position: relative; width:30vw">
+                                                        <canvas id="requirementChart" width="300" height="300"></canvas>
+                                                    </div>
+
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <h3>Requirements Overview</h3>
+
+                                                <div id="tree"></div>
+
+                                                <!-- STATS -->
+    <div>
+        <h3><i class="bi bi-speedometer2"></i> Key Statistics</h3>
+        <div>
+            <table class="table table-striped table-hover">
+                <tbody>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-card-checklist"></i> Number of Scenarios
+                    </td>
+                    <td>8</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-caret-right"></i> Total Number of Test Cases
+                    </td>
+                    <td>8</td>
+                </tr>
+                    <tr scope="row">
+                        <td>
+                            <i class="bi bi-person"></i> Number of Manual Test Cases
+                        </td>
+                        <td>8</td>
+                    </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-flag-fill"></i> Tests Started
+                    </td>
+                    <td>Oct 08, 2024 14:33:51</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-stop-circle"></i> Tests
+                        Finished
+                    </td>
+                    <td>Oct 08, 2024 14:34:44</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-stopwatch"></i> Total
+                        Duration
+                    </td>
+                    <td>53s</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-trophy"></i> Fastest Test
+                    </td>
+                    <td>6s</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-skip-start"></i> Slowest
+                        Test
+                    </td>
+                    <td>6s</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-stopwatch"></i> Average
+                        Execution Time
+                    </td>
+                    <td>6s</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-stopwatch-fill"></i> Total
+                        Execution Time
+                    </td>
+                    <td>53s</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+                                                <!-- END STATS -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="results" class="tab-pane fade">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <h3>Feature Coverage By Scenario</h3>
+                                                <!-- TEST RESULT PIE CHART -->
+                                                    <div class="chart-container" style="position: relative; width:30vw">
+                                                        <canvas id="resultChart" width="300" height="300"></canvas>
+                                                    </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <h4><i class="bi bi-check-square"></i> Test Outcomes</h4>
+                                                <!-- Severity bar chart -->
+                                                <div class="chart-container" style="position: relative; width:30vw">
+                                                    <canvas id="severityChart" width="300" height="300"></canvas>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                                <h4><i class="bi bi-graph-up"></i> Test Performance</h4>
+
+                                                <!-- Duration bar chart -->
+                                                <div class="chart-container" style="position: relative; width:30vw">
+                                                    <canvas id="durationChart" width="300" height="300"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+    <div>
+        <h3><i class="bi bi-speedometer2"></i> Key Statistics</h3>
+        <div>
+            <table class="table table-striped table-hover">
+                <tbody>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-card-checklist"></i> Number of Scenarios
+                    </td>
+                    <td>8</td>
+                    <td>
+                        <i class="bi bi-stopwatch"></i> Total
+                        Duration
+                    </td>
+                    <td>53s</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-caret-right"></i> Total Number of Test Cases
+                    </td>
+                    <td>8</td>
+                    <td>
+                        <i class="bi bi-trophy"></i> Fastest Test
+                    </td>
+                    <td>6s</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-person"></i> Number of Manual Test Cases
+                    </td>
+                    <td>8</td>
+                    <td>
+                        <i class="bi bi-skip-start"></i> Slowest
+                        Test
+                    </td>
+                    <td>6s</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-flag-fill"></i> Tests Started
+                    </td>
+                    <td>Oct 08, 2024 14:33:51</td>
+                    <td>
+                        <i class="bi bi-stopwatch"></i> Average
+                        Execution Time
+                    </td>
+                    <td>6s</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-stop-circle"></i> Tests
+                        Finished
+                    </td>
+                    <td>Oct 08, 2024 14:34:44</td>
+                    <td>
+                        <i class="bi bi-stopwatch-fill"></i> Total
+                        Execution Time
+                    </td>
+                    <td>53s</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+                                                <h3><i class="bi bi-gear"></i> Automated Tests</h3>
+
+                                                    No automated tests were executed
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3><i class="bi bi-hand-index-thumb"></i> Manual Tests</h3>
+
+                                                    <table class="scenario-result-table table"
+                                                           id="manual-scenario-results">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>feature</th>
+                                                            <th class="test-name-column">Scenario</th>
+                                                            <th>Context</th>
+                                                            <th>Steps</th>
+                                                            <th>Result</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="219aa8fb109a4c1c619bd9b86e293a43078cff1432b25c5eca898f849abb05bd.html">Delete age verification attestation</a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="72eed593314fa89b1160a25fa360d86f686ba65e9be243adea368af51790c921.html">User enters PIN and selects an age verification document</a>
+                                                                    </td>
+                                                                    <td><i class="bi bi-person"></i></td>
+                                                                    <td>3</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="219aa8fb109a4c1c619bd9b86e293a43078cff1432b25c5eca898f849abb05bd.html">Delete age verification attestation</a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="7d216454c89f32c2295cb1dbcbf74657093dc1ce3d997f3fa3364d5897101d9c.html">User initiates document deletion</a>
+                                                                    </td>
+                                                                    <td><i class="bi bi-person"></i></td>
+                                                                    <td>3</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="219aa8fb109a4c1c619bd9b86e293a43078cff1432b25c5eca898f849abb05bd.html">Delete age verification attestation</a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="48b38db1b674d6b8f6e62c04bc1c702411d7baf3f3da49c309488469ff2d6467.html">User cancels the document deletion</a>
+                                                                    </td>
+                                                                    <td><i class="bi bi-person"></i></td>
+                                                                    <td>4</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="219aa8fb109a4c1c619bd9b86e293a43078cff1432b25c5eca898f849abb05bd.html">Delete age verification attestation</a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="0bfb3171fc9a5f4ae4ea5a6dbefe248d5cb2bd8a40ae3bff265f459dbfb93097.html">User re-initiates document deletion</a>
+                                                                    </td>
+                                                                    <td><i class="bi bi-person"></i></td>
+                                                                    <td>3</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="219aa8fb109a4c1c619bd9b86e293a43078cff1432b25c5eca898f849abb05bd.html">Delete age verification attestation</a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="ea3ade45d98a9596c0472e190509f6213fa49d479c29e0e5834519c26fdf065b.html">User confirms the document deletion</a>
+                                                                    </td>
+                                                                    <td><i class="bi bi-person"></i></td>
+                                                                    <td>4</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="138d7ae09afc75b5f1e54ec25398bd56f9edf0e944b4478e00eb1f5fecb015e1.html">View age verification attestation</a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="2f20b5d442b99b5f38914acb9870cf9755b3d82fb64c93a7097de8d696b28a75.html">User successfully logs in and sees the dashboard</a>
+                                                                    </td>
+                                                                    <td><i class="bi bi-person"></i></td>
+                                                                    <td>3</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="138d7ae09afc75b5f1e54ec25398bd56f9edf0e944b4478e00eb1f5fecb015e1.html">View age verification attestation</a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="5ee8ee5912b9a3bbf7aa7bb5353fd089502e7db0149b375c805e41f026ebee39.html">User opens an Age Verification attestation from the dashboard</a>
+                                                                    </td>
+                                                                    <td><i class="bi bi-person"></i></td>
+                                                                    <td>4</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="138d7ae09afc75b5f1e54ec25398bd56f9edf0e944b4478e00eb1f5fecb015e1.html">View age verification attestation</a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="668b8c3ea6304de20eb621efaad214e27d18b8dce250035353215e37cddddc80.html">User closes the Age Verification attestation and returns to the dashboard</a>
+                                                                    </td>
+                                                                    <td><i class="bi bi-person"></i></td>
+                                                                    <td>4</td>
+                                                                    <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        <span style="display:none">SUCCESS</span>
+                                                                    </td>
+                                                                </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                            </div>
+                                        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Tags</h3>
+                    <div class="card">
+                        <div class="card-body">
+                            <div>
+                                    <a href="9a26bd101adfda745f743db04eb3269922eb1ff4d86d9997efeca1ebfe995ac4.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Manual&nbsp;&nbsp;&nbsp;8
+                                    </span>
+                                    </a>
+                                    <a href="0d3bcb624b52197f2fb3db9e3d9e7405f46653418085fb7d8cba385e90c20ec3.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> US DAVA TC 05&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="5efdba0155133493a44d3eb059940baadb46284b96764ba42f5ec715c8c5c1e7.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> US VAVA TC 03&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="69fe69d7e55ddca5b398a1c6e96d7ceb1de2e4f4487103d83d5e115879ca8575.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> US DAVA TC 04&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="ad3d03cd6db57692c97d72c801684453d16f8d6f1035963feb0a8db640b1eb56.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> US VAVA TC 02&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="a87abd4204ec96c8db74264eb8886fbfe73d8c3e1714488bb853210c21fb4e5a.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Android&nbsp;&nbsp;&nbsp;8
+                                    </span>
+                                    </a>
+                                    <a href="6b159e4e9020b91608e0c7e8ee9ee8e0d5dad6063925c84cab939197b26a0969.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> US DAVA TC 01&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="26989176c44356ed96f450e296f52756c298a36697b27701278b36a46bfc7a79.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> US DAVA TC 03&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="b3a34ca6f4138dd1fb0a7fc9036c35d00375044da4cdf8efab7ed6f31b3bfb1a.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> US DAVA TC 02&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="cb289717166d859e4faf3237ac1a4374e48810fc53646d6bad1f63bbd8fe2068.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> US DAVA&nbsp;&nbsp;&nbsp;5
+                                    </span>
+                                    </a>
+                                    <a href="746cff72ffd1258c372bb1a7e04eabb56b7eb391b733ca73e294ecb8de00f114.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> US VAVA TC 01&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="611f639117bddf46e8f6d8291a240844041f32bdf1347137f449facce3fdcc75.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> US VAVA&nbsp;&nbsp;&nbsp;3
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Context</h5>
+                            <div>
+                                    <a href="d7d055c3a782deac55af5fa0b3adcb8d18e602f046db40a54a53918076ac8a22.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Mac&nbsp;&nbsp;&nbsp;8
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Manual</h5>
+                            <div>
+                                    <a href="220d8ef6080eb8a7746b6ccaff3b44ac3c1f123a09790bb9a8ff31e7b07c9746.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Passed&nbsp;&nbsp;&nbsp;8
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="version">Serenity BDD version 3.9.2</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Chart data -->
+    <!-- PIE CHART -->
+    <script>
+
+        // The results pie chart
+        const outcomeChartCtx = document.getElementById('resultChart');
+
+        // Options define for display value on top of bars
+        const outcomeDetailsReports = [
+            { title: 'Passing Test Cases', link: "5fec901fa1699ef2625f661fc26a51903cba198bdcb20e49d46e2cd7b49266f1.html" },
+            { title: 'Pending Test Cases', link: "9586d1ceb66957493a42935f71175475a03b89041ac21e5af2fcb398b595dab0.html" },
+            { title: 'Ignored Test Cases', link: "e64ec6987ba68216ee0aa06b6bd54de5bbb7f4acc69362f0ca7ad6f1efa490b3.html" },
+            { title: 'Skipped Test Cases', link: "597b6f2914ad8d8a30f2d75ad3c37e78996c58f4f660cf80d43d96b25d0bca55.html" },
+            { title: 'Aborted Test Cases',  link: "06cba86aace436e866952b46a5296efd79dd27194ea7f0d29e44ef1e76f7a44b.html"},
+            { title: 'Failed Test Cases', link: "ee320104eb55b234d660f338db8e8ecbc43764a2092ceecf103b17dce9db1193.html"  },
+            { title: 'Broken Test Cases', link: "a6c3430b43cb1dab1467a2f9fcc9fe3ea7248d0e83ea015f89ba79b4ea61b620.html"    },
+            { title: 'Compromised Test Cases',  link: "b26cbf99f793f82045074750ce77950ff1549d6097b06d478504e2d2927f94ec.html" },
+        ]
+        const outcomeData = {
+            labels: ['Passing Test Cases', 'Pending Test Cases', 'Ignored Test Cases', 'Skipped Test Cases', 'Aborted Test Cases', 'Failed Test Cases', 'Broken Test Cases', 'Compromised Test Cases','Undefined Test Cases'],
+            datasets: [{
+                label: 'Test Results',
+                fill: false,
+                data: [{meta: 'Passing tests', value: 8}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
+                backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
+                borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
+                borderWidth: 1,
+            }]
+        }
+        const outcomeOptions = {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                },
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold',
+                    formatter: (value, ctx) => {
+                        let sum = 0;
+                        let dataArr = ctx.chart.data.datasets[0].data;
+                        dataArr.map(data => {
+                            sum += data;
+                        });
+                        let percentage = (value * 100 / sum).toFixed(0) + "%";
+                        if (percentage === '0%' || percentage === 'NaN%') {
+                            return '';
+                        } else {
+                            return percentage;
+                        }
+                    },
+                },
+            }
+        }
+
+        const outcomeChart = new Chart(outcomeChartCtx, {
+            type: 'doughnut',
+            data: outcomeData,
+            options: outcomeOptions,
+            plugins: [
+                {
+                    id: 'text',
+                    beforeDraw: function (chart, a, b) {
+                        var width = chart.width,
+                            height = chart.height,
+                            ctx = chart.ctx;
+
+                        ctx.restore();
+                        var fontSize = (height / 200).toFixed(1);
+                        ctx.font = fontSize + "em sans-serif";
+                        ctx.textBaseline = "middle";
+
+                        var text = "100%"
+                        textX = 10 + Math.round((width - ctx.measureText(text).width) / 2);
+                        textY = (height / 2) - 40;
+
+                        ctx.fillText(text, textX, textY);
+                        ctx.save();
+                    }
+                }]
+        });
+
+        function clickHandler(click) {
+            const points = outcomeChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length) {
+                const firstPoint = points[0];
+                window.open(outcomeDetailsReports[firstPoint.index].link, "_self")
+
+            }
+        }
+        outcomeChartCtx.onclick = clickHandler;
+    </script>
+    <!-- END PIE CHART -->
+    <!-- PIE CHART -->
+    <script>
+
+        // The results pie chart
+        const requirementsChartCtx = document.getElementById('requirementChart');
+
+        // Options define for display value on top of bars
+        const requirementsOutcomeDetailsReports = [
+            { title: 'Passing Test Cases', link: "5fec901fa1699ef2625f661fc26a51903cba198bdcb20e49d46e2cd7b49266f1.html" },
+            { title: 'Pending Test Cases', link: "9586d1ceb66957493a42935f71175475a03b89041ac21e5af2fcb398b595dab0.html" },
+            { title: 'Ignored Test Cases', link: "e64ec6987ba68216ee0aa06b6bd54de5bbb7f4acc69362f0ca7ad6f1efa490b3.html" },
+            { title: 'Skipped Test Cases', link: "597b6f2914ad8d8a30f2d75ad3c37e78996c58f4f660cf80d43d96b25d0bca55.html" },
+            { title: 'Aborted Test Cases',  link: "06cba86aace436e866952b46a5296efd79dd27194ea7f0d29e44ef1e76f7a44b.html"},
+            { title: 'Failed Test Cases', link: "ee320104eb55b234d660f338db8e8ecbc43764a2092ceecf103b17dce9db1193.html"  },
+            { title: 'Broken Test Cases', link: "a6c3430b43cb1dab1467a2f9fcc9fe3ea7248d0e83ea015f89ba79b4ea61b620.html"    },
+            { title: 'Compromised Test Cases',  link: "b26cbf99f793f82045074750ce77950ff1549d6097b06d478504e2d2927f94ec.html" },
+            { title: 'Undefined Test Cases',  link: "" },
+        ]
+        const requirementsOutcomeData = {
+            labels: ['Passing Test Cases', 'Pending Test Cases', 'Ignored Test Cases', 'Skipped Test Cases', 'Aborted Test Cases', 'Failed Test Cases', 'Broken Test Cases', 'Compromised Test Cases','Undefined Test Cases'],
+            datasets: [{
+                label: 'Feature Coverage',
+                fill: false,
+                data: [{meta: 'Passing tests', value: 8}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
+                backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
+                borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
+                borderWidth: 1,
+            }]
+        }
+        const requirementsOutcomeOptions = {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                },
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold',
+                    formatter: (value, ctx) => {
+                        let sum = 0;
+                        let dataArr = ctx.chart.data.datasets[0].data;
+                        dataArr.map(data => {
+                            sum += data;
+                        });
+                        let percentage = (value * 100 / sum).toFixed(0) + "%";
+                        if (percentage === '0%' || percentage === 'NaN%') {
+                            return '';
+                        } else {
+                            return percentage;
+                        }
+                    },
+                },
+            }
+        }
+
+        const requirementsChart = new Chart(requirementsChartCtx, {
+            type: 'doughnut',
+            data: requirementsOutcomeData,
+            options: requirementsOutcomeOptions,
+            plugins: [
+                {
+                    id: 'text',
+                    beforeDraw: function (chart, a, b) {
+                        var width = chart.width,
+                            height = chart.height,
+                            ctx = chart.ctx;
+
+                        ctx.restore();
+                        var fontSize = (height / 200).toFixed(1);
+                        ctx.font = fontSize + "em sans-serif";
+                        ctx.textBaseline = "middle";
+
+                        var text = "100%"
+                        textX = 10 + Math.round((width - ctx.measureText(text).width) / 2);
+                        textY = (height / 2) - 40;
+
+                        ctx.fillText(text, textX, textY);
+                        ctx.save();
+                    }
+                }]
+        });
+
+        function reqsClickHandler(click) {
+            const points = requirementsChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length && requirementsOutcomeDetailsReports[firstPoint.index].link) {
+                const firstPoint = points[0];
+                window.open(requirementsOutcomeDetailsReports[firstPoint.index].link, "_self")
+
+            }
+        }
+        requirementsChartCtx.onclick = reqsClickHandler;
+    </script>
+    <!-- END PIE CHART -->
+
+    <!-- SUMMARY BAR CHART -->
+    <script>
+
+        // The Severity bar chart
+        const severityChartCtx = document.getElementById('severityChart');
+
+        // Options define for display value on top of bars
+
+        const severityDetailsReports = [
+            { title: 'Passing Scenarios', link: "5fec901fa1699ef2625f661fc26a51903cba198bdcb20e49d46e2cd7b49266f1.html" },
+            { title: 'Pending Scenarios', link: "9586d1ceb66957493a42935f71175475a03b89041ac21e5af2fcb398b595dab0.html" },
+            { title: 'Ignored Scenarios', link: "e64ec6987ba68216ee0aa06b6bd54de5bbb7f4acc69362f0ca7ad6f1efa490b3.html" },
+            { title: 'Skipped Scenarios', link: "597b6f2914ad8d8a30f2d75ad3c37e78996c58f4f660cf80d43d96b25d0bca55.html" },
+            { title: 'Aborted Scenarios',  link: "06cba86aace436e866952b46a5296efd79dd27194ea7f0d29e44ef1e76f7a44b.html"},
+            { title: 'Failed Scenarios', link: "ee320104eb55b234d660f338db8e8ecbc43764a2092ceecf103b17dce9db1193.html"  },
+            { title: 'Broken Scenarios', link: "a6c3430b43cb1dab1467a2f9fcc9fe3ea7248d0e83ea015f89ba79b4ea61b620.html"    },
+            { title: 'Compromised Scenarios',  link: "b26cbf99f793f82045074750ce77950ff1549d6097b06d478504e2d2927f94ec.html" },
+        ]
+        const severityData = {
+            labels: ['Passing', 'Pending', 'Ignored', 'Skipped', 'Aborted', 'Failed', 'Broken', 'Compromised'],
+            datasets: [
+                {
+                    label: 'Automated',
+                    data: [0,0,0,0,0,0,0,0],
+                    backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
+                    borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
+                    borderWidth: 1
+                },
+                {
+                    label: 'Manual',
+                    data: [8,0,0,0,0,0,0,0],
+                    backgroundColor: ['rgba(153,204,51,0.25)','rgba(165, 199, 238, 0.25)','rgba(168, 168, 168, 0.25)','rgba(238, 224, 152, 0.375)','rgba(255, 153, 102, 0.25)','rgba(255, 22, 49, 0.25)','rgba(255, 97, 8, 0.25)','rgba(255, 104, 255, 0.25)','rgba(83, 50, 168, 0.25)'],
+                    borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
+                    borderWidth: 1
+                },
+
+            ]
+        }
+        const severityOptions = {
+            responsive: true,
+            skipNull: true,
+            scales: {
+                x: {
+                    stacked: true,
+                },
+                y: {
+                    stacked: true,
+                }
+            },
+            plugins: {
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold',
+                    formatter: (value, ctx) => {
+                        if (value === 0) {
+                            return '';
+                        } else {
+                            return value;
+                        }
+                    },
+                }
+            }
+        }
+        const severityChart = new Chart(severityChartCtx, {
+            type: 'bar',
+            data: severityData,
+            options: severityOptions
+        });
+
+        function clickHandler(click) {
+            const points = severityChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length) {
+                const firstPoint = points[0];
+                window.open(severityDetailsReports[firstPoint.index].link, "_self")
+
+            }
+        }
+        severityChartCtx.onclick = clickHandler;
+    </script>
+    <!-- END SUMMARY CHART -->
+
+    <!-- DURATION CHART -->
+    <script>
+
+        // Options define for display value on top of bars
+        const durationDetailsReports = [
+                {title: "Under 1 second", link: "c1de9c6702d4623f036b7573c464cde8a7c750378f34303a0031d17ea51d06f5.html"},
+                {title: "1 to 10 seconds", link: "bb27c43e29e7d8ecdec5d6ce6a764e460c18b260887d2c58ea34fb1a8a19521b.html"},
+                {title: "10 to 30 seconds", link: "9a3b47c9ec6406cb4f2c014fdd0244e3e9fe1607c343afb369cc39a5000825c0.html"},
+                {title: "30 to 60 seconds", link: "9fdc5a6ef1fbf8b639b28189239789b5274cefb9536e349e6afa5d9ffee557b3.html"},
+                {title: "1 to 2 minutes", link: "357fa4d9c4ec51392813ceb46b8819be2ddcc29551f4f2bc6221619862d4308e.html"},
+                {title: "2 to 5 minutes", link: "63bf84d155b2cf9906be11f01f63b3f96eb83abaaf5ed75cc8785bdceb9219dd.html"},
+                {title: "5 to 10 minutes", link: "3025c8a24e666cbd83529636bf115d278c6aedd0135fcfb5d39fff5474e03653.html"},
+                {title: "10 minutes or over", link: "088e2731ae7614ef164f5124cd1b45eda02796783fa944092755de8e2acfc98d.html"},
+        ]
+        // The Severity bar chart
+        const durationChartCtx = document.getElementById('durationChart');
+
+        // Options define for display value on top of bars
+
+        const durationData = {
+            labels: ['Under 1 second','1 to 10 seconds','10 to 30 seconds','30 to 60 seconds','1 to 2 minutes','2 to 5 minutes','5 to 10 minutes','10 minutes or over'],
+            datasets: [{
+                label: 'Number of tests per duration',
+                fill: false,
+                data: ['0','8','0','0','0','0','0','0'],
+                backgroundColor: 'rgba(83, 146, 255,0.5)',
+                borderColor: 'rgba(83, 146, 255, 1)',
+            }]
+        }
+        const durationOptions = {
+            responsive: true,
+            plugins: {
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold',
+                    formatter: (value, ctx) => {
+                        if (value > 0) {
+                            return value;
+                        } else {
+                            return '';
+                        }
+                    },
+                },
+                tooltip: {
+                    enabled: true,
+                    usePointStyle: true,
+                    callbacks: {
+                        label: (data) => {
+                            return data.parsed.y + ' tests'
+                        }
+                    },
+                },
+            },
+        }
+
+        const durationChart = new Chart(durationChartCtx, {
+            type: 'bar',
+            data: durationData,
+            options: durationOptions
+        });
+
+        function durationClickHandler(click) {
+            const points = durationChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length) {
+                const firstPoint = points[0];
+                window.open(durationDetailsReports[firstPoint.index].link, "_self")
+
+            }
+        }
+
+        durationChartCtx.onclick = durationClickHandler;
+    </script>
+    <!-- END DURATION CHART -->
+</body>
+</html>

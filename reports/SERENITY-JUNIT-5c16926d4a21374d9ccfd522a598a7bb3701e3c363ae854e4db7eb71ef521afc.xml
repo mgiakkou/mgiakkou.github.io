@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="View PID document" skipped="0" tests="2" time="89.25" timestamp="2024-10-08 04:16:43"><testcase name="User opens the PID document from the dashboard"/><testcase name="User closes the PID document and returns to the dashboard"/></testsuite>

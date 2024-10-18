@@ -1,0 +1,4 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"View PID document","User successfully logs in and sees the dashboard","SUCCESS","2024-10-08T15:08:19.967076+03:00[Europe/Athens]","0.0","42.2"
+"View PID document","User opens the PID document from the dashboard","SUCCESS","2024-10-08T16:16:43.431864+03:00[Europe/Athens]","0.0","43.51"
+"View PID document","User closes the PID document and returns to the dashboard","SUCCESS","2024-10-08T16:17:26.957258+03:00[Europe/Athens]","0.0","45.74"

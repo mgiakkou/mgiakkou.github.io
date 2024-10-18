@@ -1,0 +1,3 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Deleting a PID document","User sees the login screen after reboot","SUCCESS","2024-10-07T19:15:15.453972+03:00[Europe/Athens]","0.0","82.21"
+"Deleting a PID document","User sees the login screen after reboot","SUCCESS","2024-10-08T15:38:36.619903+03:00[Europe/Athens]","0.0","105.72"

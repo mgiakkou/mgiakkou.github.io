@@ -1,0 +1,5 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Issue age verification attestation","Log in successfully","SUCCESS","2024-10-08T14:31:25.275259+03:00[Europe/Athens]","0.0","6.63"
+"Issue age verification attestation","Add document via Age Verification","SUCCESS","2024-10-08T14:31:31.912247+03:00[Europe/Athens]","0.0","6.74"
+"Issue age verification attestation","Select authentication method and enter data","SUCCESS","2024-10-08T14:31:38.665072+03:00[Europe/Athens]","0.0","6.56"
+"Issue age verification attestation","Register personal data and view age verification","SUCCESS","2024-10-08T14:31:45.234513+03:00[Europe/Athens]","0.0","6.67"
