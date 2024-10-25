@@ -1,0 +1,1281 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../eudi-app-ios-wallet-ui/wiki/how_to_build/">
+      
+      
+        <link rel="next" href="../temp/coming_soon_6/">
+      
+      
+      <link rel="icon" href="../assets/normal-reproduction-low-resolution.jpg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>iOS core - DEVELOPERS HUB</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="primary" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#eudi-wallet-kit-library-for-ios" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="DEVELOPERS HUB" class="md-header__button md-logo" aria-label="DEVELOPERS HUB" data-md-component="logo">
+      
+  <img src="../assets/normal-reproduction-low-resolution.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DEVELOPERS HUB
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              iOS core
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="primary" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_3" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_3">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  Getting started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../temp/coming_soon_3/" class="md-tabs__link">
+          
+  
+  Specifications
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../eudi-app-android-wallet-ui/wiki/how_to_build/" class="md-tabs__link">
+          
+  
+  How TOs
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../temp/coming_soon_9/" class="md-tabs__link">
+          
+  
+  Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../temp/coming_soon_14/" class="md-tabs__link">
+          
+  
+  Contribution
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="DEVELOPERS HUB" class="md-nav__button md-logo" aria-label="DEVELOPERS HUB" data-md-component="logo">
+      
+  <img src="../assets/normal-reproduction-low-resolution.jpg" alt="logo">
+
+    </a>
+    DEVELOPERS HUB
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../temp/coming_soon_3/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Specifications
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    How TOs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            How TOs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    How to for Wallet Provider
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            How to for Wallet Provider
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../eudi-app-android-wallet-ui/wiki/how_to_build/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Android
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    iOS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            iOS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eudi-app-ios-wallet-ui/wiki/how_to_build/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    iOS wallet ui
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    iOS core
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../temp/coming_soon_6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to for Issuer Provider
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../temp/coming_soon_7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to for Verifier Provider
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../temp/coming_soon_8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Issuing Attestations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../temp/coming_soon_9/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Tools
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../temp/coming_soon_14/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Contribution
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="eudi-wallet-kit-library-for-ios">EUDI Wallet Kit library for iOS</h1>
+<p>:heavy_exclamation_mark: <strong>Important!</strong> Before you proceed, please read
+the <a href="https://github.com/eu-digital-identity-wallet/.github/blob/main/profile/reference-implementation.md">EUDI Wallet Reference Implementation project description</a></p>
+<hr />
+<h1 id="eudi-iso-ios-wallet-kit-library">EUDI ISO iOS Wallet Kit library</h1>
+<p><a href="https://www.apache.org/licenses/LICENSE-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
+<a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-kit/actions/workflows/swift.yml"><img alt="Swift" src="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-kit/actions/workflows/swift.yml/badge.svg" /></a>
+<a href="https://sonarcloud.io/summary/new_code?id=eu-digital-identity-wallet_eudi-lib-ios-wallet-kit"><img alt="Lines of Code" src="https://sonarcloud.io/api/project_badges/measure?project=eu-digital-identity-wallet_eudi-lib-ios-wallet-kit&amp;metric=ncloc&amp;token=ceca670d1f503fb68c5545e9d6bf44465a5883a6" /></a>
+<a href="https://sonarcloud.io/summary/new_code?id=eu-digital-identity-wallet_eudi-lib-ios-wallet-kit"><img alt="Duplicated Lines (%)" src="https://sonarcloud.io/api/project_badges/measure?project=eu-digital-identity-wallet_eudi-lib-ios-wallet-kit&amp;metric=duplicated_lines_density&amp;token=ceca670d1f503fb68c5545e9d6bf44465a5883a6" /></a>
+<a href="https://sonarcloud.io/summary/new_code?id=eu-digital-identity-wallet_eudi-lib-ios-wallet-kit"><img alt="Reliability Rating" src="https://sonarcloud.io/api/project_badges/measure?project=eu-digital-identity-wallet_eudi-lib-ios-wallet-kit&amp;metric=reliability_rating&amp;token=ceca670d1f503fb68c5545e9d6bf44465a5883a6" /></a>
+<a href="https://sonarcloud.io/summary/new_code?id=eu-digital-identity-wallet_eudi-lib-ios-wallet-kit"><img alt="Vulnerabilities" src="https://sonarcloud.io/api/project_badges/measure?project=eu-digital-identity-wallet_eudi-lib-ios-wallet-kit&amp;metric=vulnerabilities&amp;token=ceca670d1f503fb68c5545e9d6bf44465a5883a6" /></a></p>
+<h2 id="overview">Overview</h2>
+<p>This repository contains the EUDI Wallet Kit library for iOS. The library is a part
+of the EUDI Wallet Reference Implementation project.</p>
+<p>This library acts as a coordinator by orchestrating the various components that are
+required to implement the EUDI Wallet functionality. On top of that, it provides a simplified API
+that can be used by the application to implement the EUDI Wallet functionality.</p>
+<div class="highlight"><pre><span></span><code>graph TD;
+    A[eudi-lib-ios-wallet-kit]
+    B[eudi-lib-ios-wallet-storage] --&gt;  |Wallet Storage|A 
+    C[eudi-lib-ios-iso18013-data-transfer] --&gt; |Transfer Manager|A 
+    D[eudi-lib-ios-openid4vci-swift] --&gt; |OpenId4Vci Manager|A 
+    E[eudi-lib-ios-siop-openid4vp-swift] --&gt; |OpenId4Vp Manager|A 
+    F[eudi-lib-ios-iso18013-security] --&gt; |Mdoc Security|C 
+    G[eudi-lib-ios-iso18013-data-model] --&gt; |Mdoc Data Model|C 
+    H[eudi-lib-ios-presentation-exchange-swift] --&gt; E 
+</code></pre></div>
+<p>The library provides the following functionality:</p>
+<ul>
+<li>Document management<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Storage encryption</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Using iOS Secure Enclave for generating/storing documents' keypair</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Enforcing device user authentication when retrieving documents' private keys</li>
+</ul>
+</li>
+<li>Document issuance<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Support for OpenId4VCI document issuance<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Authorization Code Flow</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Pre-authorization Code Flow</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Support for mso_mdoc format</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Support for sd-jwt-vc format</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Support credential offer</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Support for DPoP JWT in authorization</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Support for JWT and CWT proof types</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Support for deferred issuing</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Proximity document presentation<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Support for ISO-18013-5 device retrieval<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> QR device engagement</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> BLE data transfer</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Remote document presentation<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> OpenId4VP document transfer<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> For pre-registered verifiers</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Dynamic registration of verifiers</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>The library is written in Swift and is compatible with iOS 14 or higher. It is distributed as a Swift package
+and can be included in any iOS project.</p>
+<p>It is based on the following specifications:
+- ISO/IEC 18013-5 – Published
+- Presentation Exchange v2.0.0 - Published
+- OpenID4VP – Draft 18
+- SIOPv2 – Draft</p>
+<h3 id="disclaimer">Disclaimer</h3>
+<p>The released software is a initial development release version: 
+-  The initial development release is an early endeavor reflecting the efforts of a short timeboxed period, and by no means can be considered as the final product.<br />
+-  The initial development release may be changed substantially over time, might introduce new features but also may change or remove existing ones, potentially breaking compatibility with your existing code.
+-  The initial development release is limited in functional scope.
+-  The initial development release may contain errors or design flaws and other problems that could cause system or other failures and data loss.
+-  The initial development release has reduced security, privacy, availability, and reliability standards relative to future releases. This could make the software slower, less reliable, or more vulnerable to attacks than mature software.
+-  The initial development release is not yet comprehensively documented. 
+-  Users of the software must perform sufficient engineering and additional testing in order to properly evaluate their application and determine whether any of the open-sourced components is suitable for use in that application.
+-  We strongly recommend to not put this version of the software into production use.
+-  Only the latest version of the software will be supported</p>
+<h2 id="installation">Installation</h2>
+<p>To use EUDI Wallet Kit, add the following dependency to your Package.swift:
+<div class="highlight"><pre><span></span><code><span class="n">dependencies</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">.</span><span class="n">package</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="s">&quot;https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-kit.git&quot;</span><span class="p">,</span> <span class="p">.</span><span class="n">upToNextMajor</span><span class="p">(</span><span class="n">from</span><span class="p">:</span> <span class="s">&quot;0.6.6&quot;</span><span class="p">))</span>
+<span class="p">]</span>
+</code></pre></div></p>
+<p>Then add the Eudi Wallet package to your target's dependencies:
+<div class="highlight"><pre><span></span><code><span class="n">dependencies</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">.</span><span class="n">product</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;EudiWalletKit&quot;</span><span class="p">,</span> <span class="n">package</span><span class="p">:</span> <span class="s">&quot;eudi-lib-ios-wallet-kit&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+</code></pre></div></p>
+<h2 id="reference">Reference</h2>
+<p>Detailed documentation is provided in the DocC documentation <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-wallet-kit/documentation/eudiwalletkit/">here</a></p>
+<h2 id="initialization">Initialization</h2>
+<p>The <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-wallet-kit/documentation/eudiwalletkit/eudiwallet">EudiWallet</a> class provides a unified API for the two user attestation presentation flows. It is initialized with a document storage manager instance. For SwiftUI apps, the wallet instance can be added as an <code>environmentObject</code> to be accessible from all views. A KeyChain implementation of document storage is available.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">wallet</span> <span class="p">=</span> <span class="n">EudiWallet</span><span class="p">.</span><span class="n">standard</span>
+<span class="n">wallet</span><span class="p">.</span><span class="n">userAuthenticationRequired</span> <span class="p">=</span> <span class="kc">true</span>
+<span class="n">wallet</span><span class="p">.</span><span class="n">trustedReaderCertificates</span> <span class="p">=</span> <span class="p">[...]</span> <span class="c1">// array of der certificate data</span>
+<span class="n">wallet</span><span class="p">.</span><span class="n">openId4VpVerifierApiUri</span> <span class="p">=</span> <span class="s">&quot;https:// ... verifier api uri ...&quot;</span>
+<span class="n">wallet</span><span class="p">.</span><span class="n">verifierApiUri</span> <span class="p">=</span> <span class="n">configLogic</span><span class="p">.</span><span class="n">verifierConfig</span><span class="p">.</span><span class="n">apiUri</span>
+<span class="n">wallet</span><span class="p">.</span><span class="n">verifierLegalName</span> <span class="p">=</span> <span class="n">configLogic</span><span class="p">.</span><span class="n">verifierConfig</span><span class="p">.</span><span class="n">legalName</span>
+<span class="n">wallet</span><span class="p">.</span><span class="n">openID4VciIssuerUrl</span> <span class="p">=</span> <span class="n">configLogic</span><span class="p">.</span><span class="n">vciConfig</span><span class="p">.</span><span class="n">issuerUrl</span>
+<span class="n">wallet</span><span class="p">.</span><span class="n">openID4VciClientId</span> <span class="p">=</span> <span class="n">configLogic</span><span class="p">.</span><span class="n">vciConfig</span><span class="p">.</span><span class="n">clientId</span>
+<span class="n">wallet</span><span class="p">.</span><span class="n">openID4VciRedirectUri</span> <span class="p">=</span> <span class="n">configLogic</span><span class="p">.</span><span class="n">vciConfig</span><span class="p">.</span><span class="n">redirectUri</span>
+<span class="n">wallet</span><span class="p">.</span><span class="n">loadAllDocuments</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="manage-documents">Manage documents</h2>
+<p>The <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-wallet-kit/documentation/eudiwalletkit/eudiwallet">EudiWallet</a> class provides a set of methods to work with documents.</p>
+<h3 id="loading-documents">Loading documents</h3>
+<p>The <code>loadDocuments</code> method returns documents with a specific status from storage.</p>
+<p>The following example shows how to retrieve issued documents:</p>
+<div class="highlight"><pre><span></span><code> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">loadDocuments</span><span class="p">()</span> <span class="k">async</span> <span class="kr">throws</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">documents</span> <span class="p">=</span> <span class="k">try</span> <span class="k">await</span> <span class="n">wallet</span><span class="p">.</span><span class="n">loadDocuments</span><span class="p">(</span><span class="n">status</span><span class="p">:</span> <span class="p">.</span><span class="n">issued</span><span class="p">)</span>
+  <span class="p">}</span>
+</code></pre></div>
+<p>To retrieve documents of all statuses use the <code>loadAllDocuments</code> method.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">documents</span> <span class="p">=</span> <span class="k">try</span> <span class="k">await</span> <span class="n">wallet</span><span class="p">.</span><span class="n">loadAllDocuments</span><span class="p">()</span>
+</code></pre></div>
+<p>The <code>loadDocument(id:status:)</code> method returns a document with a given id and status. </p>
+<p>The following example shows how to retrieve a document:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">document</span> <span class="p">=</span> <span class="k">try</span> <span class="k">await</span> <span class="n">wallet</span><span class="p">.</span><span class="n">loadDocument</span><span class="p">(</span><span class="n">id</span><span class="p">:</span> <span class="n">documentId</span><span class="p">,</span> <span class="n">status</span><span class="p">:</span> <span class="p">.</span><span class="n">issued</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="storage-manager">Storage manager</h3>
+<p>The read-only property <code>storage</code> is an instance of a <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-wallet-kit/documentation/eudiwalletkit/storagemanager">StorageManager</a> class.
+Currently the keychain implementation is used. It provides document management functionality using the iOS KeyChain.</p>
+<p>The storage model provides the following models for the supported well-known document types:</p>
+<table>
+<thead>
+<tr>
+<th>DocType</th>
+<th>Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eu.europa.ec.eudiw.pid.1</td>
+<td><a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-iso18013-data-model/documentation/mdocdatamodel18013/eupidmodel">EuPidModel</a></td>
+</tr>
+<tr>
+<td>org.iso.18013.5.1.mDL</td>
+<td><a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-iso18013-data-model/documentation/mdocdatamodel18013/isomdlmodel">IsoMdlModel</a></td>
+</tr>
+</tbody>
+</table>
+<p>Since the issued mDoc documents retrieved expose only basic metadata and the raw data, they must be decoded to the corresponding CBOR models. The library provides the <code>StorageManager\toMdocModel</code> function to decode document raw CBOR data to strongly-typed models conforming to <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-iso18013-data-model/documentation/mdocdatamodel18013/mdocdecodable">MdocDecodable</a> protocol. </p>
+<p>The loading functions automatically update the <code>StorageManager</code> members. The decoded issued documents are available in the <code>mdocModels</code> property. The deferred and pending documents are available in the <code>StorageManager\deferredDocuments</code> and <code>StorageManager\pendingDocuments</code> properties respectively.</p>
+<p>For other document types the <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-iso18013-data-model/documentation/mdocdatamodel18013/genericmdocmodel">GenericMdocModel</a> is provided.</p>
+<h3 id="deleting-a-document">Deleting a document</h3>
+<p>The <code>deleteDocument(id:)</code> method that deletes a document with the given id.</p>
+<p>The following example shows how to delete a document:</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span> <span class="k">await</span> <span class="n">wallet</span><span class="p">.</span><span class="n">deleteDocument</span><span class="p">(</span><span class="n">id</span><span class="p">:</span> <span class="n">documentId</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="issue-document-using-openid4vci">Issue document using OpenID4VCI</h2>
+<p>The library provides the functionality to issue documents using OpenID4VCI. </p>
+<p>To issue a document
+using this functionality, EudiWallet must be property initialized. 
+If <code>userAuthenticationRequired</code> is true, user authentication is required. The authentication prompt message has localisation key "issue_document".
+After issuing a document, the document data and corresponding private key are stored in the wallet storage.</p>
+<h3 id="issue-document-by-doctype">Issue document by docType</h3>
+<p>When the document docType to be issued use the <code>issueDocument(docType:format:)</code> method.</p>
+<p><strong>Important Notes</strong>:</p>
+<ul>
+<li>Currently, only mso_mdoc format is supported</li>
+<li>Currently, only ES256 algorithm is supported for signing OpenId4CVI proof of possession of the
+  publicKey.</li>
+</ul>
+<p>The following example shows how to issue an EUDI Personal ID document using OpenID4VCI:</p>
+<div class="highlight"><pre><span></span><code><span class="n">wallet</span><span class="p">.</span><span class="n">openID4VciIssuerUrl</span> <span class="p">=</span> <span class="s">&quot;https://eudi.netcompany-intrasoft.com/pid-issuer&quot;</span> 
+<span class="n">wallet</span><span class="p">.</span><span class="n">openID4VciClientId</span> <span class="p">=</span> <span class="s">&quot;wallet-dev&quot;</span>
+<span class="n">wallet</span><span class="p">.</span><span class="n">openID4VciRedirectUri</span> <span class="p">=</span> <span class="s">&quot;eudi-openid4ci://authorize/&quot;</span> 
+<span class="k">do</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nv">doc</span> <span class="p">=</span> <span class="k">try</span> <span class="k">await</span> <span class="n">userWallet</span><span class="p">.</span><span class="n">issueDocument</span><span class="p">(</span><span class="n">docType</span><span class="p">:</span> <span class="n">EuPidModel</span><span class="p">.</span><span class="n">euPidDocType</span><span class="p">,</span> <span class="n">format</span><span class="p">:</span> <span class="p">.</span><span class="n">cbor</span><span class="p">)</span>
+  <span class="c1">// document has been added to wallet storage, you can display it</span>
+<span class="p">}</span>
+<span class="k">catch</span> <span class="p">{</span>
+  <span class="c1">// display error</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="resolving-credential-offer">Resolving Credential offer</h3>
+<p>The library provides the <code>resolveOfferUrlDocTypes(uriOffer:)</code> method that resolves the credential offer URI.
+The method returns the resolved <code>OfferedIssuanceModel</code> object that contains the offer's data (offered document types, issuer name and transaction code specification for pre-authorized flow). The offer's data can be displayed to the
+user.</p>
+<p>The following example shows how to resolve a credential offer:</p>
+<div class="highlight"><pre><span></span><code> <span class="kd">func</span> <span class="nf">resolveOfferUrlDocTypes</span><span class="p">(</span><span class="n">uriOffer</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="k">async</span> <span class="kr">throws</span> <span class="p">-&gt;</span> <span class="n">OfferedIssuanceModel</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">try</span> <span class="k">await</span> <span class="n">wallet</span><span class="p">.</span><span class="n">resolveOfferUrlDocTypes</span><span class="p">(</span><span class="n">uriOffer</span><span class="p">:</span> <span class="n">uriOffer</span><span class="p">)</span>
+  <span class="p">}</span>
+</code></pre></div>
+<p>After user acceptance of the offer, the selected documents can be issued using the <code>issueDocumentsByOfferUrl(offerUri:docTypes:txCodeValue:format:)</code> method.
+The <code>txCodeValue</code> parameter is not used in the case of the authorization code flow.
+The following example shows how to issue documents by offer URL:
+<div class="highlight"><pre><span></span><code> <span class="kd">let</span> <span class="nv">documents</span> <span class="p">=</span> <span class="k">try</span> <span class="k">await</span> <span class="n">walletController</span><span class="p">.</span><span class="n">issueDocumentsByOfferUrl</span><span class="p">(</span><span class="n">offerUri</span><span class="p">:</span> <span class="n">uri</span><span class="p">,</span>  <span class="n">docTypes</span><span class="p">:</span> <span class="n">docOffers</span><span class="p">,</span> <span class="n">format</span><span class="p">:</span> <span class="p">.</span><span class="n">cbor</span><span class="p">,</span> <span class="n">txCodeValue</span><span class="p">:</span> <span class="n">txCodeValue</span> <span class="p">)</span>
+</code></pre></div></p>
+<h3 id="authorization-code-flow">Authorization code flow</h3>
+<p>For the authorization code flow to work, the redirect URI must be specified specified by setting the the <code>openID4VciRedirectUri</code> property.
+The user is redirected in an authorization web view to the issuer's authorization endpoint. After the user authenticates and authorizes the request, the issuer redirects the user back to the application with an authorization code. The library exchanges the authorization code for an access token and issues the document.</p>
+<h3 id="pre-authorization-code-flow">Pre-Authorization code flow</h3>
+<p>When Issuer supports the pre-authorization code flow, the resolved offer will also contain the corresponding
+information. Specifically, the <code>txCodeSpec</code> field in the <code>OfferedIssuanceModel</code> object will contain:</p>
+<ul>
+<li>The input mode, whether it is NUMERIC or TEXT</li>
+<li>The expected length of the input</li>
+<li>The description of the input</li>
+</ul>
+<p>From the user's perspective, the application must provide a way to input the transaction code.</p>
+<p>After user acceptance of the offer, the selected documents can be issued using the <code>issueDocumentsByOfferUrl(offerUri:docTypes:txCodeValue:format:)</code> method.
+When the transaction code is provided, the issuance process can be resumed by calling the above-mentioned method and passing the transaction code in the <code>txCodeValue</code> parameter.</p>
+<h3 id="dynamic-issuance">Dynamic issuance</h3>
+<p>Wallet kit supports the Dynamic <a href="https://github.com/eu-digital-identity-wallet/eudi-wallet-product-roadmap/issues/82">PID based issuance</a></p>
+<p>After calling <code>issueDocument(docType:format:)</code> or <code>issueDocumentsByOfferUrl(offerUri:docTypes:txCodeValue:format:)</code> the wallet application need to check if the doc is pending and has a <code>authorizePresentationUrl</code> property. If the property is present, the application should perform the OpenID4VP presentation using the presentation URL. On success, the <code>resumePendingIssuance(pendingDoc:, webUrl:)</code> method should be called with the authorization URL provided by the server.
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="kd">let</span> <span class="nv">urlString</span> <span class="p">=</span> <span class="n">newDocs</span><span class="p">.</span><span class="bp">last</span><span class="p">?.</span><span class="n">authorizePresentationUrl</span> <span class="p">{</span> 
+    <span class="c1">// perform openid4vp presentation using the urlString </span>
+    <span class="c1">// on success call resumePendingIssuance using the authorization url  </span>
+</code></pre></div></p>
+<h2 id="presentation-service">Presentation Service</h2>
+<p>The <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-wallet-kit/documentation/eudiwalletkit/presentationservice">presentation service protocol</a> abstracts the presentation flow. The <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-wallet-kit/documentation/eudiwalletkit/blepresentationservice">BlePresentationService</a> and <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-wallet-kit/documentation/eudiwalletkit/openid4vpservice">OpenId4VpService</a> classes implement the proximity and remote presentation flows respectively. The <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-wallet-kit/documentation/eudiwalletkit/presentationsession">PresentationSession</a> class is used to wrap the presentation service and provide @Published properties for SwiftUI screens. The following example code demonstrates the initialization of a SwiftUI view with a new presentation session of a selected <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-wallet-kit/documentation/eudiwalletkit/flowtype">flow type</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">session</span> <span class="p">=</span> <span class="n">eudiWallet</span><span class="p">.</span><span class="n">beginPresentation</span><span class="p">(</span><span class="n">flow</span><span class="p">:</span> <span class="n">flow</span><span class="p">)</span>
+<span class="c1">// pass the session to a SwiftUI view</span>
+<span class="n">ShareView</span><span class="p">(</span><span class="n">presentationSession</span><span class="p">:</span> <span class="n">session</span><span class="p">)</span>
+</code></pre></div>
+<p>On view appearance the attestations are presented with the receiveRequest method. For the BLE (proximity) case the deviceEngagement property is populated with the QR code to be displayed on the holder device.</p>
+<p><div class="highlight"><pre><span></span><code><span class="p">.</span><span class="n">task</span> <span class="p">{</span>
+     <span class="k">if</span> <span class="n">presentationSession</span><span class="p">.</span><span class="n">flow</span><span class="p">.</span><span class="n">isProximity</span> <span class="p">{</span> <span class="k">await</span> <span class="n">presentationSession</span><span class="p">.</span><span class="n">startQrEngagement</span><span class="p">()</span> <span class="p">}</span>
+     <span class="kc">_</span> <span class="p">=</span> <span class="k">await</span> <span class="n">presentationSession</span><span class="p">.</span><span class="n">receiveRequest</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+After the request is received the <code>presentationSession.disclosedDocuments</code> contains the requested attested items. The selected state of the items can be modified via UI binding. Finally, the response is sent with the following code: </p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Send the disclosed document items after biometric authentication (FaceID or TouchID)</span>
+<span class="c1">// if the user cancels biometric authentication, onCancel method is called</span>
+ <span class="k">await</span> <span class="n">presentationSession</span><span class="p">.</span><span class="n">sendResponse</span><span class="p">(</span><span class="n">userAccepted</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="n">itemsToSend</span><span class="p">:</span> <span class="n">presentationSession</span><span class="p">.</span><span class="n">disclosedDocuments</span><span class="p">.</span><span class="n">items</span><span class="p">,</span> <span class="n">onCancel</span><span class="p">:</span> <span class="p">{</span> <span class="n">dismiss</span><span class="p">()</span> <span class="p">},</span> <span class="n">onSuccess</span><span class="p">:</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="kd">let</span> <span class="nv">url</span> <span class="p">=</span> <span class="nv">$0</span> <span class="p">{</span> 
+        <span class="c1">// handle URL</span>
+       <span class="p">}</span>
+        <span class="p">})</span>
+</code></pre></div>
+<h2 id="logging">Logging</h2>
+<p>The SwiftLog library is used for logging. The library provides a default logger that logs to the console. The main app configures logging outputs such as file logging.
+To use the logger create a logger instance with the desired label. The logger can be used to log messages with different log levels.
+<div class="highlight"><pre><span></span><code><span class="kd">import</span> <span class="nc">Logging</span>
+<span class="c1">// Create a logger with a label</span>
+<span class="kd">let</span> <span class="nv">logger</span> <span class="p">=</span> <span class="n">Logger</span><span class="p">(</span><span class="n">label</span><span class="p">:</span> <span class="s">&quot;com.example.BestExampleApp.main&quot;</span><span class="p">)</span>
+<span class="c1">// log an info message</span>
+<span class="n">logger</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<h2 id="reference_1">Reference</h2>
+<p>Detailed documentation is provided in the DocC documentation <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-wallet-kit/documentation/eudiwalletkit/">here</a> </p>
+<h3 id="dependencies">Dependencies</h3>
+<p>The detailed functionality of the wallet kit is implemented in the following Swift Packages: <a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-iso18013-data-model.git">MdocDataModel18013</a>, <a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-iso18013-security.git">MdocSecurity18013</a>,  <a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-iso18013-data-transfer.git">MdocDataTransfer18013</a> and
+  <a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-siop-openid4vp-swift.git">SiopOpenID4VP</a>
+  <a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-openid4vci-swift">OpenID4VCI</a></p>
+<h3 id="reference-application">Reference application</h3>
+<p>A reference application that demonstrates the usage of this library is <a href="https://github.com/eu-digital-identity-wallet/eudi-app-ios-wallet-ui">App Wallet UI</a>.</p>
+<h2 id="how-to-contribute">How to contribute</h2>
+<p>We welcome contributions to this project. To ensure that the process is smooth for everyone
+involved, follow the guidelines found in <a href="CONTRIBUTING/">CONTRIBUTING.md</a>.</p>
+<h3 id="license-details">License details</h3>
+<p>Copyright &copy; 2023 European Commission</p>
+<p>Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at</p>
+<div class="highlight"><pre><span></span><code>http://www.apache.org/licenses/LICENSE-2.0
+</code></pre></div>
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../eudi-app-ios-wallet-ui/wiki/how_to_build/" class="md-footer__link md-footer__link--prev" aria-label="Previous: iOS wallet ui">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                iOS wallet ui
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../temp/coming_soon_6/" class="md-footer__link md-footer__link--next" aria-label="Next: How to for Issuer Provider">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                How to for Issuer Provider
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
