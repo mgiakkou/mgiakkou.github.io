@@ -776,35 +776,36 @@ involved, follow the guidelines found in <a href="CONTRIBUTING/">CONTRIBUTING.md
 <li>You are now on the "Dashboard" screen.</li>
 </ol>
 <p>While on the "Dashboard" screen you can tap "Add doc" and issue a new document, e.g. "Driving License".</p>
-<p>If you want to re-issue a document you must delete it first by tapping on the document in the "Dashboard" screen and tapping the delete icon in the "Document details" view.</p>
+<p>If you want to re-issue a document, you must delete it first by tapping on it in the "Dashboard" screen and tapping the delete icon in the "Document details" view.</p>
 <h3 id="presentation-online-authenticationsame-device-flow">Presentation (Online authentication/Same device) flow.</h3>
 <ol>
 <li>Go to the browser application on your device and enter "<a href="https://verifier.eudiw.dev">https://verifier.eudiw.dev</a>"</li>
-<li>Tap the first option (selectable) and pick the fields you want to share (e.g. "Family Name" and "Given Name")</li>
-<li>Tap "Next" and then "Authorize".</li>
+<li>Select scenario "PID Authentication"</li>
+<li>Expand the Person Identification Data (PID) card and select "attributes by" -&gt; "Specific attributes" and "format" -&gt; the format of your choice.</li>
+<li>Press next and then "Select Attributes"</li>
+<li>Pick the fields you want to share (e.g. "Family Name" and "Given Name")</li>
+<li>Review your presentation request and then click next.</li>
 <li>When asked to open the wallet app tap "Open".</li>
-<li>You will be returned to the app to the "Request" screen. Tap "Share".</li>
+<li>You will be returned to the app's "Request" screen. Tap "Share."</li>
 <li>Enter the PIN you added in the initial steps.</li>
 <li>On success tap "Continue".</li>
 <li>A browser will open showing that the Verifier has accepted your request.</li>
-<li>Return to the app. You are back to the "Dashboard" screen and the flow is complete.</li>
+<li>Return to the app. You are back on the "Dashboard" screen, and the flow is complete.</li>
 </ol>
 <h3 id="proximity-flow">Proximity flow</h3>
 <ol>
 <li>The user logs in successfully to the EUDI Wallet app and views the dashboard.</li>
 <li>The user clicks the 'SHOW QR' button to display the QR code.</li>
 <li>The Relying Party scans the presented QR code.</li>
-<li>
-<p>EUDI Wallet User can view the requested data set from the relying party.</p>
-<ol>
+<li>EUDI Wallet User can view the requested data set from the relying party.<ol>
 <li>The distinction between mandatory and optional data elements is depicted.</li>
 <li>The requestor (i.e. relying party) of the data is depicted.</li>
 <li>EUDI Wallet User may select additional optional attributes to be shared.</li>
+</ol>
+</li>
 <li>EUDI Wallet User selects the option to share the attributes.</li>
 <li>EUDI Wallet authenticates to share data (quick PIN).</li>
 <li>User authorization is accepted - a corresponding message is displayed to the  EUDI Wallet User.</li>
-</ol>
-</li>
 </ol>
 <h2 id="how-to-build-quick-start-guide">How to build - Quick start guide</h2>
 <p><a href="wiki/how_to_build/">This document</a> describes how you can build the application and deploy the issuing and verification services locally.</p>

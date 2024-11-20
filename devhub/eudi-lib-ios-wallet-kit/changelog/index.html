@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#v074" class="md-skip">
+        <a href="#v077" class="md-skip">
           Skip to content
         </a>
       
@@ -606,6 +606,15 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#v077" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.7.7
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#v074" class="md-nav__link">
@@ -1332,6 +1341,17 @@
 
   <h1>Changelog</h1>
 
+<h2 id="v077">v0.7.7</h2>
+<ul>
+<li>Fix issue <a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-kit/issues/118">#118</a>
+ ### Breaking changes</li>
+<li><code>RequestItems</code> is now a dictionary with a key of type <code>String</code> (doc-type) and a value of type <code>[String: [RequestItem]]</code> (namespace to request items)</li>
+<li><code>RequestItem</code> is a struct with the following properties: <code>elementIdentifier</code>, <code>intentToRetain</code> and <code>isOptional</code>
+ <code>swift
+ public typealias RequestItems = [String: [String: [RequestItem]]]</code></li>
+<li>ElementViewModel: <code>public var isMandatory: Bool</code> is removed</li>
+<li>ElementViewModel: <code>public var isOptional: Bool</code> is added (opposite of <code>isMandatory</code>)</li>
+</ul>
 <h2 id="v074">v0.7.4</h2>
 <ul>
 <li>Update Package.resolved and Package.swift with new versions for openid4vci, openid4vp</li>
