@@ -210,24 +210,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../../CONTRIBUTIONS/" class="md-tabs__link">
-          
-  
-  About
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../../../../../getting-started/" class="md-tabs__link">
           
   
@@ -306,16 +288,34 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../../temp/coming_soon_9/" class="md-tabs__link">
+        <a href="../../../../../../tools-lib-android.md" class="md-tabs__link">
           
   
-  Tools
+  Test Suite
 
         </a>
       </li>
     
   
 
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../../CONTRIBUTIONS/" class="md-tabs__link">
+          
+  
+  About
+
+        </a>
+      </li>
     
   
 
@@ -357,48 +357,6 @@
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-    <a href="../../../../../../CONTRIBUTIONS/" class="md-nav__link">
-      
-  
-  <span class="md-ellipsis">
-    About
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
     
       
       
@@ -562,11 +520,11 @@
     
   
   
-    <a href="../../../../../../temp/coming_soon_9/" class="md-nav__link">
+    <a href="../../../../../../tools-lib-android.md" class="md-nav__link">
       
   
   <span class="md-ellipsis">
-    Tools
+    Test Suite
   </span>
   
 
@@ -576,6 +534,48 @@
     </a>
   
 
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../../../CONTRIBUTIONS/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
   
 
       
@@ -610,18 +610,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#functions" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Functions
+      Properties
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#properties" class="md-nav__link">
+  <a href="#functions" class="md-nav__link">
     <span class="md-ellipsis">
-      Properties
+      Functions
     </span>
   </a>
   
@@ -649,21 +649,7 @@
 <h1 id="companion">Companion</h1>
 <p>[androidJvm]
 object <a href="./">Companion</a></p>
-<h2 id="functions">Functions</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="invoke/">invoke</a></td>
-<td>[androidJvm]<br>operator fun <a href="invoke/">invoke</a>(config: <a href="../../../eu.europa.ec.eudi.wallet/-eudi-wallet-config/">EudiWalletConfig</a>): <a href="../">Logger</a></td>
-</tr>
-</tbody>
-</table>
+<p>Companion object for the <a href="../">Logger</a> interface</p>
 <h2 id="properties">Properties</h2>
 <table>
 <thead>
@@ -675,19 +661,34 @@ object <a href="./">Companion</a></p>
 <tbody>
 <tr>
 <td><a href="-l-e-v-e-l_-d-e-b-u-g/">LEVEL_DEBUG</a></td>
-<td>[androidJvm]<br>const val <a href="-l-e-v-e-l_-d-e-b-u-g/">LEVEL_DEBUG</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> = 3</td>
+<td>[androidJvm]<br>const val <a href="-l-e-v-e-l_-d-e-b-u-g/">LEVEL_DEBUG</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> = 3<br>the log level DEBUG (errors, info and debug)</td>
 </tr>
 <tr>
 <td><a href="-l-e-v-e-l_-e-r-r-o-r/">LEVEL_ERROR</a></td>
-<td>[androidJvm]<br>const val <a href="-l-e-v-e-l_-e-r-r-o-r/">LEVEL_ERROR</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> = 1</td>
+<td>[androidJvm]<br>const val <a href="-l-e-v-e-l_-e-r-r-o-r/">LEVEL_ERROR</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> = 1<br>the log level ERROR (only errors)</td>
 </tr>
 <tr>
 <td><a href="-l-e-v-e-l_-i-n-f-o/">LEVEL_INFO</a></td>
-<td>[androidJvm]<br>const val <a href="-l-e-v-e-l_-i-n-f-o/">LEVEL_INFO</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> = 2</td>
+<td>[androidJvm]<br>const val <a href="-l-e-v-e-l_-i-n-f-o/">LEVEL_INFO</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> = 2<br>the log level INFO (errors and info)</td>
 </tr>
 <tr>
 <td><a href="-o-f-f/">OFF</a></td>
-<td>[androidJvm]<br>const val <a href="-o-f-f/">OFF</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> = 0</td>
+<td>[androidJvm]<br>const val <a href="-o-f-f/">OFF</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> = 0<br>the log level OFF (no logging)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="functions">Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="invoke/">invoke</a></td>
+<td>[androidJvm]<br>operator fun <a href="invoke/">invoke</a>(config: <a href="../../../eu.europa.ec.eudi.wallet/-eudi-wallet-config/">EudiWalletConfig</a>): <a href="../">Logger</a><br>Construct a default instance of <a href="../">Logger</a> with the provided <a href="../../../eu.europa.ec.eudi.wallet/-eudi-wallet-config/">EudiWalletConfig</a></td>
 </tr>
 </tbody>
 </table>

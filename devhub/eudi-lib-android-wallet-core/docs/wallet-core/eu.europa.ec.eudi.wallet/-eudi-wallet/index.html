@@ -210,24 +210,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../CONTRIBUTIONS/" class="md-tabs__link">
-          
-  
-  About
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../../../../getting-started/" class="md-tabs__link">
           
   
@@ -306,16 +288,34 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../temp/coming_soon_9/" class="md-tabs__link">
+        <a href="../../../../../tools-lib-android.md" class="md-tabs__link">
           
   
-  Tools
+  Test Suite
 
         </a>
       </li>
     
   
 
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../CONTRIBUTIONS/" class="md-tabs__link">
+          
+  
+  About
+
+        </a>
+      </li>
     
   
 
@@ -357,48 +357,6 @@
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-    <a href="../../../../../CONTRIBUTIONS/" class="md-nav__link">
-      
-  
-  <span class="md-ellipsis">
-    About
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
     
       
       
@@ -562,11 +520,11 @@
     
   
   
-    <a href="../../../../../temp/coming_soon_9/" class="md-nav__link">
+    <a href="../../../../../tools-lib-android.md" class="md-nav__link">
       
   
   <span class="md-ellipsis">
-    Tools
+    Test Suite
   </span>
   
 
@@ -576,6 +534,48 @@
     </a>
   
 
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../../CONTRIBUTIONS/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
   
 
       
@@ -619,9 +619,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#functions" class="md-nav__link">
+  <a href="#inheritors" class="md-nav__link">
     <span class="md-ellipsis">
-      Functions
+      Inheritors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types
     </span>
   </a>
   
@@ -631,6 +640,15 @@
   <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
       Properties
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions
     </span>
   </a>
   
@@ -656,38 +674,41 @@
 
 <p>//<a href="../../../">wallet-core</a>/<a href="../">eu.europa.ec.eudi.wallet</a>/<a href="./">EudiWallet</a></p>
 <h1 id="eudiwallet">EudiWallet</h1>
-<p>object <a href="./">EudiWallet</a></p>
-<p>Eudi wallet sdk object to access the sdk functionalities. This object must be initialized before using the sdk. The initialization can be done in the application class. The sdk can be initialized with a <a href="../-eudi-wallet-config/">EudiWalletConfig</a> object.</p>
-<p>Initialize the sdk:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EudiWalletConfig</span><span class="p">.</span><span class="na">Builder</span><span class="p">(</span><span class="n">appContext</span><span class="p">)</span>
-<span class="w">   </span><span class="p">.</span><span class="na">storageDir</span><span class="p">(</span><span class="n">appContext</span><span class="p">.</span><span class="na">filesDir</span><span class="p">)</span>
-<span class="w">   </span><span class="p">.</span><span class="na">encryptDocumentsInStorage</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
-<span class="w">   </span><span class="p">.</span><span class="na">useHardwareToStoreKeys</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
-<span class="w">   </span><span class="p">.</span><span class="na">userAuthenticationRequired</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
-<span class="w">   </span><span class="p">.</span><span class="na">userAuthenticationTimeOut</span><span class="p">(</span><span class="m">30</span><span class="n">_000L</span><span class="p">)</span>
-<span class="w">   </span><span class="p">.</span><span class="na">trustedReaderCertificates</span><span class="p">(</span><span class="n">listof</span><span class="o">&lt;</span><span class="n">X509Certificate</span><span class="o">&gt;</span><span class="p">(</span>
-<span class="w">     </span><span class="c1">// add trusted reader certificates</span>
-<span class="w">   </span><span class="p">))</span>
-<span class="w">   </span><span class="p">.</span><span class="na">bleTransferMode</span><span class="p">(</span><span class="n">EudiWalletConfig</span><span class="p">.</span><span class="na">BLE_SERVER_PERIPHERAL_MODE</span><span class="p">)</span>
-<span class="w">   </span><span class="p">.</span><span class="na">build</span><span class="p">()</span>
-<span class="n">EudiWallet</span><span class="p">.</span><span class="na">init</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">config</span><span class="p">)</span>
-</code></pre></div>
+<p>interface <a href="./">EudiWallet</a> :
+SampleDocumentManager, <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/">PresentationManager</a></p>
+<p>The main entry point for interacting with the wallet</p>
+<p>To create an instance of <a href="./">EudiWallet</a>, use the <a href="-companion/invoke/">EudiWallet.invoke</a>
+method or the <a href="-builder/">Builder</a> class.</p>
 <h4 id="see-also">See also</h4>
 <table>
 <thead>
 <tr>
 <th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="-builder/">EudiWallet.Builder</a></td>
+</tr>
+<tr>
+<td><a href="-companion/invoke/">EudiWallet.Companion.invoke</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="inheritors">Inheritors</h4>
+<table>
+<thead>
+<tr>
 <th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="../-eudi-wallet-config/">EudiWalletConfig</a></td>
-<td>on how to configure the sdk</td>
+<td><a href="../-eudi-wallet-impl/">EudiWalletImpl</a></td>
 </tr>
 </tbody>
 </table>
-<h2 id="functions">Functions</h2>
+<h2 id="types">Types</h2>
 <table>
 <thead>
 <tr>
@@ -697,116 +718,12 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="add-transfer-event-listener/">addTransferEventListener</a></td>
-<td>[androidJvm]<br>fun <a href="add-transfer-event-listener/">addTransferEventListener</a>(listener: TransferEvent.Listener): <a href="./">EudiWallet</a><br>Adds a transfer event listener in order to be notified about transfer events</td>
+<td><a href="-builder/">Builder</a></td>
+<td>[androidJvm]<br>class <a href="-builder/">Builder</a>(context: <a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a>, val config: <a href="../-eudi-wallet-config/">EudiWalletConfig</a>)<br>Builder class to create an instance of <a href="./">EudiWallet</a></td>
 </tr>
 <tr>
-<td><a href="create-document/">createDocument</a></td>
-<td>[androidJvm]<br>fun <a href="create-document/">createDocument</a>(docType: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>, hardwareBacked: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a>, attestationChallenge: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a>? = null): CreateDocumentResult<br>Create an UnsignedDocument for the given <a href="create-document/">docType</a></td>
-</tr>
-<tr>
-<td><a href="create-open-id4-vci-manager/">createOpenId4VciManager</a></td>
-<td>[androidJvm]<br>fun <a href="create-open-id4-vci-manager/">createOpenId4VciManager</a>(): <a href="../../eu.europa.ec.eudi.wallet.issue.openid4vci/-open-id4-vci-manager/">OpenId4VciManager</a><br>Creates and returns an <a href="../../eu.europa.ec.eudi.wallet.issue.openid4vci/-open-id4-vci-manager/">OpenId4VciManager</a> instance</td>
-</tr>
-<tr>
-<td><a href="delete-document-by-id/">deleteDocumentById</a></td>
-<td>[androidJvm]<br>fun <a href="delete-document-by-id/">deleteDocumentById</a>(documentId: DocumentId): DeleteDocumentResult<br>Delete the document with the given <a href="delete-document-by-id/">documentId</a></td>
-</tr>
-<tr>
-<td><a href="disable-n-f-c-engagement/">disableNFCEngagement</a></td>
-<td>[androidJvm]<br>fun <a href="disable-n-f-c-engagement/">disableNFCEngagement</a>(activity: <a href="https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity.html">ComponentActivity</a>)<br>Disables the NFC engagement functionality</td>
-</tr>
-<tr>
-<td><a href="enable-n-f-c-engagement/">enableNFCEngagement</a></td>
-<td>[androidJvm]<br>fun <a href="enable-n-f-c-engagement/">enableNFCEngagement</a>(activity: <a href="https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity.html">ComponentActivity</a>)<br>Enables the NFC engagement functionality You must also add <a href="../../eu.europa.ec.eudi.wallet.util/-default-nfc-engagement-service/">DefaultNfcEngagementService</a> to your application's manifest file</td>
-</tr>
-<tr>
-<td><a href="get-all-documents/">getAllDocuments</a></td>
-<td>[androidJvm]<br>fun <a href="get-all-documents/">getAllDocuments</a>(): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a>&lt;Document&gt;<br>Returns the list of all documents</td>
-</tr>
-<tr>
-<td><a href="get-document-by-id/">getDocumentById</a></td>
-<td>[androidJvm]<br>fun <a href="get-document-by-id/">getDocumentById</a>(documentId: DocumentId): Document?<br>Returns the document with the given <a href="get-document-by-id/">documentId</a></td>
-</tr>
-<tr>
-<td><a href="get-documents/">getDocuments</a></td>
-<td>[androidJvm]<br>fun <a href="get-documents/">getDocuments</a>(): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a>&lt;IssuedDocument&gt;<br>Returns the list of IssuedDocument</td>
-</tr>
-<tr>
-<td><a href="init/">init</a></td>
-<td>[androidJvm]<br>fun <a href="init/">init</a>(context: <a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a>, config: <a href="../-eudi-wallet-config/">EudiWalletConfig</a>)<br>Initialize the sdk with the given <a href="init/">config</a></td>
-</tr>
-<tr>
-<td><a href="issue-deferred-document/">issueDeferredDocument</a></td>
-<td>[androidJvm]<br>fun <a href="issue-deferred-document/"><del>issueDeferredDocument</del></a>(documentId: DocumentId, executor: <a href="https://developer.android.com/reference/kotlin/java/util/concurrent/Executor.html">Executor</a>? = null, onResult: <a href="../../eu.europa.ec.eudi.wallet.issue.openid4vci/-open-id4-vci-manager/-on-deferred-issue-result/">OpenId4VciManager.OnDeferredIssueResult</a>)<br>Issue a deferred document using the OpenId4VCI protocol</td>
-</tr>
-<tr>
-<td><a href="issue-document-by-doc-type/">issueDocumentByDocType</a></td>
-<td>[androidJvm]<br>fun <a href="issue-document-by-doc-type/"><del>issueDocumentByDocType</del></a>(docType: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>, txCode: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>? = null, executor: <a href="https://developer.android.com/reference/kotlin/java/util/concurrent/Executor.html">Executor</a>? = null, onEvent: <a href="../../eu.europa.ec.eudi.wallet.issue.openid4vci/-open-id4-vci-manager/-on-issue-event/">OpenId4VciManager.OnIssueEvent</a>)<br>Issue a document using the OpenId4VCI protocol</td>
-</tr>
-<tr>
-<td><a href="issue-document-by-offer/">issueDocumentByOffer</a></td>
-<td>[androidJvm]<br>fun <a href="issue-document-by-offer/"><del>issueDocumentByOffer</del></a>(offer: <a href="../../eu.europa.ec.eudi.wallet.issue.openid4vci/-offer/">Offer</a>, txCode: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>? = null, executor: <a href="https://developer.android.com/reference/kotlin/java/util/concurrent/Executor.html">Executor</a>? = null, onEvent: <a href="../../eu.europa.ec.eudi.wallet.issue.openid4vci/-open-id4-vci-manager/-on-issue-event/">OpenId4VciManager.OnIssueEvent</a>)<br>Issue a document using an offer and the OpenId4VCI protocol</td>
-</tr>
-<tr>
-<td><a href="issue-document-by-offer-uri/">issueDocumentByOfferUri</a></td>
-<td>[androidJvm]<br>fun <a href="issue-document-by-offer-uri/"><del>issueDocumentByOfferUri</del></a>(offerUri: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>, txCode: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>? = null, executor: <a href="https://developer.android.com/reference/kotlin/java/util/concurrent/Executor.html">Executor</a>? = null, onEvent: <a href="../../eu.europa.ec.eudi.wallet.issue.openid4vci/-open-id4-vci-manager/-on-issue-event/">OpenId4VciManager.OnIssueEvent</a>)<br>Issue a document using an offerUri and the OpenId4VCI protocol</td>
-</tr>
-<tr>
-<td><a href="load-sample-data/">loadSampleData</a></td>
-<td>[androidJvm]<br>fun <a href="load-sample-data/">loadSampleData</a>(sampleData: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a>): LoadSampleResult<br>Loads sample data into the wallet's document manager</td>
-</tr>
-<tr>
-<td><a href="remove-all-transfer-event-listeners/">removeAllTransferEventListeners</a></td>
-<td>[androidJvm]<br>fun <a href="remove-all-transfer-event-listeners/">removeAllTransferEventListeners</a>(): <a href="./">EudiWallet</a><br>Removes all transfer event listeners.</td>
-</tr>
-<tr>
-<td><a href="remove-transfer-event-listener/">removeTransferEventListener</a></td>
-<td>[androidJvm]<br>fun <a href="remove-transfer-event-listener/">removeTransferEventListener</a>(listener: TransferEvent.Listener): <a href="./">EudiWallet</a><br>Removes a transfer event listener.</td>
-</tr>
-<tr>
-<td><a href="resolve-document-offer/">resolveDocumentOffer</a></td>
-<td>[androidJvm]<br>fun <a href="resolve-document-offer/"><del>resolveDocumentOffer</del></a>(offerUri: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>, executor: <a href="https://developer.android.com/reference/kotlin/java/util/concurrent/Executor.html">Executor</a>? = null, onResult: <a href="../../eu.europa.ec.eudi.wallet.issue.openid4vci/-open-id4-vci-manager/-on-resolved-offer/">OpenId4VciManager.OnResolvedOffer</a>)<br>Resolves a document offer using OpenId4VCI protocol</td>
-</tr>
-<tr>
-<td><a href="resolve-request-uri/">resolveRequestUri</a></td>
-<td>[androidJvm]<br>fun <a href="resolve-request-uri/">resolveRequestUri</a>(openid4VpURI: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>)<br>Start engagement for OpenId4Vp</td>
-</tr>
-<tr>
-<td><a href="resume-open-id4-vci-with-authorization/">resumeOpenId4VciWithAuthorization</a></td>
-<td>[androidJvm]<br>fun <a href="resume-open-id4-vci-with-authorization/"><del>resumeOpenId4VciWithAuthorization</del></a>(intent: <a href="https://developer.android.com/reference/kotlin/android/content/Intent.html">Intent</a>)<br>Resumes the OpenId4VCI flow with the given <a href="resume-open-id4-vci-with-authorization/">intent</a>. Intent's data uri must contain the authorization code and the server state parameters to resume with the authorization<br>[androidJvm]<br>fun <a href="resume-open-id4-vci-with-authorization/"><del>resumeOpenId4VciWithAuthorization</del></a>(uri: <a href="https://developer.android.com/reference/kotlin/android/net/Uri.html">Uri</a>)<br>fun <a href="resume-open-id4-vci-with-authorization/"><del>resumeOpenId4VciWithAuthorization</del></a>(uri: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>)<br>Resumes the OpenId4VCI flow with the given <a href="resume-open-id4-vci-with-authorization/">uri</a>. <a href="resume-open-id4-vci-with-authorization/">uri</a> must contain the authorization code and the server state parameters to resume with the authorization</td>
-</tr>
-<tr>
-<td><a href="send-response/">sendResponse</a></td>
-<td>[androidJvm]<br>fun <a href="send-response/">sendResponse</a>(disclosedDocuments: DisclosedDocuments): ResponseResult<br>Send a response by giving DisclosedDocuments, i.e. the list of documents to be disclosed. The method returns a <code>ResponseResult</code> object, which can be one of the following:</td>
-</tr>
-<tr>
-<td><a href="set-reader-trust-store/">setReaderTrustStore</a></td>
-<td>[androidJvm]<br>fun <a href="set-reader-trust-store/">setReaderTrustStore</a>(readerTrustStore: ReaderTrustStore): <a href="./">EudiWallet</a><br>Sets the reader trust store with the readers' certificates that are trusted by the wallet</td>
-</tr>
-<tr>
-<td><a href="set-trusted-reader-certificates/">setTrustedReaderCertificates</a></td>
-<td>[androidJvm]<br>fun <a href="set-trusted-reader-certificates/">setTrustedReaderCertificates</a>(@<a href="https://developer.android.com/reference/kotlin/androidx/annotation/RawRes.html">RawRes</a>vararg rawRes: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a>): <a href="./">EudiWallet</a><br>Sets the readers' certificates from raw resources that are trusted by the wallet<br>[androidJvm]<br>fun <a href="set-trusted-reader-certificates/">setTrustedReaderCertificates</a>(trustedReaderCertificates: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="https://developer.android.com/reference/kotlin/java/security/cert/X509Certificate.html">X509Certificate</a>&gt;): <a href="./">EudiWallet</a><br>Sets the readers' certificates that are trusted by the wallet</td>
-</tr>
-<tr>
-<td><a href="start-engagement-from-intent/">startEngagementFromIntent</a></td>
-<td>[androidJvm]<br>fun <a href="start-engagement-from-intent/">startEngagementFromIntent</a>(intent: <a href="https://developer.android.com/reference/kotlin/android/content/Intent.html">Intent</a>)<br>Start engagement from an Intent. This will perform engagement for REST API or OpenId4Vp depending on the scheme.</td>
-</tr>
-<tr>
-<td><a href="start-engagement-to-app/">startEngagementToApp</a></td>
-<td>[androidJvm]<br>fun <a href="start-engagement-to-app/">startEngagementToApp</a>(intent: <a href="https://developer.android.com/reference/kotlin/android/content/Intent.html">Intent</a>)<br>Start engagement for REST API</td>
-</tr>
-<tr>
-<td><a href="start-qr-engagement/">startQrEngagement</a></td>
-<td>[androidJvm]<br>fun <a href="start-qr-engagement/">startQrEngagement</a>()<br>Starts the transfer process by engaging with the reader via QR code</td>
-</tr>
-<tr>
-<td><a href="stop-presentation/">stopPresentation</a></td>
-<td>[androidJvm]<br>fun <a href="stop-presentation/">stopPresentation</a>(sendSessionTerminationMessage: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> = true, useTransportSpecificSessionTermination: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> = false)<br>Stops the transfer process</td>
-</tr>
-<tr>
-<td><a href="store-issued-document/">storeIssuedDocument</a></td>
-<td>[androidJvm]<br>fun <a href="store-issued-document/">storeIssuedDocument</a>(unsignedDocument: UnsignedDocument, data: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a>): StoreDocumentResult<br>Add a document to the wallet</td>
+<td><a href="-companion/">Companion</a></td>
+<td>[androidJvm]<br>object <a href="-companion/">Companion</a></td>
 </tr>
 </tbody>
 </table>
@@ -821,11 +738,142 @@
 <tbody>
 <tr>
 <td><a href="config/">config</a></td>
-<td>[androidJvm]<br>val <a href="config/">config</a>: <a href="../-eudi-wallet-config/">EudiWalletConfig</a><br>The Config that used to initialize the sdk</td>
+<td>[androidJvm]<br>abstract val <a href="config/">config</a>: <a href="../-eudi-wallet-config/">EudiWalletConfig</a><br>the configuration object</td>
 </tr>
 <tr>
 <td><a href="document-manager/">documentManager</a></td>
-<td>[androidJvm]<br>val <a href="document-manager/">documentManager</a>: SampleDocumentManager<br>Document manager</td>
+<td>[androidJvm]<br>abstract val <a href="document-manager/">documentManager</a>: DocumentManager<br>the document manager</td>
+</tr>
+<tr>
+<td><a href="../-eudi-wallet-impl/#208632125%2FProperties%2F1615067946">identifier</a></td>
+<td>[androidJvm]<br>abstract val <a href="../-eudi-wallet-impl/#208632125%2FProperties%2F1615067946">identifier</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></td>
+</tr>
+<tr>
+<td><a href="logger/">logger</a></td>
+<td>[androidJvm]<br>abstract val <a href="logger/">logger</a>: <a href="../../eu.europa.ec.eudi.wallet.logging/-logger/">Logger</a><br>the logger</td>
+</tr>
+<tr>
+<td><a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/nfc-engagement-service-class/">nfcEngagementServiceClass</a></td>
+<td>[androidJvm]<br>abstract val <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/nfc-engagement-service-class/">nfcEngagementServiceClass</a>: <a href="https://developer.android.com/reference/kotlin/java/lang/Class.html">Class</a>&lt;out NfcEngagementService&gt;?</td>
+</tr>
+<tr>
+<td><a href="presentation-manager/">presentationManager</a></td>
+<td>[androidJvm]<br>abstract val <a href="presentation-manager/">presentationManager</a>: <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/">PresentationManager</a><br>the presentation manager for both proximity and remote presentation</td>
+</tr>
+<tr>
+<td><a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/#1164183302%2FProperties%2F1615067946">readerTrustStore</a></td>
+<td>[androidJvm]<br>abstract var <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/#1164183302%2FProperties%2F1615067946">readerTrustStore</a>: ReaderTrustStore?</td>
+</tr>
+<tr>
+<td><a href="../-eudi-wallet-impl/#2086712120%2FProperties%2F1615067946">secureAreaRepository</a></td>
+<td>[androidJvm]<br>abstract val <a href="../-eudi-wallet-impl/#2086712120%2FProperties%2F1615067946">secureAreaRepository</a>: SecureAreaRepository</td>
+</tr>
+<tr>
+<td><a href="../-eudi-wallet-impl/#226177815%2FProperties%2F1615067946">storageEngine</a></td>
+<td>[androidJvm]<br>abstract val <a href="../-eudi-wallet-impl/#226177815%2FProperties%2F1615067946">storageEngine</a>: StorageEngine</td>
+</tr>
+<tr>
+<td><a href="transfer-manager/">transferManager</a></td>
+<td>[androidJvm]<br>abstract val <a href="transfer-manager/">transferManager</a>: TransferManager<br>the transfer manager for proximity presentation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="functions">Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/#-1321081126%2FFunctions%2F1615067946">addTransferEventListener</a></td>
+<td>[androidJvm]<br>abstract fun <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/#-1321081126%2FFunctions%2F1615067946">addTransferEventListener</a>(listener: TransferEvent.Listener): TransferEvent.Listenable</td>
+</tr>
+<tr>
+<td><a href="../-eudi-wallet-impl/#-512787063%2FFunctions%2F1615067946">createDocument</a></td>
+<td>[androidJvm]<br>abstract fun <a href="../-eudi-wallet-impl/#-512787063%2FFunctions%2F1615067946">createDocument</a>(format: DocumentFormat, createSettings: CreateDocumentSettings): Outcome&lt;UnsignedDocument&gt;</td>
+</tr>
+<tr>
+<td><a href="create-open-id4-vci-manager/">createOpenId4VciManager</a></td>
+<td>[androidJvm]<br>abstract fun <a href="create-open-id4-vci-manager/">createOpenId4VciManager</a>(): <a href="../../eu.europa.ec.eudi.wallet.issue.openid4vci/-open-id4-vci-manager/">OpenId4VciManager</a><br>Create an instance of <a href="../../eu.europa.ec.eudi.wallet.issue.openid4vci/-open-id4-vci-manager/">OpenId4VciManager</a> for the wallet to interact with the OpenId4Vci service</td>
+</tr>
+<tr>
+<td><a href="../-eudi-wallet-impl/#1380499670%2FFunctions%2F1615067946">deleteDocumentById</a></td>
+<td>[androidJvm]<br>abstract fun <a href="../-eudi-wallet-impl/#1380499670%2FFunctions%2F1615067946">deleteDocumentById</a>(documentId: DocumentId): Outcome&lt;ProofOfDeletion?&gt;</td>
+</tr>
+<tr>
+<td><a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/disable-n-f-c-engagement/">disableNFCEngagement</a></td>
+<td>[androidJvm]<br>abstract fun <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/disable-n-f-c-engagement/">disableNFCEngagement</a>(activity: <a href="https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity.html">ComponentActivity</a>): <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/">PresentationManager</a><br>Disable the NFC device engagement for the wallet. This method should be called in the activity's <a href="https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity.html#onpause">ComponentActivity.onPause</a> method.</td>
+</tr>
+<tr>
+<td><a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/enable-n-f-c-engagement/">enableNFCEngagement</a></td>
+<td>[androidJvm]<br>abstract fun <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/enable-n-f-c-engagement/">enableNFCEngagement</a>(activity: <a href="https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity.html">ComponentActivity</a>): <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/">PresentationManager</a><br>Enable the NFC device engagement for the wallet. This method should be called in the activity's <a href="https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity.html#onresume">ComponentActivity.onResume</a> method.</td>
+</tr>
+<tr>
+<td><a href="enumerate-secure-areas/">enumerateSecureAreas</a></td>
+<td>[androidJvm]<br>open fun <a href="enumerate-secure-areas/">enumerateSecureAreas</a>(): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>&gt;<br>Enumerate the secure areas available in the wallet</td>
+</tr>
+<tr>
+<td><a href="../../eu.europa.ec.eudi.wallet.document/-document-extensions/get-default-create-document-settings/">getDefaultCreateDocumentSettings</a></td>
+<td>[androidJvm]<br>@<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-name/index.html">JvmName</a>(name = &quot;getDefaultCreateDocumentSettings&quot;)<br>@<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html">JvmOverloads</a><br>fun <a href="./">EudiWallet</a>.<a href="../../eu.europa.ec.eudi.wallet.document/-document-extensions/get-default-create-document-settings/">getDefaultCreateDocumentSettings</a>(secureAreaIdentifier: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>? = null, attestationChallenge: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a>? = null, configure: AndroidKeystoreCreateKeySettings.Builder.() -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a>? = null): CreateDocumentSettings<br>Returns the default CreateDocumentSettings for the <a href="./">EudiWallet</a> instance. The default settings are based on the EudiWalletConfig and the first available AndroidKeystoreSecureArea implementation. The <a href="../../eu.europa.ec.eudi.wallet.document/-document-extensions/get-default-create-document-settings/">attestationChallenge</a> is generated using a <a href="https://developer.android.com/reference/kotlin/java/security/SecureRandom.html">SecureRandom</a> instance. The <a href="../../eu.europa.ec.eudi.wallet.document/-document-extensions/get-default-create-document-settings/">configure</a> lambda can be used to further customize the AndroidKeystoreCreateKeySettings. If <a href="../../eu.europa.ec.eudi.wallet.document/-document-extensions/get-default-create-document-settings/">secureAreaIdentifier</a> is not provided, the first available AndroidKeystoreSecureArea implementation is used.</td>
+</tr>
+<tr>
+<td><a href="../../eu.europa.ec.eudi.wallet.document/-document-extensions/get-default-key-unlock-data/">getDefaultKeyUnlockData</a></td>
+<td>[androidJvm]<br>fun <a href="./">EudiWallet</a>.<a href="../../eu.europa.ec.eudi.wallet.document/-document-extensions/get-default-key-unlock-data/">getDefaultKeyUnlockData</a>(documentId: DocumentId): AndroidKeystoreKeyUnlockData?<br>Returns the default AndroidKeystoreKeyUnlockData for the given DocumentId. The default key unlock data is based on the Document.keyAlias.</td>
+</tr>
+<tr>
+<td><a href="../-eudi-wallet-impl/#-233386509%2FFunctions%2F1615067946">getDocumentById</a></td>
+<td>[androidJvm]<br>abstract fun <a href="../-eudi-wallet-impl/#-233386509%2FFunctions%2F1615067946">getDocumentById</a>(documentId: DocumentId): Document?</td>
+</tr>
+<tr>
+<td><a href="../-eudi-wallet-impl/#-1741352450%2FFunctions%2F1615067946">getDocuments</a></td>
+<td>[androidJvm]<br>abstract fun <a href="../-eudi-wallet-impl/#-1741352450%2FFunctions%2F1615067946">getDocuments</a>(predicate: (Document) -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a>?): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a>&lt;Document&gt;</td>
+</tr>
+<tr>
+<td><a href="../-eudi-wallet-impl/#408834997%2FFunctions%2F1615067946">loadMdocSampleDocuments</a></td>
+<td>[androidJvm]<br>abstract fun <a href="../-eudi-wallet-impl/#408834997%2FFunctions%2F1615067946">loadMdocSampleDocuments</a>(sampleData: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a>, createSettings: CreateDocumentSettings, documentNamesMap: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a>&lt;DocType, <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>&gt;?): Outcome&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a>&lt;DocumentId&gt;&gt;</td>
+</tr>
+<tr>
+<td><a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/#-812467576%2FFunctions%2F1615067946">removeAllTransferEventListeners</a></td>
+<td>[androidJvm]<br>abstract fun <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/#-812467576%2FFunctions%2F1615067946">removeAllTransferEventListeners</a>(): TransferEvent.Listenable</td>
+</tr>
+<tr>
+<td><a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/#1314902509%2FFunctions%2F1615067946">removeTransferEventListener</a></td>
+<td>[androidJvm]<br>abstract fun <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/#1314902509%2FFunctions%2F1615067946">removeTransferEventListener</a>(listener: TransferEvent.Listener): TransferEvent.Listenable</td>
+</tr>
+<tr>
+<td><a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/send-response/">sendResponse</a></td>
+<td>[androidJvm]<br>abstract fun <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/send-response/">sendResponse</a>(response: Response)<br>Send a response to verifier</td>
+</tr>
+<tr>
+<td><a href="set-reader-trust-store/">setReaderTrustStore</a></td>
+<td>[androidJvm]<br>abstract fun <a href="set-reader-trust-store/">setReaderTrustStore</a>(readerTrustStore: ReaderTrustStore): <a href="./">EudiWallet</a><br>Sets the reader trust store with the given ReaderTrustStore. This method is useful when the reader trust store is not set in the configuration object, or when the reader trust store needs to be updated at runtime.</td>
+</tr>
+<tr>
+<td><a href="set-trusted-reader-certificates/">setTrustedReaderCertificates</a></td>
+<td>[androidJvm]<br>abstract fun <a href="set-trusted-reader-certificates/">setTrustedReaderCertificates</a>(@<a href="https://developer.android.com/reference/kotlin/androidx/annotation/RawRes.html">RawRes</a>vararg rawRes: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a>): <a href="./">EudiWallet</a><br>Sets the reader trust store with the given list of raw resource IDs. This method is useful when the reader trust store is not set in the configuration object, or when the reader trust store needs to be updated at runtime.<br>[androidJvm]<br>abstract fun <a href="set-trusted-reader-certificates/">setTrustedReaderCertificates</a>(trustedReaderCertificates: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="https://developer.android.com/reference/kotlin/java/security/cert/X509Certificate.html">X509Certificate</a>&gt;): <a href="./">EudiWallet</a><br>Sets the reader trust store with the given list of <a href="https://developer.android.com/reference/kotlin/java/security/cert/X509Certificate.html">X509Certificate</a>. This method is useful when the reader trust store is not set in the configuration object, or when the reader trust store needs to be updated at runtime.</td>
+</tr>
+<tr>
+<td><a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/start-proximity-presentation/">startProximityPresentation</a></td>
+<td>[androidJvm]<br>abstract fun <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/start-proximity-presentation/">startProximityPresentation</a>()<br>Starts the proximity presentation. The QR code is available through the TransferEvent.QrEngagementReady event which is triggered almost immediately after calling this method. The wallet should display the QR code to the verifier in order to start the proximity presentation.</td>
+</tr>
+<tr>
+<td><a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/start-remote-presentation/">startRemotePresentation</a></td>
+<td>[androidJvm]<br>abstract fun <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/start-remote-presentation/">startRemotePresentation</a>(uri: <a href="https://developer.android.com/reference/kotlin/android/net/Uri.html">Uri</a>)<br>Start a remote presentation with the given URI The URI could be either</td>
+</tr>
+<tr>
+<td><a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/stop-proximity-presentation/">stopProximityPresentation</a></td>
+<td>[androidJvm]<br>abstract fun <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/stop-proximity-presentation/">stopProximityPresentation</a>(flags: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> = SEND_SESSION_TERMINATION_MESSAGE)<br>Stops the proximity presentation. Method receives flags that can be used to control the session termination. The available flags are:</td>
+</tr>
+<tr>
+<td><a href="../-eudi-wallet-impl/#144040139%2FFunctions%2F1615067946">storeDeferredDocument</a></td>
+<td>[androidJvm]<br>abstract fun <a href="../-eudi-wallet-impl/#144040139%2FFunctions%2F1615067946">storeDeferredDocument</a>(unsignedDocument: UnsignedDocument, relatedData: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a>): Outcome&lt;DeferredDocument&gt;</td>
+</tr>
+<tr>
+<td><a href="../-eudi-wallet-impl/#-557883369%2FFunctions%2F1615067946">storeIssuedDocument</a></td>
+<td>[androidJvm]<br>abstract fun <a href="../-eudi-wallet-impl/#-557883369%2FFunctions%2F1615067946">storeIssuedDocument</a>(unsignedDocument: UnsignedDocument, issuerProvidedData: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a>): Outcome&lt;IssuedDocument&gt;</td>
 </tr>
 </tbody>
 </table>

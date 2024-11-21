@@ -210,24 +210,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../CONTRIBUTIONS/" class="md-tabs__link">
-          
-  
-  About
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../../getting-started/" class="md-tabs__link">
           
   
@@ -306,16 +288,34 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../temp/coming_soon_9/" class="md-tabs__link">
+        <a href="../../../tools-lib-android.md" class="md-tabs__link">
           
   
-  Tools
+  Test Suite
 
         </a>
       </li>
     
   
 
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../CONTRIBUTIONS/" class="md-tabs__link">
+          
+  
+  About
+
+        </a>
+      </li>
     
   
 
@@ -357,48 +357,6 @@
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-    <a href="../../../CONTRIBUTIONS/" class="md-nav__link">
-      
-  
-  <span class="md-ellipsis">
-    About
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
     
       
       
@@ -562,11 +520,11 @@
     
   
   
-    <a href="../../../temp/coming_soon_9/" class="md-nav__link">
+    <a href="../../../tools-lib-android.md" class="md-nav__link">
       
   
   <span class="md-ellipsis">
-    Tools
+    Test Suite
   </span>
   
 
@@ -576,6 +534,48 @@
     </a>
   
 
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../CONTRIBUTIONS/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
   
 
       
@@ -713,7 +713,6 @@
 <h2 id="general-configuration">General configuration</h2>
 <p>The application allows the configuration of:</p>
 <ol>
-<li>Verifier API</li>
 <li>Issuing API</li>
 </ol>
 <p>Via the <em>WalletCoreConfig</em> interface inside the business-logic module.</p>
@@ -728,6 +727,23 @@
         const val AUTHENTICATION_REQUIRED = false
     }
 </code></pre></div>
+<ol>
+<li>Trusted certificates</li>
+</ol>
+<p>Via the <em>WalletCoreConfig</em> interface.</p>
+<div class="highlight"><pre><span></span><code>interface WalletCoreConfig {
+    val config: EudiWalletConfig
+}
+</code></pre></div>
+<p>Same as the Verifier and Issuing APIs you can configure the Trusted certificates for the <em>EudiWalletConfig</em> per flavor inside the core-logic module at src/demo/config/WalletCoreConfigImpl and src/dev/config/WalletCoreConfigImpl</p>
+<div class="highlight"><pre><span></span><code>_config = EudiWalletConfig.Builder(context)
+            .trustedReaderCertificates(R.raw.eudi_pid_issuer_ut)
+            .build()
+</code></pre></div>
+<p>The application's IACA certificates are located <a href="https://github.com/eu-digital-identity-wallet/eudi-app-android-wallet-ui/tree/main/resources-logic/src/main/res/raw">here</a></p>
+<ol>
+<li>Preregistered Client Scheme</li>
+</ol>
 <p>If you plan to use the <em>ClientIdScheme.Preregistered</em> for OpenId4VP configuration, please add the following to the configuration files.</p>
 <div class="highlight"><pre><span></span><code>const val OPENID4VP_VERIFIER_API_URI = &quot;your_verifier_url&quot;
 const val OPENID4VP_VERIFIER_LEGAL_NAME = &quot;your_verifier_legal_name&quot;
@@ -750,19 +766,54 @@ const val OPENID4VP_VERIFIER_CLIENT_ID = &quot;your_verifier_client_id&quot;
 }
 </code></pre></div>
 <ol>
-<li>Trusted certificates</li>
+<li>RQES</li>
 </ol>
-<p>Via the <em>WalletCoreConfig</em> interface.</p>
-<div class="highlight"><pre><span></span><code>interface WalletCoreConfig {
-    val config: EudiWalletConfig
+<p>Via the <em>ConfigLogic</em> interface inside the business-logic module.</p>
+<div class="highlight"><pre><span></span><code>interface ConfigLogic {
+    /**
+     * RQES Config.
+     */
+    val rqesConfig: EudiRQESUiConfig
 }
 </code></pre></div>
-<p>Same as the Verifier and Issuing APIs you can configure the Trusted certificates for the <em>EudiWalletConfig</em> per flavor inside the core-logic module at src/demo/config/WalletCoreConfigImpl and src/dev/config/WalletCoreConfigImpl</p>
-<div class="highlight"><pre><span></span><code>_config = EudiWalletConfig.Builder(context)
-            .trustedReaderCertificates(R.raw.eudi_pid_issuer_ut)
-            .build()
+<p>You can configure the <em>RQESConfig</em>, which implements the EudiRQESUiConfig interface from the RQESUi SDK, per flavor. You can find both implementations inside the business-logic module at src/demo/config/RQESConfigImpl and src/dev/config/RQESConfigImpl.</p>
+<div class="highlight"><pre><span></span><code>class RQESConfigImpl : EudiRQESUiConfig {
+
+    override val translations: Map&lt;String, Map&lt;LocalizableKey, String&gt;&gt; get()
+
+    override val themeManager: ThemeManager get()
+
+    override val rqesServiceConfig: RqesServiceConfig get()
+
+    override val qtsps: List&lt;QtspData&gt; get()
+
+    override val printLogs: Boolean get()
+}
 </code></pre></div>
-<p>The application's IACA certificates are located <a href="https://github.com/eu-digital-identity-wallet/eudi-app-android-wallet-ui/tree/main/resources-logic/src/main/res/raw">here</a>:</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>class RQESConfigImpl : EudiRQESUiConfig {
+
+    override val rqesServiceConfig: RqesServiceConfig
+        get() = RqesServiceConfig(
+            clientId = &quot;your_clientid&quot;,
+            clientSecret = &quot;your_secret&quot;,
+            authFlowRedirectionURI = URI.create(your_uri),
+            signingAlgorithm = your_algo,
+            hashAlgorithm = your_algo,
+        )
+
+    override val qtsps: List&lt;QtspData&gt;
+        get() = listOf(
+            QtspData(
+                name = &quot;your_name&quot;,
+                endpoint = &quot;your_endpoint&quot;.toUri(),
+                scaUrl = &quot;your_sca&quot;,
+            )
+        )
+
+    override val printLogs: Boolean get() = BuildConfig.DEBUG
+}
+</code></pre></div>
 <h2 id="deeplink-schemas-configuration">DeepLink Schemas configuration</h2>
 <p>According to the specifications issuance and presentation require deep-linking for the same device flows.</p>
 <p>If you want to adjust any schema, you can alter the <em>AndroidLibraryConventionPlugin</em> inside the build-logic module.</p>

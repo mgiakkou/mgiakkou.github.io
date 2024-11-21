@@ -210,24 +210,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../../CONTRIBUTIONS/" class="md-tabs__link">
-          
-  
-  About
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../../../../../getting-started/" class="md-tabs__link">
           
   
@@ -306,16 +288,34 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../../temp/coming_soon_9/" class="md-tabs__link">
+        <a href="../../../../../../tools-lib-android.md" class="md-tabs__link">
           
   
-  Tools
+  Test Suite
 
         </a>
       </li>
     
   
 
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../../CONTRIBUTIONS/" class="md-tabs__link">
+          
+  
+  About
+
+        </a>
+      </li>
     
   
 
@@ -357,48 +357,6 @@
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-    <a href="../../../../../../CONTRIBUTIONS/" class="md-nav__link">
-      
-  
-  <span class="md-ellipsis">
-    About
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
     
       
       
@@ -562,11 +520,11 @@
     
   
   
-    <a href="../../../../../../temp/coming_soon_9/" class="md-nav__link">
+    <a href="../../../../../../tools-lib-android.md" class="md-nav__link">
       
   
   <span class="md-ellipsis">
-    Tools
+    Test Suite
   </span>
   
 
@@ -576,6 +534,48 @@
     </a>
   
 
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../../../CONTRIBUTIONS/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
   
 
       
@@ -628,18 +628,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#functions" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Functions
+      Properties
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#properties" class="md-nav__link">
+  <a href="#functions" class="md-nav__link">
     <span class="md-ellipsis">
-      Properties
+      Functions
     </span>
   </a>
   
@@ -699,6 +699,33 @@ context: <a href="https://developer.android.com/reference/kotlin/android/content
 </tr>
 </tbody>
 </table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="config/">config</a></td>
+<td>[androidJvm]<br>var <a href="config/">config</a>: <a href="../-config/">OpenId4VciManager.Config</a>?<br>the <a href="../-config/">Config</a> to use</td>
+</tr>
+<tr>
+<td><a href="document-manager/">documentManager</a></td>
+<td>[androidJvm]<br>var <a href="document-manager/">documentManager</a>: DocumentManager?<br>the DocumentManager to use</td>
+</tr>
+<tr>
+<td><a href="ktor-http-client-factory/">ktorHttpClientFactory</a></td>
+<td>[androidJvm]<br>var <a href="ktor-http-client-factory/">ktorHttpClientFactory</a>: () -&gt; HttpClient?<br>the factory to create the Ktor HTTP client requires user authentication</td>
+</tr>
+<tr>
+<td><a href="logger/">logger</a></td>
+<td>[androidJvm]<br>var <a href="logger/">logger</a>: <a href="../../../eu.europa.ec.eudi.wallet.logging/-logger/">Logger</a>?<br>the logger to use</td>
+</tr>
+</tbody>
+</table>
 <h2 id="functions">Functions</h2>
 <table>
 <thead>
@@ -726,34 +753,7 @@ context: <a href="https://developer.android.com/reference/kotlin/android/content
 </tr>
 <tr>
 <td><a href="logger/">logger</a></td>
-<td>[androidJvm]<br>fun <a href="logger/">logger</a>(logger: <a href="../../../eu.europa.ec.eudi.wallet.logging/-logger/">Logger</a>): <a href="./">OpenId4VciManager.Builder</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="properties">Properties</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="config/">config</a></td>
-<td>[androidJvm]<br>var <a href="config/">config</a>: <a href="../-config/">OpenId4VciManager.Config</a>?<br>the <a href="../-config/">Config</a> to use</td>
-</tr>
-<tr>
-<td><a href="document-manager/">documentManager</a></td>
-<td>[androidJvm]<br>var <a href="document-manager/">documentManager</a>: DocumentManager?<br>the DocumentManager to use requires user authentication</td>
-</tr>
-<tr>
-<td><a href="ktor-http-client-factory/">ktorHttpClientFactory</a></td>
-<td>[androidJvm]<br>var <a href="ktor-http-client-factory/">ktorHttpClientFactory</a>: () -&gt; HttpClient?</td>
-</tr>
-<tr>
-<td><a href="logger/">logger</a></td>
-<td>[androidJvm]<br>var <a href="logger/">logger</a>: <a href="../../../eu.europa.ec.eudi.wallet.logging/-logger/">Logger</a>?</td>
+<td>[androidJvm]<br>fun <a href="logger/">logger</a>(logger: <a href="../../../eu.europa.ec.eudi.wallet.logging/-logger/">Logger</a>): <a href="./">OpenId4VciManager.Builder</a><br>Set the logger to use</td>
 </tr>
 </tbody>
 </table>

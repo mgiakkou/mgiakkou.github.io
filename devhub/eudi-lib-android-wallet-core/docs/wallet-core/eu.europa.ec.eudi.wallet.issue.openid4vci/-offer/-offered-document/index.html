@@ -210,24 +210,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../../CONTRIBUTIONS/" class="md-tabs__link">
-          
-  
-  About
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../../../../../getting-started/" class="md-tabs__link">
           
   
@@ -306,16 +288,34 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../../temp/coming_soon_9/" class="md-tabs__link">
+        <a href="../../../../../../tools-lib-android.md" class="md-tabs__link">
           
   
-  Tools
+  Test Suite
 
         </a>
       </li>
     
   
 
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../../CONTRIBUTIONS/" class="md-tabs__link">
+          
+  
+  About
+
+        </a>
+      </li>
     
   
 
@@ -357,48 +357,6 @@
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-    <a href="../../../../../../CONTRIBUTIONS/" class="md-nav__link">
-      
-  
-  <span class="md-ellipsis">
-    About
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
     
       
       
@@ -562,11 +520,11 @@
     
   
   
-    <a href="../../../../../../temp/coming_soon_9/" class="md-nav__link">
+    <a href="../../../../../../tools-lib-android.md" class="md-nav__link">
       
   
   <span class="md-ellipsis">
-    Tools
+    Test Suite
   </span>
   
 
@@ -576,6 +534,48 @@
     </a>
   
 
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../../../CONTRIBUTIONS/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
   
 
       
@@ -610,18 +610,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#functions" class="md-nav__link">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
-      Functions
+      Properties
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#properties" class="md-nav__link">
+  <a href="#functions" class="md-nav__link">
     <span class="md-ellipsis">
-      Properties
+      Functions
     </span>
   </a>
   
@@ -650,21 +650,6 @@
 <p>[androidJvm]
 interface <a href="./">OfferedDocument</a></p>
 <p>An item to be issued.</p>
-<h2 id="functions">Functions</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="as-pair/">asPair</a></td>
-<td>[androidJvm]<br>open fun <a href="as-pair/">asPair</a>(): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html">Pair</a>&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>, <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>&gt;<br>Converts this item to a pair of name and document type.</td>
-</tr>
-</tbody>
-</table>
 <h2 id="properties">Properties</h2>
 <table>
 <thead>
@@ -681,6 +666,29 @@ interface <a href="./">OfferedDocument</a></p>
 <tr>
 <td><a href="name/">name</a></td>
 <td>[androidJvm]<br>abstract val <a href="name/">name</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><br>the name of the item</td>
+</tr>
+</tbody>
+</table>
+<h2 id="functions">Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="as-pair/">asPair</a></td>
+<td>[androidJvm]<br>open fun <a href="as-pair/">asPair</a>(): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html">Pair</a>&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>, <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>&gt;<br>Converts this item to a pair of name and document type.</td>
+</tr>
+<tr>
+<td><a href="component1/">component1</a></td>
+<td>[androidJvm]<br>open operator fun <a href="component1/">component1</a>(): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><br>Destructures this item into a pair of name and document type.</td>
+</tr>
+<tr>
+<td><a href="component2/">component2</a></td>
+<td>[androidJvm]<br>open operator fun <a href="component2/">component2</a>(): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><br>Destructures this item into a pair of name and document type.</td>
 </tr>
 </tbody>
 </table>

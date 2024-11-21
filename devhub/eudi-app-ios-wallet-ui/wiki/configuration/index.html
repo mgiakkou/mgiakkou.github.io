@@ -210,24 +210,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../CONTRIBUTIONS/" class="md-tabs__link">
-          
-  
-  About
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../../getting-started/" class="md-tabs__link">
           
   
@@ -306,16 +288,34 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../temp/coming_soon_9/" class="md-tabs__link">
+        <a href="../../../tools-lib-android.md" class="md-tabs__link">
           
   
-  Tools
+  Test Suite
 
         </a>
       </li>
     
   
 
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../CONTRIBUTIONS/" class="md-tabs__link">
+          
+  
+  About
+
+        </a>
+      </li>
     
   
 
@@ -357,48 +357,6 @@
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-    <a href="../../../CONTRIBUTIONS/" class="md-nav__link">
-      
-  
-  <span class="md-ellipsis">
-    About
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
     
       
       
@@ -562,11 +520,11 @@
     
   
   
-    <a href="../../../temp/coming_soon_9/" class="md-nav__link">
+    <a href="../../../tools-lib-android.md" class="md-nav__link">
       
   
   <span class="md-ellipsis">
-    Tools
+    Test Suite
   </span>
   
 
@@ -576,6 +534,48 @@
     </a>
   
 
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../CONTRIBUTIONS/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
   
 
       
@@ -713,14 +713,42 @@
 <h2 id="general-configuration">General configuration</h2>
 <p>The application allows the configuration of:</p>
 <ol>
-<li>Verifier API</li>
 <li>Issuing API</li>
 </ol>
-<p>Via the <em>WalletDemo</em> and <em>WalletDemoRelease</em> xcconfigs inside the Wallet/Config folder.</p>
-<div class="highlight"><pre><span></span><code>VCI_ISSUER_URL = https:/$()/issuer.eudiw.dev/oidc
-VCI_CLIENT_ID = wallet-demo
-VCI_REDIRECT_URI = eudi-openid4ci:/$()/authorize/
-CORE_USER_AUTH = false
+<p>Via the <em>WalletKitConfig</em> protocol inside the logic-core module.</p>
+<p><div class="highlight"><pre><span></span><code>public protocol WalletKitConfig {
+  /**
+   * VCI Configuration
+   */
+  var vciConfig: VciConfig { get }
+}
+</code></pre></div>
+Based on the Build Variant of the Wallet (e.g. Dev)</p>
+<div class="highlight"><pre><span></span><code>struct WalletKitConfigImpl: WalletKitConfig {
+
+  let configLogic: ConfigLogic
+
+  init(configLogic: ConfigLogic) {
+    self.configLogic = configLogic
+  }
+
+  var vciConfig: VciConfig {
+    return switch configLogic.appBuildVariant {
+    case .DEMO:
+        .init(
+          issuerUrl: &quot;your_demo_url&quot;,
+          clientId: &quot;your_demo_clientid&quot;,
+          redirectUri: URL(string: &quot;your_demo_redirect&quot;)!
+        )
+    case .DEV:
+        .init(
+          issuerUrl: &quot;your_dev_url&quot;,
+          clientId: &quot;your_dev_clientid&quot;,
+          redirectUri: URL(string: &quot;your_dev_redirect&quot;)!
+        )
+    }
+  }
+}
 </code></pre></div>
 <ol>
 <li>Trusted certificates</li>
@@ -738,7 +766,7 @@ CORE_USER_AUTH = false
 }
 </code></pre></div>
 <p>The <em>WalletKitConfigImpl</em> implementation of the <em>WalletKitConfig</em> protocol can be located inside the logic-core module.</p>
-<p>The application's IACA certificates are located <a href="https://github.com/eu-digital-identity-wallet/eudi-app-ios-wallet-ui/tree/main/Wallet/Sample">here</a>:</p>
+<p>The application's IACA certificates are located <a href="https://github.com/eu-digital-identity-wallet/eudi-app-ios-wallet-ui/tree/main/Wallet/Sample">here</a></p>
 <div class="highlight"><pre><span></span><code>  var readerConfigConfig: ReaderConfig {
     guard let cert = Data(name: &quot;eudi_pid_issuer_ut&quot;, ext: &quot;der&quot;) else {
       return .init(trustedCerts: [])
@@ -752,6 +780,89 @@ CORE_USER_AUTH = false
 <p>If you plan to use the Preregistered for OpenId4VP configuration, please add the following to the <em>WalletKitConfigImpl</em> initializer.</p>
 <div class="highlight"><pre><span></span><code>wallet.verifierApiUri = &quot;your_verifier_url&quot;
 wallet.verifierLegalName = &quot;your_verifier_legal_name&quot;
+</code></pre></div>
+<ol>
+<li>RQES</li>
+</ol>
+<p>Via the <em>RQESConfig</em> struct, which implements the <em>EudiRQESUiConfig</em> protocol from the RQESUi SDK, inside the logic-business module.</p>
+<div class="highlight"><pre><span></span><code>final class RQESConfig: EudiRQESUiConfig {
+
+  let buildVariant: AppBuildVariant
+  let buildType: AppBuildType
+
+  init(buildVariant: AppBuildVariant, buildType: AppBuildType) {
+    self.buildVariant = buildVariant
+    self.buildType = buildType
+  }
+
+  var rssps: [QTSPData]
+
+  var printLogs: Bool
+
+  var rQESConfig: RqesServiceConfig
+
+  var translations: [String : [LocalizableKey : String]]
+
+  var theme: ThemeProtocol
+}
+</code></pre></div>
+<p>Based on the Build Variant and Type of the Wallet (e.g. Dev Debug)</p>
+<div class="highlight"><pre><span></span><code>final class RQESConfig: EudiRQESUiConfig {
+
+  let buildVariant: AppBuildVariant
+  let buildType: AppBuildType
+
+  init(buildVariant: AppBuildVariant, buildType: AppBuildType) {
+    self.buildVariant = buildVariant
+    self.buildType = buildType
+  }
+
+  var rssps: [QTSPData] {
+    return switch buildVariant {
+    case .DEV:
+      [
+        .init(
+          name: &quot;your_dev_name&quot;,
+          uri: URL(string: &quot;your_dev_uri&quot;)!,
+          scaURL: &quot;your_dev_sca&quot;
+        )
+      ]
+    case .DEMO:
+      [
+        .init(
+          name: &quot;your_demo_name&quot;,
+          uri: URL(string: &quot;your_demo_uri&quot;)!,
+          scaURL: &quot;your_demo_sca&quot;
+        )
+      ]
+    }
+  }
+
+  var printLogs: Bool {
+    buildType == .DEBUG
+  }
+
+  var rQESConfig: RqesServiceConfig {
+    return switch buildVariant {
+    case .DEV:
+        .init(
+          clientId: &quot;your_dev_clientid&quot;,
+          clientSecret: &quot;your_dev_secret&quot;,
+          authFlowRedirectionURI: &quot;your_dev_redirect&quot;,
+          signingAlgorithm: your_dev_algo,
+          hashAlgorithm: your_dev_algo
+        )
+    case .DEMO:
+        .init(
+          clientId: &quot;your_demo_clientid&quot;,
+          clientSecret: &quot;your_demo_secret&quot;,
+          authFlowRedirectionURI: &quot;your_demo_redirect&quot;,
+          signingAlgorithm: your_demo_algo,
+          hashAlgorithm: your_demo_algo
+        )
+    }
+  }
+}
 </code></pre></div>
 <h2 id="deeplink-schemas-configuration">DeepLink Schemas configuration</h2>
 <p>According to the specifications issuance and presentation require deep-linking for the same device flows.</p>

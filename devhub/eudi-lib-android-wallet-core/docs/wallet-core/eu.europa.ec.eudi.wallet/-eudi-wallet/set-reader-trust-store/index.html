@@ -210,24 +210,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../../CONTRIBUTIONS/" class="md-tabs__link">
-          
-  
-  About
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../../../../../getting-started/" class="md-tabs__link">
           
   
@@ -306,16 +288,34 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../../temp/coming_soon_9/" class="md-tabs__link">
+        <a href="../../../../../../tools-lib-android.md" class="md-tabs__link">
           
   
-  Tools
+  Test Suite
 
         </a>
       </li>
     
   
 
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../../CONTRIBUTIONS/" class="md-tabs__link">
+          
+  
+  About
+
+        </a>
+      </li>
     
   
 
@@ -357,48 +357,6 @@
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-    <a href="../../../../../../CONTRIBUTIONS/" class="md-nav__link">
-      
-  
-  <span class="md-ellipsis">
-    About
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
     
       
       
@@ -562,11 +520,11 @@
     
   
   
-    <a href="../../../../../../temp/coming_soon_9/" class="md-nav__link">
+    <a href="../../../../../../tools-lib-android.md" class="md-nav__link">
       
   
   <span class="md-ellipsis">
-    Tools
+    Test Suite
   </span>
   
 
@@ -576,6 +534,48 @@
     </a>
   
 
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../../../CONTRIBUTIONS/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
   
 
       
@@ -627,24 +627,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      See also
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#throws" class="md-nav__link">
-    <span class="md-ellipsis">
-      Throws
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -666,10 +648,13 @@
 <p>//<a href="../../../../">wallet-core</a>/<a href="../../">eu.europa.ec.eudi.wallet</a>/<a href="../">EudiWallet</a>/<a href="./">setReaderTrustStore</a></p>
 <h1 id="setreadertruststore">setReaderTrustStore</h1>
 <p>[androidJvm]
-fun <a href="./">setReaderTrustStore</a>(readerTrustStore: ReaderTrustStore): <a href="../">EudiWallet</a></p>
-<p>Sets the reader trust store with the readers' certificates that are trusted by the wallet</p>
+abstract fun <a href="./">setReaderTrustStore</a>(readerTrustStore:
+ReaderTrustStore): <a href="../">EudiWallet</a></p>
+<p>Sets the reader trust store with the given ReaderTrustStore. This method is useful when the reader
+trust store is not set in the configuration object, or when the reader trust store needs to be
+updated at runtime.</p>
 <h4 id="return">Return</h4>
-<p><a href="../">EudiWallet</a></p>
+<p>this <a href="../">EudiWallet</a> instance</p>
 <h4 id="parameters">Parameters</h4>
 <p>androidJvm</p>
 <table>
@@ -683,34 +668,6 @@ fun <a href="./">setReaderTrustStore</a>(readerTrustStore: ReaderTrustStore): <a
 <tr>
 <td>readerTrustStore</td>
 <td>the reader trust store</td>
-</tr>
-</tbody>
-</table>
-<h4 id="see-also">See also</h4>
-<table>
-<thead>
-<tr>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>TransferManager.setReaderTrustStore</td>
-</tr>
-</tbody>
-</table>
-<h4 id="throws">Throws</h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-state-exception/index.html">IllegalStateException</a></td>
-<td>if <a href="../">EudiWallet</a> is not firstly initialized via the <a href="../init/">init</a> method</td>
 </tr>
 </tbody>
 </table>

@@ -210,24 +210,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../../../CONTRIBUTIONS/" class="md-tabs__link">
-          
-  
-  About
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../../../../../../getting-started/" class="md-tabs__link">
           
   
@@ -306,16 +288,34 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../../../temp/coming_soon_9/" class="md-tabs__link">
+        <a href="../../../../../../../tools-lib-android.md" class="md-tabs__link">
           
   
-  Tools
+  Test Suite
 
         </a>
       </li>
     
   
 
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../../../CONTRIBUTIONS/" class="md-tabs__link">
+          
+  
+  About
+
+        </a>
+      </li>
     
   
 
@@ -357,48 +357,6 @@
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-    <a href="../../../../../../../CONTRIBUTIONS/" class="md-nav__link">
-      
-  
-  <span class="md-ellipsis">
-    About
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
     
       
       
@@ -562,11 +520,11 @@
     
   
   
-    <a href="../../../../../../../temp/coming_soon_9/" class="md-nav__link">
+    <a href="../../../../../../../tools-lib-android.md" class="md-nav__link">
       
   
   <span class="md-ellipsis">
-    Tools
+    Test Suite
   </span>
   
 
@@ -576,6 +534,48 @@
     </a>
   
 
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../../../../CONTRIBUTIONS/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
   
 
       
@@ -648,24 +648,24 @@
 <p>//<a href="../../../../../">wallet-core</a>/<a href="../../../">eu.europa.ec.eudi.wallet</a>/<a href="../../">EudiWalletConfig</a>/<a href="../">Companion</a>/<a href="./">invoke</a></p>
 <h1 id="invoke">invoke</h1>
 <p>[androidJvm]
-operator fun <a href="./">invoke</a>(context: <a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a>, block: <a href="../../-builder/">EudiWalletConfig.Builder</a>.() -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a>): <a href="../../">EudiWalletConfig</a></p>
-<p>Eudi wallet config DSL</p>
+operator fun <a href="./">invoke</a>(configure: <a href="../../">EudiWalletConfig</a>.()
+-&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a>): <a href="../../">EudiWalletConfig</a></p>
+<p>Create a new EudiWalletConfig instance.</p>
 <h4 id="return">Return</h4>
-<p><a href="../../">EudiWalletConfig</a></p>
+<p>the EudiWalletConfig instance</p>
 <h4 id="parameters">Parameters</h4>
 <p>androidJvm</p>
 <table>
 <thead>
 <tr>
 <th></th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>context</td>
-</tr>
-<tr>
-<td>block</td>
+<td>configure</td>
+<td>the configuration lambda</td>
 </tr>
 </tbody>
 </table>
