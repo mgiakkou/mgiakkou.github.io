@@ -622,6 +622,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#throws" class="md-nav__link">
+    <span class="md-ellipsis">
+      Throws
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -645,13 +654,15 @@
 <p>[androidJvm]\</p>
 <p>@get:<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-name/index.html">JvmName</a>(name =
 &quot;getDefaultKeyUnlockData&quot;)</p>
-<p>val Document.<a href="./">DefaultKeyUnlockData</a>: AndroidKeystoreKeyUnlockData</p>
+<p>@get:<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-static/index.html">JvmStatic</a></p>
+<p>val Document.<a href="./">DefaultKeyUnlockData</a>: AndroidKeystoreKeyUnlockData?</p>
 <p>Returns the default AndroidKeystoreKeyUnlockData for the Document instance. The default key unlock
 data is based on the Document.keyAlias.</p>
 <h4 id="receiver">Receiver</h4>
 <p>the Document instance</p>
 <h4 id="return">Return</h4>
-<p>the default AndroidKeystoreKeyUnlockData for the Document instance</p>
+<p>the default AndroidKeystoreKeyUnlockData for the Document instance if document requires user
+authentication</p>
 <h4 id="see-also">See also</h4>
 <table>
 <thead>
@@ -665,6 +676,21 @@ data is based on the Document.keyAlias.</p>
 </tr>
 <tr>
 <td>Document</td>
+</tr>
+</tbody>
+</table>
+<h4 id="throws">Throws</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-state-exception/index.html">IllegalStateException</a></td>
+<td>if the Document is not managed by AndroidKeystoreSecureArea</td>
 </tr>
 </tbody>
 </table>

@@ -604,15 +604,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#throws" class="md-nav__link">
-    <span class="md-ellipsis">
-      Throws
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -636,23 +627,38 @@
 <p>[androidJvm]
 fun <a href="./">build</a>(): <a href="../../">EudiWallet</a></p>
 <p>Build the <a href="../../">EudiWallet</a> instance</p>
+<p>The <a href="../../">EudiWallet</a> instance will be created based on the configuration provided in
+the <a href="../">Builder</a> class.</p>
+<p>The <a href="../../">EudiWallet</a> instance will be created with the following default implementations if
+not set:</p>
+<p>-
+AndroidStorageEngine for storing/retrieving documents
+-
+AndroidKeystoreSecureArea for managing documents' keys
+-
+DocumentManagerImpl for managing documents
+-
+<a href="../../../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager-impl/">PresentationManagerImpl</a>
+for both proximity and remote presentation
+-
+<a href="../../../eu.europa.ec.eudi.wallet.transfer.openId4vp/-open-id4-vp-manager/index.md">OpenId4VpManager</a>
+for remote presentation
+-
+TransferManagerImpl for proximity presentation</p>
+<p><strong>Note</strong>:
+The <a href="../../../-eudi-wallet-config/documents-storage-dir/">EudiWalletConfig.documentsStorageDir</a> is
+not set, the default storage directory will be used which is the application's no backup files
+directory.</p>
+<p><strong>Note</strong>:
+The <a href="../../../-eudi-wallet-config/user-authentication-required/">EudiWalletConfig.userAuthenticationRequired</a>
+is set to true and the device is not secured with a PIN, pattern, or password, the configuration
+will be updated to set the user authentication required to false.</p>
+<p><strong>Note</strong>:
+The <a href="../../../-eudi-wallet-config/use-strong-box-for-keys/">EudiWalletConfig.useStrongBoxForKeys</a> is
+set to true and the device does not support StrongBox, the configuration will be updated to set the
+use StrongBox for keys to false.</p>
 <h4 id="return">Return</h4>
 <p><a href="../../">EudiWallet</a></p>
-<h4 id="throws">Throws</h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-state-exception/index.html">IllegalStateException</a></td>
-<td>if <a href="../../../-eudi-wallet-config/documents-storage-dir/">EudiWalletConfig.documentsStorageDir</a> is not set and and the default DocumentManager is going to be used</td>
-</tr>
-</tbody>
-</table>
 
 
 

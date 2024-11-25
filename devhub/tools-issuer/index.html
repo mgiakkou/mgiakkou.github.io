@@ -787,13 +787,34 @@
   <h1>Issuer</h1>
 
 <h2 id="issuance">Issuance</h2>
-<p>Test whether your wallet supports various issuance flows:
+<p>As part of the test suite, we offer an issuer, that allows you to test various issuance flows of OpenID4VCI with your wallet:
 - Credential Offer
 - Credential Offer Pre-Authorization
 - Credential Offer Deferred
 - Credential Offer Dynamic</p>
-<p>You can test the issuance of credentials in both mdoc and sd-jwt formats. The test service includes a variety of credential types.</p>
-<p><a href="https://issuer.eudiw.dev/">Access the test service for issuance</a></p>
+<p>You can test the issuance of credentials in both mdoc and sd-jwt formats. The test stools include a variety of credential types.</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basic issuer</td>
+<td>Basic issuer that supports all issuance flows, in both mdoc and sd-jwt formats. Includes several credential types. <br><br>Available at <a href="https://issuer.eudiw.dev/">https://issuer.eudiw.dev/</a>.</td>
+</tr>
+<tr>
+<td>Advanced issuance tester</td>
+<td>A more comprehensive issuance tester that enables following the different steps in the issuance flow. Supports all issuance flows, in both mdoc and sd-jwt formats. Includes several credential types. <br><br> Available at <a href="https://tester.issuer.eudiw.dev/">https://tester.issuer.eudiw.dev/</a>.</td>
+</tr>
+<tr>
+<td>Locally installed issuer</td>
+<td>Instal the issuer locally. Allows you to add new credential types. <br> <br>See <a href="./eudi-srv-web-issuing-eudiw-py/">Installation instruction</a> and instructions how to <a href="https://mgiakkou.github.io/devhub/eudi-srv-web-issuing-eudiw-py/api_docs/add_credential/">add new credential types</a>.</td>
+</tr>
+</tbody>
+</table>
 
 
 
