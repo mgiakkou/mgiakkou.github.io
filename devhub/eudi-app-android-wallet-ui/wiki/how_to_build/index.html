@@ -1170,11 +1170,11 @@ To run the App on an emulator, simply go to Run -&gt; Run 'app'.</p>
 <em>srcdemojavaeueuropaeccorelogicconfig</em>,
 depending on the flavor of your choice).</p>
 <p>These are the contents of the ConfigWalletCoreImpl file (dev flavor) and you don't need to change anything:
-<div class="highlight"><pre><span></span><code>private companion object {
-        const val VCI_ISSUER_URL = &quot;https://dev.issuer.eudiw.dev&quot;
-        const val VCI_CLIENT_ID = &quot;wallet-dev&quot;
-        const val AUTHENTICATION_REQUIRED = false
-}
+<div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kd">companion</span><span class="w"> </span><span class="kd">object</span><span class="w"> </span><span class="err">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">VCI_ISSUER_URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://dev.issuer.eudiw.dev&quot;</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">VCI_CLIENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;wallet-dev&quot;</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">AUTHENTICATION_REQUIRED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <h3 id="running-with-local-services">Running with local services</h3>
 <p>The first step here is to have all three services running locally on your machine,
@@ -1184,30 +1184,30 @@ you can follow these Repositories for further instructions:
 * <a href="https://github.com/eu-digital-identity-wallet/eudi-srv-web-verifier-endpoint-23220-4-kt">Web Verifier Endpoint</a></p>
 <p>After this, and assuming you are now running everything locally,
 you need to change the contents of the ConfigWalletCoreImpl file, from:
-<div class="highlight"><pre><span></span><code>private companion object {
-        const val VCI_ISSUER_URL = &quot;https://dev.issuer.eudiw.dev&quot;
-        const val VCI_CLIENT_ID = &quot;wallet-dev&quot;
-        const val AUTHENTICATION_REQUIRED = false
-}
+<div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kd">companion</span><span class="w"> </span><span class="kd">object</span><span class="w"> </span><span class="err">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">VCI_ISSUER_URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://dev.issuer.eudiw.dev&quot;</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">VCI_CLIENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;wallet-dev&quot;</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">AUTHENTICATION_REQUIRED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+<span class="p">}</span>
 </code></pre></div>
 into something like this:
-<div class="highlight"><pre><span></span><code>private companion object {
-        const val VCI_ISSUER_URL = &quot;local_IP_address_of_issuer&quot;
-        const val VCI_CLIENT_ID = &quot;wallet-dev&quot;
-        const val AUTHENTICATION_REQUIRED = false
-}
+<div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kd">companion</span><span class="w"> </span><span class="kd">object</span><span class="w"> </span><span class="err">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">VCI_ISSUER_URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;local_IP_address_of_issuer&quot;</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">VCI_CLIENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;wallet-dev&quot;</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">AUTHENTICATION_REQUIRED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>for example:
-<div class="highlight"><pre><span></span><code>private companion object {
-        const val VCI_ISSUER_URL = &quot;https://192.168.1.1:5000&quot;
-        const val VCI_CLIENT_ID = &quot;wallet-dev&quot;
-        const val AUTHENTICATION_REQUIRED = false
-}
+<div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kd">companion</span><span class="w"> </span><span class="kd">object</span><span class="w"> </span><span class="err">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">VCI_ISSUER_URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://192.168.1.1:5000&quot;</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">VCI_CLIENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;wallet-dev&quot;</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">AUTHENTICATION_REQUIRED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>Finally, you have to also change the content of <strong><em>network_security_config.xml</em></strong> file and allow HTTP traffic, to this:
-<div class="highlight"><pre><span></span><code>&lt;network-security-config&gt;
-    &lt;base-config cleartextTrafficPermitted=&quot;true&quot; /&gt;
-&lt;/network-security-config&gt;
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;network-security-config&gt;</span>
+<span class="w">    </span><span class="nt">&lt;base-config</span><span class="w"> </span><span class="na">cleartextTrafficPermitted=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/network-security-config&gt;</span>
 </code></pre></div></p>
 <h2 id="how-to-work-with-self-signed-certificates">How to work with self-signed certificates</h2>
 <p>This section describes configuring the application to interact with services utilizing self-signed certificates.</p>
@@ -1222,62 +1222,63 @@ implementation(libs.ktor.logging)
    <em>srcdemojavaeueuropaeccorelogicconfig</em>
    depending on the flavor of your choice.</li>
 <li>Here, add these imports:
-    <div class="highlight"><pre><span></span><code>import android.annotation.SuppressLint
-import io.ktor.client.HttpClient
-import io.ktor.client.engine.android.Android
-import io.ktor.client.plugins.logging.Logging
-import java.security.SecureRandom
-import javax.net.ssl.HostnameVerifier
-import javax.net.ssl.SSLContext
-import javax.net.ssl.TrustManager
-import javax.net.ssl.X509TrustManager
-import javax.security.cert.CertificateException
+    <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">android.annotation.SuppressLint</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">io.ktor.client.HttpClient</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">io.ktor.client.engine.android.Android</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">io.ktor.client.plugins.logging.Logging</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">java.security.SecureRandom</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">javax.net.ssl.HostnameVerifier</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">javax.net.ssl.SSLContext</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">javax.net.ssl.TrustManager</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">javax.net.ssl.X509TrustManager</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">javax.security.cert.CertificateException</span>
 </code></pre></div></li>
 <li>Add a custom HttpClient that allows self-signed certificates
-    <div class="highlight"><pre><span></span><code>object ProvideKtorHttpClient {
+    <div class="highlight"><pre><span></span><code><span class="kd">object</span><span class="w"> </span><span class="nc">ProvideKtorHttpClient</span><span class="w"> </span><span class="p">{</span>
 
-    @SuppressLint(&quot;TrustAllX509TrustManager&quot;, &quot;CustomX509TrustManager&quot;)
-    fun client(): HttpClient {
-        val trustAllCerts = arrayOf&lt;TrustManager&gt;(
-            object : X509TrustManager {
-                @Throws(CertificateException::class)
-                override fun checkClientTrusted(
-                    chain: Array&lt;java.security.cert.X509Certificate&gt;,
-                    authType: String
-                ) {
-                }
+<span class="w">    </span><span class="nd">@SuppressLint</span><span class="p">(</span><span class="s">&quot;TrustAllX509TrustManager&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CustomX509TrustManager&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">client</span><span class="p">():</span><span class="w"> </span><span class="n">HttpClient</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">trustAllCerts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arrayOf</span><span class="o">&lt;</span><span class="n">TrustManager</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">            </span><span class="k">object</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nc">X509TrustManager</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nd">@Throws</span><span class="p">(</span><span class="n">CertificateException</span><span class="o">::</span><span class="n">class</span><span class="p">)</span>
+<span class="w">                </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">checkClientTrusted</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">chain</span><span class="p">:</span><span class="w"> </span><span class="n">Array</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">security</span><span class="p">.</span><span class="na">cert</span><span class="p">.</span><span class="na">X509Certificate</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">authType</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span>
+<span class="w">                </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="p">}</span>
 
-                @Throws(CertificateException::class)
-                override fun checkServerTrusted(
-                    chain: Array&lt;java.security.cert.X509Certificate&gt;,
-                    authType: String
-                ) {
-                }
+<span class="w">                </span><span class="nd">@Throws</span><span class="p">(</span><span class="n">CertificateException</span><span class="o">::</span><span class="n">class</span><span class="p">)</span>
+<span class="w">                </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">checkServerTrusted</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">chain</span><span class="p">:</span><span class="w"> </span><span class="n">Array</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">security</span><span class="p">.</span><span class="na">cert</span><span class="p">.</span><span class="na">X509Certificate</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">authType</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span>
+<span class="w">                </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="p">}</span>
 
-                override fun getAcceptedIssuers(): Array&lt;java.security.cert.X509Certificate&gt; {
-                    return arrayOf()
-                }
-            }
-        )
+<span class="w">                </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">getAcceptedIssuers</span><span class="p">():</span><span class="w"> </span><span class="n">Array</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">security</span><span class="p">.</span><span class="na">cert</span><span class="p">.</span><span class="na">X509Certificate</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="n">arrayOf</span><span class="p">()</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">)</span>
 
-        return HttpClient(Android) {
-            install(Logging)
-            engine {
-                requestConfig
-                sslManager = { httpsURLConnection -&gt;
-                    httpsURLConnection.sslSocketFactory = SSLContext.getInstance(&quot;TLS&quot;).apply {
-                        init(null, trustAllCerts, SecureRandom())
-                    }.socketFactory
-                    httpsURLConnection.hostnameVerifier = HostnameVerifier { _, _ -&gt; true }
-                }
-            }
-        }
-    }
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">HttpClient</span><span class="p">(</span><span class="n">Android</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">install</span><span class="p">(</span><span class="n">Logging</span><span class="p">)</span>
+<span class="w">            </span><span class="n">engine</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">requestConfig</span>
+<span class="w">                </span><span class="n">sslManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">httpsURLConnection</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">                    </span><span class="n">httpsURLConnection</span><span class="p">.</span><span class="na">sslSocketFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SSLContext</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;TLS&quot;</span><span class="p">).</span><span class="na">apply</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="k">init</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="n">trustAllCerts</span><span class="p">,</span><span class="w"> </span><span class="n">SecureRandom</span><span class="p">())</span>
+<span class="w">                    </span><span class="p">}.</span><span class="na">socketFactory</span>
+<span class="w">                    </span><span class="n">httpsURLConnection</span><span class="p">.</span><span class="na">hostnameVerifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HostnameVerifier</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-}
+<span class="p">}</span>
 </code></pre></div></li>
 <li>Finally, add this custom HttpClient to the config, by appending it to the EudiWalletConfig.Builder, with the following lines:
-    <code>.ktorHttpClientFactory {
+    <code>Kotlin
+   .ktorHttpClientFactory {
         ProvideKtorHttpClient.client()
    }</code></li>
 </ol>

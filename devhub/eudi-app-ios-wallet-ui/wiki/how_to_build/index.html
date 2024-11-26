@@ -1106,38 +1106,38 @@ you can follow these Repositories for further instructions:
 <h3 id="how-to-work-with-self-signed-certificates-on-ios">How to work with self signed certificates on iOS</h3>
 <p>In addition to the change below, in order for the app to interact with locally running service a small code change is required to do this successfully.</p>
 <p>Before running the app in the simulator add these lines of code to the top of the file WalletKitController just below the import statements. </p>
-<div class="highlight"><pre><span></span><code>class SelfSignedDelegate: NSObject, URLSessionDelegate {
-  func urlSession(
-    _ session: URLSession,
-    didReceive challenge: URLAuthenticationChallenge,
-    completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -&gt; Void
-  ) {
-    // Check if the challenge is for a self-signed certificate
-    if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust,
-       let trust = challenge.protectionSpace.serverTrust {
-      // Create a URLCredential with the self-signed certificate
-      let credential = URLCredential(trust: trust)
-      // Call the completion handler with the credential to accept the self-signed certificate
-      completionHandler(.useCredential, credential)
-    } else {
-      // For other authentication methods, call the completion handler with a nil credential to reject the request
-      completionHandler(.cancelAuthenticationChallenge, nil)
-    }
-  }
-}
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">SelfSignedDelegate</span><span class="p">:</span> <span class="bp">NSObject</span><span class="p">,</span> <span class="n">URLSessionDelegate</span> <span class="p">{</span>
+  <span class="kd">func</span> <span class="nf">urlSession</span><span class="p">(</span>
+    <span class="kc">_</span> <span class="n">session</span><span class="p">:</span> <span class="n">URLSession</span><span class="p">,</span>
+    <span class="n">didReceive</span> <span class="n">challenge</span><span class="p">:</span> <span class="n">URLAuthenticationChallenge</span><span class="p">,</span>
+    <span class="n">completionHandler</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">(</span><span class="n">URLSession</span><span class="p">.</span><span class="n">AuthChallengeDisposition</span><span class="p">,</span> <span class="n">URLCredential</span><span class="p">?)</span> <span class="p">-&gt;</span> <span class="nb">Void</span>
+  <span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Check if the challenge is for a self-signed certificate</span>
+    <span class="k">if</span> <span class="n">challenge</span><span class="p">.</span><span class="n">protectionSpace</span><span class="p">.</span><span class="n">authenticationMethod</span> <span class="p">==</span> <span class="n">NSURLAuthenticationMethodServerTrust</span><span class="p">,</span>
+       <span class="kd">let</span> <span class="nv">trust</span> <span class="p">=</span> <span class="n">challenge</span><span class="p">.</span><span class="n">protectionSpace</span><span class="p">.</span><span class="n">serverTrust</span> <span class="p">{</span>
+      <span class="c1">// Create a URLCredential with the self-signed certificate</span>
+      <span class="kd">let</span> <span class="nv">credential</span> <span class="p">=</span> <span class="n">URLCredential</span><span class="p">(</span><span class="n">trust</span><span class="p">:</span> <span class="n">trust</span><span class="p">)</span>
+      <span class="c1">// Call the completion handler with the credential to accept the self-signed certificate</span>
+      <span class="n">completionHandler</span><span class="p">(.</span><span class="n">useCredential</span><span class="p">,</span> <span class="n">credential</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// For other authentication methods, call the completion handler with a nil credential to reject the request</span>
+      <span class="n">completionHandler</span><span class="p">(.</span><span class="n">cancelAuthenticationChallenge</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 
-let walletSession: URLSession = {
-  let delegate = SelfSignedDelegate()
-  let configuration = URLSessionConfiguration.default
-  return URLSession(
-    configuration: configuration,
-    delegate: delegate,
-    delegateQueue: nil
-  )
-}()
+<span class="kd">let</span> <span class="nv">walletSession</span><span class="p">:</span> <span class="n">URLSession</span> <span class="p">=</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nv">delegate</span> <span class="p">=</span> <span class="n">SelfSignedDelegate</span><span class="p">()</span>
+  <span class="kd">let</span> <span class="nv">configuration</span> <span class="p">=</span> <span class="n">URLSessionConfiguration</span><span class="p">.</span><span class="k">default</span>
+  <span class="k">return</span> <span class="n">URLSession</span><span class="p">(</span>
+    <span class="n">configuration</span><span class="p">:</span> <span class="n">configuration</span><span class="p">,</span>
+    <span class="n">delegate</span><span class="p">:</span> <span class="n">delegate</span><span class="p">,</span>
+    <span class="n">delegateQueue</span><span class="p">:</span> <span class="kc">nil</span>
+  <span class="p">)</span>
+<span class="p">}()</span>
 </code></pre></div>
 <p>Once the above is in place add:</p>
-<div class="highlight"><pre><span></span><code>wallet.urlSession = walletSession
+<div class="highlight"><pre><span></span><code><span class="n">wallet</span><span class="p">.</span><span class="n">urlSession</span> <span class="p">=</span> <span class="n">walletSession</span>
 </code></pre></div>
 <p>in the initializer. This change will allow the app to interact with web services that rely on self signed certificates.</p>
 <p>For all configuration options please refer to <a href="../configuration/">this document</a></p>

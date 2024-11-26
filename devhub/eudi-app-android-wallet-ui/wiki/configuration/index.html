@@ -702,208 +702,210 @@
 <li>Issuing API</li>
 </ol>
 <p>Via the <em>WalletCoreConfig</em> interface inside the business-logic module.</p>
-<div class="highlight"><pre><span></span><code>interface WalletCoreConfig {
-    val config: EudiWalletConfig
-}
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nc">WalletCoreConfig</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">config</span><span class="p">:</span><span class="w"> </span><span class="n">EudiWalletConfig</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>You can configure the <em>EudiWalletConfig</em> per flavor. You can find both implementations inside the core-logic module at src/demo/config/WalletCoreConfigImpl and src/dev/config/WalletCoreConfigImpl</p>
-<div class="highlight"><pre><span></span><code>    private companion object {
-        const val VCI_ISSUER_URL = &quot;https://issuer.eudiw.dev/oidc&quot;
-        const val VCI_CLIENT_ID = &quot;wallet-demo&quot;
-        const val AUTHENTICATION_REQUIRED = false
-    }
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">companion</span><span class="w"> </span><span class="kd">object</span><span class="w"> </span><span class="err">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">VCI_ISSUER_URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://issuer.eudiw.dev/oidc&quot;</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">VCI_CLIENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;wallet-demo&quot;</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">AUTHENTICATION_REQUIRED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">}</span>
 </code></pre></div>
 <ol>
 <li>Trusted certificates</li>
 </ol>
 <p>Via the <em>WalletCoreConfig</em> interface.</p>
-<div class="highlight"><pre><span></span><code>interface WalletCoreConfig {
-    val config: EudiWalletConfig
-}
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nc">WalletCoreConfig</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">config</span><span class="p">:</span><span class="w"> </span><span class="n">EudiWalletConfig</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>Same as the Verifier and Issuing APIs you can configure the Trusted certificates for the <em>EudiWalletConfig</em> per flavor inside the core-logic module at src/demo/config/WalletCoreConfigImpl and src/dev/config/WalletCoreConfigImpl</p>
-<div class="highlight"><pre><span></span><code>_config = EudiWalletConfig.Builder(context)
-            .trustedReaderCertificates(R.raw.eudi_pid_issuer_ut)
-            .build()
+<div class="highlight"><pre><span></span><code><span class="n">_config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EudiWalletConfig</span><span class="p">.</span><span class="na">Builder</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">trustedReaderCertificates</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">raw</span><span class="p">.</span><span class="na">eudi_pid_issuer_ut</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">()</span>
 </code></pre></div>
 <p>The application's IACA certificates are located <a href="https://github.com/eu-digital-identity-wallet/eudi-app-android-wallet-ui/tree/main/resources-logic/src/main/res/raw">here</a></p>
 <ol>
 <li>Preregistered Client Scheme</li>
 </ol>
 <p>If you plan to use the <em>ClientIdScheme.Preregistered</em> for OpenId4VP configuration, please add the following to the configuration files.</p>
-<div class="highlight"><pre><span></span><code>const val OPENID4VP_VERIFIER_API_URI = &quot;your_verifier_url&quot;
-const val OPENID4VP_VERIFIER_LEGAL_NAME = &quot;your_verifier_legal_name&quot;
-const val OPENID4VP_VERIFIER_CLIENT_ID = &quot;your_verifier_client_id&quot;
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">OPENID4VP_VERIFIER_API_URI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;your_verifier_url&quot;</span>
+<span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">OPENID4VP_VERIFIER_LEGAL_NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;your_verifier_legal_name&quot;</span>
+<span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">OPENID4VP_VERIFIER_CLIENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;your_verifier_client_id&quot;</span>
 
-.openId4VpConfig {
-    withClientIdSchemes(
-        listOf(
-            ClientIdScheme.Preregistered(
-                listOf(
-                    PreregisteredVerifier(
-                        clientId = OPENID4VP_VERIFIER_CLIENT_ID,
-                        verifierApi = OPENID4VP_VERIFIER_API_URI,
-                        legalName = OPENID4VP_VERIFIER_LEGAL_NAME
-                    )
-                )
-            )
-        )
-    )
-}
+<span class="p">.</span><span class="na">openId4VpConfig</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">withClientIdSchemes</span><span class="p">(</span>
+<span class="w">        </span><span class="n">listOf</span><span class="p">(</span>
+<span class="w">            </span><span class="n">ClientIdScheme</span><span class="p">.</span><span class="na">Preregistered</span><span class="p">(</span>
+<span class="w">                </span><span class="n">listOf</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">PreregisteredVerifier</span><span class="p">(</span>
+<span class="w">                        </span><span class="n">clientId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OPENID4VP_VERIFIER_CLIENT_ID</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">verifierApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OPENID4VP_VERIFIER_API_URI</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">legalName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OPENID4VP_VERIFIER_LEGAL_NAME</span>
+<span class="w">                    </span><span class="p">)</span>
+<span class="w">                </span><span class="p">)</span>
+<span class="w">            </span><span class="p">)</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div>
 <ol>
 <li>RQES</li>
 </ol>
 <p>Via the <em>ConfigLogic</em> interface inside the business-logic module.</p>
-<div class="highlight"><pre><span></span><code>interface ConfigLogic {
-    /**
-     * RQES Config.
-     */
-    val rqesConfig: EudiRQESUiConfig
-}
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nc">ConfigLogic</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * RQES Config.</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">rqesConfig</span><span class="p">:</span><span class="w"> </span><span class="n">EudiRQESUiConfig</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>You can configure the <em>RQESConfig</em>, which implements the EudiRQESUiConfig interface from the RQESUi SDK, per flavor. You can find both implementations inside the business-logic module at src/demo/config/RQESConfigImpl and src/dev/config/RQESConfigImpl.</p>
-<div class="highlight"><pre><span></span><code>class RQESConfigImpl : EudiRQESUiConfig {
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">RQESConfigImpl</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EudiRQESUiConfig</span><span class="w"> </span><span class="p">{</span>
 
-    override val translations: Map&lt;String, Map&lt;LocalizableKey, String&gt;&gt; get()
+<span class="w">    </span><span class="c1">// Optional. Default English translations will be used if not set.</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">translations</span><span class="p">:</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">LocalizableKey</span><span class="p">,</span><span class="w"> </span><span class="kt">String</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="k">get</span><span class="p">()</span>
 
-    override val themeManager: ThemeManager get()
+<span class="w">    </span><span class="c1">// Optional. Default theme will be used if not set.</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">themeManager</span><span class="p">:</span><span class="w"> </span><span class="n">ThemeManager</span><span class="w"> </span><span class="k">get</span><span class="p">()</span>
 
-    override val rqesServiceConfig: RqesServiceConfig get()
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">rqesServiceConfig</span><span class="p">:</span><span class="w"> </span><span class="n">RqesServiceConfig</span><span class="w"> </span><span class="k">get</span><span class="p">()</span>
 
-    override val qtsps: List&lt;QtspData&gt; get()
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">qtsps</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">QtspData</span><span class="o">&gt;</span><span class="w"> </span><span class="k">get</span><span class="p">()</span>
 
-    override val printLogs: Boolean get()
-}
+<span class="w">    </span><span class="c1">// Optional. Default is false.</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">printLogs</span><span class="p">:</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"> </span><span class="k">get</span><span class="p">()</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code>class RQESConfigImpl : EudiRQESUiConfig {
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">RQESConfigImpl</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EudiRQESUiConfig</span><span class="w"> </span><span class="p">{</span>
 
-    override val rqesServiceConfig: RqesServiceConfig
-        get() = RqesServiceConfig(
-            clientId = &quot;your_clientid&quot;,
-            clientSecret = &quot;your_secret&quot;,
-            authFlowRedirectionURI = URI.create(your_uri),
-            signingAlgorithm = your_algo,
-            hashAlgorithm = your_algo,
-        )
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">rqesServiceConfig</span><span class="p">:</span><span class="w"> </span><span class="n">RqesServiceConfig</span>
+<span class="w">        </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RqesServiceConfig</span><span class="p">(</span>
+<span class="w">            </span><span class="n">clientId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;your_clientid&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">clientSecret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;your_secret&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">authFlowRedirectionURI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">URI</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;your_uri&quot;</span><span class="p">),</span>
+<span class="w">            </span><span class="n">hashAlgorithm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashAlgorithmOID</span><span class="p">.</span><span class="na">SHA_256</span><span class="p">,</span>
+<span class="w">        </span><span class="p">)</span>
 
-    override val qtsps: List&lt;QtspData&gt;
-        get() = listOf(
-            QtspData(
-                name = &quot;your_name&quot;,
-                endpoint = &quot;your_endpoint&quot;.toUri(),
-                scaUrl = &quot;your_sca&quot;,
-            )
-        )
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">qtsps</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">QtspData</span><span class="o">&gt;</span>
+<span class="w">        </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span>
+<span class="w">            </span><span class="n">QtspData</span><span class="p">(</span>
+<span class="w">                </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;your_name&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="n">endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;your_endpoint&quot;</span><span class="p">.</span><span class="na">toUri</span><span class="p">(),</span>
+<span class="w">                </span><span class="n">scaUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;your_sca&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="p">)</span>
+<span class="w">        </span><span class="p">)</span>
 
-    override val printLogs: Boolean get() = BuildConfig.DEBUG
-}
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">printLogs</span><span class="p">:</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"> </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BuildConfig</span><span class="p">.</span><span class="na">DEBUG</span>
+<span class="p">}</span>
 </code></pre></div>
 <h2 id="deeplink-schemas-configuration">DeepLink Schemas configuration</h2>
 <p>According to the specifications issuance and presentation require deep-linking for the same device flows.</p>
 <p>If you want to adjust any schema, you can alter the <em>AndroidLibraryConventionPlugin</em> inside the build-logic module.</p>
-<div class="highlight"><pre><span></span><code>val eudiOpenId4VpScheme = &quot;eudi-openid4vp&quot;
-val eudiOpenid4VpHost = &quot;*&quot;
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">eudiOpenId4VpScheme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;eudi-openid4vp&quot;</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">eudiOpenid4VpHost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*&quot;</span>
 
-val mdocOpenId4VpScheme = &quot;mdoc-openid4vp&quot;
-val mdocOpenid4VpHost = &quot;*&quot;
+<span class="kd">val</span><span class="w"> </span><span class="nv">mdocOpenId4VpScheme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;mdoc-openid4vp&quot;</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">mdocOpenid4VpHost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*&quot;</span>
 
-val openId4VpScheme = &quot;openid4vp&quot;
-val openid4VpHost = &quot;*&quot;
+<span class="kd">val</span><span class="w"> </span><span class="nv">openId4VpScheme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;openid4vp&quot;</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">openid4VpHost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*&quot;</span>
 
-val credentialOfferScheme = &quot;openid-credential-offer&quot;
-val credentialOfferHost = &quot;*&quot;
+<span class="kd">val</span><span class="w"> </span><span class="nv">credentialOfferScheme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;openid-credential-offer&quot;</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">credentialOfferHost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*&quot;</span>
 </code></pre></div>
 <p>Let's assume you want to change the credential offer schema to custom-my-offer:// the <em>AndroidLibraryConventionPlugin</em> should look like this:</p>
-<div class="highlight"><pre><span></span><code>val eudiOpenId4VpScheme = &quot;eudi-openid4vp&quot;
-val eudiOpenid4VpHost = &quot;*&quot;
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">eudiOpenId4VpScheme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;eudi-openid4vp&quot;</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">eudiOpenid4VpHost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*&quot;</span>
 
-val mdocOpenId4VpScheme = &quot;mdoc-openid4vp&quot;
-val mdocOpenid4VpHost = &quot;*&quot;
+<span class="kd">val</span><span class="w"> </span><span class="nv">mdocOpenId4VpScheme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;mdoc-openid4vp&quot;</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">mdocOpenid4VpHost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*&quot;</span>
 
-val openId4VpScheme = &quot;openid4vp&quot;
-val openid4VpHost = &quot;*&quot;
+<span class="kd">val</span><span class="w"> </span><span class="nv">openId4VpScheme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;openid4vp&quot;</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">openid4VpHost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*&quot;</span>
 
-val credentialOfferScheme = &quot;custom-my-offer&quot;
-val credentialOfferHost = &quot;*&quot;
+<span class="kd">val</span><span class="w"> </span><span class="nv">credentialOfferScheme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;custom-my-offer&quot;</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">credentialOfferHost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*&quot;</span>
 </code></pre></div>
 <p>In case of an additive change, e.g. adding an extra credential offer schema, you must adjust the following.</p>
 <p>AndroidLibraryConventionPlugin:</p>
-<div class="highlight"><pre><span></span><code>val credentialOfferScheme = &quot;openid-credential-offer&quot;
-val credentialOfferHost = &quot;*&quot;
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">credentialOfferScheme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;openid-credential-offer&quot;</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">credentialOfferHost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*&quot;</span>
 
-val myOwnCredentialOfferScheme = &quot;custom-my-offer&quot;
-val myOwnCredentialOfferHost = &quot;*&quot;
+<span class="kd">val</span><span class="w"> </span><span class="nv">myOwnCredentialOfferScheme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;custom-my-offer&quot;</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">myOwnCredentialOfferHost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*&quot;</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>// Manifest placeholders used for OpenId4VCI
-manifestPlaceholders[&quot;credentialOfferHost&quot;] = credentialOfferHost
-manifestPlaceholders[&quot;credentialOfferScheme&quot;] = credentialOfferScheme
-manifestPlaceholders[&quot;myOwnCredentialOfferHost&quot;] = myOwnCredentialOfferHost
-manifestPlaceholders[&quot;myOwnCredentialOfferScheme&quot;] = myOwnCredentialOfferScheme
+<div class="highlight"><pre><span></span><code><span class="c1">// Manifest placeholders used for OpenId4VCI</span>
+<span class="n">manifestPlaceholders</span><span class="o">[</span><span class="s">&quot;credentialOfferHost&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">credentialOfferHost</span>
+<span class="n">manifestPlaceholders</span><span class="o">[</span><span class="s">&quot;credentialOfferScheme&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">credentialOfferScheme</span>
+<span class="n">manifestPlaceholders</span><span class="o">[</span><span class="s">&quot;myOwnCredentialOfferHost&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myOwnCredentialOfferHost</span>
+<span class="n">manifestPlaceholders</span><span class="o">[</span><span class="s">&quot;myOwnCredentialOfferScheme&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myOwnCredentialOfferScheme</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>addConfigField(&quot;CREDENTIAL_OFFER_SCHEME&quot;, credentialOfferScheme)
-addConfigField(&quot;MY_OWN_CREDENTIAL_OFFER_SCHEME&quot;, myOwnCredentialOfferScheme)
+<div class="highlight"><pre><span></span><code><span class="n">addConfigField</span><span class="p">(</span><span class="s">&quot;CREDENTIAL_OFFER_SCHEME&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">credentialOfferScheme</span><span class="p">)</span>
+<span class="n">addConfigField</span><span class="p">(</span><span class="s">&quot;MY_OWN_CREDENTIAL_OFFER_SCHEME&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">myOwnCredentialOfferScheme</span><span class="p">)</span>
 </code></pre></div>
 <p>Android Manifest (inside assembly-logic module):</p>
-<div class="highlight"><pre><span></span><code>&lt;intent-filter&gt;
-    &lt;action android:name=&quot;android.intent.action.VIEW&quot; /&gt;
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;intent-filter&gt;</span>
+<span class="w">    </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.intent.action.VIEW&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 
-    &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;
-    &lt;category android:name=&quot;android.intent.category.BROWSABLE&quot; /&gt;
+<span class="w">    </span><span class="nt">&lt;category</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.intent.category.DEFAULT&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;category</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.intent.category.BROWSABLE&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 
-        &lt;data
-            android:host=&quot;${credentialOfferHost}&quot;
-            android:scheme=&quot;${credentialOfferScheme}&quot; /&gt;
+<span class="w">        </span><span class="nt">&lt;data</span>
+<span class="w">            </span><span class="na">android:host=</span><span class="s">&quot;${credentialOfferHost}&quot;</span>
+<span class="w">            </span><span class="na">android:scheme=</span><span class="s">&quot;${credentialOfferScheme}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 
-    &lt;/intent-filter&gt;
+<span class="w">    </span><span class="nt">&lt;/intent-filter&gt;</span>
 
-&lt;intent-filter&gt;
-    &lt;action android:name=&quot;android.intent.action.VIEW&quot; /&gt;
+<span class="nt">&lt;intent-filter&gt;</span>
+<span class="w">    </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.intent.action.VIEW&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 
-    &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;
-    &lt;category android:name=&quot;android.intent.category.BROWSABLE&quot; /&gt;
+<span class="w">    </span><span class="nt">&lt;category</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.intent.category.DEFAULT&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;category</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.intent.category.BROWSABLE&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 
-        &lt;data
-            android:host=&quot;${myOwnCredentialOfferHost}&quot;
-            android:scheme=&quot;${myOwnCredentialOfferScheme}&quot; /&gt;
+<span class="w">        </span><span class="nt">&lt;data</span>
+<span class="w">            </span><span class="na">android:host=</span><span class="s">&quot;${myOwnCredentialOfferHost}&quot;</span>
+<span class="w">            </span><span class="na">android:scheme=</span><span class="s">&quot;${myOwnCredentialOfferScheme}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 
-&lt;/intent-filter&gt;
+<span class="nt">&lt;/intent-filter&gt;</span>
 </code></pre></div>
 <p>DeepLinkType (DeepLinkHelper Object inside ui-logic module):</p>
-<div class="highlight"><pre><span></span><code>enum class DeepLinkType(val schemas: List&lt;String&gt;, val host: String? = null) {
+<div class="highlight"><pre><span></span><code><span class="kd">enum</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">DeepLinkType</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">schemas</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">host</span><span class="p">:</span><span class="w"> </span><span class="kt">String?</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 
-    OPENID4VP(
-        schemas = listOf(
-            BuildConfig.OPENID4VP_SCHEME,
-            BuildConfig.EUDI_OPENID4VP_SCHEME,
-            BuildConfig.MDOC_OPENID4VP_SCHEME
-        )
-    ),
-    CREDENTIAL_OFFER(
-        schemas = listOf(
-            BuildConfig.CREDENTIAL_OFFER_SCHEME,
-            BuildConfig.MY_OWN_CREDENTIAL_OFFER_SCHEME
-        )
-    ),
-    ISSUANCE(
-        schemas = listOf(BuildConfig.ISSUE_AUTHORIZATION_SCHEME),
-        host = BuildConfig.ISSUE_AUTHORIZATION_HOST
-    ),
-    EXTERNAL(listOf(&quot;external&quot;))
-}
+<span class="w">    </span><span class="n">OPENID4VP</span><span class="p">(</span>
+<span class="w">        </span><span class="n">schemas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span>
+<span class="w">            </span><span class="n">BuildConfig</span><span class="p">.</span><span class="na">OPENID4VP_SCHEME</span><span class="p">,</span>
+<span class="w">            </span><span class="n">BuildConfig</span><span class="p">.</span><span class="na">EUDI_OPENID4VP_SCHEME</span><span class="p">,</span>
+<span class="w">            </span><span class="n">BuildConfig</span><span class="p">.</span><span class="na">MDOC_OPENID4VP_SCHEME</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="n">CREDENTIAL_OFFER</span><span class="p">(</span>
+<span class="w">        </span><span class="n">schemas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span>
+<span class="w">            </span><span class="n">BuildConfig</span><span class="p">.</span><span class="na">CREDENTIAL_OFFER_SCHEME</span><span class="p">,</span>
+<span class="w">            </span><span class="n">BuildConfig</span><span class="p">.</span><span class="na">MY_OWN_CREDENTIAL_OFFER_SCHEME</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="n">ISSUANCE</span><span class="p">(</span>
+<span class="w">        </span><span class="n">schemas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span><span class="n">BuildConfig</span><span class="p">.</span><span class="na">ISSUE_AUTHORIZATION_SCHEME</span><span class="p">),</span>
+<span class="w">        </span><span class="n">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BuildConfig</span><span class="p">.</span><span class="na">ISSUE_AUTHORIZATION_HOST</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="n">EXTERNAL</span><span class="p">(</span><span class="n">listOf</span><span class="p">(</span><span class="s">&quot;external&quot;</span><span class="p">))</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>In the case of an additive change regarding openId4VP, you also need to update the <em>EudiWalletConfig</em> for each flavor inside the core-logic module.</p>
-<div class="highlight"><pre><span></span><code>.openId4VpConfig {
-    withScheme(
-        listOf(
-                BuildConfig.OPENID4VP_SCHEME,
-                BuildConfig.EUDI_OPENID4VP_SCHEME,
-                BuildConfig.MDOC_OPENID4VP_SCHEME,
-                BuildConfig.YOUR_OWN_OPENID4VP_SCHEME
-            )
-    )
-}
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="na">openId4VpConfig</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">withScheme</span><span class="p">(</span>
+<span class="w">        </span><span class="n">listOf</span><span class="p">(</span>
+<span class="w">                </span><span class="n">BuildConfig</span><span class="p">.</span><span class="na">OPENID4VP_SCHEME</span><span class="p">,</span>
+<span class="w">                </span><span class="n">BuildConfig</span><span class="p">.</span><span class="na">EUDI_OPENID4VP_SCHEME</span><span class="p">,</span>
+<span class="w">                </span><span class="n">BuildConfig</span><span class="p">.</span><span class="na">MDOC_OPENID4VP_SCHEME</span><span class="p">,</span>
+<span class="w">                </span><span class="n">BuildConfig</span><span class="p">.</span><span class="na">YOUR_OWN_OPENID4VP_SCHEME</span>
+<span class="w">            </span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div>
 <h2 id="scoped-issuance-document-configuration">Scoped Issuance Document Configuration</h2>
 <p>Currently, the application supports specific docTypes for scoped issuance (On the Add Document screen the pre-configured buttons like <em>National ID</em>, <em>Driving License</em>, and <em>Age verification</em>).</p>
@@ -911,73 +913,73 @@ addConfigField(&quot;MY_OWN_CREDENTIAL_OFFER_SCHEME&quot;, myOwnCredentialOfferS
 <p>To extend the supported list and display a new button for your document, please follow the instructions below.</p>
 <p>In <em>DocumentIdentifier</em>, inside the core-logic module, you must add a new data object to the sealed interface with your namespace and doctype.</p>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code>data object YOUR_OWN : DocumentIdentifier {
-    override val nameSpace: String
-        get() = &quot;your_own_name_space&quot;
-    override val docType: DocType
-        get() = &quot;your_own_doc_type&quot;
-}
+<div class="highlight"><pre><span></span><code><span class="kd">data</span><span class="w"> </span><span class="kd">object</span><span class="w"> </span><span class="nc">YOUR_OWN</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">nameSpace</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span>
+<span class="w">        </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;your_own_name_space&quot;</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">docType</span><span class="p">:</span><span class="w"> </span><span class="n">DocType</span>
+<span class="w">        </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;your_own_doc_type&quot;</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>After completing the above change, please address all compilation errors within the <em>DocumentIdentifier</em>. Ensure that all when statements are exhausted, adhering to the established pattern used in the other documents for consistency.</p>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code>fun DocumentIdentifier.isSupported(): Boolean {
-    return when (this) {
-        is DocumentIdentifier.PID, DocumentIdentifier.MDL, DocumentIdentifier.AGE, DocumentIdentifier.YOUR_OWN -&gt; true
-        is DocumentIdentifier.SAMPLE, is DocumentIdentifier.OTHER -&gt; false
-    }
-}
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="nf">isSupported</span><span class="p">():</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">is</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">PID</span><span class="p">,</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">MDL</span><span class="p">,</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">AGE</span><span class="p">,</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">YOUR_OWN</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="k">is</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">SAMPLE</span><span class="p">,</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">OTHER</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>In <em>strings.xml</em>. inside resources-logic module, add a new string for document title localization</p>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code>&lt;!-- Document Types --&gt;
-&lt;string name=&quot;pid&quot;&gt;National ID&lt;/string&gt;
-&lt;string name=&quot;mdl&quot;&gt;Driving License&lt;/string&gt;
-&lt;string name=&quot;age_verification&quot;&gt;Age Verification&lt;/string&gt;
-&lt;string name=&quot;load_sample_data&quot;&gt;Load Sample Documents&lt;/string&gt;
-&lt;string name=&quot;your_own_document_title&quot;&gt;Your own document title&lt;/string&gt;
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- Document Types --&gt;</span>
+<span class="nt">&lt;string</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;pid&quot;</span><span class="nt">&gt;</span>National<span class="w"> </span>ID<span class="nt">&lt;/string&gt;</span>
+<span class="nt">&lt;string</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;mdl&quot;</span><span class="nt">&gt;</span>Driving<span class="w"> </span>License<span class="nt">&lt;/string&gt;</span>
+<span class="nt">&lt;string</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;age_verification&quot;</span><span class="nt">&gt;</span>Age<span class="w"> </span>Verification<span class="nt">&lt;/string&gt;</span>
+<span class="nt">&lt;string</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;load_sample_data&quot;</span><span class="nt">&gt;</span>Load<span class="w"> </span>Sample<span class="w"> </span>Documents<span class="nt">&lt;/string&gt;</span>
+<span class="nt">&lt;string</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;your_own_document_title&quot;</span><span class="nt">&gt;</span>Your<span class="w"> </span>own<span class="w"> </span>document<span class="w"> </span>title<span class="nt">&lt;/string&gt;</span>
 </code></pre></div>
 <p>In <em>DocumentTypeUi</em>, inside the common-feature module, please adjust the extension function <em>DocumentIdentifier.toUiName</em> to point to a string localization for the document Title.</p>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code>fun DocumentIdentifier.toUiName(resourceProvider: ResourceProvider): String {
-    return when (this) {
-        is DocumentIdentifier.PID -&gt; resourceProvider.getString(R.string.pid)
-        is DocumentIdentifier.MDL -&gt; resourceProvider.getString(R.string.mdl)
-        is DocumentIdentifier.AGE -&gt; resourceProvider.getString(R.string.age_verification)
-        is DocumentIdentifier.SAMPLE -&gt; resourceProvider.getString(R.string.load_sample_data)
-        is DocumentIdentifier.YOUR_OWN -&gt; resourceProvider.getString(R.string.your_own_document_title)
-        is DocumentIdentifier.OTHER -&gt; docType
-    }
-}
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="nf">toUiName</span><span class="p">(</span><span class="n">resourceProvider</span><span class="p">:</span><span class="w"> </span><span class="n">ResourceProvider</span><span class="p">):</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">is</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">PID</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">resourceProvider</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">string</span><span class="p">.</span><span class="na">pid</span><span class="p">)</span>
+<span class="w">        </span><span class="k">is</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">MDL</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">resourceProvider</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">string</span><span class="p">.</span><span class="na">mdl</span><span class="p">)</span>
+<span class="w">        </span><span class="k">is</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">AGE</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">resourceProvider</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">string</span><span class="p">.</span><span class="na">age_verification</span><span class="p">)</span>
+<span class="w">        </span><span class="k">is</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">SAMPLE</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">resourceProvider</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">string</span><span class="p">.</span><span class="na">load_sample_data</span><span class="p">)</span>
+<span class="w">        </span><span class="k">is</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">YOUR_OWN</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">resourceProvider</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">string</span><span class="p">.</span><span class="na">your_own_document_title</span><span class="p">)</span>
+<span class="w">        </span><span class="k">is</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">OTHER</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">docType</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>In <em>TestsData</em>, inside common-feature module, please address all compilation errors. Ensure that all when statements are exhausted, adhering to the established pattern used in the other documents for consistency.</p>
 <p>In <em>AddDocumentInteractor</em>, inside issuance-feature module, please adjust the <em>getAddDocumentOption</em> function to add your new document.</p>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code>val options = mutableListOf(
-     DocumentOptionItemUi(
-        text = DocumentIdentifier.PID.toUiName(resourceProvider),
-        icon = AppIcons.Id,
-        type = DocumentIdentifier.PID,
-        available = true
-    ),
-    DocumentOptionItemUi(
-        text = DocumentIdentifier.MDL.toUiName(resourceProvider),
-        icon = AppIcons.Id,
-        type = DocumentIdentifier.MDL,
-        available = canCreateExtraDocument(flowType)
-    ),
-    DocumentOptionItemUi(
-        text = DocumentIdentifier.AGE.toUiName(resourceProvider),
-        icon = AppIcons.Id,
-        type = DocumentIdentifier.AGE,
-        available = canCreateExtraDocument(flowType)
-    ),
-    DocumentOptionItemUi(
-        text = DocumentIdentifier.YOUR_OWN.toUiName(resourceProvider),
-        icon = AppIcons.Id,
-        type = DocumentIdentifier.YOUR_OWN,
-        available = canCreateExtraDocument(flowType)
-    )
-)
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutableListOf</span><span class="p">(</span>
+<span class="w">     </span><span class="n">DocumentOptionItemUi</span><span class="p">(</span>
+<span class="w">        </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">PID</span><span class="p">.</span><span class="na">toUiName</span><span class="p">(</span><span class="n">resourceProvider</span><span class="p">),</span>
+<span class="w">        </span><span class="n">icon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AppIcons</span><span class="p">.</span><span class="na">Id</span><span class="p">,</span>
+<span class="w">        </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">PID</span><span class="p">,</span>
+<span class="w">        </span><span class="n">available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="n">DocumentOptionItemUi</span><span class="p">(</span>
+<span class="w">        </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">MDL</span><span class="p">.</span><span class="na">toUiName</span><span class="p">(</span><span class="n">resourceProvider</span><span class="p">),</span>
+<span class="w">        </span><span class="n">icon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AppIcons</span><span class="p">.</span><span class="na">Id</span><span class="p">,</span>
+<span class="w">        </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">MDL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">canCreateExtraDocument</span><span class="p">(</span><span class="n">flowType</span><span class="p">)</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="n">DocumentOptionItemUi</span><span class="p">(</span>
+<span class="w">        </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">AGE</span><span class="p">.</span><span class="na">toUiName</span><span class="p">(</span><span class="n">resourceProvider</span><span class="p">),</span>
+<span class="w">        </span><span class="n">icon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AppIcons</span><span class="p">.</span><span class="na">Id</span><span class="p">,</span>
+<span class="w">        </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">AGE</span><span class="p">,</span>
+<span class="w">        </span><span class="n">available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">canCreateExtraDocument</span><span class="p">(</span><span class="n">flowType</span><span class="p">)</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="n">DocumentOptionItemUi</span><span class="p">(</span>
+<span class="w">        </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">YOUR_OWN</span><span class="p">.</span><span class="na">toUiName</span><span class="p">(</span><span class="n">resourceProvider</span><span class="p">),</span>
+<span class="w">        </span><span class="n">icon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AppIcons</span><span class="p">.</span><span class="na">Id</span><span class="p">,</span>
+<span class="w">        </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">YOUR_OWN</span><span class="p">,</span>
+<span class="w">        </span><span class="n">available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">canCreateExtraDocument</span><span class="p">(</span><span class="n">flowType</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="p">)</span>
 </code></pre></div>
 <h2 id="how-to-work-with-self-signed-certificates">How to work with self-signed certificates</h2>
 <p>This section describes configuring the application to interact with services utilizing self-signed certificates.</p>
@@ -992,62 +994,63 @@ implementation(libs.ktor.logging)
    <em>srcdemojavaeueuropaeccorelogicconfig</em>
    depending on the flavor of your choice.</li>
 <li>Here, add these imports:
-    <div class="highlight"><pre><span></span><code>import android.annotation.SuppressLint
-import io.ktor.client.HttpClient
-import io.ktor.client.engine.android.Android
-import io.ktor.client.plugins.logging.Logging
-import java.security.SecureRandom
-import javax.net.ssl.HostnameVerifier
-import javax.net.ssl.SSLContext
-import javax.net.ssl.TrustManager
-import javax.net.ssl.X509TrustManager
-import javax.security.cert.CertificateException
+    <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">android.annotation.SuppressLint</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">io.ktor.client.HttpClient</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">io.ktor.client.engine.android.Android</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">io.ktor.client.plugins.logging.Logging</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">java.security.SecureRandom</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">javax.net.ssl.HostnameVerifier</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">javax.net.ssl.SSLContext</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">javax.net.ssl.TrustManager</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">javax.net.ssl.X509TrustManager</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">javax.security.cert.CertificateException</span>
 </code></pre></div></li>
 <li>Add a custom HttpClient that allows self-signed certificates
-    <div class="highlight"><pre><span></span><code>object ProvideKtorHttpClient {
+    <div class="highlight"><pre><span></span><code><span class="kd">object</span><span class="w"> </span><span class="nc">ProvideKtorHttpClient</span><span class="w"> </span><span class="p">{</span>
 
-    @SuppressLint(&quot;TrustAllX509TrustManager&quot;, &quot;CustomX509TrustManager&quot;)
-    fun client(): HttpClient {
-        val trustAllCerts = arrayOf&lt;TrustManager&gt;(
-            object : X509TrustManager {
-                @Throws(CertificateException::class)
-                override fun checkClientTrusted(
-                    chain: Array&lt;java.security.cert.X509Certificate&gt;,
-                    authType: String
-                ) {
-                }
+<span class="w">    </span><span class="nd">@SuppressLint</span><span class="p">(</span><span class="s">&quot;TrustAllX509TrustManager&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CustomX509TrustManager&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">client</span><span class="p">():</span><span class="w"> </span><span class="n">HttpClient</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">trustAllCerts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arrayOf</span><span class="o">&lt;</span><span class="n">TrustManager</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">            </span><span class="k">object</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nc">X509TrustManager</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nd">@Throws</span><span class="p">(</span><span class="n">CertificateException</span><span class="o">::</span><span class="n">class</span><span class="p">)</span>
+<span class="w">                </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">checkClientTrusted</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">chain</span><span class="p">:</span><span class="w"> </span><span class="n">Array</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">security</span><span class="p">.</span><span class="na">cert</span><span class="p">.</span><span class="na">X509Certificate</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">authType</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span>
+<span class="w">                </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="p">}</span>
 
-                @Throws(CertificateException::class)
-                override fun checkServerTrusted(
-                    chain: Array&lt;java.security.cert.X509Certificate&gt;,
-                    authType: String
-                ) {
-                }
+<span class="w">                </span><span class="nd">@Throws</span><span class="p">(</span><span class="n">CertificateException</span><span class="o">::</span><span class="n">class</span><span class="p">)</span>
+<span class="w">                </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">checkServerTrusted</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">chain</span><span class="p">:</span><span class="w"> </span><span class="n">Array</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">security</span><span class="p">.</span><span class="na">cert</span><span class="p">.</span><span class="na">X509Certificate</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">authType</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span>
+<span class="w">                </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="p">}</span>
 
-                override fun getAcceptedIssuers(): Array&lt;java.security.cert.X509Certificate&gt; {
-                    return arrayOf()
-                }
-            }
-        )
+<span class="w">                </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">getAcceptedIssuers</span><span class="p">():</span><span class="w"> </span><span class="n">Array</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">security</span><span class="p">.</span><span class="na">cert</span><span class="p">.</span><span class="na">X509Certificate</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="n">arrayOf</span><span class="p">()</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">)</span>
 
-        return HttpClient(Android) {
-            install(Logging)
-            engine {
-                requestConfig
-                sslManager = { httpsURLConnection -&gt;
-                    httpsURLConnection.sslSocketFactory = SSLContext.getInstance(&quot;TLS&quot;).apply {
-                        init(null, trustAllCerts, SecureRandom())
-                    }.socketFactory
-                    httpsURLConnection.hostnameVerifier = HostnameVerifier { _, _ -&gt; true }
-                }
-            }
-        }
-    }
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">HttpClient</span><span class="p">(</span><span class="n">Android</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">install</span><span class="p">(</span><span class="n">Logging</span><span class="p">)</span>
+<span class="w">            </span><span class="n">engine</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">requestConfig</span>
+<span class="w">                </span><span class="n">sslManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">httpsURLConnection</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">                    </span><span class="n">httpsURLConnection</span><span class="p">.</span><span class="na">sslSocketFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SSLContext</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;TLS&quot;</span><span class="p">).</span><span class="na">apply</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="k">init</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="n">trustAllCerts</span><span class="p">,</span><span class="w"> </span><span class="n">SecureRandom</span><span class="p">())</span>
+<span class="w">                    </span><span class="p">}.</span><span class="na">socketFactory</span>
+<span class="w">                    </span><span class="n">httpsURLConnection</span><span class="p">.</span><span class="na">hostnameVerifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HostnameVerifier</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-}
+<span class="p">}</span>
 </code></pre></div></li>
 <li>Finally, add this custom HttpClient to the config, by appending it to the EudiWalletConfig.Builder, with the following lines:
-    <code>.ktorHttpClientFactory {
+    <code>Kotlin
+   .ktorHttpClientFactory {
         ProvideKtorHttpClient.client()
    }</code></li>
 </ol>
@@ -1069,48 +1072,48 @@ import javax.security.cert.CertificateException
 <li>Pin matching and validity</li>
 </ol>
 <p>Via the <em>StorageConfig</em> inside the authentication-logic module.</p>
-<div class="highlight"><pre><span></span><code>interface StorageConfig {
-    val pinStorageProvider: PinStorageProvider
-    val biometryStorageProvider: BiometryStorageProvider
-}
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nc">StorageConfig</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">pinStorageProvider</span><span class="p">:</span><span class="w"> </span><span class="n">PinStorageProvider</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">biometryStorageProvider</span><span class="p">:</span><span class="w"> </span><span class="n">BiometryStorageProvider</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>You can provide your storage implementation by implementing the <em>PinStorageProvider</em> interface and then setting it as default to the <em>StorageConfigImpl</em> pinStorageProvider variable.
 The project utilizes Koin for Dependency Injection (DI), thus requiring adjustment of the <em>LogicAuthenticationModule</em> graph to provide the configuration.</p>
 <p>Implementation Example:
-<div class="highlight"><pre><span></span><code>class PrefsPinStorageProvider(
-    private val prefsController: PrefsController
-) : PinStorageProvider {
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">PrefsPinStorageProvider</span><span class="p">(</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">prefsController</span><span class="p">:</span><span class="w"> </span><span class="n">PrefsController</span>
+<span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">PinStorageProvider</span><span class="w"> </span><span class="p">{</span>
 
-    override fun retrievePin(): String {
-        return prefsController.getString(&quot;DevicePin&quot;, &quot;&quot;)
-    }
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">retrievePin</span><span class="p">():</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">prefsController</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;DevicePin&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
 
-    override fun setPin(pin: String) {
-        prefsController.setString(&quot;DevicePin&quot;, pin)
-    }
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">setPin</span><span class="p">(</span><span class="n">pin</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">prefsController</span><span class="p">.</span><span class="na">setString</span><span class="p">(</span><span class="s">&quot;DevicePin&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pin</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
 
-    override fun isPinValid(pin: String): Boolean = retrievePin() == pin
-}
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">isPinValid</span><span class="p">(</span><span class="n">pin</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">):</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">retrievePin</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">pin</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>Config Example:
-<div class="highlight"><pre><span></span><code>class StorageConfigImpl(
-    private val pinImpl: PinStorageProvider,
-    private val biometryImpl: BiometryStorageProvider
-) : StorageConfig {
-    override val pinStorageProvider: PinStorageProvider
-        get() = pinImpl
-    override val biometryStorageProvider: BiometryStorageProvider
-        get() = biometryImpl
-}
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">StorageConfigImpl</span><span class="p">(</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">pinImpl</span><span class="p">:</span><span class="w"> </span><span class="n">PinStorageProvider</span><span class="p">,</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">biometryImpl</span><span class="p">:</span><span class="w"> </span><span class="n">BiometryStorageProvider</span>
+<span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">StorageConfig</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">pinStorageProvider</span><span class="p">:</span><span class="w"> </span><span class="n">PinStorageProvider</span>
+<span class="w">        </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pinImpl</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">biometryStorageProvider</span><span class="p">:</span><span class="w"> </span><span class="n">BiometryStorageProvider</span>
+<span class="w">        </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">biometryImpl</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>Config Construction via Koin DI Example:
-<div class="highlight"><pre><span></span><code>@Single
-fun provideStorageConfig(
-    prefsController: PrefsController
-): StorageConfig = StorageConfigImpl(
-    pinImpl = PrefsPinStorageProvider(prefsController),
-    biometryImpl = PrefsBiometryStorageProvider(prefsController)
-)
+<div class="highlight"><pre><span></span><code><span class="nd">@Single</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">provideStorageConfig</span><span class="p">(</span>
+<span class="w">    </span><span class="n">prefsController</span><span class="p">:</span><span class="w"> </span><span class="n">PrefsController</span>
+<span class="p">):</span><span class="w"> </span><span class="n">StorageConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StorageConfigImpl</span><span class="p">(</span>
+<span class="w">    </span><span class="n">pinImpl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PrefsPinStorageProvider</span><span class="p">(</span><span class="n">prefsController</span><span class="p">),</span>
+<span class="w">    </span><span class="n">biometryImpl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PrefsBiometryStorageProvider</span><span class="p">(</span><span class="n">prefsController</span><span class="p">)</span>
+<span class="p">)</span>
 </code></pre></div></p>
 <h2 id="analytics-configuration">Analytics configuration</h2>
 <p>The application allows the configuration of multiple analytics providers. You can configure the following:</p>
@@ -1120,44 +1123,44 @@ fun provideStorageConfig(
 <li>Event logging</li>
 </ol>
 <p>Via the <em>AnalyticsConfig</em> inside the analytics-logic module.</p>
-<div class="highlight"><pre><span></span><code>interface AnalyticsConfig {
-    val analyticsProviders: Map&lt;String, AnalyticsProvider&gt;
-        get() = emptyMap()
-}
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nc">AnalyticsConfig</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">analyticsProviders</span><span class="p">:</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">AnalyticsProvider</span><span class="o">&gt;</span>
+<span class="w">        </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emptyMap</span><span class="p">()</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>You can provide your implementation by implementing the <em>AnalyticsProvider</em> interface and then adding it to your <em>AnalyticsConfigImpl</em> analyticsProviders variable.
 You will also need the provider's token/key, thus requiring a Map<String, AnalyticsProvider> configuration.
 The project utilizes Koin for Dependency Injection (DI), thus requiring adjustment of the <em>LogicAnalyticsModule</em> graph to provide the configuration.</p>
 <p>Implementation Example:
-<div class="highlight"><pre><span></span><code>object AppCenterAnalyticsProvider : AnalyticsProvider {
-    override fun initialize(context: Application, key: String) {
-        AppCenter.start(
-            context,
-            key,
-            Analytics::class.java
-        )
-    }
+<div class="highlight"><pre><span></span><code><span class="kd">object</span><span class="w"> </span><span class="nc">AppCenterAnalyticsProvider</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">AnalyticsProvider</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="n">context</span><span class="p">:</span><span class="w"> </span><span class="n">Application</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">AppCenter</span><span class="p">.</span><span class="na">start</span><span class="p">(</span>
+<span class="w">            </span><span class="n">context</span><span class="p">,</span>
+<span class="w">            </span><span class="n">key</span><span class="p">,</span>
+<span class="w">            </span><span class="n">Analytics</span><span class="o">::</span><span class="n">class</span><span class="p">.</span><span class="na">java</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
 
-    override fun logScreen(name: String, arguments: Map&lt;String, String&gt;) {
-        logEvent(name, arguments)
-    }
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">logScreen</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">arguments</span><span class="p">:</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kt">String</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">logEvent</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">arguments</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
 
-    override fun logEvent(event: String, arguments: Map&lt;String, String&gt;) {
-        if (Analytics.isEnabled().get()) {
-            Analytics.trackEvent(event, arguments)
-        }
-    }
-}
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">logEvent</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">arguments</span><span class="p">:</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kt">String</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Analytics</span><span class="p">.</span><span class="na">isEnabled</span><span class="p">().</span><span class="na">get</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Analytics</span><span class="p">.</span><span class="na">trackEvent</span><span class="p">(</span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="n">arguments</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>Config Example:
-<div class="highlight"><pre><span></span><code>class AnalyticsConfigImpl : AnalyticsConfig {
-    override val analyticsProviders: Map&lt;String, AnalyticsProvider&gt;
-        get() = mapOf(&quot;YOUR_OWN_KEY&quot; to AppCenterAnalyticsProvider)
-}
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">AnalyticsConfigImpl</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">AnalyticsConfig</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">analyticsProviders</span><span class="p">:</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">AnalyticsProvider</span><span class="o">&gt;</span>
+<span class="w">        </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapOf</span><span class="p">(</span><span class="s">&quot;YOUR_OWN_KEY&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">AppCenterAnalyticsProvider</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>Config Construction via Koin DI Example:
-<div class="highlight"><pre><span></span><code>@Single
-fun provideAnalyticsConfig(): AnalyticsConfig = AnalyticsConfigImpl()
+<div class="highlight"><pre><span></span><code><span class="nd">@Single</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">provideAnalyticsConfig</span><span class="p">():</span><span class="w"> </span><span class="n">AnalyticsConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AnalyticsConfigImpl</span><span class="p">()</span>
 </code></pre></div></p>
 
 
