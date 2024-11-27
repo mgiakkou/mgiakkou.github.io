@@ -42,8 +42,6 @@
       
     
     
-      <link rel="stylesheet" href="../../css/extra.css">
-    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -633,6 +631,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ios-upload_tag_to_prod" class="md-nav__link">
+    <span class="md-ellipsis">
+      ios upload_tag_to_prod
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ios-upload_upstore" class="md-nav__link">
     <span class="md-ellipsis">
       ios upload_upstore
@@ -761,6 +768,10 @@
 <div class="highlight"><pre><span></span><code><span class="o">[</span>bundle<span class="w"> </span>exec<span class="o">]</span><span class="w"> </span>fastlane<span class="w"> </span>ios<span class="w"> </span>deploy
 </code></pre></div>
 <p>Build EUDI Wallet Demo version and upload it to AppCenter</p>
+<h3 id="ios-upload_tag_to_prod">ios upload_tag_to_prod</h3>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>bundle<span class="w"> </span>exec<span class="o">]</span><span class="w"> </span>fastlane<span class="w"> </span>ios<span class="w"> </span>upload_tag_to_prod
+</code></pre></div>
+<p>Upload tag to prod remote repo</p>
 <h3 id="ios-upload_upstore">ios upload_upstore</h3>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>bundle<span class="w"> </span>exec<span class="o">]</span><span class="w"> </span>fastlane<span class="w"> </span>ios<span class="w"> </span>upload_upstore
 </code></pre></div>
