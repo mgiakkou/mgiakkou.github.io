@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#v077" class="md-skip">
+        <a href="#v080" class="md-skip">
           Skip to content
         </a>
       
@@ -620,9 +620,75 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#v080" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.8.0
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.8.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#secure-area-refactoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secure area refactoring
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Secure area refactoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eudiwallet-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      EudiWallet changes:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v078" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.7.8
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#v077" class="md-nav__link">
     <span class="md-ellipsis">
       v0.7.7
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v076" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.7.6
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v075" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.7.5
     </span>
   </a>
   
@@ -1353,6 +1419,18 @@
 
   <h1>Changelog</h1>
 
+<h2 id="v080">v0.8.0</h2>
+<h3 id="secure-area-refactoring">Secure area refactoring</h3>
+<h4 id="eudiwallet-changes"><code>EudiWallet</code> changes:</h4>
+<ul>
+<li><code>init</code> added <code>secureAreas</code>: <code>[SecureArea]</code> optional parameter (default is <code>["SecureEnclave", "Software"]</code>)</li>
+<li><code>issueDocument</code>: added <code>keyOptions</code> optional parameter to specify the secure area name and other key options for the key creation</li>
+<li><code>issueDocumentsByOfferUrl</code>: added <code>docTypeKeyOptions</code> optional parameter to specify the secure area name and other key options for each doc type </li>
+</ul>
+<h2 id="v078">v0.7.8</h2>
+<ul>
+<li><code>RequestItems</code> conforms to <code>Equatable</code> protocol</li>
+</ul>
 <h2 id="v077">v0.7.7</h2>
 <ul>
 <li>Fix issue <a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-kit/issues/118">#118</a>
@@ -1364,6 +1442,11 @@
 <li>ElementViewModel: <code>public var isMandatory: Bool</code> is removed</li>
 <li>ElementViewModel: <code>public var isOptional: Bool</code> is added (opposite of <code>isMandatory</code>)</li>
 </ul>
+<h2 id="v076">v0.7.6</h2>
+<ul>
+<li>Refactored security to use SecureArea for cryptographic operations. The wallet developer can specify SecureArea instances which are registered by their name, otherwise the wallet-kit creates 'SecureEnclave' (default) and 'Software' secure areas.  The wallet developer can specify Key create options per doc-type such as curve type, secure area name, key unlock policy, key access control and key unlock data.</li>
+</ul>
+<h2 id="v075">v0.7.5</h2>
 <h2 id="v074">v0.7.4</h2>
 <ul>
 <li>Update Package.resolved and Package.swift with new versions for openid4vci, openid4vp</li>
@@ -1515,9 +1598,9 @@ e.g.    wallet.serviceName = "wallet_dev"</p>
 <h2 id="v052">v0.5.2</h2>
 <h3 id="support-pre-authorized-code-flow">Support Pre-Authorized Code Flow</h3>
 <p>The flow is supported by existing methods:</p>
-<p>1 - An issue offer url is scanned. The following method is called: <code>public func resolveOfferUrlDocTypes(uriOffer: String, format: DataFormat = .cbor, useSecureEnclave: Bool = true) async throws -&gt; OfferedIssueModel</code></p>
+<p>1 - An issue offer url is scanned. The following method is called: <code>public func resolveOfferUrlDocTypes(uriOffer: String, format: DataFormat = .cbor) async throws -&gt; OfferedIssueModel</code></p>
 <h3 id="breaking-change-the-return-value-type-is-offeredissuemodel-instead-of-offereddocmodel">(Breaking change, the return value type is <code>OfferedIssueModel</code> instead of <code>[OfferedDocModel]</code>)</h3>
-<p>2 - If <code>OfferedIssueModel.isTxCodeRequired</code> is true, the call to <code>issueDocumentsByOfferUrl</code> must include the transaction code (parameter <code>txCodeValue</code>). </p>
+<p>2 - If <code>OfferedIssueModel.isTxCodeRequired</code> is true, the call to <code>` must include the transaction code (parameter</code>txCodeValue`). </p>
 <ul>
 <li>Note: for the clientId value the <code>EudiWallet/openID4VciClientId</code> is used.</li>
 </ul>
@@ -1571,9 +1654,9 @@ Support mdoc Authentication for OpenId4Vp #46</p>
 <h2 id="v037">v0.3.7</h2>
 <h3 id="added-functions">Added functions:</h3>
 <p>/// Resolve OpenID4VCI offer URL document types. Resolved offer metadata are cached</p>
-<p><code>public func resolveOfferUrlDocTypes(uriOffer: String, format: DataFormat = .cbor, useSecureEnclave: Bool = true) async throws -&gt; [OfferedDocModel]</code></p>
+<p><code>public func resolveOfferUrlDocTypes(uriOffer: String, format: DataFormat = .cbor) async throws -&gt; [OfferedDocModel]</code></p>
 <p>/// Issue documents by offer URI.</p>
-<p><code>public func issueDocumentsByOfferUrl(offerUri: String, docTypes: [OfferedDocModel], format: DataFormat, promptMessage: String? = nil, useSecureEnclave: Bool = true, claimSet: ClaimSet? = nil) async throws -&gt; [WalletStorage.Document]</code></p>
+<p><code>public func issueDocumentsByOfferUrl(offerUri: String, docTypes: [OfferedDocModel], docTypeKeyOptions: [String: KeyOptions]? = nil, format: DataFormat, promptMessage: String? = nil, claimSet: ClaimSet? = nil) async throws -&gt; [WalletStorage.Document]</code></p>
 <h3 id="breaking-change">Breaking change:</h3>
 <p><code>// PresentationSession
  @Published public var deviceEngagement: String?</code>

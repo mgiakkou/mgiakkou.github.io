@@ -701,7 +701,7 @@ using this functionality, EudiWallet must be property initialized.
 If <code>EudiWallet/userAuthenticationRequired</code> is true, user authentication is required. The authentication prompt message has localisation key "issue_document".
 After issuing a document, the document data and corresponding private key are stored in the wallet storage.</p>
 <h3 id="issue-document-by-doctype">Issue document by docType</h3>
-<p>When the document docType to be issued use the <code>EudiWallet/issueDocument(docType:format:promptMessage:)</code> method.</p>
+<p>When the document docType to be issued use the <code>EudiWallet/issueDocument(docType:format:keyOptions:promptMessage:)</code> method.</p>
 <p><strong>Important Notes</strong>:</p>
 <ul>
 <li>Currently, only mso_mdoc format is supported</li>
@@ -713,7 +713,7 @@ After issuing a document, the document data and corresponding private key are st
 <span class="n">wallet</span><span class="p">.</span><span class="n">openID4VciClientId</span> <span class="p">=</span> <span class="s">&quot;wallet-dev&quot;</span>
 <span class="n">wallet</span><span class="p">.</span><span class="n">openID4VciRedirectUri</span> <span class="p">=</span> <span class="s">&quot;eudi-openid4ci://authorize/&quot;</span> 
 <span class="k">do</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nv">doc</span> <span class="p">=</span> <span class="k">try</span> <span class="k">await</span> <span class="n">userWallet</span><span class="p">.</span><span class="n">issueDocument</span><span class="p">(</span><span class="n">docType</span><span class="p">:</span> <span class="n">EuPidModel</span><span class="p">.</span><span class="n">euPidDocType</span><span class="p">,</span> <span class="n">format</span><span class="p">:</span> <span class="p">.</span><span class="n">cbor</span><span class="p">)</span>
+    <span class="kd">let</span> <span class="nv">doc</span> <span class="p">=</span> <span class="k">try</span> <span class="k">await</span> <span class="n">userWallet</span><span class="p">.:</span> <span class="n">EuPidModel</span><span class="p">.</span><span class="n">euPidDocType</span><span class="p">,</span> <span class="n">format</span><span class="p">:</span> <span class="p">.</span><span class="n">cbor</span><span class="p">)</span>
     <span class="c1">// document has been added to wallet storage, you can display it</span>
 <span class="p">}</span>
 <span class="k">catch</span> <span class="p">{</span>
@@ -721,7 +721,7 @@ After issuing a document, the document data and corresponding private key are st
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="resolving-credential-offer">Resolving Credential offer</h3>
-<p>The library provides the <code>EudiWallet/resolveOfferUrlDocTypes(uriOffer:format:useSecureEnclave:)</code>   method that resolves the credential offer URI.
+<p>The library provides the <code>EudiWallet/resolveOfferUrlDocTypes(uriOffer:format:)</code>   method that resolves the credential offer URI.
 The method returns the resolved <code>OfferedIssuanceModel</code> object that contains the offer's data (offered document types, issuer name and transaction code specification for pre-authorized flow). The offer's data can be displayed to the
 user.</p>
 <p>The following example shows how to resolve a credential offer:</p>
@@ -729,7 +729,7 @@ user.</p>
         <span class="k">return</span> <span class="k">try</span> <span class="k">await</span> <span class="n">wallet</span><span class="p">.</span><span class="n">resolveOfferUrlDocTypes</span><span class="p">(</span><span class="n">uriOffer</span><span class="p">:</span> <span class="n">uriOffer</span><span class="p">)</span>
     <span class="p">}</span>
 </code></pre></div>
-<p>After user acceptance of the offer, the selected documents can be issued using the <code>EudiWallet/issueDocumentsByOfferUrl(offerUri:docTypes:txCodeValue:format:promptMessage:useSecureEnclave:claimSet:)</code> method.
+<p>After user acceptance of the offer, the selected documents can be issued using the <code>EudiWallet/issueDocumentsByOfferUrl(offerUri:docTypes:docTypeKeyOptions:txCodeValue:format:promptMessage:claimSet:)</code> method.
 The <code>txCodeValue</code> parameter is not used in the case of the authorization code flow.</p>
 <p>The following example shows how to issue documents by offer URL:
 <div class="highlight"><pre><span></span><code> <span class="kd">let</span> <span class="nv">documents</span> <span class="p">=</span> <span class="k">try</span> <span class="k">await</span> <span class="n">walletController</span><span class="p">.</span><span class="n">issueDocumentsByOfferUrl</span><span class="p">(</span><span class="n">offerUri</span><span class="p">:</span> <span class="n">uri</span><span class="p">,</span>  <span class="n">docTypes</span><span class="p">:</span> <span class="n">docOffers</span><span class="p">,</span> <span class="n">format</span><span class="p">:</span> <span class="p">.</span><span class="n">cbor</span><span class="p">,</span> <span class="n">txCodeValue</span><span class="p">:</span> <span class="n">txCodeValue</span> <span class="p">)</span>
@@ -750,7 +750,7 @@ information. Specifically, the <code>txCodeSpec</code> field in the <code>Offere
 When the transaction code is provided, the issuance process can be resumed by calling the above-mentioned method and passing the transaction code in the <code>txCodeValue</code> parameter.</p>
 <h3 id="dynamic-issuance">Dynamic issuance</h3>
 <p>Wallet kit supports the Dynamic <a href="https://github.com/eu-digital-identity-wallet/eudi-wallet-product-roadmap/issues/82">PID based issuance</a></p>
-<p>After calling <code>EudiWallet/issueDocument(docType:format:promptMessage:)</code> or <code>EudiWallet/issueDocumentsByOfferUrl(offerUri:docTypes:txCodeValue:format:promptMessage:useSecureEnclave:claimSet:)</code> the wallet application need to check if the doc is pending and has a <code>authorizePresentationUrl</code> property. If the property is present, the application should perform the OpenID4VP presentation using the presentation URL. On success, the <code>EudiWallet/resumePendingIssuance(pendingDoc:webUrl:)</code> method should be called with the authorization URL provided by the server.
+<p>After calling <code>EudiWallet/issueDocument(docType:format:keyOptions: KeyOptions:promptMessage:)</code> or <code>EudiWallet/issueDocumentsByOfferUrl(offerUri:docTypes:txCodeValue:format:promptMessage:claimSet:)</code> the wallet application need to check if the doc is pending and has a <code>authorizePresentationUrl</code> property. If the property is present, the application should perform the OpenID4VP presentation using the presentation URL. On success, the <code>EudiWallet/resumePendingIssuance(pendingDoc:webUrl:)</code> method should be called with the authorization URL provided by the server.
 <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="kd">let</span> <span class="nv">urlString</span> <span class="p">=</span> <span class="n">newDocs</span><span class="p">.</span><span class="bp">last</span><span class="p">?.</span><span class="n">authorizePresentationUrl</span> <span class="p">{</span> 
     <span class="c1">// perform openid4vp presentation using the urlString </span>
     <span class="c1">// on success call resumePendingIssuance using the authorization url  </span>

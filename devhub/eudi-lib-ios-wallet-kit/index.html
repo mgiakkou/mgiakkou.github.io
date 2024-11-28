@@ -1049,16 +1049,9 @@ and can be included in any iOS project.</p>
 <p>Detailed documentation is provided in the DocC documentation <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-wallet-kit/documentation/eudiwalletkit/">here</a></p>
 <h2 id="initialization">Initialization</h2>
 <p>The <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-wallet-kit/documentation/eudiwalletkit/eudiwallet">EudiWallet</a> class provides a unified API for the two user attestation presentation flows. It is initialized with a document storage manager instance. For SwiftUI apps, the wallet instance can be added as an <code>environmentObject</code> to be accessible from all views. A KeyChain implementation of document storage is available.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">wallet</span> <span class="p">=</span> <span class="n">EudiWallet</span><span class="p">.</span><span class="n">standard</span>
-<span class="n">wallet</span><span class="p">.</span><span class="n">userAuthenticationRequired</span> <span class="p">=</span> <span class="kc">true</span>
-<span class="n">wallet</span><span class="p">.</span><span class="n">trustedReaderCertificates</span> <span class="p">=</span> <span class="p">[...]</span> <span class="c1">// array of der certificate data</span>
-<span class="n">wallet</span><span class="p">.</span><span class="n">openId4VpVerifierApiUri</span> <span class="p">=</span> <span class="s">&quot;https:// ... verifier api uri ...&quot;</span>
-<span class="n">wallet</span><span class="p">.</span><span class="n">verifierApiUri</span> <span class="p">=</span> <span class="n">configLogic</span><span class="p">.</span><span class="n">verifierConfig</span><span class="p">.</span><span class="n">apiUri</span>
-<span class="n">wallet</span><span class="p">.</span><span class="n">verifierLegalName</span> <span class="p">=</span> <span class="n">configLogic</span><span class="p">.</span><span class="n">verifierConfig</span><span class="p">.</span><span class="n">legalName</span>
-<span class="n">wallet</span><span class="p">.</span><span class="n">openID4VciIssuerUrl</span> <span class="p">=</span> <span class="n">configLogic</span><span class="p">.</span><span class="n">vciConfig</span><span class="p">.</span><span class="n">issuerUrl</span>
-<span class="n">wallet</span><span class="p">.</span><span class="n">openID4VciClientId</span> <span class="p">=</span> <span class="n">configLogic</span><span class="p">.</span><span class="n">vciConfig</span><span class="p">.</span><span class="n">clientId</span>
-<span class="n">wallet</span><span class="p">.</span><span class="n">openID4VciRedirectUri</span> <span class="p">=</span> <span class="n">configLogic</span><span class="p">.</span><span class="n">vciConfig</span><span class="p">.</span><span class="n">redirectUri</span>
-<span class="n">wallet</span><span class="p">.</span><span class="n">loadAllDocuments</span><span class="p">()</span>
+<p>The wallet developer can customize cryptographic key operations by passing <code>SecureArea</code> instances to the wallet, otherwise the wallet-kit creates 'SecureEnclave' (default) and 'Software' secure areas. The wallet developer can specify key create options per doc-type such as curve type, secure area name, and key unlock policy.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">wallet</span> <span class="p">=</span> <span class="k">try</span><span class="p">!</span> <span class="n">EudiWallet</span><span class="p">(</span><span class="n">serviceName</span><span class="p">:</span> <span class="s">&quot;my_wallet_app&quot;</span><span class="p">,</span>
+   <span class="n">trustedReaderCertificates</span><span class="p">:</span> <span class="p">[</span><span class="n">Data</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;eudi_pid_issuer_ut&quot;</span><span class="p">,</span> <span class="n">ext</span><span class="p">:</span> <span class="s">&quot;der&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">]</span> <span class="p">)</span>
 </code></pre></div>
 <h2 id="manage-documents">Manage documents</h2>
 <p>The <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-wallet-kit/documentation/eudiwalletkit/eudiwallet">EudiWallet</a> class provides a set of methods to work with documents.</p>
@@ -1113,19 +1106,13 @@ using this functionality, EudiWallet must be property initialized.
 If <code>userAuthenticationRequired</code> is true, user authentication is required. The authentication prompt message has localisation key "issue_document".
 After issuing a document, the document data and corresponding private key are stored in the wallet storage.</p>
 <h3 id="issue-document-by-doctype">Issue document by docType</h3>
-<p>When the document docType to be issued use the <code>issueDocument(docType:format:)</code> method.</p>
-<p><strong>Important Notes</strong>:</p>
+<p>When the document docType to be issued use the <code>issueDocument(docType:format:keyOptions:)</code> method.</p>
 <ul>
 <li>Currently, only mso_mdoc format is supported</li>
-<li>Currently, only ES256 algorithm is supported for signing OpenId4CVI proof of possession of the
-  publicKey.</li>
 </ul>
 <p>The following example shows how to issue an EUDI Personal ID document using OpenID4VCI:</p>
-<div class="highlight"><pre><span></span><code><span class="n">wallet</span><span class="p">.</span><span class="n">openID4VciIssuerUrl</span> <span class="p">=</span> <span class="s">&quot;https://eudi.netcompany-intrasoft.com/pid-issuer&quot;</span> 
-<span class="n">wallet</span><span class="p">.</span><span class="n">openID4VciClientId</span> <span class="p">=</span> <span class="s">&quot;wallet-dev&quot;</span>
-<span class="n">wallet</span><span class="p">.</span><span class="n">openID4VciRedirectUri</span> <span class="p">=</span> <span class="s">&quot;eudi-openid4ci://authorize/&quot;</span> 
-<span class="k">do</span> <span class="p">{</span>
-  <span class="kd">let</span> <span class="nv">doc</span> <span class="p">=</span> <span class="k">try</span> <span class="k">await</span> <span class="n">userWallet</span><span class="p">.</span><span class="n">issueDocument</span><span class="p">(</span><span class="n">docType</span><span class="p">:</span> <span class="n">EuPidModel</span><span class="p">.</span><span class="n">euPidDocType</span><span class="p">,</span> <span class="n">format</span><span class="p">:</span> <span class="p">.</span><span class="n">cbor</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">do</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nv">doc</span> <span class="p">=</span> <span class="k">try</span> <span class="k">await</span> <span class="n">userWallet</span><span class="p">.</span><span class="n">issueDocument</span><span class="p">(</span><span class="n">docType</span><span class="p">:</span> <span class="n">EuPidModel</span><span class="p">.</span><span class="n">euPidDocType</span><span class="p">,</span> <span class="n">format</span><span class="p">:</span> <span class="p">.</span><span class="n">cbor</span><span class="p">,</span> <span class="n">keyOptions</span><span class="p">:</span> <span class="n">KeyOptions</span><span class="p">(</span><span class="n">secureAreaName</span><span class="p">:</span> <span class="s">&quot;SecureEnclave&quot;</span><span class="p">,</span> <span class="n">accessControl</span><span class="p">:</span> <span class="p">[.</span><span class="n">requireUserPresence</span><span class="p">])])</span>
   <span class="c1">// document has been added to wallet storage, you can display it</span>
 <span class="p">}</span>
 <span class="k">catch</span> <span class="p">{</span>
@@ -1141,10 +1128,11 @@ user.</p>
     <span class="k">return</span> <span class="k">try</span> <span class="k">await</span> <span class="n">wallet</span><span class="p">.</span><span class="n">resolveOfferUrlDocTypes</span><span class="p">(</span><span class="n">uriOffer</span><span class="p">:</span> <span class="n">uriOffer</span><span class="p">)</span>
   <span class="p">}</span>
 </code></pre></div>
-<p>After user acceptance of the offer, the selected documents can be issued using the <code>issueDocumentsByOfferUrl(offerUri:docTypes:txCodeValue:format:)</code> method.
+<p>After user acceptance of the offer, the selected documents can be issued using the <code>issueDocumentsByOfferUrl(offerUri:docTypes:docTypeKeyOptions:txCodeValue:format:)</code> method.
 The <code>txCodeValue</code> parameter is not used in the case of the authorization code flow.
 The following example shows how to issue documents by offer URL:
-<div class="highlight"><pre><span></span><code> <span class="kd">let</span> <span class="nv">documents</span> <span class="p">=</span> <span class="k">try</span> <span class="k">await</span> <span class="n">walletController</span><span class="p">.</span><span class="n">issueDocumentsByOfferUrl</span><span class="p">(</span><span class="n">offerUri</span><span class="p">:</span> <span class="n">uri</span><span class="p">,</span>  <span class="n">docTypes</span><span class="p">:</span> <span class="n">docOffers</span><span class="p">,</span> <span class="n">format</span><span class="p">:</span> <span class="p">.</span><span class="n">cbor</span><span class="p">,</span> <span class="n">txCodeValue</span><span class="p">:</span> <span class="n">txCodeValue</span> <span class="p">)</span>
+<div class="highlight"><pre><span></span><code> <span class="kd">let</span> <span class="nv">documents</span> <span class="p">=</span> <span class="k">try</span> <span class="k">await</span> <span class="n">walletController</span><span class="p">.</span><span class="n">issueDocumentsByOfferUrl</span><span class="p">(</span><span class="n">offerUri</span><span class="p">:</span> <span class="n">uri</span><span class="p">,</span>  <span class="n">docTypes</span><span class="p">:</span> <span class="n">docOffers</span><span class="p">,</span>
+   <span class="n">docTypeKeyOptions</span><span class="p">:</span> <span class="p">[</span><span class="n">EuPidModel</span><span class="p">.</span><span class="n">euPidDocType</span> <span class="p">:</span> <span class="n">KeyOptions</span><span class="p">(</span><span class="n">secureAreaName</span><span class="p">:</span> <span class="s">&quot;SecureEnclave&quot;</span><span class="p">,</span> <span class="n">accessControl</span><span class="p">:</span> <span class="p">[.</span><span class="n">requireUserPresence</span><span class="p">])],</span> <span class="n">format</span><span class="p">:</span> <span class="p">.</span><span class="n">cbor</span><span class="p">,</span> <span class="n">txCodeValue</span><span class="p">:</span> <span class="n">txCodeValue</span> <span class="p">)</span>
 </code></pre></div></p>
 <h3 id="authorization-code-flow">Authorization code flow</h3>
 <p>For the authorization code flow to work, the redirect URI must be specified specified by setting the the <code>openID4VciRedirectUri</code> property.
@@ -1158,11 +1146,11 @@ information. Specifically, the <code>txCodeSpec</code> field in the <code>Offere
 <li>The description of the input</li>
 </ul>
 <p>From the user's perspective, the application must provide a way to input the transaction code.</p>
-<p>After user acceptance of the offer, the selected documents can be issued using the <code>issueDocumentsByOfferUrl(offerUri:docTypes:txCodeValue:format:)</code> method.
+<p>After user acceptance of the offer, the selected documents can be issued using the <code>issueDocumentsByOfferUrl(offerUri:docTypes:docTypeKeyOptions:txCodeValue:format:)</code> method.
 When the transaction code is provided, the issuance process can be resumed by calling the above-mentioned method and passing the transaction code in the <code>txCodeValue</code> parameter.</p>
 <h3 id="dynamic-issuance">Dynamic issuance</h3>
 <p>Wallet kit supports the Dynamic <a href="https://github.com/eu-digital-identity-wallet/eudi-wallet-product-roadmap/issues/82">PID based issuance</a></p>
-<p>After calling <code>issueDocument(docType:format:)</code> or <code>issueDocumentsByOfferUrl(offerUri:docTypes:txCodeValue:format:)</code> the wallet application need to check if the doc is pending and has a <code>authorizePresentationUrl</code> property. If the property is present, the application should perform the OpenID4VP presentation using the presentation URL. On success, the <code>resumePendingIssuance(pendingDoc:, webUrl:)</code> method should be called with the authorization URL provided by the server.
+<p>After calling <code>issueDocument(docType:format:keyOptions: KeyOptions:)</code> or <code>issueDocumentsByOfferUrl(offerUri:docTypes:docTypeKeyOptions:txCodeValue:format:)</code> the wallet application need to check if the doc is pending and has a <code>authorizePresentationUrl</code> property. If the property is present, the application should perform the OpenID4VP presentation using the presentation URL. On success, the <code>resumePendingIssuance(pendingDoc:, webUrl:)</code> method should be called with the authorization URL provided by the server.
 <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="kd">let</span> <span class="nv">urlString</span> <span class="p">=</span> <span class="n">newDocs</span><span class="p">.</span><span class="bp">last</span><span class="p">?.</span><span class="n">authorizePresentationUrl</span> <span class="p">{</span> 
     <span class="c1">// perform openid4vp presentation using the urlString </span>
     <span class="c1">// on success call resumePendingIssuance using the authorization url  </span>

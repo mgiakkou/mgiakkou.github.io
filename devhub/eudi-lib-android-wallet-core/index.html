@@ -1218,7 +1218,7 @@ that can be used by the application to implement the EUDI Wallet functionality.<
     D[eudi-lib-jvm-openid4vci-kt] --&gt;|OpenId4VciManager| A
     E[eudi-lib-jvm-siop-openid4vp-kt] --&gt;|OpenId4VpManager| A
     F[com.android.identity] --&gt;|SecureArea,StorageEngine| B
-    H[eudi-lib-jvm-presentation-exchange] --&gt; E 
+    H[eudi-lib-jvm-presentation-exchange] --&gt; E
     G[identity-credential-android] --&gt; A
     B --&gt;|DocumentManager| C
     F --&gt;|SecureArea,StorageEngine| A
@@ -1407,6 +1407,8 @@ StorageEngine, SecureArea, ReaderTrustStore, and Logger:</p>
 <span class="w">    </span><span class="n">withLogger</span><span class="p">(</span><span class="n">myLogger</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
+<p>See the <a href="CustomizeSecureArea/">CustomizeSecureArea.md</a> for more information on how to use the
+wallet-core library with custom SecureArea implementations.</p>
 <h3 id="manage-documents">Manage documents</h3>
 <p>The library provides a set of methods to work with documents.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">documents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wallet</span><span class="p">.</span><span class="na">getDocuments</span><span class="p">()</span>
@@ -1612,6 +1614,10 @@ class by calling the <code>EudiWallet.createOpenId4VciManager</code> method.</p>
 <li>Currently, only mso_mdoc format is supported</li>
 <li>Currently, only the ES256 algorithm is supported for signing OpenId4CVI proof of possession of the
   publicKey.</li>
+<li>See
+  the <a href="CustomizeSecureArea/#how-to-use-custom-key-management-with-openid4vci">CustomizeSecureArea.md</a>
+  for more information on how to use the wallet-core library and OpenId4VCI with custom SecureArea
+  implementations.</li>
 </ul>
 <p>The following example shows how to issue a document using OpenID4VCI:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">onIssueEvent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OnIssueEvent</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="o">-&gt;</span>
@@ -2179,6 +2185,10 @@ method.</p>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+<p>See also,
+the <a href="CustomizeSecureArea/#how-to-use-custom-key-management-with-presentation">CustomizeSecureArea.md</a>
+for more information on how to use the wallet-core library for presentation with custom SecureArea
+implementations.</p>
 <h2 id="how-to-contribute">How to contribute</h2>
 <p>We welcome contributions to this project. To ensure that the process is smooth for everyone
 involved, follow the guidelines found in <a href="CONTRIBUTING/">CONTRIBUTING.md</a>.</p>
