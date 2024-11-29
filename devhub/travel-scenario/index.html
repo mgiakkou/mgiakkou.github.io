@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="../use-cases/">
-      
-      
-        <link rel="next" href="../intro-howtos/">
       
       
       <link rel="icon" href="../assets/normal-reproduction-low-resolution.jpg">
@@ -20,7 +16,7 @@
     
     
       
-        <title>Travel Scenario - DEVELOPERS HUB</title>
+        <title>Travel scenario - DEVELOPERS HUB</title>
       
     
     
@@ -46,6 +42,8 @@
       
     
     
+      <link rel="stylesheet" href="../css/extra.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -63,7 +61,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="primary" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -72,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#travel-scenario" class="md-skip">
+        <a href="#user-journey" class="md-skip">
           Skip to content
         </a>
       
@@ -107,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Travel Scenario
+              Travel scenario
             
           </span>
         </div>
@@ -120,15 +118,9 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="primary" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
     
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
-    
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
       </label>
     
@@ -136,9 +128,9 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_3" hidden>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
@@ -146,7 +138,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_3">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
@@ -228,12 +220,10 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../intro-specs/" class="md-tabs__link">
           
   
@@ -383,93 +373,6 @@
       
   
   
-    
-  
-  
-  
-    
-    
-    
-      
-        
-        
-      
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
-            
-  
-  <span class="md-ellipsis">
-    Specifications
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            Specifications
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../intro-specs/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Introduction
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../arf-intro/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Architecture Reference Framework
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
   
   
     
@@ -489,11 +392,11 @@
         
   
   
-    <a href="../roadmap-of-development-of-ri/" class="md-nav__link">
+    <a href="../intro-specs/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
-    Reference Implementation
+    Specifications
   </span>
   
 
@@ -503,164 +406,6 @@
     </a>
   
 
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Use cases
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2_4">
-            <span class="md-nav__icon md-icon"></span>
-            Use cases
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../use-cases/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Introduction
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Travel Scenario
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    Travel Scenario
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#user-journey" class="md-nav__link">
-    <span class="md-ellipsis">
-      User journey
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#test-online-or-run-locally" class="md-nav__link">
-    <span class="md-ellipsis">
-      Test online or run locally
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
     </li>
   
@@ -809,8 +554,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -822,15 +565,6 @@
   <a href="#user-journey" class="md-nav__link">
     <span class="md-ellipsis">
       User journey
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#test-online-or-run-locally" class="md-nav__link">
-    <span class="md-ellipsis">
-      Test online or run locally
     </span>
   </a>
   
@@ -851,18 +585,55 @@
                   
 
 
-<h1 id="travel-scenario">Travel Scenario</h1>
-<p>This use case implementation showcases the utilization of the EUDI Wallet in a ‘Travel’ business scenario, where the EUDI Wallet is used for several purposes, such as presenting attestations (remotely and in proximity) as well as digitally signing documents.</p>
-<h2 id="user-journey">User journey</h2>
-<p><strong>1. Jane is preparing for her next trip with the help of her EUDI Wallet.</strong>
-Jane starts by securing her essential travel documents. She issues her Digital Identity, Mobile Driving License, and Photo-ID directly into her EUDI Wallet. Each document is safely stored, ready to be accessed whenever she needs them.</p>
-<p>*<em>2. Booking: *</em>With her documents in place, Jane navigates to the travel booking portal. Here, she effortlessly presents her Digital ID and other necessary documents requested by the booking portal from her EUDI Wallet to book her car rental and hotel.</p>
-<p>*<em>3. Renting a car: *</em>When it comes to renting a car, Jane is redirected to a remote signing portal to conclude the rental process. Using her EUDI Wallet, she digitally signs the car rental contract, finalizing her arrangements with security and ease.</p>
-<p>*<em>4. Hotel check-in: *</em>Upon arrival at her hotel, Jane approaches the check-in counter. She presents her Digital ID and Photo-ID from her EUDI Wallet to the hotel’s proximity reader. The process is quick and secure, allowing her to start relaxing in her room in no time.</p>
-<h2 id="test-online-or-run-locally">Test online or run locally</h2>
-<p>The booking service used in the scenario can be found online: <a href="https://dev.booking.demo.eudiw.dev/">https://dev.booking.demo.eudiw.dev</a></p>
-<p>You can also run the booking service locally. <a href="https://github.com/eu-digital-identity-wallet/eudi-web-booking-service-demo">More information in Github</a>.</p>
-<p>You can use the <a href="../test-suite-wallet/">ready-made test Wallet</a> for the scenario. </p>
+  <h1>Travel scenario</h1>
+
+<h3 id="user-journey">User journey</h3>
+<ol>
+<li>
+<p><strong>User is preparing for a trip with the help of her EUDI Wallet.</strong></p>
+<ol>
+<li>User issues the necessary identification documents, i.e. Digital Identity, Mobile Driving License and Photo-ID</li>
+<li>User navigates to the issuance service and follows the process to complete the issuance of the needed documents</li>
+<li>Identification documents are successfully issued to the EUDI Wallet</li>
+</ol>
+</li>
+<li>
+<p><strong>User makes a reservation</strong></p>
+<ol>
+<li>User navigates to the booking service</li>
+<li>User fills in the required data for the booking reservation:<ol>
+<li>Number of Guests</li>
+<li>Number of Rooms</li>
+<li>Check In/Out dates</li>
+<li>Option to include ‘car rental’ in the reservation</li>
+</ol>
+</li>
+<li>User is requested to present the required attestations from the EUDI Wallet (note: depending on the scenario, the user scans the rendered QR-code or selects the deep-link in cross-device or same-device flows respectively)</li>
+<li>User receives the presentation request from the booking service and consents to the presentation of the requested attestations</li>
+</ol>
+</li>
+<li><strong>User reviews reservation details</strong><ol>
+<li>User can view a summary of the reservation details, based on the previously added data as well as the attestations shared from the EUDI Wallet</li>
+<li>User selects to add the reservation confirmation to the EUDI Wallet<ol>
+<li>User scans the rendered QR-code</li>
+<li>Following the issuance process in the EUDI Wallet, the ‘reservation confirmation’ is added to the EUDI Wallet</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><strong>User selects to sign the ‘car rental contract’</strong><ol>
+<li>User downloads a template car rental contract from the corresponding link</li>
+<li>User selects to sign the car rental contract and is navigated to the external trust service, which prompts the user to remotely sign the uploaded car rental contract</li>
+</ol>
+</li>
+<li><strong>User checks-in at the hotel:</strong><ol>
+<li>User approaches the reader at the hotel check-in (note: the available proximity verifier can be utilized to mock the ‘reader’ service at a hotel)</li>
+<li>User presents the QR-code from the EUDI Wallet, which is scanned from the proximity verifier</li>
+<li>User receives the presentation request for the ‘Photo-ID’ and the ‘Reservation’ attestations</li>
+<li>User consents to present the attestations, which are successfully received by the proximity verifier</li>
+</ol>
+</li>
+</ol>
 
 
 
@@ -893,44 +664,6 @@ Jane starts by securing her essential travel documents. She issues her Digital I
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-          
-          <a href="../use-cases/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                Introduction
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../intro-howtos/" class="md-footer__link md-footer__link--next" aria-label="Next: Introduction">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Introduction
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">
