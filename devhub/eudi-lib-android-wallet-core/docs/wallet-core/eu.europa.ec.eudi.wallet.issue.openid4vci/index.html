@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#package-level-declarations" class="md-skip">
+        <a href="#index-of-eudi-lib-android-wallet-coredocswallet-coreeueuropaeceudiwalletissueopenid4vci" class="md-skip">
           Skip to content
         </a>
       
@@ -557,23 +557,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#types" class="md-nav__link">
-    <span class="md-ellipsis">
-      Types
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -590,63 +573,21 @@
   
 
 
-<p>//<a href="../../">wallet-core</a>/<a href="./">eu.europa.ec.eudi.wallet.issue.openid4vci</a></p>
-<h1 id="package-level-declarations">Package-level declarations</h1>
-<h2 id="types">Types</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="-access-token-t-o/">AccessTokenTO</a></td>
-<td>[androidJvm]<br>@Serializable<br>data class <a href="-access-token-t-o/">AccessTokenTO</a>(val type: <a href="-access-token-type-t-o/">AccessTokenTypeTO</a>, val accessToken: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>, val expiresIn: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a>? = null)</td>
-</tr>
-<tr>
-<td><a href="-access-token-type-t-o/">AccessTokenTypeTO</a></td>
-<td>[androidJvm]<br>@Serializable<br>enum <a href="-access-token-type-t-o/">AccessTokenTypeTO</a> : <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-enum/index.html">Enum</a>&lt;<a href="-access-token-type-t-o/">AccessTokenTypeTO</a>&gt;</td>
-</tr>
-<tr>
-<td><a href="-create-document-settings-provider/">CreateDocumentSettingsProvider</a></td>
-<td>[androidJvm]<br>fun interface <a href="-create-document-settings-provider/">CreateDocumentSettingsProvider</a><br>The CreateKeySettingsFactory interface is the main entry point to create a new instance of CreateKeySettings required when creating a new com.android.identity.document.Document</td>
-</tr>
-<tr>
-<td><a href="-deferred-issuance-stored-context-t-o/">DeferredIssuanceStoredContextTO</a></td>
-<td>[androidJvm]<br>@Serializable<br>data class <a href="-deferred-issuance-stored-context-t-o/">DeferredIssuanceStoredContextTO</a>(val credentialIssuerId: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>, val clientId: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>, val clientAttestationJwt: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>? = null, val clientAttestationPopDuration: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a>? = null, val clientAttestationPopAlgorithm: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>? = null, val clientAttestationPopType: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>? = null, val clientAttestationPopKeyId: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>? = null, val deferredEndpoint: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>, val authServerId: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>, val tokenEndpoint: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>, val dPoPSignerKid: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>? = null, val responseEncryptionSpec: JsonObject? = null, val transactionId: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>, val accessToken: <a href="-access-token-t-o/">AccessTokenTO</a>, val refreshToken: <a href="-refresh-token-t-o/">RefreshTokenTO</a>? = null, val authorizationTimestamp: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a>)</td>
-</tr>
-<tr>
-<td><a href="-deferred-issue-result/">DeferredIssueResult</a></td>
-<td>[androidJvm]<br>sealed interface <a href="-deferred-issue-result/">DeferredIssueResult</a> : <a href="-open-id4-vci-result/">OpenId4VciResult</a><br>Result of a deferred document issuance.</td>
-</tr>
-<tr>
-<td><a href="-issue-event/">IssueEvent</a></td>
-<td>[androidJvm]<br>sealed interface <a href="-issue-event/">IssueEvent</a> : <a href="-open-id4-vci-result/">OpenId4VciResult</a><br>Events related to document issuance.</td>
-</tr>
-<tr>
-<td><a href="-offer/">Offer</a></td>
-<td>[androidJvm]<br>interface <a href="-offer/">Offer</a><br>An offer of credentials to be issued.</td>
-</tr>
-<tr>
-<td><a href="-offer-result/">OfferResult</a></td>
-<td>[androidJvm]<br>sealed interface <a href="-offer-result/">OfferResult</a> : <a href="-open-id4-vci-result/">OpenId4VciResult</a><br>The result of an offer operation.</td>
-</tr>
-<tr>
-<td><a href="-open-id4-vci-manager/">OpenId4VciManager</a></td>
-<td>[androidJvm]<br>interface <a href="-open-id4-vci-manager/">OpenId4VciManager</a><br>OpenId4VciManager is the main entry point to issue documents using the OpenId4Vci protocol It provides methods to issue documents using a document type or an offer, and to resolve an offer</td>
-</tr>
-<tr>
-<td><a href="-open-id4-vci-result/">OpenId4VciResult</a></td>
-<td>[androidJvm]<br>interface <a href="-open-id4-vci-result/">OpenId4VciResult</a></td>
-</tr>
-<tr>
-<td><a href="-refresh-token-t-o/">RefreshTokenTO</a></td>
-<td>[androidJvm]<br>@Serializable<br>data class <a href="-refresh-token-t-o/">RefreshTokenTO</a>(val refreshToken: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>, val expiresIn: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a>? = null)</td>
-</tr>
-</tbody>
-</table>
+<p><a href="/">Home</a> / <a href="/eudi-lib-android-wallet-core/">eudi-lib-android-wallet-core</a> / <a href="/eudi-lib-android-wallet-core/docs/">docs</a> / <a href="/eudi-lib-android-wallet-core/docs/wallet-core/">wallet-core</a> / eu.europa.ec.eudi.wallet.issue.openid4vci</p>
+<h1 id="index-of-eudi-lib-android-wallet-coredocswallet-coreeueuropaeceudiwalletissueopenid4vci">Index of eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.issue.openid4vci</h1>
+<ul>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.issue.openid4vci/-access-token-t-o/">-access-token-t-o</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.issue.openid4vci/-access-token-type-t-o/">-access-token-type-t-o</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.issue.openid4vci/-create-document-settings-provider/">-create-document-settings-provider</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.issue.openid4vci/-deferred-issuance-stored-context-t-o/">-deferred-issuance-stored-context-t-o</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.issue.openid4vci/-deferred-issue-result/">-deferred-issue-result</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.issue.openid4vci/-issue-event/">-issue-event</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.issue.openid4vci/-offer/">-offer</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.issue.openid4vci/-offer-result/">-offer-result</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.issue.openid4vci/-open-id4-vci-manager/">-open-id4-vci-manager</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.issue.openid4vci/-open-id4-vci-result/">-open-id4-vci-result</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.issue.openid4vci/-refresh-token-t-o/">-refresh-token-t-o</a></li>
+</ul>
 
 
 
@@ -736,7 +677,7 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer", "navigation.instant"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.83f73b43.min.js"></script>

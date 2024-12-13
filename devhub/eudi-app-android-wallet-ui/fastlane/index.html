@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fastlane-documentation" class="md-skip">
+        <a href="#index-of-eudi-app-android-wallet-uifastlane" class="md-skip">
           Skip to content
         </a>
       
@@ -554,161 +554,8 @@
   
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#fastlane-documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      fastlane documentation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#available-actions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Available Actions
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Available Actions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#android" class="md-nav__link">
-    <span class="md-ellipsis">
-      Android
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Android">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#android-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      android tests
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#android-deploy" class="md-nav__link">
-    <span class="md-ellipsis">
-      android deploy
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#android-upload_tag" class="md-nav__link">
-    <span class="md-ellipsis">
-      android upload_tag
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#android-upload_to_appcenter" class="md-nav__link">
-    <span class="md-ellipsis">
-      android upload_to_appcenter
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#android-latest_appcenter_release" class="md-nav__link">
-    <span class="md-ellipsis">
-      android latest_appcenter_release
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#android-build_number" class="md-nav__link">
-    <span class="md-ellipsis">
-      android build_number
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#android-tag_name" class="md-nav__link">
-    <span class="md-ellipsis">
-      android tag_name
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#android-full_version" class="md-nav__link">
-    <span class="md-ellipsis">
-      android full_version
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#android-reset_versioncode" class="md-nav__link">
-    <span class="md-ellipsis">
-      android reset_versioncode
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#android-reset_versionname" class="md-nav__link">
-    <span class="md-ellipsis">
-      android reset_versionName
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#android-set_version" class="md-nav__link">
-    <span class="md-ellipsis">
-      android set_version
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -726,62 +573,11 @@
   
 
 
-<h2 id="fastlane-documentation">fastlane documentation</h2>
-<h1 id="installation">Installation</h1>
-<p>Make sure you have the latest version of the Xcode command line tools installed:</p>
-<div class="highlight"><pre><span></span><code>xcode-select<span class="w"> </span>--install
-</code></pre></div>
-<p>For <em>fastlane</em> installation instructions, see <a href="https://docs.fastlane.tools/#installing-fastlane">Installing <em>fastlane</em></a></p>
-<h1 id="available-actions">Available Actions</h1>
-<h2 id="android">Android</h2>
-<h3 id="android-tests">android tests</h3>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>bundle<span class="w"> </span>exec<span class="o">]</span><span class="w"> </span>fastlane<span class="w"> </span>android<span class="w"> </span>tests
-</code></pre></div>
-<p>Runs all the unit tests</p>
-<h3 id="android-deploy">android deploy</h3>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>bundle<span class="w"> </span>exec<span class="o">]</span><span class="w"> </span>fastlane<span class="w"> </span>android<span class="w"> </span>deploy
-</code></pre></div>
-<p>Build Wallet and upload it to appcenter</p>
-<h3 id="android-upload_tag">android upload_tag</h3>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>bundle<span class="w"> </span>exec<span class="o">]</span><span class="w"> </span>fastlane<span class="w"> </span>android<span class="w"> </span>upload_tag
-</code></pre></div>
-<p>Upload tag to remote repo</p>
-<h3 id="android-upload_to_appcenter">android upload_to_appcenter</h3>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>bundle<span class="w"> </span>exec<span class="o">]</span><span class="w"> </span>fastlane<span class="w"> </span>android<span class="w"> </span>upload_to_appcenter
-</code></pre></div>
-<p>Upload to AppCenter</p>
-<h3 id="android-latest_appcenter_release">android latest_appcenter_release</h3>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>bundle<span class="w"> </span>exec<span class="o">]</span><span class="w"> </span>fastlane<span class="w"> </span>android<span class="w"> </span>latest_appcenter_release
-</code></pre></div>
-<p>Get Release version From AppCenter</p>
-<h3 id="android-build_number">android build_number</h3>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>bundle<span class="w"> </span>exec<span class="o">]</span><span class="w"> </span>fastlane<span class="w"> </span>android<span class="w"> </span>build_number
-</code></pre></div>
-<p>Build Number</p>
-<h3 id="android-tag_name">android tag_name</h3>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>bundle<span class="w"> </span>exec<span class="o">]</span><span class="w"> </span>fastlane<span class="w"> </span>android<span class="w"> </span>tag_name
-</code></pre></div>
-<p>Build Tag Name</p>
-<h3 id="android-full_version">android full_version</h3>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>bundle<span class="w"> </span>exec<span class="o">]</span><span class="w"> </span>fastlane<span class="w"> </span>android<span class="w"> </span>full_version
-</code></pre></div>
-<p>Get version version From Project</p>
-<h3 id="android-reset_versioncode">android reset_versioncode</h3>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>bundle<span class="w"> </span>exec<span class="o">]</span><span class="w"> </span>fastlane<span class="w"> </span>android<span class="w"> </span>reset_versioncode
-</code></pre></div>
-<p>Set versionCode back to default 1</p>
-<h3 id="android-reset_versionname">android reset_versionName</h3>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>bundle<span class="w"> </span>exec<span class="o">]</span><span class="w"> </span>fastlane<span class="w"> </span>android<span class="w"> </span>reset_versionName
-</code></pre></div>
-<p>Set versionName back to default yyyy.d.m</p>
-<h3 id="android-set_version">android set_version</h3>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>bundle<span class="w"> </span>exec<span class="o">]</span><span class="w"> </span>fastlane<span class="w"> </span>android<span class="w"> </span>set_version
-</code></pre></div>
-<p>Build VersionName based on CalVer</p>
-<hr />
-<p>This README.md is auto-generated and will be re-generated every time <a href="https://fastlane.tools"><em>fastlane</em></a> is run.</p>
-<p>More information about <em>fastlane</em> can be found on <a href="https://fastlane.tools">fastlane.tools</a>.</p>
-<p>The documentation of <em>fastlane</em> can be found on <a href="https://docs.fastlane.tools">docs.fastlane.tools</a>.</p>
+<p><a href="/">Home</a> / <a href="/eudi-app-android-wallet-ui/">eudi-app-android-wallet-ui</a> / fastlane</p>
+<h1 id="index-of-eudi-app-android-wallet-uifastlane">Index of eudi-app-android-wallet-ui/fastlane</h1>
+<ul>
+<li><a href="/eudi-app-android-wallet-ui/fastlane/README/">README</a></li>
+</ul>
 
 
 
@@ -871,7 +667,7 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer", "navigation.instant"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>

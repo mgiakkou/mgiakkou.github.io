@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#eudiwalletconfig" class="md-skip">
+        <a href="#index-of-eudi-lib-android-wallet-coredocswallet-coreeueuropaeceudiwallet-eudi-wallet-config" class="md-skip">
           Skip to content
         </a>
       
@@ -557,59 +557,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      See also
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#constructors" class="md-nav__link">
-    <span class="md-ellipsis">
-      Constructors
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#types" class="md-nav__link">
-    <span class="md-ellipsis">
-      Types
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#properties" class="md-nav__link">
-    <span class="md-ellipsis">
-      Properties
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Functions
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -626,215 +573,34 @@
   
 
 
-<p>//<a href="../../../">wallet-core</a>/<a href="../">eu.europa.ec.eudi.wallet</a>/<a href="./">EudiWalletConfig</a></p>
-<h1 id="eudiwalletconfig">EudiWalletConfig</h1>
-<p>class <a href="./">EudiWalletConfig</a></p>
-<p>Eudi wallet config. This config is used to configure the default settings of the Eudi wallet.</p>
-<p>Custom configuration and implementations of the various components can be provided using
-the <a href="../-eudi-wallet/-builder/">EudiWallet.Builder</a> class.</p>
-<p>Example usage:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EudiWalletConfig</span><span class="p">()</span>
-<span class="w">    </span><span class="p">.</span><span class="na">configureDocumentManager</span><span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="na">noBackupFilesDir</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="na">configureLogging</span><span class="p">(</span>
-<span class="w">        </span><span class="c1">// set log level to info</span>
-<span class="w">        </span><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Logger</span><span class="p">.</span><span class="na">LEVEL_INFO</span>
-<span class="w">    </span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="na">configureDocumentKeyCreation</span><span class="p">(</span>
-<span class="w">        </span><span class="c1">// set userAuthenticationRequired to true to require user authentication</span>
-<span class="w">        </span><span class="n">userAuthenticationRequired</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">        </span><span class="c1">// set userAuthenticationTimeout to 30 seconds</span>
-<span class="w">        </span><span class="n">userAuthenticationTimeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">30</span><span class="n">_000L</span><span class="p">,</span>
-<span class="w">        </span><span class="c1">// set useStrongBoxForKeys to true to use the the device&#39;s StrongBox if available</span>
-<span class="w">        </span><span class="c1">// to store the keys</span>
-<span class="w">        </span><span class="n">useStrongBoxForKeys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-<span class="w">    </span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="na">configureReaderTrustStore</span><span class="p">(</span>
-<span class="w">        </span><span class="c1">// set the reader trusted certificates for the reader trust store</span>
-<span class="w">        </span><span class="n">listOf</span><span class="p">(</span><span class="n">readerCertificate</span><span class="p">)</span>
-<span class="w">    </span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="na">configureOpenId4Vci</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">withIssuerUrl</span><span class="p">(</span><span class="s">&quot;https://issuer.com&quot;</span><span class="p">)</span>
-<span class="w">        </span><span class="n">withClientId</span><span class="p">(</span><span class="s">&quot;client-id&quot;</span><span class="p">)</span>
-<span class="w">        </span><span class="n">withAuthFlowRedirectionURI</span><span class="p">(</span><span class="s">&quot;eudi-openid4ci://authorize&quot;</span><span class="p">)</span>
-<span class="w">        </span><span class="n">withParUsage</span><span class="p">(</span><span class="n">OpenId4VciManager</span><span class="p">.</span><span class="na">Config</span><span class="p">.</span><span class="na">ParUsage</span><span class="p">.</span><span class="na">Companion</span><span class="p">.</span><span class="na">IF_SUPPORTED</span><span class="p">)</span>
-<span class="w">        </span><span class="n">withUseDPoPIfSupported</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="p">.</span><span class="na">configureProximityPresentation</span><span class="p">(</span>
-<span class="w">        </span><span class="n">enableBlePeripheralMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">        </span><span class="n">enableBleCentralMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">        </span><span class="n">clearBleCache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">    </span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="na">configureOpenId4Vp</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">withEncryptionAlgorithms</span><span class="p">(</span>
-<span class="w">            </span><span class="n">EncryptionAlgorithm</span><span class="p">.</span><span class="na">ECDH_ES</span>
-<span class="w">        </span><span class="p">)</span>
-<span class="w">        </span><span class="n">withEncryptionMethods</span><span class="p">(</span>
-<span class="w">            </span><span class="n">EncryptionMethod</span><span class="p">.</span><span class="na">A128CBC_HS256</span><span class="p">,</span>
-<span class="w">            </span><span class="n">EncryptionMethod</span><span class="p">.</span><span class="na">A256GCM</span>
-<span class="w">        </span><span class="p">)</span>
-<span class="w">        </span><span class="n">withClientIdSchemes</span><span class="p">(</span>
-<span class="w">            </span><span class="n">ClientIdScheme</span><span class="p">.</span><span class="na">X509SanDns</span>
-<span class="w">        </span><span class="p">)</span>
-<span class="w">        </span><span class="n">withSchemes</span><span class="p">(</span>
-<span class="w">            </span><span class="s">&quot;openid4vp&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s">&quot;eudi-openid4vp&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s">&quot;mdoc-openid4vp&quot;</span>
-<span class="w">        </span><span class="p">)</span>
-<span class="w">    </span><span class="p">}</span>
-</code></pre></div>
-<h4 id="see-also">See also</h4>
-<table>
-<thead>
-<tr>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../-eudi-wallet/-builder/">EudiWallet.Builder</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="constructors">Constructors</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="-eudi-wallet-config/">EudiWalletConfig</a></td>
-<td>[androidJvm]<br>constructor()</td>
-</tr>
-</tbody>
-</table>
-<h2 id="types">Types</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="-companion/">Companion</a></td>
-<td>[androidJvm]<br>object <a href="-companion/">Companion</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="properties">Properties</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="clear-ble-cache/">clearBleCache</a></td>
-<td>[androidJvm]<br>var <a href="clear-ble-cache/">clearBleCache</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><br>whether to clear the BLE cache</td>
-</tr>
-<tr>
-<td><a href="document-manager-identifier/">documentManagerIdentifier</a></td>
-<td>[androidJvm]<br>var <a href="document-manager-identifier/">documentManagerIdentifier</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><br>the document manager identifier</td>
-</tr>
-<tr>
-<td><a href="documents-storage-dir/">documentsStorageDir</a></td>
-<td>[androidJvm]<br>var <a href="documents-storage-dir/">documentsStorageDir</a>: <a href="https://developer.android.com/reference/kotlin/java/io/File.html">File</a>?<br>the documents storage directory</td>
-</tr>
-<tr>
-<td><a href="enable-ble-central-mode/">enableBleCentralMode</a></td>
-<td>[androidJvm]<br>var <a href="enable-ble-central-mode/">enableBleCentralMode</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><br>whether to enable BLE central mode</td>
-</tr>
-<tr>
-<td><a href="enable-ble-peripheral-mode/">enableBlePeripheralMode</a></td>
-<td>[androidJvm]<br>var <a href="enable-ble-peripheral-mode/">enableBlePeripheralMode</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><br>whether to enable BLE peripheral mode</td>
-</tr>
-<tr>
-<td><a href="encrypt-documents-in-storage/">encryptDocumentsInStorage</a></td>
-<td>[androidJvm]<br>var <a href="encrypt-documents-in-storage/">encryptDocumentsInStorage</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><br>whether to encrypt documents in storage</td>
-</tr>
-<tr>
-<td><a href="log-level/">logLevel</a></td>
-<td>[androidJvm]<br>var <a href="log-level/">logLevel</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><br>the log level</td>
-</tr>
-<tr>
-<td><a href="log-size-limit/">logSizeLimit</a></td>
-<td>[androidJvm]<br>var <a href="log-size-limit/">logSizeLimit</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><br>the log size limit</td>
-</tr>
-<tr>
-<td><a href="nfc-engagement-service-class/">nfcEngagementServiceClass</a></td>
-<td>[androidJvm]<br>var <a href="nfc-engagement-service-class/">nfcEngagementServiceClass</a>: <a href="https://developer.android.com/reference/kotlin/java/lang/Class.html">Class</a>&lt;out NfcEngagementService&gt;?</td>
-</tr>
-<tr>
-<td><a href="open-id4-vci-config/">openId4VciConfig</a></td>
-<td>[androidJvm]<br>var <a href="open-id4-vci-config/">openId4VciConfig</a>: <a href="../../eu.europa.ec.eudi.wallet.issue.openid4vci/-open-id4-vci-manager/-config/">OpenId4VciManager.Config</a>?<br>the OpenID4VCI configuration</td>
-</tr>
-<tr>
-<td><a href="open-id4-vp-config/">openId4VpConfig</a></td>
-<td>[androidJvm]<br>var <a href="open-id4-vp-config/">openId4VpConfig</a>: <a href="../../eu.europa.ec.eudi.wallet.transfer.openId4vp/-open-id4-vp-config/index.md">OpenId4VpConfig</a>?<br>the OpenID4VP configuration</td>
-</tr>
-<tr>
-<td><a href="reader-trusted-certificates/">readerTrustedCertificates</a></td>
-<td>[androidJvm]<br>var <a href="reader-trusted-certificates/">readerTrustedCertificates</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="https://developer.android.com/reference/kotlin/java/security/cert/X509Certificate.html">X509Certificate</a>&gt;?<br>the reader trusted certificates</td>
-</tr>
-<tr>
-<td><a href="user-authentication-required/">userAuthenticationRequired</a></td>
-<td>[androidJvm]<br>var <a href="user-authentication-required/">userAuthenticationRequired</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><br>whether user authentication is required</td>
-</tr>
-<tr>
-<td><a href="user-authentication-timeout/">userAuthenticationTimeout</a></td>
-<td>[androidJvm]<br>var <a href="user-authentication-timeout/">userAuthenticationTimeout</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a><br>the user authentication timeout</td>
-</tr>
-<tr>
-<td><a href="use-strong-box-for-keys/">useStrongBoxForKeys</a></td>
-<td>[androidJvm]<br>var <a href="use-strong-box-for-keys/">useStrongBoxForKeys</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><br>whether to use the strong box for keys</td>
-</tr>
-</tbody>
-</table>
-<h2 id="functions">Functions</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="configure-document-key-creation/">configureDocumentKeyCreation</a></td>
-<td>[androidJvm]<br>fun <a href="configure-document-key-creation/">configureDocumentKeyCreation</a>(userAuthenticationRequired: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> = false, userAuthenticationTimeout: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a> = 0, useStrongBoxForKeys: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> = true): <a href="./">EudiWalletConfig</a><br>Configure the document key creation. This allows to configure if user authentication is required to unlock key usage, the user authentication timeout and whether to use the strong box for keys. These values are used to create the eu.europa.ec.eudi.wallet.document.CreateDocumentSettings using <a href="../../eu.europa.ec.eudi.wallet.document/-document-extensions/get-default-create-document-settings/">eu.europa.ec.eudi.wallet.document.DocumentExtensions.getDefaultCreateDocumentSettings</a> method.</td>
-</tr>
-<tr>
-<td><a href="configure-document-manager/">configureDocumentManager</a></td>
-<td>[androidJvm]<br>@<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html">JvmOverloads</a><br>fun <a href="configure-document-manager/">configureDocumentManager</a>(storageDir: <a href="https://developer.android.com/reference/kotlin/java/io/File.html">File</a>, identifier: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>? = null, encryptDocuments: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> = true): <a href="./">EudiWalletConfig</a><br>Configure the built-in document manager.</td>
-</tr>
-<tr>
-<td><a href="configure-logging/">configureLogging</a></td>
-<td>[androidJvm]<br>@<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html">JvmOverloads</a><br>fun <a href="configure-logging/">configureLogging</a>(level: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a>, sizeLimit: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a>? = null): <a href="./">EudiWalletConfig</a><br>Configure the built-in logging. This allows to configure the log level and the log size limit.</td>
-</tr>
-<tr>
-<td><a href="configure-open-id4-vci/">configureOpenId4Vci</a></td>
-<td>[androidJvm]<br>fun <a href="configure-open-id4-vci/">configureOpenId4Vci</a>(openId4VciConfig: <a href="../../eu.europa.ec.eudi.wallet.issue.openid4vci/-open-id4-vci-manager/-config/">OpenId4VciManager.Config</a>): <a href="./">EudiWalletConfig</a><br>Configure OpenID4VCI.<br>[androidJvm]<br>fun <a href="configure-open-id4-vci/">configureOpenId4Vci</a>(openId4VciConfig: <a href="../../eu.europa.ec.eudi.wallet.issue.openid4vci/-open-id4-vci-manager/-config/-builder/">OpenId4VciManager.Config.Builder</a>.() -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a>): <a href="./">EudiWalletConfig</a><br>Configure OpenID4VCI using a <a href="../../eu.europa.ec.eudi.wallet.issue.openid4vci/-open-id4-vci-manager/-config/-builder/">OpenId4VciManager.Config.Builder</a> as a lambda with receiver.</td>
-</tr>
-<tr>
-<td><a href="configure-open-id4-vp/">configureOpenId4Vp</a></td>
-<td>[androidJvm]<br>fun <a href="configure-open-id4-vp/">configureOpenId4Vp</a>(openId4VpConfig: <a href="../../eu.europa.ec.eudi.wallet.transfer.openId4vp/-open-id4-vp-config/index.md">OpenId4VpConfig</a>): <a href="./">EudiWalletConfig</a><br>Configure OpenID4VP.<br>[androidJvm]<br>fun <a href="configure-open-id4-vp/">configureOpenId4Vp</a>(openId4VpConfig: <a href="../../eu.europa.ec.eudi.wallet.transfer.openId4vp/-open-id4-vp-config/-builder/index.md">OpenId4VpConfig.Builder</a>.() -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a>): <a href="./">EudiWalletConfig</a><br>Configure OpenID4VP using a <a href="../../eu.europa.ec.eudi.wallet.transfer.openId4vp/-open-id4-vp-config/-builder/index.md">OpenId4VpConfig.Builder</a> as a lambda with receiver.</td>
-</tr>
-<tr>
-<td><a href="configure-proximity-presentation/">configureProximityPresentation</a></td>
-<td>[androidJvm]<br>@<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html">JvmOverloads</a><br>fun <a href="configure-proximity-presentation/">configureProximityPresentation</a>(enableBlePeripheralMode: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> = true, enableBleCentralMode: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> = false, clearBleCache: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> = true, nfcEngagementServiceClass: <a href="https://developer.android.com/reference/kotlin/java/lang/Class.html">Class</a>&lt;out NfcEngagementService&gt;? = null): <a href="./">EudiWalletConfig</a><br>Configure the proximity presentation. This allows to configure the BLE peripheral mode, the BLE central mode and whether to clear the BLE cache. Also, it allows to set the NFC engagement service class an implementation of NfcEngagementService, which is used to handle the NFC engagement.</td>
-</tr>
-<tr>
-<td><a href="configure-reader-trust-store/">configureReaderTrustStore</a></td>
-<td>[androidJvm]<br>fun <a href="configure-reader-trust-store/">configureReaderTrustStore</a>(vararg readerTrustedCertificates: <a href="https://developer.android.com/reference/kotlin/java/security/cert/X509Certificate.html">X509Certificate</a>): <a href="./">EudiWalletConfig</a><br>fun <a href="configure-reader-trust-store/">configureReaderTrustStore</a>(readerTrustedCertificates: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="https://developer.android.com/reference/kotlin/java/security/cert/X509Certificate.html">X509Certificate</a>&gt;): <a href="./">EudiWalletConfig</a><br>Configure the built-in ReaderTrustStore. This allows to set the reader trusted certificates for the reader trust store.<br>[androidJvm]<br>fun <a href="configure-reader-trust-store/">configureReaderTrustStore</a>(context: <a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a>, @<a href="https://developer.android.com/reference/kotlin/androidx/annotation/RawRes.html">RawRes</a>vararg certificateRes: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a>): <a href="./">EudiWalletConfig</a><br>Configure the built-in ReaderTrustStore. This allows to set the reader trusted certificates for the reader trust store. The certificates are loaded from the raw resources.</td>
-</tr>
-</tbody>
-</table>
+<p><a href="/">Home</a> / <a href="/eudi-lib-android-wallet-core/">eudi-lib-android-wallet-core</a> / <a href="/eudi-lib-android-wallet-core/docs/">docs</a> / <a href="/eudi-lib-android-wallet-core/docs/wallet-core/">wallet-core</a> / <a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/">eu.europa.ec.eudi.wallet</a> / -eudi-wallet-config</p>
+<h1 id="index-of-eudi-lib-android-wallet-coredocswallet-coreeueuropaeceudiwallet-eudi-wallet-config">Index of eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config</h1>
+<ul>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/-companion/">-companion</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/-eudi-wallet-config/">-eudi-wallet-config</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/clear-ble-cache/">clear-ble-cache</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/configure-document-key-creation/">configure-document-key-creation</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/configure-document-manager/">configure-document-manager</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/configure-logging/">configure-logging</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/configure-open-id4-vci/">configure-open-id4-vci</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/configure-open-id4-vp/">configure-open-id4-vp</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/configure-proximity-presentation/">configure-proximity-presentation</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/configure-reader-trust-store/">configure-reader-trust-store</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/document-manager-identifier/">document-manager-identifier</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/documents-storage-dir/">documents-storage-dir</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/enable-ble-central-mode/">enable-ble-central-mode</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/enable-ble-peripheral-mode/">enable-ble-peripheral-mode</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/encrypt-documents-in-storage/">encrypt-documents-in-storage</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/log-level/">log-level</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/log-size-limit/">log-size-limit</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/nfc-engagement-service-class/">nfc-engagement-service-class</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/open-id4-vci-config/">open-id4-vci-config</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/open-id4-vp-config/">open-id4-vp-config</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/reader-trusted-certificates/">reader-trusted-certificates</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/use-strong-box-for-keys/">use-strong-box-for-keys</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/user-authentication-required/">user-authentication-required</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-config/user-authentication-timeout/">user-authentication-timeout</a></li>
+</ul>
 
 
 
@@ -924,7 +690,7 @@ the <a href="../-eudi-wallet/-builder/">EudiWallet.Builder</a> class.</p>
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer"], "search": "../../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer", "navigation.instant"], "search": "../../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../../assets/javascripts/bundle.83f73b43.min.js"></script>

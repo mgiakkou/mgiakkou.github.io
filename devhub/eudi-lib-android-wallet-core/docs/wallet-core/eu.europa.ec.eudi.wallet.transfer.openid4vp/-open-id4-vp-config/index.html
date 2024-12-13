@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#openid4vpconfig" class="md-skip">
+        <a href="#index-of-eudi-lib-android-wallet-coredocswallet-coreeueuropaeceudiwallettransferopenid4vp-open-id4-vp-config" class="md-skip">
           Skip to content
         </a>
       
@@ -557,32 +557,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#types" class="md-nav__link">
-    <span class="md-ellipsis">
-      Types
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#properties" class="md-nav__link">
-    <span class="md-ellipsis">
-      Properties
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -599,78 +573,15 @@
   
 
 
-<p>//<a href="../../../">wallet-core</a>/<a href="../">eu.europa.ec.eudi.wallet.transfer.openId4vp</a>/<a href="./">OpenId4VpConfig</a></p>
-<h1 id="openid4vpconfig">OpenId4VpConfig</h1>
-<p>[androidJvm]
-class <a href="./">OpenId4VpConfig</a></p>
-<p>Configuration for the OpenId4Vp transfer.</p>
-<p>Use <a href="-builder/">Builder</a> to create an instance.</p>
-<p>Example usage:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OpenId4VpConfig</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-<span class="w">   </span><span class="p">.</span><span class="na">withClientIdSchemes</span><span class="p">(</span>
-<span class="w">         </span><span class="n">listOf</span><span class="p">(</span>
-<span class="w">             </span><span class="n">ClientIdScheme</span><span class="p">.</span><span class="na">Preregistered</span><span class="p">(</span>
-<span class="w">                 </span><span class="n">listOf</span><span class="p">(</span>
-<span class="w">                     </span><span class="n">PreregisteredVerifier</span><span class="p">(</span>
-<span class="w">                     </span><span class="s">&quot;VerifierClientId&quot;</span><span class="p">,</span>
-<span class="w">                     </span><span class="s">&quot;VerifierLegalName&quot;</span><span class="p">,</span>
-<span class="w">                     </span><span class="s">&quot;http://example.com&quot;</span><span class="p">)</span>
-<span class="w">                 </span><span class="p">)),</span>
-<span class="w">             </span><span class="n">ClientIdScheme</span><span class="p">.</span><span class="na">X509SanDns</span>
-<span class="w">         </span><span class="p">)</span>
-<span class="w">    </span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="na">withScheme</span><span class="p">(</span>
-<span class="w">        </span><span class="n">listOf</span><span class="p">(</span>
-<span class="w">            </span><span class="s">&quot;eudi-openid4vp&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s">&quot;mdoc-openid4vp&quot;</span>
-<span class="w">        </span><span class="p">)</span>
-<span class="w">    </span><span class="p">)</span>
-<span class="w">   </span><span class="p">.</span><span class="na">withEncryptionAlgorithms</span><span class="p">(</span><span class="n">listOf</span><span class="p">(</span><span class="n">EncryptionAlgorithm</span><span class="p">.</span><span class="na">ECDH_ES</span><span class="p">))</span>
-<span class="w">   </span><span class="p">.</span><span class="na">withEncryptionMethods</span><span class="p">(</span><span class="n">listOf</span><span class="p">(</span><span class="n">EncryptionMethod</span><span class="p">.</span><span class="na">A128CBC_HS256</span><span class="p">))</span>
-<span class="w">   </span><span class="p">.</span><span class="na">build</span><span class="p">()</span>
-</code></pre></div>
-<h2 id="types">Types</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="-builder/">Builder</a></td>
-<td>[androidJvm]<br>class <a href="-builder/">Builder</a><br>Builder for OpenId4VciConfig.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="properties">Properties</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="client-id-schemes/">clientIdSchemes</a></td>
-<td>[androidJvm]<br>val <a href="client-id-schemes/">clientIdSchemes</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="../-client-id-scheme/">ClientIdScheme</a>&gt;<br>list of <a href="../-client-id-scheme/">ClientIdScheme</a> that defines the supported Client Identifier schemes</td>
-</tr>
-<tr>
-<td><a href="encryption-algorithms/">encryptionAlgorithms</a></td>
-<td>[androidJvm]<br>val <a href="encryption-algorithms/">encryptionAlgorithms</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="../-encryption-algorithm/">EncryptionAlgorithm</a>&gt;<br>list of <a href="../-encryption-algorithm/">EncryptionAlgorithm</a> that defines the supported encryption algorithms</td>
-</tr>
-<tr>
-<td><a href="encryption-methods/">encryptionMethods</a></td>
-<td>[androidJvm]<br>val <a href="encryption-methods/">encryptionMethods</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="../-encryption-method/">EncryptionMethod</a>&gt;<br>list of <a href="../-encryption-method/">EncryptionMethod</a> that defines the supported encryption methods</td>
-</tr>
-<tr>
-<td><a href="schemes/">schemes</a></td>
-<td>[androidJvm]<br>val <a href="schemes/">schemes</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>&gt;<br>optionally you can set one or more schemes. By default, the scheme &quot;mdoc-openid4vp&quot; is used</td>
-</tr>
-</tbody>
-</table>
+<p><a href="/">Home</a> / <a href="/eudi-lib-android-wallet-core/">eudi-lib-android-wallet-core</a> / <a href="/eudi-lib-android-wallet-core/docs/">docs</a> / <a href="/eudi-lib-android-wallet-core/docs/wallet-core/">wallet-core</a> / <a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/">eu.europa.ec.eudi.wallet.transfer.openid4vp</a> / -open-id4-vp-config</p>
+<h1 id="index-of-eudi-lib-android-wallet-coredocswallet-coreeueuropaeceudiwallettransferopenid4vp-open-id4-vp-config">Index of eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/-open-id4-vp-config</h1>
+<ul>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/-open-id4-vp-config/-builder/">-builder</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/-open-id4-vp-config/client-id-schemes/">client-id-schemes</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/-open-id4-vp-config/encryption-algorithms/">encryption-algorithms</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/-open-id4-vp-config/encryption-methods/">encryption-methods</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/-open-id4-vp-config/schemes/">schemes</a></li>
+</ul>
 
 
 
@@ -760,7 +671,7 @@ class <a href="./">OpenId4VpConfig</a></p>
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer"], "search": "../../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer", "navigation.instant"], "search": "../../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../../assets/javascripts/bundle.83f73b43.min.js"></script>
