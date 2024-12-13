@@ -605,7 +605,6 @@ unlock key usage, the user authentication timeout and whether to use the strong 
 values are used to create the eu.europa.ec.eudi.wallet.document.CreateDocumentSettings
 using <a href="../../../eu.europa.ec.eudi.wallet.document/-document-extensions/get-default-create-document-settings/">eu.europa.ec.eudi.wallet.document.DocumentExtensions.getDefaultCreateDocumentSettings</a>
 method.</p>
-<p>If user authentication is required, the user authentication timeout must be greater than 0.</p>
 <p><strong>Note</strong>: when setting userAuthenticationRequired to true, device must be secured with a PIN,
 pattern or password.</p>
 <p><strong>Note</strong>: when setting useStrongBoxForKeys to true, the device must support the StrongBox.</p>
@@ -632,7 +631,7 @@ useStrongBoxForKeys: true if supported by the device</p>
 </tr>
 <tr>
 <td>userAuthenticationTimeout</td>
-<td>the user authentication timeout. If user authentication is required, this value must be greater than 0</td>
+<td>If 0, user authentication is required for every use of the key, otherwise it's required within the given amount of milliseconds</td>
 </tr>
 <tr>
 <td>useStrongBoxForKeys</td>

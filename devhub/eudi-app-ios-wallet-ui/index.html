@@ -781,6 +781,7 @@ involved, follow the guidelines found in <a href="CONTRIBUTING/">CONTRIBUTING.md
 <p><em>logic-core</em>: Wallet core logic.</p>
 <p><em>logic-analytics</em>: Access to analytics providers. Capabilities for test monitoring analytics (i.e. crashes) can be added here (no functionality right now)</p>
 <p><em>logic-business</em>: App business logic.</p>
+<p><em>logic-storage</em>: Persistent storage cache.</p>
 <p><em>logic-authentication</em>: PinStorage and System Biometrics Logic.</p>
 <p><em>logic-ui</em>: Common UI components.</p>
 <p><em>feature-common</em>: Code that is common to all features.</p>
@@ -807,6 +808,7 @@ involved, follow the guidelines found in <a href="CONTRIBUTING/">CONTRIBUTING.md
 
   logic-business --&gt; logic-core
   logic-resources --&gt; logic-core
+  logic-resources --&gt; logic-storage
 
   logic-business --&gt; logic-analytics
 
@@ -820,6 +822,7 @@ involved, follow the guidelines found in <a href="CONTRIBUTING/">CONTRIBUTING.md
 
   feature-common --&gt; feature-login
 
+  logic-storage --&gt; feature-common
   logic-core --&gt; feature-common
   logic-business --&gt; feature-common
   logic-analytics --&gt; feature-common
@@ -828,6 +831,8 @@ involved, follow the guidelines found in <a href="CONTRIBUTING/">CONTRIBUTING.md
   logic-authentication --&gt; feature-common
 
   feature-common --&gt; feature-startup
+
+  logic-business --&gt; logic-storage
 
   logic-core --&gt; logic-api
   logic-business --&gt; logic-api

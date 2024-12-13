@@ -772,6 +772,7 @@ involved, follow the guidelines found in <a href="CONTRIBUTING/">CONTRIBUTING.md
 <p><em>analytics-logic</em>: Access to analytics providers. Capabilities for test monitoring analytics (i.e. crashes) can be added here (no functionality right now)</p>
 <p><em>business-logic</em>: App business logic.</p>
 <p><em>core-logic</em>: Wallet core logic.</p>
+<p><em>storage-logic</em>: Persistent storage cache.</p>
 <p><em>authentication-logic</em>: Pin/Biometry Storage and System Biometrics Logic.</p>
 <p><em>ui-logic</em>: Common UI components.</p>
 <p><em>common-feature</em>: Code that is common to all features.</p>
@@ -802,7 +803,8 @@ involved, follow the guidelines found in <a href="CONTRIBUTING/">CONTRIBUTING.md
   resources-logic --&gt;common-feature
   analytics-logic --&gt;common-feature 
   authentication-logic --&gt;common-feature 
-  core-logic --&gt;common-feature 
+  core-logic --&gt;common-feature
+  storage-logic --&gt;common-feature 
 
   business-logic --&gt;core-logic
   resources-logic --&gt;core-logic
@@ -813,6 +815,10 @@ involved, follow the guidelines found in <a href="CONTRIBUTING/">CONTRIBUTING.md
   analytics-logic --&gt;ui-logic
 
   business-logic --&gt;network-logic
+
+  business-logic --&gt;storage-logic
+
+  resources-logic --&gt;storage-logic
 
   resources-logic --&gt;business-logic
 

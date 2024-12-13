@@ -1543,7 +1543,7 @@ and can be included in any Android project that uses Android 8 (API level 26) or
 <p>To include the library in your project, add the following dependencies to your app's build.gradle
 file.</p>
 <div class="highlight"><pre><span></span><code><span class="n">dependencies</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="n">implementation</span><span class="w"> </span><span class="s2">&quot;eu.europa.ec.eudi:eudi-lib-android-wallet-core:0.12.1&quot;</span>
+<span class="w">    </span><span class="n">implementation</span><span class="w"> </span><span class="s2">&quot;eu.europa.ec.eudi:eudi-lib-android-wallet-core:0.12.3&quot;</span>
 <span class="w">    </span><span class="c1">// required when using the built-in AndroidKeystoreSecureArea implementation provided by the library</span>
 <span class="w">    </span><span class="c1">// for user authentication with biometrics</span>
 <span class="w">    </span><span class="n">implementation</span><span class="w"> </span><span class="s2">&quot;androidx.biometric:biometric-ktx:1.2.0-alpha05&quot;</span>
@@ -2174,6 +2174,9 @@ state of the transfer. The following events are emitted:</p>
 
 <span class="w">        </span><span class="k">is</span><span class="w"> </span><span class="n">TransferEvent</span><span class="p">.</span><span class="na">Redirect</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="c1">// A redirect is needed. Used mainly for the OpenId4VP implementation</span>
+<span class="w">            </span><span class="c1">// This is triggered when Relaying Party (RP) has accepted the response and</span>
+<span class="w">            </span><span class="c1">// the RP is redirecting the user to the given redirect URI</span>
+<span class="w">            </span><span class="c1">// If this event is triggered, then the TransferEvent.ResponseSent event will not be triggered</span>
 <span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">redirectUri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">redirectUri</span><span class="w"> </span><span class="c1">// the redirect URI</span>
 <span class="w">        </span><span class="p">}</span>
 
