@@ -564,6 +564,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#deprecated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deprecated
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deprecated">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#parameters" class="md-nav__link">
     <span class="md-ellipsis">
       Parameters
@@ -571,13 +581,18 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#see-also" class="md-nav__link">
     <span class="md-ellipsis">
       See also
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -603,11 +618,15 @@
 //<a href="../../../../">wallet-core</a>/<a href="../../">eu.europa.ec.eudi.wallet.issue.openid4vci</a>/<a href="../">OpenId4VciManager</a>/<a href="./">issueDocumentByDocType</a></p>
 <h1 id="issuedocumentbydoctype">issueDocumentByDocType</h1>
 <p>[androidJvm]
-abstract fun <a href="./">issueDocumentByDocType</a>(
+abstract fun <a href="./"><del>issueDocumentByDocType</del></a>(
 docType: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>,
 txCode: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>? = null,
 executor: <a href="https://developer.android.com/reference/kotlin/java/util/concurrent/Executor.html">Executor</a>? =
 null, onIssueEvent: <a href="../-on-issue-event/">OpenId4VciManager.OnIssueEvent</a>)</p>
+<hr />
+<h3 id="deprecated">Deprecated</h3>
+<p>Use issueDocumentByConfigurationIdentifier or issueDocumentByFormat instead</p>
+<hr />
 <p>Issue a document using a document type</p>
 <h4 id="parameters">Parameters</h4>
 <p>androidJvm</p>

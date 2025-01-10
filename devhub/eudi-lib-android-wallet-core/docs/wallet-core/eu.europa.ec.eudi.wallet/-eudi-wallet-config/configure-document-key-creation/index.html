@@ -594,28 +594,16 @@
 //<a href="../../../../">wallet-core</a>/<a href="../../">eu.europa.ec.eudi.wallet</a>/<a href="../">EudiWalletConfig</a>/<a href="./">configureDocumentKeyCreation</a></p>
 <h1 id="configuredocumentkeycreation">configureDocumentKeyCreation</h1>
 <p>[androidJvm]
-fun <a href="./">configureDocumentKeyCreation</a>(
-userAuthenticationRequired: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> =
-false,
-userAuthenticationTimeout: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a> =
-0,
-useStrongBoxForKeys: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> =
-true): <a href="../">EudiWalletConfig</a></p>
-<p>Configure the document key creation. This allows to configure if user authentication is required to
-unlock key usage, the user authentication timeout and whether to use the strong box for keys. These
-values are used to create the eu.europa.ec.eudi.wallet.document.CreateDocumentSettings
-using <a href="../../../eu.europa.ec.eudi.wallet.document/-document-extensions/get-default-create-document-settings/">eu.europa.ec.eudi.wallet.document.DocumentExtensions.getDefaultCreateDocumentSettings</a>
-method.</p>
-<p><strong>Note</strong>: when setting userAuthenticationRequired to true, device must be secured with a PIN,
-pattern or password.</p>
+fun <a href="./">configureDocumentKeyCreation</a>(userAuthenticationRequired: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> = false, userAuthenticationTimeout: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a> = 0, useStrongBoxForKeys: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> = true): <a href="../">EudiWalletConfig</a></p>
+<p>Configure the document key creation. This allows to configure if user authentication is required to unlock key usage, the user authentication timeout and whether to use the strong box for keys. These values are used to create the eu.europa.ec.eudi.wallet.document.CreateDocumentSettings using <a href="../../../eu.europa.ec.eudi.wallet.document/-document-extensions/get-default-create-document-settings/">eu.europa.ec.eudi.wallet.document.DocumentExtensions.getDefaultCreateDocumentSettings</a> method.</p>
+<p><strong>Note</strong>: when setting userAuthenticationRequired to true, device must be secured with a PIN, pattern or password.</p>
 <p><strong>Note</strong>: when setting useStrongBoxForKeys to true, the device must support the StrongBox.</p>
 <p>The default values are:</p>
-<p>-
-userAuthenticationRequired: false
--
-userAuthenticationTimeout: 0
--
-useStrongBoxForKeys: true if supported by the device</p>
+<ul>
+<li>userAuthenticationRequired: false</li>
+<li>userAuthenticationTimeout: 0</li>
+<li>useStrongBoxForKeys: true if supported by the device</li>
+</ul>
 <h4 id="parameters">Parameters</h4>
 <p>androidJvm</p>
 <table>

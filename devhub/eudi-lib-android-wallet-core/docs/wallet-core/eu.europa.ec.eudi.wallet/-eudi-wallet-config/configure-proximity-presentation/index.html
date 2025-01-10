@@ -604,27 +604,15 @@
 <h1 id="configureproximitypresentation">configureProximityPresentation</h1>
 <p>[androidJvm]\</p>
 <p>@<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html">JvmOverloads</a></p>
-<p>fun <a href="./">configureProximityPresentation</a>(
-enableBlePeripheralMode: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> =
-true,
-enableBleCentralMode: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> =
-false,
-clearBleCache: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> =
-true,
-nfcEngagementServiceClass: <a href="https://developer.android.com/reference/kotlin/java/lang/Class.html">Class</a>
-&lt;out NfcEngagementService&gt;? = null): <a href="../">EudiWalletConfig</a></p>
-<p>Configure the proximity presentation. This allows to configure the BLE peripheral mode, the BLE
-central mode and whether to clear the BLE cache. Also, it allows to set the NFC engagement service
-class an implementation of NfcEngagementService, which is used to handle the NFC engagement.</p>
+<p>fun <a href="./">configureProximityPresentation</a>(enableBlePeripheralMode: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> = true, enableBleCentralMode: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> = false, clearBleCache: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> = true, nfcEngagementServiceClass: <a href="https://developer.android.com/reference/kotlin/java/lang/Class.html">Class</a>&lt;out NfcEngagementService&gt;? = null): <a href="../">EudiWalletConfig</a></p>
+<p>Configure the proximity presentation. This allows to configure the BLE peripheral mode, the BLE central mode and whether to clear the BLE cache. Also, it allows to set the NFC engagement service class an implementation of NfcEngagementService, which is used to handle the NFC engagement.</p>
 <p>The default values are:</p>
-<p>-
-enableBlePeripheralMode: true
--
-enableBleCentralMode: false
--
-clearBleCache: true
--
-nfcEngagementServiceClass: null</p>
+<ul>
+<li>enableBlePeripheralMode: true</li>
+<li>enableBleCentralMode: false</li>
+<li>clearBleCache: true</li>
+<li>nfcEngagementServiceClass: null</li>
+</ul>
 <h4 id="return">Return</h4>
 <p>the <a href="../">EudiWalletConfig</a> instance</p>
 <h4 id="parameters">Parameters</h4>

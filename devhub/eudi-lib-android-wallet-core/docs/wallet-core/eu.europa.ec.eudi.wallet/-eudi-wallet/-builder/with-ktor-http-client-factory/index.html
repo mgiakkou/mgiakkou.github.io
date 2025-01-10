@@ -603,13 +603,8 @@
 //<a href="../../../../../">wallet-core</a>/<a href="../../../">eu.europa.ec.eudi.wallet</a>/<a href="../../">EudiWallet</a>/<a href="../">Builder</a>/<a href="./">withKtorHttpClientFactory</a></p>
 <h1 id="withktorhttpclientfactory">withKtorHttpClientFactory</h1>
 <p>[androidJvm]
-fun <a href="./">withKtorHttpClientFactory</a>(ktorHttpClientFactory: () -&gt;
-HttpClient): <a href="../">EudiWallet.Builder</a></p>
-<p>Configure with the given Ktor HTTP client factory to use for making HTTP requests. Ktor HTTP client
-is used by
-the <a href="../../../eu.europa.ec.eudi.wallet.transfer.openId4vp/-open-id4-vp-manager/index.md">OpenId4VpManager</a>
-and <a href="../../../../eu.europa.ec.eudi.wallet.issue.openid4vci/-open-id4-vci-manager/">OpenId4VciManager</a>
-for making HTTP requests.</p>
+fun <a href="./">withKtorHttpClientFactory</a>(ktorHttpClientFactory: () -&gt; HttpClient): <a href="../">EudiWallet.Builder</a></p>
+<p>Configure with the given Ktor HTTP client factory to use for making HTTP requests. Ktor HTTP client is used by the <a href="../../../eu.europa.ec.eudi.wallet.transfer.openId4vp/-open-id4-vp-manager/index.md">OpenId4VpManager</a> and <a href="../../../../eu.europa.ec.eudi.wallet.issue.openid4vci/-open-id4-vci-manager/">OpenId4VciManager</a> for making HTTP requests.</p>
 <p>If not set, the default Ktor HTTP client factory will be used which is initialized with the default</p>
 <h4 id="return">Return</h4>
 <p>this <a href="../">Builder</a> instance</p>

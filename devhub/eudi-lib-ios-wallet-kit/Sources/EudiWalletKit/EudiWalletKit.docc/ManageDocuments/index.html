@@ -647,8 +647,8 @@ Currently the keychain implementation is used. It provides document management f
 </tr>
 </tbody>
 </table>
-<p>Since the issued mDoc documents retrieved expose only basic metadata and the raw data, they must be decoded to the corresponding CBOR models. The library provides the <code>StorageManager/toMdocModel(doc:modelFactory:)</code> function to decode document raw CBOR data to strongly-typed models conforming to <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-iso18013-data-model/documentation/mdocdatamodel18013/mdocdecodable">MdocDecodable</a> protocol. </p>
-<p>The loading functions automatically update the <code>StorageManager</code> members. The decoded issued documents are available in the <code>mdocModels</code> property. The deferred and pending documents are available in the <code>deferredDocuments</code> and <code>pendingDocuments</code> properties respectively.</p>
+<p>Since the issued mDoc documents retrieved expose only basic metadata and the raw data, they must be decoded to the corresponding CBOR models. The library provides the <code>StorageManager/toClaimsModel(doc:modelFactory:)</code> function to decode document raw CBOR data to strongly-typed models conforming to <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-iso18013-data-model/documentation/mdocdatamodel18013/mdocdecodable">MdocDecodable</a> protocol. </p>
+<p>The loading functions automatically update the <code>StorageManager</code> members. The decoded issued documents are available in the <code>docModels</code> property. The deferred and pending documents are available in the <code>deferredDocuments</code> and <code>pendingDocuments</code> properties respectively.</p>
 <p>For other document types the <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-iso18013-data-model/documentation/mdocdatamodel18013/genericmdocmodel">GenericMdocModel</a> is provided.</p>
 <h3 id="deleting-a-document">Deleting a document</h3>
 <p>The <code>EudiWallet/deleteDocument(id:status:)</code> method that deletes a document with the given id.</p>

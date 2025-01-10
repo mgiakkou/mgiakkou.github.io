@@ -1170,11 +1170,8 @@ into something like this:
     <div class="highlight"><pre><span></span><code>implementation(libs.ktor.android)
 implementation(libs.ktor.logging)
 </code></pre></div></li>
-<li>Now, you need to navigate to the <strong>ConfigWalletCoreImpl.kt</strong> file, either in:
-   <em>srcdevjavaeueuropaeccorelogicconfig</em> or
-   <em>srcdemojavaeueuropaeccorelogicconfig</em>
-   depending on the flavor of your choice.</li>
-<li>Here, add these imports:
+<li>Now, you need to create a new kotlin file <em>ProvideKtorHttpClient</em> and place it into the <em>srcmainjavaeueuropaeccorelogicconfig</em> package.</li>
+<li>Copy and paste the following into your newly created <em>ProvideKtorHttpClient</em> kotlin file.
     <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">android.annotation.SuppressLint</span>
 <span class="k">import</span><span class="w"> </span><span class="nn">io.ktor.client.HttpClient</span>
 <span class="k">import</span><span class="w"> </span><span class="nn">io.ktor.client.engine.android.Android</span>
@@ -1185,9 +1182,8 @@ implementation(libs.ktor.logging)
 <span class="k">import</span><span class="w"> </span><span class="nn">javax.net.ssl.TrustManager</span>
 <span class="k">import</span><span class="w"> </span><span class="nn">javax.net.ssl.X509TrustManager</span>
 <span class="k">import</span><span class="w"> </span><span class="nn">javax.security.cert.CertificateException</span>
-</code></pre></div></li>
-<li>Add a custom HttpClient that allows self-signed certificates
-    <div class="highlight"><pre><span></span><code><span class="kd">object</span><span class="w"> </span><span class="nc">ProvideKtorHttpClient</span><span class="w"> </span><span class="p">{</span>
+
+<span class="kd">object</span><span class="w"> </span><span class="nc">ProvideKtorHttpClient</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">    </span><span class="nd">@SuppressLint</span><span class="p">(</span><span class="s">&quot;TrustAllX509TrustManager&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CustomX509TrustManager&quot;</span><span class="p">)</span>
 <span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">client</span><span class="p">():</span><span class="w"> </span><span class="n">HttpClient</span><span class="w"> </span><span class="p">{</span>
@@ -1229,11 +1225,20 @@ implementation(libs.ktor.logging)
 
 <span class="p">}</span>
 </code></pre></div></li>
-<li>Finally, add this custom HttpClient to the config, by appending it to the EudiWalletConfig.Builder, with the following lines:
-    <code>Kotlin
-   .ktorHttpClientFactory {
-        ProvideKtorHttpClient.client()
-   }</code></li>
+<li>Finally, add this custom HttpClient to the EudiWallet provider function <em>provideEudiWallet</em> located in <em>LogicCoreModule.kt</em>
+    <div class="highlight"><pre><span></span><code><span class="nd">@Single</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">provideEudiWallet</span><span class="p">(</span>
+<span class="n">context</span><span class="p">:</span><span class="w"> </span><span class="n">Context</span><span class="p">,</span>
+<span class="n">walletCoreConfig</span><span class="p">:</span><span class="w"> </span><span class="n">WalletCoreConfig</span><span class="p">,</span>
+<span class="n">walletCoreLogController</span><span class="p">:</span><span class="w"> </span><span class="n">WalletCoreLogController</span>
+<span class="p">):</span><span class="w"> </span><span class="n">EudiWallet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EudiWallet</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">walletCoreConfig</span><span class="p">.</span><span class="na">config</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">withLogger</span><span class="p">(</span><span class="n">walletCoreLogController</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// Custom HttpClient</span>
+<span class="w">    </span><span class="n">withKtorHttpClientFactory</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ProvideKtorHttpClient</span><span class="p">.</span><span class="na">client</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></li>
 </ol>
 <p>For all configuration options please refer to <a href="../configuration/">this document</a></p>
 
