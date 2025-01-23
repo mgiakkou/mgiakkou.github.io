@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#index-of-eudi-lib-android-wallet-coredocswallet-coreeueuropaeceudiwalletlogging-logger" class="md-skip">
+        <a href="#logger" class="md-skip">
           Skip to content
         </a>
       
@@ -206,7 +206,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../getting-started/" class="md-tabs__link">
+        <a href="../../../../../Getting%20Started/" class="md-tabs__link">
           
   
   Getting started
@@ -224,7 +224,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../intro-specs/" class="md-tabs__link">
+        <a href="../../../../../Specifications/" class="md-tabs__link">
           
   
   Specifications
@@ -242,7 +242,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../intro-howtos/" class="md-tabs__link">
+        <a href="../../../../../HowTo/" class="md-tabs__link">
           
   
   How TOs
@@ -260,7 +260,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../test-suite/" class="md-tabs__link">
+        <a href="../../../../../Test%20Suite/" class="md-tabs__link">
           
   
   Test Suite
@@ -278,7 +278,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../intro-about/" class="md-tabs__link">
+        <a href="../../../../../About/" class="md-tabs__link">
           
   
   About
@@ -350,7 +350,7 @@
         
   
   
-    <a href="../../../../../getting-started/" class="md-nav__link">
+    <a href="../../../../../Getting%20Started/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -392,7 +392,7 @@
         
   
   
-    <a href="../../../../../intro-specs/" class="md-nav__link">
+    <a href="../../../../../Specifications/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -434,7 +434,7 @@
         
   
   
-    <a href="../../../../../intro-howtos/" class="md-nav__link">
+    <a href="../../../../../HowTo/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -476,7 +476,7 @@
         
   
   
-    <a href="../../../../../test-suite/" class="md-nav__link">
+    <a href="../../../../../Test%20Suite/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -518,7 +518,7 @@
         
   
   
-    <a href="../../../../../intro-about/" class="md-nav__link">
+    <a href="../../../../../About/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -557,6 +557,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -573,14 +599,51 @@
   
 
 
-<p><a href="/">Home</a> / <a href="/eudi-lib-android-wallet-core/">eudi-lib-android-wallet-core</a> / <a href="/eudi-lib-android-wallet-core/docs/">docs</a> / <a href="/eudi-lib-android-wallet-core/docs/wallet-core/">wallet-core</a> / <a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.logging/">eu.europa.ec.eudi.wallet.logging</a> / -logger</p>
-<h1 id="index-of-eudi-lib-android-wallet-coredocswallet-coreeueuropaeceudiwalletlogging-logger">Index of eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.logging/-logger</h1>
-<ul>
-<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.logging/-logger/-companion/">-companion</a></li>
-<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.logging/-logger/-level/">-level</a></li>
-<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.logging/-logger/-record/">-record</a></li>
-<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.logging/-logger/log/">log</a></li>
-</ul>
+<p><a href="/">Home</a> / <a href="/eudi-lib-android-wallet-core/">eudi-lib-android-wallet-core</a> / <a href="/eudi-lib-android-wallet-core/docs/">docs</a> / <a href="/eudi-lib-android-wallet-core/docs/wallet-core/">wallet-core</a> / <a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.logging/">eu.europa.ec.eudi.wallet.logging</a> / -logger
+//<a href="../../../">wallet-core</a>/<a href="../">eu.europa.ec.eudi.wallet.logging</a>/<a href="./">Logger</a></p>
+<h1 id="logger">Logger</h1>
+<p>[androidJvm]
+fun interface <a href="./">Logger</a></p>
+<p>Logger interface for the EudiWallet</p>
+<p>Implementors can provide their own logging mechanism by implementing this interface</p>
+<h2 id="types">Types</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="-companion/">Companion</a></td>
+<td>[androidJvm]<br>object <a href="-companion/">Companion</a><br>Companion object for the <a href="./">Logger</a> interface</td>
+</tr>
+<tr>
+<td><a href="-level/">Level</a></td>
+<td>[androidJvm]<br>annotation class <a href="-level/">Level</a><br>Log level annotation for configuring logging with <a href="../../eu.europa.ec.eudi.wallet/-eudi-wallet-config/configure-logging/">EudiWalletConfig.configureLogging</a></td>
+</tr>
+<tr>
+<td><a href="-record/">Record</a></td>
+<td>[androidJvm]<br>data class <a href="-record/">Record</a>(val level: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a>, val instant: <a href="https://developer.android.com/reference/kotlin/java/time/Instant.html">Instant</a> = Instant.now(), val message: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>, val thrown: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html">Throwable</a>? = null, val sourceClassName: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>? = null, val sourceMethod: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>? = null)<br>Log record</td>
+</tr>
+</tbody>
+</table>
+<h2 id="functions">Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="log/">log</a></td>
+<td>[androidJvm]<br>abstract fun <a href="log/">log</a>(record: <a href="-record/">Logger.Record</a>)<br>Log a record</td>
+</tr>
+</tbody>
+</table>
 
 
 

@@ -206,7 +206,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../getting-started/" class="md-tabs__link">
+        <a href="../../../../../Getting%20Started/" class="md-tabs__link">
           
   
   Getting started
@@ -224,7 +224,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../intro-specs/" class="md-tabs__link">
+        <a href="../../../../../Specifications/" class="md-tabs__link">
           
   
   Specifications
@@ -242,7 +242,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../intro-howtos/" class="md-tabs__link">
+        <a href="../../../../../HowTo/" class="md-tabs__link">
           
   
   How TOs
@@ -260,7 +260,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../test-suite/" class="md-tabs__link">
+        <a href="../../../../../Test%20Suite/" class="md-tabs__link">
           
   
   Test Suite
@@ -278,7 +278,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../intro-about/" class="md-tabs__link">
+        <a href="../../../../../About/" class="md-tabs__link">
           
   
   About
@@ -350,7 +350,7 @@
         
   
   
-    <a href="../../../../../getting-started/" class="md-nav__link">
+    <a href="../../../../../Getting%20Started/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -392,7 +392,7 @@
         
   
   
-    <a href="../../../../../intro-specs/" class="md-nav__link">
+    <a href="../../../../../Specifications/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -434,7 +434,7 @@
         
   
   
-    <a href="../../../../../intro-howtos/" class="md-nav__link">
+    <a href="../../../../../HowTo/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -476,7 +476,7 @@
         
   
   
-    <a href="../../../../../test-suite/" class="md-nav__link">
+    <a href="../../../../../Test%20Suite/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -518,7 +518,7 @@
         
   
   
-    <a href="../../../../../intro-about/" class="md-nav__link">
+    <a href="../../../../../About/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -625,9 +625,9 @@
 <p>For each document type, the wallet developer has the flexibility to define specific key creation parameters, including the <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-iso18013-data-model/documentation/mdocdatamodel18013/securearea/name-1uugf">secure area name</a>, <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-iso18013-data-model/documentation/mdocdatamodel18013/coseeccurve">curve type</a>, <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-iso18013-data-model/documentation/mdocdatamodel18013/keyaccesscontrol">key access control</a> and <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-iso18013-data-model/documentation/mdocdatamodel18013/keyaccessprotection">key unlock policy</a>.</p>
 <p>Specifically:</p>
 <ul>
-<li>The <code>EudiWallet/issueDocument(docType:format:keyOptions:promptMessage:)</code> has been extended to support an
+<li>The <code>EudiWallet/issueDocument(docType:scope:identifier:keyOptions:promptMessage:)</code> has been extended to support an
 additional <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-iso18013-data-model/documentation/mdocdatamodel18013/keyoptions">keyOptions</a> optional parameter to specify the secure area name and other key options for the key creation. </li>
-<li>The <code>EudiWallet/issueDocumentsByOfferUrl(offerUri:docTypes:docTypeKeyOptions:txCodeValue:format:promptMessage:claimSet:)</code> has been extended to support a <code>docTypeKeyOptions</code> to specify the secure area name and other key options for each doc type.</li>
+<li>The <code>EudiWallet/issueDocumentsByOfferUrl(offerUri:docTypes:docTypeKeyOptions:txCodeValue:promptMessage:claimSet:)</code> has been extended to support a <code>docTypeKeyOptions</code> to specify the secure area name and other key options for each doc type.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1">// For keychain saved keys, the iOS will automatically present a biometric or user PIN screen to authorize key usage for PID documents</span>
 <span class="kd">let</span> <span class="nv">docTypeKeyOptions</span><span class="p">:</span> <span class="p">[</span><span class="n">EuPidModel</span><span class="p">.</span><span class="n">euPidDocType</span> <span class="p">:</span> <span class="n">KeyOptions</span><span class="p">(</span><span class="n">secureAreaName</span><span class="p">:</span> <span class="s">&quot;Software&quot;</span><span class="p">,</span> <span class="n">accessControl</span><span class="p">:</span> <span class="p">[.</span><span class="n">requireUserPresence</span><span class="p">])]</span>

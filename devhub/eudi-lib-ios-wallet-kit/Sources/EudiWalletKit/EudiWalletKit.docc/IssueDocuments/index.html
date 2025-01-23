@@ -206,7 +206,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../getting-started/" class="md-tabs__link">
+        <a href="../../../../../Getting%20Started/" class="md-tabs__link">
           
   
   Getting started
@@ -224,7 +224,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../intro-specs/" class="md-tabs__link">
+        <a href="../../../../../Specifications/" class="md-tabs__link">
           
   
   Specifications
@@ -242,7 +242,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../intro-howtos/" class="md-tabs__link">
+        <a href="../../../../../HowTo/" class="md-tabs__link">
           
   
   How TOs
@@ -260,7 +260,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../test-suite/" class="md-tabs__link">
+        <a href="../../../../../Test%20Suite/" class="md-tabs__link">
           
   
   Test Suite
@@ -278,7 +278,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../intro-about/" class="md-tabs__link">
+        <a href="../../../../../About/" class="md-tabs__link">
           
   
   About
@@ -350,7 +350,7 @@
         
   
   
-    <a href="../../../../../getting-started/" class="md-nav__link">
+    <a href="../../../../../Getting%20Started/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -392,7 +392,7 @@
         
   
   
-    <a href="../../../../../intro-specs/" class="md-nav__link">
+    <a href="../../../../../Specifications/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -434,7 +434,7 @@
         
   
   
-    <a href="../../../../../intro-howtos/" class="md-nav__link">
+    <a href="../../../../../HowTo/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -476,7 +476,7 @@
         
   
   
-    <a href="../../../../../test-suite/" class="md-nav__link">
+    <a href="../../../../../Test%20Suite/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -518,7 +518,7 @@
         
   
   
-    <a href="../../../../../intro-about/" class="md-nav__link">
+    <a href="../../../../../About/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -644,7 +644,7 @@ using this functionality, EudiWallet must be property initialized.
 If <code>EudiWallet/userAuthenticationRequired</code> is true, user authentication is required. The authentication prompt message has localisation key "issue_document".
 After issuing a document, the document data and corresponding private key are stored in the wallet storage.</p>
 <h3 id="issue-document-by-doctype">Issue document by docType</h3>
-<p>When the document docType to be issued use the <code>EudiWallet/issueDocument(docType:keyOptions:promptMessage:)</code> method.</p>
+<p>When the document docType to be issued use the <code>EudiWallet/issueDocument(docType:scope:identifier:keyOptions:promptMessage:)</code> method.</p>
 <p><strong>Important Notes</strong>:</p>
 <ul>
 <li>Currently, only mso_mdoc format is supported</li>
@@ -662,6 +662,12 @@ public/private key pair.</li>
 <span class="k">catch</span> <span class="p">{</span>
     <span class="c1">// display error</span>
 <span class="p">}</span>
+</code></pre></div>
+<p>You can also issue a document by passing configuration <code>identifier</code> parameter the <code>identifier</code>. The configuration identifiers can be retrieved from the issuer's metadata,  using the <code>getIssuerMetadata</code> method.</p>
+<div class="highlight"><pre><span></span><code>  <span class="c1">// get current issuer metadata</span>
+  <span class="kd">let</span> <span class="nv">configuration</span> <span class="p">=</span> <span class="k">try</span> <span class="k">await</span> <span class="n">wallet</span><span class="p">.</span><span class="n">getIssuerMetadata</span><span class="p">()</span>
+  <span class="p">...</span>
+  <span class="kd">let</span> <span class="nv">doc</span> <span class="p">=</span> <span class="k">try</span> <span class="k">await</span> <span class="n">userWallet</span><span class="p">.</span><span class="n">issueDocument</span><span class="p">(</span><span class="n">identifier</span><span class="p">:</span> <span class="s">&quot;eu.europa.ec.eudi.pid_vc_sd_jwt&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="resolving-credential-offer">Resolving Credential offer</h3>
 <p>The library provides the <code>EudiWallet/resolveOfferUrlDocTypes(uriOffer:)</code> method that resolves the credential offer URI.
@@ -693,7 +699,7 @@ information. Specifically, the <code>txCodeSpec</code> field in the <code>Offere
 When the transaction code is provided, the issuance process can be resumed by calling the above-mentioned method and passing the transaction code in the <code>txCodeValue</code> parameter.</p>
 <h3 id="dynamic-issuance">Dynamic issuance</h3>
 <p>Wallet kit supports the Dynamic <a href="https://github.com/eu-digital-identity-wallet/eudi-wallet-product-roadmap/issues/82">PID based issuance</a></p>
-<p>After calling <code>EudiWallet/issueDocument(docType:keyOptions:promptMessage:)</code> or <code>EudiWallet/issueDocumentsByOfferUrl(offerUri:docTypes:docTypeKeyOptions:txCodeValue:promptMessage:claimSet:)</code> the wallet application need to check if the doc is pending and has a <code>authorizePresentationUrl</code> property. If the property is present, the application should perform the OpenID4VP presentation using the presentation URL. On success, the <code>EudiWallet/resumePendingIssuance(pendingDoc:webUrl:)</code> method should be called with the authorization URL provided by the server.
+<p>After calling <code>EudiWallet/issueDocument(docType:scope:identifier:keyOptions:promptMessage:)</code> or <code>EudiWallet/issueDocumentsByOfferUrl(offerUri:docTypes:docTypeKeyOptions:txCodeValue:promptMessage:claimSet:)</code> the wallet application need to check if the doc is pending and has a <code>authorizePresentationUrl</code> property. If the property is present, the application should perform the OpenID4VP presentation using the presentation URL. On success, the <code>EudiWallet/resumePendingIssuance(pendingDoc:webUrl:)</code> method should be called with the authorization URL provided by the server.
 <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="kd">let</span> <span class="nv">urlString</span> <span class="p">=</span> <span class="n">newDocs</span><span class="p">.</span><span class="bp">last</span><span class="p">?.</span><span class="n">authorizePresentationUrl</span> <span class="p">{</span> 
     <span class="c1">// perform openid4vp presentation using the urlString </span>
     <span class="c1">// on success call resumePendingIssuance using the authorization url  </span>
