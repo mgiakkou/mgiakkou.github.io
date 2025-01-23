@@ -206,7 +206,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../getting-started/" class="md-tabs__link">
+        <a href="../../../Getting%20Started/" class="md-tabs__link">
           
   
   Getting started
@@ -224,7 +224,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../intro-specs/" class="md-tabs__link">
+        <a href="../../../Specifications/" class="md-tabs__link">
           
   
   Specifications
@@ -242,7 +242,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../intro-howtos/" class="md-tabs__link">
+        <a href="../../../HowTo/" class="md-tabs__link">
           
   
   How TOs
@@ -260,7 +260,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../test-suite/" class="md-tabs__link">
+        <a href="../../../Test%20Suite/" class="md-tabs__link">
           
   
   Test Suite
@@ -278,7 +278,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../intro-about/" class="md-tabs__link">
+        <a href="../../../About/" class="md-tabs__link">
           
   
   About
@@ -350,7 +350,7 @@
         
   
   
-    <a href="../../../getting-started/" class="md-nav__link">
+    <a href="../../../Getting%20Started/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -392,7 +392,7 @@
         
   
   
-    <a href="../../../intro-specs/" class="md-nav__link">
+    <a href="../../../Specifications/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -434,7 +434,7 @@
         
   
   
-    <a href="../../../intro-howtos/" class="md-nav__link">
+    <a href="../../../HowTo/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -476,7 +476,7 @@
         
   
   
-    <a href="../../../test-suite/" class="md-nav__link">
+    <a href="../../../Test%20Suite/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -518,7 +518,7 @@
         
   
   
-    <a href="../../../intro-about/" class="md-nav__link">
+    <a href="../../../About/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -877,79 +877,8 @@
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="scoped-issuance-document-configuration">Scoped Issuance Document Configuration</h2>
-<p>Currently, the application supports specific docTypes for scoped issuance (On the Add Document screen the pre-configured buttons like <em>National ID</em>, <em>Driving License</em>, and <em>Age verification</em>).</p>
-<p>The supported list and user interface are not configurable because, with the credential offer, you can issue any format-supported document.</p>
-<p>To extend the supported list and display a new button for your document, please follow the instructions below.</p>
-<p>In <em>DocumentIdentifier</em>, inside the core-logic module, you must add a new data object to the sealed interface with your namespace and doctype.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">data</span><span class="w"> </span><span class="kd">object</span><span class="w"> </span><span class="nc">YOUR_OWN</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">nameSpace</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span>
-<span class="w">        </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;your_own_name_space&quot;</span>
-<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">docType</span><span class="p">:</span><span class="w"> </span><span class="n">DocType</span>
-<span class="w">        </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;your_own_doc_type&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>After completing the above change, please address all compilation errors within the <em>DocumentIdentifier</em>. Ensure that all when statements are exhausted, adhering to the established pattern used in the other documents for consistency.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="nf">isSupported</span><span class="p">():</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">is</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">PID</span><span class="p">,</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">MDL</span><span class="p">,</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">AGE</span><span class="p">,</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">YOUR_OWN</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kc">true</span>
-<span class="w">        </span><span class="k">is</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">SAMPLE</span><span class="p">,</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">OTHER</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kc">false</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>In <em>strings.xml</em>. inside resources-logic module, add a new string for document title localization</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- Document Types --&gt;</span>
-<span class="nt">&lt;string</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;pid&quot;</span><span class="nt">&gt;</span>National<span class="w"> </span>ID<span class="nt">&lt;/string&gt;</span>
-<span class="nt">&lt;string</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;mdl&quot;</span><span class="nt">&gt;</span>Driving<span class="w"> </span>License<span class="nt">&lt;/string&gt;</span>
-<span class="nt">&lt;string</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;age_verification&quot;</span><span class="nt">&gt;</span>Age<span class="w"> </span>Verification<span class="nt">&lt;/string&gt;</span>
-<span class="nt">&lt;string</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;load_sample_data&quot;</span><span class="nt">&gt;</span>Load<span class="w"> </span>Sample<span class="w"> </span>Documents<span class="nt">&lt;/string&gt;</span>
-<span class="nt">&lt;string</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;your_own_document_title&quot;</span><span class="nt">&gt;</span>Your<span class="w"> </span>own<span class="w"> </span>document<span class="w"> </span>title<span class="nt">&lt;/string&gt;</span>
-</code></pre></div>
-<p>In <em>DocumentTypeUi</em>, inside the common-feature module, please adjust the extension function <em>DocumentIdentifier.toUiName</em> to point to a string localization for the document Title.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="nf">toUiName</span><span class="p">(</span><span class="n">resourceProvider</span><span class="p">:</span><span class="w"> </span><span class="n">ResourceProvider</span><span class="p">):</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">is</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">PID</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">resourceProvider</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">string</span><span class="p">.</span><span class="na">pid</span><span class="p">)</span>
-<span class="w">        </span><span class="k">is</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">MDL</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">resourceProvider</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">string</span><span class="p">.</span><span class="na">mdl</span><span class="p">)</span>
-<span class="w">        </span><span class="k">is</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">AGE</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">resourceProvider</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">string</span><span class="p">.</span><span class="na">age_verification</span><span class="p">)</span>
-<span class="w">        </span><span class="k">is</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">SAMPLE</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">resourceProvider</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">string</span><span class="p">.</span><span class="na">load_sample_data</span><span class="p">)</span>
-<span class="w">        </span><span class="k">is</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">YOUR_OWN</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">resourceProvider</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">string</span><span class="p">.</span><span class="na">your_own_document_title</span><span class="p">)</span>
-<span class="w">        </span><span class="k">is</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">OTHER</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">docType</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>In <em>TestsData</em>, inside common-feature module, please address all compilation errors. Ensure that all when statements are exhausted, adhering to the established pattern used in the other documents for consistency.</p>
-<p>In <em>AddDocumentInteractor</em>, inside issuance-feature module, please adjust the <em>getAddDocumentOption</em> function to add your new document.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutableListOf</span><span class="p">(</span>
-<span class="w">     </span><span class="n">DocumentOptionItemUi</span><span class="p">(</span>
-<span class="w">        </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">PID</span><span class="p">.</span><span class="na">toUiName</span><span class="p">(</span><span class="n">resourceProvider</span><span class="p">),</span>
-<span class="w">        </span><span class="n">icon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AppIcons</span><span class="p">.</span><span class="na">Id</span><span class="p">,</span>
-<span class="w">        </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">PID</span><span class="p">,</span>
-<span class="w">        </span><span class="n">available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-<span class="w">    </span><span class="p">),</span>
-<span class="w">    </span><span class="n">DocumentOptionItemUi</span><span class="p">(</span>
-<span class="w">        </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">MDL</span><span class="p">.</span><span class="na">toUiName</span><span class="p">(</span><span class="n">resourceProvider</span><span class="p">),</span>
-<span class="w">        </span><span class="n">icon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AppIcons</span><span class="p">.</span><span class="na">Id</span><span class="p">,</span>
-<span class="w">        </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">MDL</span><span class="p">,</span>
-<span class="w">        </span><span class="n">available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">canCreateExtraDocument</span><span class="p">(</span><span class="n">flowType</span><span class="p">)</span>
-<span class="w">    </span><span class="p">),</span>
-<span class="w">    </span><span class="n">DocumentOptionItemUi</span><span class="p">(</span>
-<span class="w">        </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">AGE</span><span class="p">.</span><span class="na">toUiName</span><span class="p">(</span><span class="n">resourceProvider</span><span class="p">),</span>
-<span class="w">        </span><span class="n">icon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AppIcons</span><span class="p">.</span><span class="na">Id</span><span class="p">,</span>
-<span class="w">        </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">AGE</span><span class="p">,</span>
-<span class="w">        </span><span class="n">available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">canCreateExtraDocument</span><span class="p">(</span><span class="n">flowType</span><span class="p">)</span>
-<span class="w">    </span><span class="p">),</span>
-<span class="w">    </span><span class="n">DocumentOptionItemUi</span><span class="p">(</span>
-<span class="w">        </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">YOUR_OWN</span><span class="p">.</span><span class="na">toUiName</span><span class="p">(</span><span class="n">resourceProvider</span><span class="p">),</span>
-<span class="w">        </span><span class="n">icon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AppIcons</span><span class="p">.</span><span class="na">Id</span><span class="p">,</span>
-<span class="w">        </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DocumentIdentifier</span><span class="p">.</span><span class="na">YOUR_OWN</span><span class="p">,</span>
-<span class="w">        </span><span class="n">available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">canCreateExtraDocument</span><span class="p">(</span><span class="n">flowType</span><span class="p">)</span>
-<span class="w">    </span><span class="p">)</span>
-<span class="p">)</span>
-</code></pre></div>
+<p>The credential configuration is derived directly from the issuer's metadata. The issuer URL is configured per flavor via the <em>configureOpenId4Vci</em> method inside the core-logic module at src/demo/config/WalletCoreConfigImpl and src/dev/config/WalletCoreConfigImpl.
+If you want to add or adjust the displayed scoped documents, you must modify the issuer's metadata, and the wallet will automatically resolve your changes.</p>
 <h2 id="how-to-work-with-self-signed-certificates">How to work with self-signed certificates</h2>
 <p>This section describes configuring the application to interact with services utilizing self-signed certificates.</p>
 <ol>
