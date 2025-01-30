@@ -657,7 +657,7 @@
 </tr>
 <tr>
 <td><a href="-document-failed/">DocumentFailed</a></td>
-<td>[androidJvm]<br>data class <a href="-document-failed/">DocumentFailed</a>(document: UnsignedDocument, val cause: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html">Throwable</a>) : <a href="./">IssueEvent</a>, DocumentDetails, <a href="../-open-id4-vci-result/-erroneous/">OpenId4VciResult.Erroneous</a><br>Document issuance failed.</td>
+<td>[androidJvm]<br>data class <a href="-document-failed/">DocumentFailed</a>(document: UnsignedDocument, val cause: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-throwable/index.html">Throwable</a>) : <a href="./">IssueEvent</a>, DocumentDetails, <a href="../-open-id4-vci-result/-erroneous/">OpenId4VciResult.Erroneous</a><br>Document issuance failed.</td>
 </tr>
 <tr>
 <td><a href="-document-issued/">DocumentIssued</a></td>
@@ -665,23 +665,23 @@
 </tr>
 <tr>
 <td><a href="-document-requires-create-settings/">DocumentRequiresCreateSettings</a></td>
-<td>[androidJvm]<br>data class <a href="-document-requires-create-settings/">DocumentRequiresCreateSettings</a>(val offeredDocument: <a href="../-offer/-offered-document/">Offer.OfferedDocument</a>, val resume: (createDocumentSettings: CreateDocumentSettings) -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a>, val cancel: (reason: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>?) -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a>) : <a href="./">IssueEvent</a><br>Issuing requires CreateDocumentSettings to create the document that will be issued for the <a href="-document-requires-create-settings/offered-document/">offeredDocument</a>.</td>
+<td>[androidJvm]<br>data class <a href="-document-requires-create-settings/">DocumentRequiresCreateSettings</a>(val offeredDocument: <a href="../-offer/-offered-document/">Offer.OfferedDocument</a>, val resume: (createDocumentSettings: CreateDocumentSettings) -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html">Unit</a>, val cancel: (reason: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a>?) -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html">Unit</a>) : <a href="./">IssueEvent</a><br>Issuing requires CreateDocumentSettings to create the document that will be issued for the <a href="-document-requires-create-settings/offered-document/">offeredDocument</a>.</td>
 </tr>
 <tr>
 <td><a href="-document-requires-user-auth/">DocumentRequiresUserAuth</a></td>
-<td>[androidJvm]<br>data class <a href="-document-requires-user-auth/">DocumentRequiresUserAuth</a>(val document: UnsignedDocument, val signingAlgorithm: Algorithm, val resume: (keyUnlockData: KeyUnlockData) -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a>, val cancel: (reason: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>?) -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a>) : <a href="./">IssueEvent</a>, DocumentDetails<br>Document requires user authentication to unlock the key for signing the proof of possession.</td>
+<td>[androidJvm]<br>data class <a href="-document-requires-user-auth/">DocumentRequiresUserAuth</a>(val document: UnsignedDocument, val signingAlgorithm: Algorithm, val resume: (keyUnlockData: KeyUnlockData) -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html">Unit</a>, val cancel: (reason: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a>?) -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html">Unit</a>) : <a href="./">IssueEvent</a>, DocumentDetails<br>Document requires user authentication to unlock the key for signing the proof of possession.</td>
 </tr>
 <tr>
 <td><a href="-failure/">Failure</a></td>
-<td>[androidJvm]<br>data class <a href="-failure/">Failure</a>(val cause: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html">Throwable</a>) : <a href="./">IssueEvent</a>, <a href="../-open-id4-vci-result/-erroneous/">OpenId4VciResult.Erroneous</a><br>The issuance failed.</td>
+<td>[androidJvm]<br>data class <a href="-failure/">Failure</a>(val cause: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-throwable/index.html">Throwable</a>) : <a href="./">IssueEvent</a>, <a href="../-open-id4-vci-result/-erroneous/">OpenId4VciResult.Erroneous</a><br>The issuance failed.</td>
 </tr>
 <tr>
 <td><a href="-finished/">Finished</a></td>
-<td>[androidJvm]<br>data class <a href="-finished/">Finished</a>(val issuedDocuments: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a>&lt;DocumentId&gt;) : <a href="./">IssueEvent</a><br>The issuance has finished.</td>
+<td>[androidJvm]<br>data class <a href="-finished/">Finished</a>(val issuedDocuments: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a>&lt;DocumentId&gt;) : <a href="./">IssueEvent</a><br>The issuance has finished.</td>
 </tr>
 <tr>
 <td><a href="-started/">Started</a></td>
-<td>[androidJvm]<br>data class <a href="-started/">Started</a>(val total: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a>) : <a href="./">IssueEvent</a><br>The issuance was started.</td>
+<td>[androidJvm]<br>data class <a href="-started/">Started</a>(val total: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a>) : <a href="./">IssueEvent</a><br>The issuance was started.</td>
 </tr>
 </tbody>
 </table>

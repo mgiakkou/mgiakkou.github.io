@@ -581,15 +581,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Functions
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -612,7 +603,8 @@
 //<a href="../../../">wallet-core</a>/<a href="../">eu.europa.ec.eudi.wallet.transfer.openId4vp</a>/<a href="./">SdJwtVcItem</a></p>
 <h1 id="sdjwtvcitem">SdJwtVcItem</h1>
 <p>[androidJvm]
-class <a href="./">SdJwtVcItem</a>(val elementIdentifier: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>) : DocItem</p>
+class <a href="./">SdJwtVcItem</a>(val path: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a>&gt;) : DocItem</p>
+<p>Represents a SD-JWT VC item.</p>
 <h2 id="constructors">Constructors</h2>
 <table>
 <thead>
@@ -624,7 +616,7 @@ class <a href="./">SdJwtVcItem</a>(val elementIdentifier: <a href="https://kotli
 <tbody>
 <tr>
 <td><a href="-sd-jwt-vc-item/">SdJwtVcItem</a></td>
-<td>[androidJvm]<br>constructor(elementIdentifier: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>)</td>
+<td>[androidJvm]<br>constructor(path: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a>&gt;)</td>
 </tr>
 </tbody>
 </table>
@@ -638,27 +630,8 @@ class <a href="./">SdJwtVcItem</a>(val elementIdentifier: <a href="https://kotli
 </thead>
 <tbody>
 <tr>
-<td><a href="element-identifier/">elementIdentifier</a></td>
-<td>[androidJvm]<br>open override val <a href="element-identifier/">elementIdentifier</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="functions">Functions</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="./#-47510592%2FFunctions%2F1615067946">equals</a></td>
-<td>[androidJvm]<br>open operator override fun <a href="./#-47510592%2FFunctions%2F1615067946">equals</a>(other: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a>?): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></td>
-</tr>
-<tr>
-<td><a href="./#-1155996378%2FFunctions%2F1615067946">hashCode</a></td>
-<td>[androidJvm]<br>open override fun <a href="./#-1155996378%2FFunctions%2F1615067946">hashCode</a>(): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></td>
+<td><a href="path.md">path</a></td>
+<td>[androidJvm]<br>val <a href="path.md">path</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a>&gt;<br>The path of the item.</td>
 </tr>
 </tbody>
 </table>

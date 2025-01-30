@@ -621,10 +621,10 @@
 //<a href="../../../../">wallet-core</a>/<a href="../../">eu.europa.ec.eudi.wallet.document</a>/<a href="../">DocumentExtensions</a>/<a href="./">getDefaultCreateDocumentSettings</a></p>
 <h1 id="getdefaultcreatedocumentsettings">getDefaultCreateDocumentSettings</h1>
 <p>[androidJvm]\</p>
-<p>@<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-name/index.html">JvmName</a>(name = &quot;getDefaultCreateDocumentSettings&quot;)</p>
-<p>@<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html">JvmOverloads</a></p>
-<p>@<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-static/index.html">JvmStatic</a></p>
-<p>fun <a href="../../../eu.europa.ec.eudi.wallet/-eudi-wallet/">EudiWallet</a>.<a href="./">getDefaultCreateDocumentSettings</a>(attestationChallenge: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a>? = null, configure: AndroidKeystoreCreateKeySettings.Builder.() -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a>? = null): CreateDocumentSettings</p>
+<p>@<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.jvm/-jvm-name/index.html">JvmName</a>(name = &quot;getDefaultCreateDocumentSettings&quot;)</p>
+<p>@<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.jvm/-jvm-overloads/index.html">JvmOverloads</a></p>
+<p>@<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html">JvmStatic</a></p>
+<p>fun <a href="../../../eu.europa.ec.eudi.wallet/-eudi-wallet/">EudiWallet</a>.<a href="./">getDefaultCreateDocumentSettings</a>(attestationChallenge: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a>? = null, configure: AndroidKeystoreCreateKeySettings.Builder.() -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html">Unit</a>? = null): CreateDocumentSettings</p>
 <p>Returns the default CreateDocumentSettings for the <a href="../../../eu.europa.ec.eudi.wallet/-eudi-wallet/">EudiWallet</a> instance. The default settings are based on the <a href="../../../eu.europa.ec.eudi.wallet/-eudi-wallet-config/">EudiWalletConfig</a> and the first available AndroidKeystoreSecureArea implementation. The <a href="./">attestationChallenge</a> is generated using a <a href="https://developer.android.com/reference/kotlin/java/security/SecureRandom.html">SecureRandom</a> instance. The <a href="./">configure</a> lambda can be used to further customize the AndroidKeystoreCreateKeySettings. The first available AndroidKeystoreSecureArea implementation is used.</p>
 <h4 id="receiver">Receiver</h4>
 <p>the <a href="../../../eu.europa.ec.eudi.wallet/-eudi-wallet/">EudiWallet</a> instance</p>
@@ -680,7 +680,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-no-such-element-exception/index.html">NoSuchElementException</a></td>
+<td><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-no-such-element-exception/index.html">NoSuchElementException</a></td>
 <td>if no AndroidKeystoreSecureArea implementation is available</td>
 </tr>
 </tbody>
