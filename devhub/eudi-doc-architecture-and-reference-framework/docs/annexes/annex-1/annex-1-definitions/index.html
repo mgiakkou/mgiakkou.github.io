@@ -570,29 +570,32 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="A.1 Introduction">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a11-table-1-eidas-regulation-definitions" class="md-nav__link">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a2-definitions-from-the-european-digital-identity-regulation" class="md-nav__link">
     <span class="md-ellipsis">
-      A.1.1 Table 1 - eIDAS regulation definitions
+      A.2 Definitions from the [European Digital Identity Regulation]
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#a12-table-2-additional-definitions-used-in-this-arf" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#a3-definitions-from-the-adopted-commission-implementing-regulations" class="md-nav__link">
     <span class="md-ellipsis">
-      A.1.2 Table 2 -- Additional definitions used in this ARF
+      A.3 Definitions from the adopted Commission Implementing Regulations
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#a4-additional-definitions-used-in-the-arf-v150" class="md-nav__link">
+    <span class="md-ellipsis">
+      A.4 Additional definitions used in the ARF v1.5.0
+    </span>
+  </a>
   
 </li>
       
@@ -617,124 +620,97 @@
 <p><a href="/">Home</a> / <a href="/eudi-doc-architecture-and-reference-framework/">eudi-doc-architecture-and-reference-framework</a> / <a href="/eudi-doc-architecture-and-reference-framework/docs/">docs</a> / <a href="/eudi-doc-architecture-and-reference-framework/docs/annexes/">annexes</a> / <a href="/eudi-doc-architecture-and-reference-framework/docs/annexes/annex-1/">annex-1</a> / annex-1-definitions</p>
 <h1 id="annex-1-definitions">ANNEX 1 - Definitions</h1>
 <h2 id="a1-introduction">A.1 Introduction</h2>
-<p><strong>Table 1 -- eIDAS regulation definitions</strong></p>
-<p>In this [ARF] definitions are used. Several definitions are already
-defined in the legal text, these definitions are cited from the eIDAS
-Regulation or from the eIDAS Regulation amendment proposal. For
-convenience they are listed in <a href="#a11-table-1---eidas-regulation-definitions">table 1</a>.</p>
-<p><strong>Table 2 -- Additional definitions used in this ARF</strong></p>
-<p>In writing this [ARF], additional technical terms and definitions are
-used. These are listed in <a href="#a12-table-2----additional-definitions-used-in-this-arf">table 2</a>. Note the technical terms and
-definitions in <a href="#a12-table-2----additional-definitions-used-in-this-arf">table 2</a> are intended to be defined in such a way that
-they are aligned with the definitions used in the <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ.L_.2014.257.01.0073.01.ENG#d1e791-73-1">eIDAS Regulation</a> and
-<a href="https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32024R1183#d1e739-1-1">eIDAS amendment</a>  and should be interpreted as such.</p>
-<p>In some cases, the definition or terms has its origin in the context of
-specific topics (see <a href="../../annex-2/annex-2-high-level-requirements/">Appendix 2</a>, High level Requirements, listed per
-topic). To give the relevant context, the topic number appears in
-brackets following the definition, e.g., [<a href="../../annex-2/annex-2-high-level-requirements/#a2311-topic-11---pseudonym-attestation">Topic 11</a>]. If the definition
-is related to two topics, both topic numbers will appear in the
-brackets, e.g., [<a href="../../annex-2/annex-2-high-level-requirements/#a2333-topic-33---eudi-wallet-backup-and-restore">Topic 33</a>, <a href="../../annex-2/annex-2-high-level-requirements/#a2334-topic-34---migrate-to-a-different-wallet-solution">Topic 34</a>]. If the definition is generic to
-the [ARF] as a whole or to more than 2 topics, no brackets will be
-added. If the definition relies on an external source, such as a
-standard or a formal publication, that source will be mentioned.</p>
-<h3 id="a11-table-1-eidas-regulation-definitions">A.1.1 Table 1 - eIDAS regulation definitions</h3>
+<p>In the Architecture Reference Framework (ARF), v1.5.0, many terms are used that need a precise definition. This Annex to ARF 1.5.0 contains the definitions of these terms. In fact, there are three sources for these definitions:</p>
+<ul>
+<li>In the first place, the [European Digital Identity Regulation] defines several of these terms. For
+convenience, these definitions are listed in <a href="#a11-table-1---eidas-regulation-definitions">Table 1</a>.</li>
+<li>Secondly, the adopted Commission Implementing Regulations <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R2977">CIR 2024/2977</a>, <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202402979">CIR 2024/2979</a>, <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202402980">CIR 2024/2980</a>, <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202402981">CIR 2024/2981</a>, and <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202402982">CIR 2024/2982</a> also contain a list of definitions. Again for convenience, these definitions are included in [Table 2]</li>
+<li>Thirdly, in writing the ARF, additional technical terms and corresponding definitions are
+used. These are listed in <a href="#a12-table-2----additional-definitions-used-in-this-arf">Table 3</a>.</li>
+</ul>
+<h2 id="a2-definitions-from-the-european-digital-identity-regulation">A.2 Definitions from the [European Digital Identity Regulation]</h2>
+<p>The following terms are defined in the [European Digital Identity Regulation] and used in the ARF.</p>
 <table>
 <thead>
 <tr>
 <th><strong>Term</strong></th>
-<th><strong>Definition [eIDAS Regulation]</strong></th>
+<th><strong>Definition in [European Digital Identity Regulation]</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Advanced electronic signature</strong></td>
-<td><em>An electronic signature which meets the requirements set out in <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ.L_.2014.257.01.0073.01.ENG#d1e2403-73-1">Article 26</a>.</em></td>
-</tr>
-<tr>
-<td><strong>Attestation</strong></td>
-<td><em>An attestation in electronic form that allows attributes to be authenticated.</em></td>
+<td><strong>Electronic attestation of attributes (EAA)</strong></td>
+<td>An attestation in electronic form that allows attributes to be authenticated.</td>
 </tr>
 <tr>
 <td><strong>Attribute</strong></td>
-<td><em>A characteristic, quality, right or permission of a natural or legal person or of an object.</em></td>
+<td>A characteristic, quality, right or permission of a natural or legal person or of an object.</td>
 </tr>
 <tr>
 <td><strong>Authentic Source</strong></td>
-<td><em>A repository or system, held under the responsibility of a public sector body or private entity, that contains and provides attributes about a natural or legal person and that is considered to be a primary source of that information or recognised as authentic in accordance with Union law or national law, including administrative practice.</em></td>
+<td>A repository or system, held under the responsibility of a public sector body or private entity, that contains and provides attributes about a natural or legal person or object and that is considered to be a primary source of that information or recognised as authentic in accordance with Union law or national law, including administrative practice.</td>
 </tr>
 <tr>
 <td><strong>Authentication</strong></td>
-<td><em>An electronic process that enables: the confirmation of the electronic identification of a natural or legal person or; the confirmation of the origin and integrity of data in electronic form.</em></td>
-</tr>
-<tr>
-<td><strong>Certificate for electronic signature</strong></td>
-<td><em>An electronic attestation which links electronic signature validation data to a natural person and confirms at least the name or the pseudonym of that person.</em></td>
+<td>An electronic process that enables the confirmation of the electronic identification of a natural or legal person or the confirmation of the origin and integrity of data in electronic form.</td>
 </tr>
 <tr>
 <td><strong>Conformity Assessment Body (CAB)</strong></td>
-<td><em>A conformity assessment body as defined in <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:32008R0765#d1e497-30-1">Article 2, point 13, of Regulation (EC) No 765/2008</a>, which is accredited in accordance with that Regulation as competent to carry out conformity assessment of a qualified trust service provider and the qualified trust services it provides, or as competent to carry out certification of European Digital Identity Wallets or electronic identification means.</em></td>
+<td>A conformity assessment body as defined in <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:32008R0765#d1e497-30-1">Article 2, point 13, of Regulation (EC) No 765/2008</a>, which is accredited in accordance with that Regulation as competent to carry out conformity assessment of a qualified trust service provider and the qualified trust services it provides, or as competent to carry out certification of European Digital Identity Wallets or electronic identification means.</td>
 </tr>
 <tr>
-<td><strong>Electronic Attestation of Attributes (EAAs)</strong></td>
-<td><em>An attestation in electronic form that allows attributes to be authenticated.</em></td>
-</tr>
-<tr>
-<td><strong>Electronic attestation of attributes issued by or on behalf of a public sector body</strong></td>
-<td>'<em>Electronic attestation of attributes issued by or on behalf of a public sector body responsible for an authentic source' means an electronic attestation of attributes issued by a public sector body that is responsible for an authentic source or by a public sector body that is designated by the Member State to issue such attestations of attributes on behalf of the public sector bodies responsible for authentic sources in accordance with <a href="https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32024R1183#d1e3902-1-1">Article 45f</a> and with <a href="https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32024R1183#d1e40-56-1">Annex VII</a></em> [<a href="https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32024R1183#d1e739-1-1">Article 3</a>(46)].</td>
-</tr>
-<tr>
-<td><strong>Electronic identification means</strong></td>
-<td><em>A material and/or immaterial unit containing person identification data and which is used for authentication for an online service or, where appropriate, for an offline service.</em></td>
+<td><strong>Electronic attestation of attributes issued by or on behalf of a public sector body (PuB-EAA)</strong></td>
+<td>An electronic attestation of attributes issued by a public sector body that is responsible for an authentic source or by a public sector body that is designated by the Member State to issue such attestations of attributes on behalf of the public sector bodies responsible for authentic sources in accordance with <a href="https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32024R1183#d1e3902-1-1">Article 45f</a> and with <a href="https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32024R1183#d1e40-56-1">Annex VII</a>.</td>
 </tr>
 <tr>
 <td><strong>Electronic identification scheme</strong></td>
-<td><em>A system for electronic identification under which electronic identification means are issued to natural or legal persons or natural persons representing other natural persons or legal persons.</em></td>
+<td>A system for electronic identification under which electronic identification means are issued to natural or legal persons or natural persons representing other natural persons or legal persons.</td>
 </tr>
 <tr>
-<td><strong>Electronic signature</strong></td>
-<td><em>Data in electronic form which is attached to or logically associated with other data in electronic form and which is used by the signatory to sign.</em></td>
+<td><strong>(Electronic) signature</strong></td>
+<td>Data in electronic form which is attached to or logically associated with other data in electronic form and which is used by the signatory to sign.</td>
 </tr>
 <tr>
-<td><strong>Electronic signature creation data</strong></td>
-<td><em>Unique data which is used by the signatory to create an electronic signature.</em></td>
+<td><strong>(Electronic) seal</strong></td>
+<td>Data in electronic form which is attached to or logically associated with other data in electronic form to ensure the latter’s origin and integrity</td>
 </tr>
 <tr>
-<td><strong>EUDI Wallet User</strong></td>
-<td><em>A natural or legal person, or a natural person representing another natural person or a legal person, that uses trust services or electronic identification means provided in accordance with this Regulation.</em></td>
-</tr>
-<tr>
-<td><strong>Identity matching</strong></td>
-<td><em>Is defined in<a href="https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32024R1183#d1e739-1-1"> Article 3</a> (54) 'identity matching': A process where person identification data, or person identification means are matched with or linked to an existing account belonging to the same person.</em></td>
+<td><strong>User</strong></td>
+<td>A natural or legal person, or a natural person representing another natural person or a legal person, that uses trust services or electronic identification means provided in accordance with the [European Digital Identity Regulation].</td>
 </tr>
 <tr>
 <td><strong>Person Identification Data (PID)</strong></td>
-<td><em>A set of data that is issued in accordance with Union or national law and that enables the identity of a natural or legal person, or of a natural person representing another natural person or a legal person, to be established [<a href="https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32024R1183#d1e739-1-1">Article 3</a>, (3a)].</em></td>
-</tr>
-<tr>
-<td><strong>Qualified certificate for electronic signature</strong></td>
-<td><em>A certificate for electronic signatures, that is issued by a qualified trust service provider and meets the requirements laid down in <a href="https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32024R1183#d1e38-50-1">Annex I</a>.</em></td>
+<td>A set of data that is issued in accordance with Union or national law and that enables the establishment of the identity of a natural or legal person, or of a natural person representing another natural person or a legal person.</td>
 </tr>
 <tr>
 <td><strong>Qualified Electronic Attestation of Attributes (QEAA)</strong></td>
-<td><em>An electronic attestation of attributes which is issued by a qualified trust service provider and meets the requirements laid down in <a href="https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32024R1183#d1e46-54-1">Annex V</a>.</em></td>
+<td>An electronic attestation of attributes which is issued by a qualified trust service provider and meets the requirements laid down in <a href="https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32024R1183#d1e46-54-1">Annex V</a>.</td>
 </tr>
 <tr>
-<td><strong>Qualified electronic signature</strong></td>
-<td><em>An advanced electronic signature that is created by a qualified electronic signature creation device, and which is based on a qualified certificate for electronic signatures.</em></td>
+<td><strong>Qualified Electronic Signature (QES)</strong></td>
+<td>An advanced electronic signature that is created by a qualified electronic signature creation device, and which is based on a qualified certificate for electronic signatures.</td>
 </tr>
 <tr>
 <td><strong>Qualified Electronic Signature Creation Device (QSCD)</strong></td>
-<td><em>Configured software or hardware used to create an electronic signature that meets the requirements laid down in <a href="https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32024R1183#d1e38-51-1">Annex II</a> of the eIDAS Regulation amendment proposal.</em></td>
+<td>Configured software or hardware used to create an electronic signature that meets the requirements laid down in <a href="https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32024R1183#d1e38-51-1">Annex II</a> of the [European Digital Identity Regulation].</td>
 </tr>
 <tr>
 <td><strong>Qualified Trust Service Provider (QTSP)</strong></td>
-<td><em>Qualified Trust Service Provider means a trust service provider who provides one or more qualified trust services and is granted the qualified status by the supervisory body.</em></td>
+<td>Qualified Trust Service Provider means a trust service provider who provides one or more qualified trust services and is granted the qualified status by the supervisory body.</td>
+</tr>
+<tr>
+<td><strong>Relying Party</strong></td>
+<td>A natural or legal person that relies upon electronic identification, European Digital Identity Wallets or other electronic identification means, or upon a trust service</td>
+</tr>
+<tr>
+<td><strong>Public Sector Body</strong></td>
+<td>A state, regional or local authority, a body governed by public law or an association formed by one or several such authorities or one or several such bodies governed by public law, or a private entity mandated by at least one of those authorities, bodies or associations to provide public services, when acting under such a mandate.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="a12-table-2-additional-definitions-used-in-this-arf">A.1.2 Table 2 -- Additional definitions used in this ARF</h3>
-<p><strong>Table 2 - Technical definitions originating in the ARF - not cited
-from the eIDAS Regulation or the amendment proposal:</strong></p>
+<p><strong>Table 1: Definition of terms used in the ARF originating from the [European Digital Identity Regulation]</strong></p>
+<h2 id="a3-definitions-from-the-adopted-commission-implementing-regulations">A.3 Definitions from the adopted Commission Implementing Regulations</h2>
+<p>The following terms are defined in the adopted Commission Implementing Regulations and used in the ARF. Note that small differences exist in the way in which terms are written, for example regarding capitalisation. The table contains the term as used in the ARF.</p>
 <table>
 <thead>
 <tr>
@@ -744,36 +720,107 @@ from the eIDAS Regulation or the amendment proposal:</strong></p>
 </thead>
 <tbody>
 <tr>
-<td>Alias</td>
-<td>An alternative name assigned to a pseudonym by a User. [<a href="../../annex-2/annex-2-high-level-requirements/#a2311-topic-11---pseudonym-attestation">Topic 11</a>]</td>
+<td>(Wallet) User</td>
+<td>A user who is in control of the Wallet Unit</td>
 </tr>
 <tr>
-<td>Application</td>
-<td>An Application from a Relying Party to be included in a Relying Party Registry. [<a href="../../annex-2/annex-2-high-level-requirements/#a2327-topic-27---relying-party-registration">Topic 27</a>]</td>
+<td>Wallet Unit</td>
+<td>A unique configuration of a Wallet Solution that includes Wallet instances, Wallet Secure Cryptographic Applications and Wallet Secure Cryptographic Devices provided by a Wallet Provider to an individual Wallet User</td>
+</tr>
+<tr>
+<td>Wallet Solution</td>
+<td>A combination of software, hardware, services, settings, and configurations, including Wallet Instances, one or more Wallet Secure Cryptographic Applications and one or more Wallet Secure Cryptographic Devices</td>
+</tr>
+<tr>
+<td>Provider of person identification data (PID Provider)</td>
+<td>A natural or legal person responsible for issuing and revoking the person identification data and ensuring that the person identification data of a user is cryptographically bound to a Wallet Unit</td>
+</tr>
+<tr>
+<td>Wallet Unit Attestation (WUA)</td>
+<td>A data object that describes the components of the Wallet Unit or allows authentication and validation of those components;</td>
+</tr>
+<tr>
+<td>Embedded disclosure policy</td>
+<td>A set of rules, embedded in an electronic attestation of attributes by its provider, that indicates the conditions that a wallet-relying party has to meet to access the electronic attestation of attributes</td>
+</tr>
+<tr>
+<td>Registrar (of wallet-relying parties)</td>
+<td>The body responsible for establishing and maintaining the list of registered wallet-relying parties established in their territory who has been designated by a Member State</td>
+</tr>
+<tr>
+<td>Wallet Instance</td>
+<td>The application installed and configured on a Wallet User’s device or environment, which is part of a Wallet Unit, and that the Wallet User uses to interact with the Wallet Unit</td>
+</tr>
+<tr>
+<td>Wallet Secure Cryptographic Application (WCSCA)</td>
+<td>An application that manages critical assets by being linked to and using the cryptographic and non-cryptographic functions provided by the Wallet Secure Cryptographic Device</td>
+</tr>
+<tr>
+<td>Wallet Secure Cryptographic Device (WSCD)</td>
+<td>A tamper-resistant device that provides an environment that is linked to and used by the Wallet Secure Cryptographic Application to protect critical assets and provide cryptographic functions for the secure execution of critical operations</td>
+</tr>
+<tr>
+<td>Wallet Provider</td>
+<td>A natural or legal person who provides Wallet Solutions</td>
+</tr>
+<tr>
+<td>critical assets</td>
+<td>Assets within or in relation to a Wallet Unit of such extraordinary importance that where their availability, confidentiality or integrity are compromised, this would have a very serious, debilitating effect on the ability to rely on the Wallet Unit</td>
+</tr>
+<tr>
+<td>(Wallet-) Relying Party</td>
+<td>A Relying Party that intends to rely upon Wallet Units for the provision of public or private services by means of digital interaction</td>
+</tr>
+<tr>
+<td>(Wallet-relying party) access certificate</td>
+<td>A certificate for electronic seals or signatures authenticating and validating the (Wallet-) Relying Party, issued by a provider of wallet-relying party access certificates</td>
+</tr>
+<tr>
+<td>Provider of wallet-relying party access certificates (Access Certificate Authority, Access CA)</td>
+<td>A natural or legal person mandated by a Member State to issue Relying Party access certificates to (Wallet-) Relying Parties registered in that Member State.</td>
+</tr>
+<tr>
+<td>(Wallet-relying party) registration certificate</td>
+<td>A data object that indicates the attributes the Relying Party has registered to intend to request from Users</td>
+</tr>
+</tbody>
+</table>
+<h2 id="a4-additional-definitions-used-in-the-arf-v150">A.4 Additional definitions used in the ARF v1.5.0</h2>
+<p>Note: The technical terms and definitions in Table 3 below are intended to be defined in such a way that they are aligned with the definitions used in the [European Digital Identity Regulation] and the Commission Implementing Regulations in Tables 1 and 2, and should be interpreted as such. In case any definition in Table 3 contradicts a definition from the [European Digital Identity Regulation] or the Commission Implementing Regulations, the latter take precedence.</p>
+<p>In some cases, a term has its origin in the context of
+a specific Topic in <a href="../../annex-2/annex-2-high-level-requirements/">Annex 2</a>. In such a case, the topic number appears in brackets following the definition. If the definition relies on an external source, such as a
+standard or a formal publication, that source is mentioned.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Term</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Attestation</td>
+<td>When not further qualified, a collective term for a QEEA, PuB-EAA, or (non-qualified) EAA.</td>
 </tr>
 <tr>
 <td>Attestation Provider</td>
-<td>QEAA Provider, PuB-EAA Provider or EAA Provider. Note: This term is used in the ARF merely for practical reasons, as a collective term.</td>
+<td>When not further qualified, a collective term for QEAA Provider, PuB-EAA Provider, or (non-qualified) EAA Provider.</td>
 </tr>
 <tr>
 <td>Attestation Revocation List</td>
-<td>A mechanism provided by an Attestation Provider (or a trusted party acting on its behalf) for communicating the revocation or suspension status of attestations, by publishing a list of identifiers of revoked or suspended attestations; and used by a Relying Party to verify the status. [<a href="../../annex-2/annex-2-high-level-requirements/#a237-topic-7---attestation-validity-checks-and-revocation">Topic 7</a>]</td>
+<td>A mechanism provided by a PID Provider or an Attestation Provider (or a trusted party acting on its behalf) for communicating the revocation status of PIDs and attestations, by publishing a list of identifiers of revoked PIDs or attestations; and used by a Relying Party to verify the status. [Topic 7]</td>
 </tr>
 <tr>
 <td>Attestation Rulebook</td>
-<td>A document describing the attestation type, namespace(s), and other features for a specific attestation type in compliance with the minimum requirements for attestation rulebooks. [<a href="../../annex-2/annex-2-high-level-requirements/#a2312-topic-12---attestation-rulebooks">Topic 12</a>]</td>
+<td>A document describing the attestation type, namespace(s), and other features for a specific attestation type. [Topic 12]</td>
 </tr>
 <tr>
 <td>Attestation Status List</td>
-<td>A mechanism provided by an Attestation Provider (or a trusted party acting on its behalf) for communicating the status of attestations, by publishing status information for all valid attestations at the time of publication. [<a href="../../annex-2/annex-2-high-level-requirements/#a237-topic-7---attestation-validity-checks-and-revocation">Topic 7</a>]</td>
+<td>A mechanism provided by a PID Provider or an Attestation Provider (or a trusted party acting on its behalf) for communicating the revocation status of PIDs and attestations, by publishing status information (Valid or Invalid) for all PIDs and attestations that are valid at the time of publication. [Topic 7]</td>
 </tr>
 <tr>
 <td>Attestation type</td>
-<td>An identifier for a type of attestation, unique within the context of the EUDI Wallet ecosystem. Note: Examples of attestation types are a mobile driving licence (mDL), a diploma, or a concert ticket. [<a href="../../annex-2/annex-2-high-level-requirements/#a2312-topic-12---attestation-rulebooks">Topic 12</a>]</td>
-</tr>
-<tr>
-<td>Backup and Restore Object</td>
-<td>A data structure that includes attributes such as Serial number, Attestation type, Attestation Provider, and Issuance time. [<a href="../../annex-2/annex-2-high-level-requirements/#a2333-topic-33---eudi-wallet-backup-and-restore">Topics 33</a>, <a href="../../annex-2/annex-2-high-level-requirements/#a2334-topic-34---migrate-to-a-different-wallet-solution">34</a>]</td>
+<td>An identifier for a type of attestation, unique within the context of the EUDI Wallet ecosystem [Topic 12]</td>
 </tr>
 <tr>
 <td>Certificate Authority (CA)</td>
@@ -781,67 +828,23 @@ from the eIDAS Regulation or the amendment proposal:</strong></p>
 </tr>
 <tr>
 <td>Certificate Policy (CP)</td>
-<td>Named set of rules that indicates the applicability of a certificate to a particular community and/or class of application with common security requirements.</td>
-</tr>
-<tr>
-<td>Controlled vocabulary</td>
-<td>A consistent way to describe data as a standardized and organized arrangement of words and phrases presented as alphabetical lists of terms or as thesauri and taxonomies with a hierarchical structure of broader and narrower terms. Adapted from <a href="https://op.europa.eu/en/web/eu-vocabularies/controlled-vocabularies">https://op.europa.eu/en/web/eu-vocabularies/controlled-vocabularies</a></td>
-</tr>
-<tr>
-<td>DPA</td>
-<td>Data Protection Authority. [<a href="../../annex-2/annex-2-high-level-requirements/#a2343-topic-43---embedded-disclosure-policy">Topic 43</a>]</td>
-</tr>
-<tr>
-<td>EUDI Wallet Instance</td>
-<td>The software installed on a User's device which is part of an EUDI Wallet Solution and belongs to and is controlled by a User.</td>
-</tr>
-<tr>
-<td>EUDI Wallet Provider</td>
-<td>A public or private organisation, responsible for provisioning and operating an EUDI Wallet Solution.</td>
-</tr>
-<tr>
-<td>EUDI Wallet Solution</td>
-<td>The product(s) and service(s) provided by an EUDI Wallet Provider to Users.</td>
-</tr>
-<tr>
-<td>mDL</td>
-<td>Mobile Driving Licence. [<a href="../../annex-2/annex-2-high-level-requirements/#a232-topic-2---mobile-driving-license-with-eudi-wallet">Topics 2</a>, <a href="../../annex-2/annex-2-high-level-requirements/#a234-topic-4---mdl-rulebook">4</a>]</td>
-</tr>
-<tr>
-<td>Migration</td>
-<td>The activity of moving data from one EUDI Wallet Instance to another EUDI Wallet Instance, where the Wallet Instances are instances of different Wallet Solutions. [<a href="../../annex-2/annex-2-high-level-requirements/#a2334-topic-34---migrate-to-a-different-wallet-solution">Topic 34</a>]</td>
+<td>A named set of rules that indicates the applicability of a certificate to a particular community and/or class of application with common security requirements.</td>
 </tr>
 <tr>
 <td>Namespace</td>
-<td>A specification of the attribute identifier, syntax and semantics of attributes that can be used in an attestation, having an identifier that is unique within the context of the EUDI Wallet ecosystem. [<a href="../../annex-2/annex-2-high-level-requirements/#a2312-topic-12---attestation-rulebooks">Topic 12</a>]</td>
+<td>A specification of the attribute identifier, syntax and semantics of attributes that can be used in an attestation, having an identifier that is unique within the context of the EUDI Wallet ecosystem. [Topic 12]</td>
 </tr>
 <tr>
 <td>National Accreditation Bodies (NAB)</td>
 <td>A body that performs accreditation with authority derived from a Member State under <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:32008R0765">Regulation (EC) No 765/2008</a>.</td>
 </tr>
 <tr>
-<td>Notifier</td>
-<td>The entity in a Member State that is responsible for notifying the Commission and maintaining that notification accurate over time. [<a href="../../annex-2/annex-2-high-level-requirements/#a2331-topic-31---pid-provider-wallet-provider-attestation-provider-and-access-certificate-authority-notification-and-publication">Topics 31</a>, <a href="../../annex-2/annex-2-high-level-requirements/#a2340-topic-40---reserved">40</a>]</td>
-</tr>
-<tr>
 <td>Notification</td>
-<td>The act of transferring information to the European Commission. [<a href="../../annex-2/annex-2-high-level-requirements/#a2331-topic-31---pid-provider-wallet-provider-attestation-provider-and-access-certificate-authority-notification-and-publication">Topics 31</a>, <a href="../../annex-2/annex-2-high-level-requirements/#a2340-topic-40---reserved">40</a>]</td>
-</tr>
-<tr>
-<td>Proximity flow</td>
-<td>A presentation flow when the EUDI Wallet User is physically close to a Relying Party representative and the attestation exchange and disclosure happens using proximity protocols (NFC, Bluetooth, QR-Code, etc.).</td>
-</tr>
-<tr>
-<td>Person Identification Data (PID) Provider</td>
-<td>A Member State or other legal entity providing Person Identification Data to Users.</td>
+<td>The act of transferring information to the European Commission. [Topics 31]</td>
 </tr>
 <tr>
 <td>Pseudonym</td>
-<td>Data uniquely representing a user which in itself does not allow to infer any user's attribute or person identification data, without the use of additional information that is kept separately by the issuer of the data uniquely representing the user. [<a href="../../annex-2/annex-2-high-level-requirements/#a2311-topic-11---pseudonym-attestation">Topic 11</a>]</td>
-</tr>
-<tr>
-<td>PuB-EAA</td>
-<td>Electronic attestation of attributes issued by or on behalf of a public sector body responsible for an authentic source. [<a href="../../annex-2/annex-2-high-level-requirements/#a2312-topic-12---attestation-rulebooks">Topics 12</a>, <a href="../../annex-2/annex-2-high-level-requirements/#a2338-topic-38---wallet-instance-revocation">38</a>, <a href="../../annex-2/annex-2-high-level-requirements/#a2341-topic-41---minimum-requirements-on-pub-eaas-rulebooks">41</a>]</td>
+<td>Data uniquely representing a user which in itself does not allow to infer any user's attribute or person identification data, without the use of additional information that is kept separately by the issuer of the data uniquely representing the user.</td>
 </tr>
 <tr>
 <td>Public Key Infrastructure (PKI)</td>
@@ -852,36 +855,8 @@ from the eIDAS Regulation or the amendment proposal:</strong></p>
 <td>A natural or a legal person that offers services related to the remote creation, validation, and management of qualified electronic signatures that meet eIDAS regulation legal requirements and standards to be considered as legally equivalent to handwritten signatures.</td>
 </tr>
 <tr>
-<td>Relying Party Registry</td>
-<td>A registry of registered Relying Parties intending to rely on EUDI Wallets to provide public or private service. [<a href="../../annex-2/annex-2-high-level-requirements/#a2327-topic-27---relying-party-registration">Topic 27</a>]</td>
-</tr>
-<tr>
-<td>Relying Party Registrar</td>
-<td>A party responsible for maintaining and publishing a Relying Party Registry. [<a href="../../annex-2/annex-2-high-level-requirements/#a2327-topic-27---relying-party-registration">Topic 27</a>]</td>
-</tr>
-<tr>
-<td>Registration</td>
-<td>The act of registering. [<a href="../../annex-2/annex-2-high-level-requirements/#a2327-topic-27---relying-party-registration">Topic 27</a>]</td>
-</tr>
-<tr>
 <td>Relying Party Instance</td>
-<td>A software and/or hardware module with the capability to interact with a Wallet Instance and to perform Relying Party authentication, that is controlled by a Relying Party.</td>
-</tr>
-<tr>
-<td>Relying party Instance Certificate</td>
-<td>An electronic certificate issued by a Relying Party Instance Certificate Provider to a Relying Party, for the purposes of enabling the identification and authentication of that Relying Party when signing or sealing a presentation request towards an EUDI Wallet Instance. [<a href="../../annex-2/annex-2-high-level-requirements/#a2327-topic-27---relying-party-registration">Topic 27</a>]</td>
-</tr>
-<tr>
-<td>Requestee EUDI Wallet Instance</td>
-<td>An EUDI Wallet Instance requested by another EUDI Wallet Instance to present an attestation of attributes. [<a href="../../annex-2/annex-2-high-level-requirements/#a2330-topic-30---interaction-between-eudi-wallets">Topic 30</a>]</td>
-</tr>
-<tr>
-<td>Requestor EUDI Wallet Instance</td>
-<td>An EUDI Wallet Instance requesting another EUDI Wallet Instance to present an attestation of attributes. [<a href="../../annex-2/annex-2-high-level-requirements/#a2330-topic-30---interaction-between-eudi-wallets">Topic 30</a>]</td>
-</tr>
-<tr>
-<td>Restore</td>
-<td>The ability to restore the availability and access to personal data in a timely manner in the event of a physical or technical incident<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. [<a href="../../annex-2/annex-2-high-level-requirements/#a2333-topic-33---eudi-wallet-backup-and-restore">Topics 33</a>, <a href="../../annex-2/annex-2-high-level-requirements/#a2334-topic-34---migrate-to-a-different-wallet-solution">34</a>]</td>
+<td>A software and/or hardware module with the capability to interact with a Wallet Unit and to perform Relying Party authentication, that is controlled by a Relying Party.</td>
 </tr>
 <tr>
 <td>Selective Disclosure</td>
@@ -889,57 +864,23 @@ from the eIDAS Regulation or the amendment proposal:</strong></p>
 </tr>
 <tr>
 <td>Trust Anchor</td>
-<td>The public key of an entity that is trusted by a Wallet Instance and used for validating certificates in certification paths.</td>
-</tr>
-<tr>
-<td>Trust model</td>
-<td>Collection of rules that ensure the legitimacy of the components and the entities involved in the EUDI Wallet ecosystem.</td>
+<td>An authoritative entity represented by a public key and associated data. (Based on RFC 5194)</td>
 </tr>
 <tr>
 <td>Trusted List</td>
-<td>Repository of information about authoritative entities in a particular legal or contractual context which provides information about their current and historical status. [<a href="../../annex-2/annex-2-high-level-requirements/#a2340-topic-40---reserved">Topic 40</a> -- included in <a href="../../annex-2/annex-2-high-level-requirements/#a2331-topic-31---pid-provider-wallet-provider-attestation-provider-and-access-certificate-authority-notification-and-publication">Topic 31</a>, and other Topics]</td>
-</tr>
-<tr>
-<td>User</td>
-<td>See 'EUDI Wallet User' in <a href="#a11-table-1---eidas-regulation-definitions">table 1</a>.</td>
-</tr>
-<tr>
-<td>Wallet Instance</td>
-<td>See EUDI Wallet Instance.</td>
-</tr>
-<tr>
-<td>Wallet Instance Attestation (WIA)</td>
-<td>Attestation issued by a Wallet Provider to a Wallet Instance with the sole purpose of allowing Relying Parties and Attestation Providers to verify the authenticity and validity of the Wallet Instance. [<a href="../../annex-2/annex-2-high-level-requirements/#a2338-topic-38---wallet-instance-revocation">Topic 38</a>]</td>
-</tr>
-<tr>
-<td>Wallet Secure Cryptographic Application (WSCA)</td>
-<td>A secure application running on and utilizing a WSCD. One WSCA is associated with at most one wallet instance, and manages assets, such as keys, for this specific wallet instance.</td>
-</tr>
-<tr>
-<td>Wallet Secure Cryptographic Device (WSCD)</td>
-<td>The WSCD is a hardware anchor providing a secure environment and storage for cryptographic assets and software. This includes the keystore but also the environment where the security critical functionality is executed. The WSCD is tamper and duplication proof. [<a href="../../annex-2/annex-2-high-level-requirements/#a2333-topic-33---eudi-wallet-backup-and-restore">Topics 33</a>, <a href="../../annex-2/annex-2-high-level-requirements/#a2334-topic-34---migrate-to-a-different-wallet-solution">34</a>]</td>
-</tr>
-<tr>
-<td>Wallet Trust Evidence (WTE)</td>
-<td>A signed data structure provided by the Wallet Provider to a Wallet Instance during the Wallet Instance activation process, allowing the Wallet Instance to inform Attestation Providers about the properties of the Wallet Instance and (one of) its WSCD(s) and to prove various associations.</td>
+<td>Repository of information about authoritative entities in a particular legal or contractual context which provides information about their current and historical status.</td>
 </tr>
 </tbody>
 </table>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p><a href="https://www.privacy-regulation.eu/en/article-32-security-of-processing-GDPR.htm">https://www.privacy-regulation.eu/en/article-32-security-of-processing-GDPR.htm</a>,
-Article 32, Section 1 &copy;&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
 
 
 
 
 
 
+
+  
+  
 
 
 

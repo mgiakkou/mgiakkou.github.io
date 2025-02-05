@@ -606,39 +606,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-trust-infrastructure-details" class="md-nav__link">
-    <span class="md-ellipsis">
-      3 Trust infrastructure details
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3 Trust infrastructure details">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.1 Introduction
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-trusted-issuer-list" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.2 Trusted Issuer List
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#4-references" class="md-nav__link">
     <span class="md-ellipsis">
       4 References
@@ -667,28 +634,20 @@
 
 <p><a href="/">Home</a> / <a href="/eudi-doc-architecture-and-reference-framework/">eudi-doc-architecture-and-reference-framework</a> / <a href="/eudi-doc-architecture-and-reference-framework/docs/">docs</a> / <a href="/eudi-doc-architecture-and-reference-framework/docs/annexes/">annexes</a> / <a href="/eudi-doc-architecture-and-reference-framework/docs/annexes/annex-3/">annex-3</a> / annex-3.02-mDL-rulebook</p>
 <h1 id="annex-32-mdl-rulebook">ANNEX 3.2 - mDL Rulebook</h1>
-<p><em>This is a working document that holds no legal value</em> <em>and does not
+<p><em>This is a working document that holds no legal value and does not
 reflect any common agreement or position of the co-legislators. It
 presents a state-of-play of ongoing work of the eIDAS Expert Group. This
 document is being continuously updated and should not be considered
 final.</em></p>
 <h2 id="1-introduction">1 Introduction</h2>
-<p>This document is the mobile driving licence (mDL) Rulebook. It contains
-requirements specific to the mDL use case within the EUDI Wallet. </p>
+<p>This document is the mobile driving licence (mDL) Rulebook. It part of ARF v1.5.0. It contains requirements specific to mDL attestations with the EUDI Wallet ecosystem.</p>
 <p>This mDL Rulebook contains the following topics:</p>
 <ul>
-<li>
-<p><a href="#2-mdl-attribute-schema">Chapter 2</a> specifies the mDL attribute schema. This describes the
+<li><a href="#2-mdl-attribute-schema">Chapter 2</a> specifies the mDL attribute schema. This describes the
     structure, the type, the entity identifiers, and the logical
     organisation of the mandatory and optional attributes of the mDL. It
     also describes how Member States can specify any possible national
-    attributes.</p>
-</li>
-<li>
-<p><a href="#3-trust-infrastructure-details">Chapter 3</a> specifies details about the trust infrastructure necessary
-    for mDL attestations. This information may be moved to another
-    document in the future.</p>
-</li>
+    attributes.</li>
 </ul>
 <p>Further topics will be added if and when they are identified.</p>
 <h2 id="2-mdl-attribute-schema">2 mDL attribute schema</h2>
@@ -699,33 +658,27 @@ mobile driving licence (mDL) attestation within the EUDI Wallet. It also
 describes how Member States can specify any possible national
 attributes.</p>
 <p>Mobile driving licences are legally specified in the <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A52023PC0127">proposed
-EC Regulation 2023_127</a> ( 4<sup>th</sup> Driving Licence Regulation). This
+EC Regulation 2023_127</a> (4<sup>th</sup> Driving Licence Regulation). This
 Regulation specifies that mDLs shall comply with the ISO/IEC 18013-5
 standard. It does not mention any other standards, in particular not
-[SD JWT]. Consequently, mDLs issued to an EUDI Wallet instance SHALL
-NOT be implemented as [SD JWT]-compliant document. This document
-therefore specifies only an ISO/IEC 18013-5 compliant encoding.</p>
+[SD-JWT VC]. Consequently, mDLs issued to a Wallet Unit SHALL
+NOT be implemented as [SD-JWT VC]-compliant attestations. This document
+therefore specifies only an ISO/IEC 18013-5-compliant encoding.</p>
 <h3 id="22-isoiec-18013-5-compliant-encoding">2.2 ISO/IEC 18013-5 compliant encoding</h3>
-<p>A data model for ISO/IEC 18013-5-encoded mDLs is fully specified in
+<p>The data model for ISO/IEC 18013-5-encoded mDLs is fully specified in
 ISO/IEC 18013-5. No changes need to be made to this data model for an
-mDL attestation within the EUDI Wallet.</p>
-<h2 id="3-trust-infrastructure-details">3 Trust infrastructure details</h2>
-<h3 id="31-introduction">3.1 Introduction</h3>
-<p>To trust a signature or seal over an mDL attestation, the Relying Party needs a mechanism
-to validate that the public key it uses to verify that signature or seal is
-trusted. ISO/IEC 18013-5 provides such mechanisms. However, additional
-details need to be specified to fully specify these mechanisms for mDL
-attestations within the EUDI Wallet ecosystem.</p>
-<h3 id="32-trusted-issuer-list">3.2 Trusted Issuer List</h3>
-<p>For authenticating mDL attestations, trust anchors will be used that are present in an mDL Attestation Provider Trusted List which complies with [<a href="../../annex-2/annex-2-high-level-requirements/#a2331-topic-31---pid-provider-wallet-provider-attestation-provider-and-access-certificate-authority-notification-and-publication">Topic 31</a>].</p>
+mDL attestation within the EUDI Wallet ecosystem.</p>
 <h2 id="4-references">4 References</h2>
-<p>See <a href="../../../arf/#9-references">Chapter 9</a> of the main ARF 1.4.0 document.</p>
+<p>See <a href="../../../architecture-and-reference-framework-main/#9-references">Chapter 9</a> of the main ARF 1.5.0 document.</p>
 
 
 
 
 
 
+
+  
+  
 
 
 
