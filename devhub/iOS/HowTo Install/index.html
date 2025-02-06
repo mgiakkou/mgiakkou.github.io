@@ -904,7 +904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Issuer Test.md" class="md-nav__link">
+      <a href="../../Issuer%20Test/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1120,20 +1120,28 @@
 <li>Any device that supports iOS 16.0</li>
 </ul>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>To complete the flows described below you need to build and run the application with xcode. Alternatively, you can directly download the Android app onto your device.</p>
-<p>App center download method (Android app)</p>
-<p>In addition to building the app from the source, you can also use the Android app which you can download <em><a href="https://install.appcenter.ms/orgs/eu-digital-identity-wallet/apps/eudi-reference-android/distribution_groups/eudi%20wallet%20(demo)%20public">here</a></em></p>
-<p>Run the app from the source (xcode build)</p>
-<p>Clone this repo and make sure you have access to the dependencies below:</p>
-<p><a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-iso18013-data-model.git" target="_blank">iso18013-data-model</a></p>
-<p><a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-iso18013-data-transfer.git" target="_blank">iso18013-data-transfer</a></p>
-<p><a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-iso18013-security.git" target="_blank">iso18013-security</a></p>
-<p><a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-storage.git" target="_blank">wallet-storage.</a></p>
-<p><a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-kit" target="_blank">wallet-kit</a></p>
-<p><a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-siop-openid4vp-swift.git" target="_blank">openid4vp-swift</a></p>
-<p><a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-presentation-exchange-swift.git" target="_blank">presentation-exchange-swift</a></p>
-<p><a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-openid4vci-swift" target="_blank">openid4vci-swift</a></p>
-<p>You will also need to download the Android Verifier app. More information can be found <a href="wiki/verifier_proximity.md" target="_blank">here</a></p>
+<ol>
+<li>You need <a href="https://xcodereleases.com/" target="_blank">xcode</a> and its associated tools installed on your machine. We recommend the latest non-beta version. </li>
+<li>Clone the <a href="https://github.com/eu-digital-identity-wallet/eudi-app-ios-wallet-ui" target="_blank">iOS repository</a> using the following command:
+    <code>git clone git@github.com:eu-digital-identity-wallet/eudi-app-ios-wallet-ui.git</code></li>
+<li>
+<p>Make sure you have access to the dependencies below:</p>
+<ul>
+<li><a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-iso18013-data-model.git" target="_blank">iso18013-data-model</a></li>
+<li><a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-iso18013-data-transfer.git" target="_blank">iso18013-data-transfer</a></li>
+<li><a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-iso18013-security.git" target="_blank">iso18013-security</a></li>
+<li><a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-storage.git" target="_blank">wallet-storage.</a></li>
+<li><a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-kit" target="_blank">wallet-kit</a></li>
+<li><a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-siop-openid4vp-swift.git" target="_blank">openid4vp-swift</a></li>
+<li><a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-presentation-exchange-swift.git" target="_blank">presentation-exchange-swift</a></li>
+<li><a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-openid4vci-swift" target="_blank">openid4vci-swift</a></li>
+</ul>
+</li>
+<li>
+<p>To run the app on a device, select your app schema and press Run. Additionally, you need to supply your own provisioning profile and signing certificate in the Signing &amp; Capabilities tab of your app target.</p>
+</li>
+</ol>
+<p>You will also need to download the Android Verifier app. More information can be found <a href="../Verifier Application">here</a></p>
 <h2 id="app-launch">App launch</h2>
 <ol>
 <li>Launch the application</li>
