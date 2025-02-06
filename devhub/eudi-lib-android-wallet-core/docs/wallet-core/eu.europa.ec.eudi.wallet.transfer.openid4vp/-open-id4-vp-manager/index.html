@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#openid4vpmanager" class="md-skip">
+        <a href="#index-of-eudi-lib-android-wallet-coredocswallet-coreeueuropaeceudiwallettransferopenid4vp-open-id4-vp-manager" class="md-skip">
           Skip to content
         </a>
       
@@ -204,7 +204,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="https://mgiakkou.github.io/devhub/" class="md-tabs__link">
+      <a href="../../../../../index.html" class="md-tabs__link">
         
   
     
@@ -333,7 +333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://mgiakkou.github.io/devhub/" class="md-nav__link">
+      <a href="../../../../../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -534,50 +534,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#constructors" class="md-nav__link">
-    <span class="md-ellipsis">
-      Constructors
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#types" class="md-nav__link">
-    <span class="md-ellipsis">
-      Types
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#properties" class="md-nav__link">
-    <span class="md-ellipsis">
-      Properties
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Functions
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -594,107 +550,23 @@
   
 
 
-<p><a href="/">Home</a> / <a href="/eudi-lib-android-wallet-core/">eudi-lib-android-wallet-core</a> / <a href="/eudi-lib-android-wallet-core/docs/">docs</a> / <a href="/eudi-lib-android-wallet-core/docs/wallet-core/">wallet-core</a> / <a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/">eu.europa.ec.eudi.wallet.transfer.openid4vp</a> / -open-id4-vp-manager
-//<a href="../../../">wallet-core</a>/<a href="../">eu.europa.ec.eudi.wallet.transfer.openId4vp</a>/<a href="./">OpenId4VpManager</a></p>
-<h1 id="openid4vpmanager">OpenId4VpManager</h1>
-<p>[androidJvm]
-class <a href="./">OpenId4VpManager</a>(val config: <a href="../-open-id4-vp-config/">OpenId4VpConfig</a>, val requestProcessor: <a href="../-open-id4-vp-request-processor/">OpenId4VpRequestProcessor</a>, var logger: <a href="../../eu.europa.ec.eudi.wallet.logging/-logger/">Logger</a>? = null, var listenersExecutor: <a href="https://developer.android.com/reference/kotlin/java/util/concurrent/Executor.html">Executor</a>? = null, val ktorHttpClientFactory: () -&gt; HttpClient? = null) : TransferEvent.Listenable, ReaderTrustStoreAware</p>
-<h2 id="constructors">Constructors</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="-open-id4-vp-manager/">OpenId4VpManager</a></td>
-<td>[androidJvm]<br>constructor(config: <a href="../-open-id4-vp-config/">OpenId4VpConfig</a>, requestProcessor: <a href="../-open-id4-vp-request-processor/">OpenId4VpRequestProcessor</a>, logger: <a href="../../eu.europa.ec.eudi.wallet.logging/-logger/">Logger</a>? = null, listenersExecutor: <a href="https://developer.android.com/reference/kotlin/java/util/concurrent/Executor.html">Executor</a>? = null, ktorHttpClientFactory: () -&gt; HttpClient? = null)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="types">Types</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="-companion/">Companion</a></td>
-<td>[androidJvm]<br>object <a href="-companion/">Companion</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="properties">Properties</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="config/">config</a></td>
-<td>[androidJvm]<br>val <a href="config/">config</a>: <a href="../-open-id4-vp-config/">OpenId4VpConfig</a></td>
-</tr>
-<tr>
-<td><a href="ktor-http-client-factory/">ktorHttpClientFactory</a></td>
-<td>[androidJvm]<br>val <a href="ktor-http-client-factory/">ktorHttpClientFactory</a>: () -&gt; HttpClient? = null</td>
-</tr>
-<tr>
-<td><a href="listeners-executor/">listenersExecutor</a></td>
-<td>[androidJvm]<br>var <a href="listeners-executor/">listenersExecutor</a>: <a href="https://developer.android.com/reference/kotlin/java/util/concurrent/Executor.html">Executor</a>?</td>
-</tr>
-<tr>
-<td><a href="logger/">logger</a></td>
-<td>[androidJvm]<br>var <a href="logger/">logger</a>: <a href="../../eu.europa.ec.eudi.wallet.logging/-logger/">Logger</a>?</td>
-</tr>
-<tr>
-<td><a href="reader-trust-store/">readerTrustStore</a></td>
-<td>[androidJvm]<br>open override var <a href="reader-trust-store/">readerTrustStore</a>: ReaderTrustStore?</td>
-</tr>
-<tr>
-<td><a href="request-processor/">requestProcessor</a></td>
-<td>[androidJvm]<br>val <a href="request-processor/">requestProcessor</a>: <a href="../-open-id4-vp-request-processor/">OpenId4VpRequestProcessor</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="functions">Functions</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="add-transfer-event-listener/">addTransferEventListener</a></td>
-<td>[androidJvm]<br>open override fun <a href="add-transfer-event-listener/">addTransferEventListener</a>(listener: TransferEvent.Listener): <a href="./">OpenId4VpManager</a></td>
-</tr>
-<tr>
-<td><a href="remove-all-transfer-event-listeners/">removeAllTransferEventListeners</a></td>
-<td>[androidJvm]<br>open override fun <a href="remove-all-transfer-event-listeners/">removeAllTransferEventListeners</a>(): <a href="./">OpenId4VpManager</a></td>
-</tr>
-<tr>
-<td><a href="remove-transfer-event-listener/">removeTransferEventListener</a></td>
-<td>[androidJvm]<br>open override fun <a href="remove-transfer-event-listener/">removeTransferEventListener</a>(listener: TransferEvent.Listener): <a href="./">OpenId4VpManager</a></td>
-</tr>
-<tr>
-<td><a href="resolve-request-uri/">resolveRequestUri</a></td>
-<td>[androidJvm]<br>fun <a href="resolve-request-uri/">resolveRequestUri</a>(uri: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a>)</td>
-</tr>
-<tr>
-<td><a href="send-response/">sendResponse</a></td>
-<td>[androidJvm]<br>fun <a href="send-response/">sendResponse</a>(response: Response)</td>
-</tr>
-</tbody>
-</table>
+<p><a href="/">Home</a> / <a href="/eudi-lib-android-wallet-core/">eudi-lib-android-wallet-core</a> / <a href="/eudi-lib-android-wallet-core/docs/">docs</a> / <a href="/eudi-lib-android-wallet-core/docs/wallet-core/">wallet-core</a> / <a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/">eu.europa.ec.eudi.wallet.transfer.openid4vp</a> / -open-id4-vp-manager</p>
+<h1 id="index-of-eudi-lib-android-wallet-coredocswallet-coreeueuropaeceudiwallettransferopenid4vp-open-id4-vp-manager">Index of eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/-open-id4-vp-manager</h1>
+<ul>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/-open-id4-vp-manager/-companion/">-companion</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/-open-id4-vp-manager/-open-id4-vp-manager/">-open-id4-vp-manager</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/-open-id4-vp-manager/add-transfer-event-listener/">add-transfer-event-listener</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/-open-id4-vp-manager/config/">config</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/-open-id4-vp-manager/ktor-http-client-factory/">ktor-http-client-factory</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/-open-id4-vp-manager/listeners-executor/">listeners-executor</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/-open-id4-vp-manager/logger/">logger</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/-open-id4-vp-manager/reader-trust-store/">reader-trust-store</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/-open-id4-vp-manager/remove-all-transfer-event-listeners/">remove-all-transfer-event-listeners</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/-open-id4-vp-manager/remove-transfer-event-listener/">remove-transfer-event-listener</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/-open-id4-vp-manager/request-processor/">request-processor</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/-open-id4-vp-manager/resolve-request-uri/">resolve-request-uri</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.transfer.openid4vp/-open-id4-vp-manager/send-response/">send-response</a></li>
+</ul>
 
 
 

@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#presentationmanager" class="md-skip">
+        <a href="#index-of-eudi-lib-android-wallet-coredocswallet-coreeueuropaeceudiwalletpresentation-presentation-manager" class="md-skip">
           Skip to content
         </a>
       
@@ -204,7 +204,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="https://mgiakkou.github.io/devhub/" class="md-tabs__link">
+      <a href="../../../../../index.html" class="md-tabs__link">
         
   
     
@@ -333,7 +333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://mgiakkou.github.io/devhub/" class="md-nav__link">
+      <a href="../../../../../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -534,41 +534,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#inheritors" class="md-nav__link">
-    <span class="md-ellipsis">
-      Inheritors
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#properties" class="md-nav__link">
-    <span class="md-ellipsis">
-      Properties
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Functions
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -585,103 +550,17 @@
   
 
 
-<p><a href="/">Home</a> / <a href="/eudi-lib-android-wallet-core/">eudi-lib-android-wallet-core</a> / <a href="/eudi-lib-android-wallet-core/docs/">docs</a> / <a href="/eudi-lib-android-wallet-core/docs/wallet-core/">wallet-core</a> / <a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.presentation/">eu.europa.ec.eudi.wallet.presentation</a> / -presentation-manager
-//<a href="../../../">wallet-core</a>/<a href="../">eu.europa.ec.eudi.wallet.presentation</a>/<a href="./">PresentationManager</a></p>
-<h1 id="presentationmanager">PresentationManager</h1>
-<p>interface <a href="./">PresentationManager</a> : TransferEvent.Listenable, ReaderTrustStoreAware</p>
-<p>The PresentationManager is responsible for managing the presentation of the wallet's documents to the verifier. The wallet can present the documents in two ways:</p>
+<p><a href="/">Home</a> / <a href="/eudi-lib-android-wallet-core/">eudi-lib-android-wallet-core</a> / <a href="/eudi-lib-android-wallet-core/docs/">docs</a> / <a href="/eudi-lib-android-wallet-core/docs/wallet-core/">wallet-core</a> / <a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.presentation/">eu.europa.ec.eudi.wallet.presentation</a> / -presentation-manager</p>
+<h1 id="index-of-eudi-lib-android-wallet-coredocswallet-coreeueuropaeceudiwalletpresentation-presentation-manager">Index of eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.presentation/-presentation-manager</h1>
 <ul>
-<li>Proximity presentation: the wallet uses BLE/NFC to present the documents to verifier's device</li>
-<li>Remote presentation: the wallet sends the documents to the verifier's server</li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.presentation/-presentation-manager/disable-n-f-c-engagement/">disable-n-f-c-engagement</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.presentation/-presentation-manager/enable-n-f-c-engagement/">enable-n-f-c-engagement</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.presentation/-presentation-manager/nfc-engagement-service-class/">nfc-engagement-service-class</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.presentation/-presentation-manager/send-response/">send-response</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.presentation/-presentation-manager/start-proximity-presentation/">start-proximity-presentation</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.presentation/-presentation-manager/start-remote-presentation/">start-remote-presentation</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet.presentation/-presentation-manager/stop-proximity-presentation/">stop-proximity-presentation</a></li>
 </ul>
-<p>This interface extends TransferEvent.Listenable that allows to listen to the transfer events through which it receives the requests from the verifier. After receiving the eu.europa.ec.eudi.iso18013.transfer.response.RequestProcessor.ProcessedRequest the wallet can generate the response with eu.europa.ec.eudi.iso18013.transfer.response.RequestProcessor.ProcessedRequest.Success.generateResponse and send it back to the verifier by calling <a href="send-response/">sendResponse</a> method.</p>
-<p>It also extends ReaderTrustStoreAware that allows to set the ReaderTrustStore that is used to verify the authenticity of the reader.</p>
-<p>It provides also functionality to start the NFC engagement by calling <a href="enable-n-f-c-engagement/">enableNFCEngagement</a> method and stop it by calling <a href="disable-n-f-c-engagement/">disableNFCEngagement</a> method.</p>
-<h4 id="inheritors">Inheritors</h4>
-<table>
-<thead>
-<tr>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../../eu.europa.ec.eudi.wallet/-eudi-wallet/">EudiWallet</a></td>
-</tr>
-<tr>
-<td><a href="../../eu.europa.ec.eudi.wallet/-eudi-wallet-impl/">EudiWalletImpl</a></td>
-</tr>
-<tr>
-<td><a href="../-presentation-manager-impl/">PresentationManagerImpl</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="properties">Properties</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="nfc-engagement-service-class/">nfcEngagementServiceClass</a></td>
-<td>[androidJvm]<br>abstract val <a href="nfc-engagement-service-class/">nfcEngagementServiceClass</a>: <a href="https://developer.android.com/reference/kotlin/java/lang/Class.html">Class</a>&lt;out NfcEngagementService&gt;?</td>
-</tr>
-<tr>
-<td><a href="./#1164183302%2FProperties%2F1615067946">readerTrustStore</a></td>
-<td>[androidJvm]<br>abstract var <a href="./#1164183302%2FProperties%2F1615067946">readerTrustStore</a>: ReaderTrustStore?</td>
-</tr>
-</tbody>
-</table>
-<h2 id="functions">Functions</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="./#-1321081126%2FFunctions%2F1615067946">addTransferEventListener</a></td>
-<td>[androidJvm]<br>abstract fun <a href="./#-1321081126%2FFunctions%2F1615067946">addTransferEventListener</a>(listener: TransferEvent.Listener): TransferEvent.Listenable</td>
-</tr>
-<tr>
-<td><a href="disable-n-f-c-engagement/">disableNFCEngagement</a></td>
-<td>[androidJvm]<br>abstract fun <a href="disable-n-f-c-engagement/">disableNFCEngagement</a>(activity: <a href="https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity.html">ComponentActivity</a>): <a href="./">PresentationManager</a><br>Disable the NFC device engagement for the wallet. This method should be called in the activity's <a href="https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity.html#onpause">ComponentActivity.onPause</a> method.</td>
-</tr>
-<tr>
-<td><a href="enable-n-f-c-engagement/">enableNFCEngagement</a></td>
-<td>[androidJvm]<br>abstract fun <a href="enable-n-f-c-engagement/">enableNFCEngagement</a>(activity: <a href="https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity.html">ComponentActivity</a>): <a href="./">PresentationManager</a><br>Enable the NFC device engagement for the wallet. This method should be called in the activity's <a href="https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity.html#onresume">ComponentActivity.onResume</a> method.</td>
-</tr>
-<tr>
-<td><a href="./#-812467576%2FFunctions%2F1615067946">removeAllTransferEventListeners</a></td>
-<td>[androidJvm]<br>abstract fun <a href="./#-812467576%2FFunctions%2F1615067946">removeAllTransferEventListeners</a>(): TransferEvent.Listenable</td>
-</tr>
-<tr>
-<td><a href="./#1314902509%2FFunctions%2F1615067946">removeTransferEventListener</a></td>
-<td>[androidJvm]<br>abstract fun <a href="./#1314902509%2FFunctions%2F1615067946">removeTransferEventListener</a>(listener: TransferEvent.Listener): TransferEvent.Listenable</td>
-</tr>
-<tr>
-<td><a href="send-response/">sendResponse</a></td>
-<td>[androidJvm]<br>abstract fun <a href="send-response/">sendResponse</a>(response: Response)<br>Send a response to verifier</td>
-</tr>
-<tr>
-<td><a href="start-proximity-presentation/">startProximityPresentation</a></td>
-<td>[androidJvm]<br>abstract fun <a href="start-proximity-presentation/">startProximityPresentation</a>()<br>Starts the proximity presentation. The QR code is available through the TransferEvent.QrEngagementReady event which is triggered almost immediately after calling this method. The wallet should display the QR code to the verifier in order to start the proximity presentation.</td>
-</tr>
-<tr>
-<td><a href="start-remote-presentation/">startRemotePresentation</a></td>
-<td>[androidJvm]<br>abstract fun <a href="start-remote-presentation/">startRemotePresentation</a>(uri: <a href="https://developer.android.com/reference/kotlin/android/net/Uri.html">Uri</a>)<br>Start a remote presentation with the given URI The URI could be either</td>
-</tr>
-<tr>
-<td><a href="stop-proximity-presentation/">stopProximityPresentation</a></td>
-<td>[androidJvm]<br>abstract fun <a href="stop-proximity-presentation/">stopProximityPresentation</a>(flags: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a> = SEND_SESSION_TERMINATION_MESSAGE)<br>Stops the proximity presentation. Method receives flags that can be used to control the session termination. The available flags are:</td>
-</tr>
-</tbody>
-</table>
 
 
 

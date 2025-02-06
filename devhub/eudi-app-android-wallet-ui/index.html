@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#eudi-android-wallet-reference-application" class="md-skip">
+        <a href="#index-of-eudi-app-android-wallet-ui" class="md-skip">
           Skip to content
         </a>
       
@@ -204,7 +204,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="https://mgiakkou.github.io/devhub/" class="md-tabs__link">
+      <a href="../index.html" class="md-tabs__link">
         
   
     
@@ -333,7 +333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://mgiakkou.github.io/devhub/" class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -534,32 +534,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#table-of-contents" class="md-nav__link">
-    <span class="md-ellipsis">
-      Table of contents
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -577,241 +551,18 @@
 
 
 <p><a href="/">Home</a> / eudi-app-android-wallet-ui</p>
-<h1 id="eudi-android-wallet-reference-application">EUDI Android Wallet reference application</h1>
-<p>:heavy_exclamation_mark: <strong>Important!</strong> Before you proceed, please read
-the <a href="https://github.com/eu-digital-identity-wallet/.github/blob/main/profile/reference-implementation.md">EUDI Wallet Reference Implementation project description</a></p>
-<hr />
-<h2 id="table-of-contents">Table of contents</h2>
+<h1 id="index-of-eudi-app-android-wallet-ui">Index of eudi-app-android-wallet-ui</h1>
 <ul>
-<li><a href="#overview">Overview</a></li>
-<li><a href="#disclaimer">Disclaimer</a></li>
-<li><a href="#important-things-to-know">Important things to know</a></li>
-<li><a href="#how-to-contribute">How to contribute</a></li>
-<li><a href="#demo-videos">Demo videos</a></li>
-<li><a href="#how-to-use-the-application">How to use the application</a></li>
-<li><a href="#how-to-build---quick-start-guide">How to build - Quick start guide</a></li>
-<li><a href="#application-configuration">Application configuration</a></li>
-<li><a href="#license">License</a></li>
+<li><a href="/eudi-app-android-wallet-ui/.github/">.github</a></li>
+<li><a href="/eudi-app-android-wallet-ui/CODE_OF_CONDUCT/">CODE_OF_CONDUCT</a></li>
+<li><a href="/eudi-app-android-wallet-ui/CONTRIBUTING/">CONTRIBUTING</a></li>
+<li><a href="/eudi-app-android-wallet-ui/README/">README</a></li>
+<li><a href="/eudi-app-android-wallet-ui/SECURITY/">SECURITY</a></li>
+<li><a href="/eudi-app-android-wallet-ui/fastlane/">fastlane</a></li>
+<li><a href="/eudi-app-android-wallet-ui/how-to-use-app/">how-to-use-app</a></li>
+<li><a href="/eudi-app-android-wallet-ui/resources-logic/">resources-logic</a></li>
+<li><a href="/eudi-app-android-wallet-ui/wiki/">wiki</a></li>
 </ul>
-<h2 id="overview">Overview</h2>
-<p>The EUDI Wallet Reference Implementation is built based on the <a href="https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/blob/main/docs/arf.md">Architecture Reference Framework</a> and aims to showcase a robust and interoperable platform for digital identification, authentication, and electronic signatures based on common standards across the European Union.
-The EUDI Wallet Reference Implementation is based on a modular architecture composed of business-agnostic, reusable components that will evolve in incremental steps and can be re-used across multiple projects.</p>
-<p>The EUDI Wallet Reference Implementation is the application that allows users to:</p>
-<ol>
-<li>To obtain, store, and, present PID and mDL.</li>
-<li>Verify presentations.</li>
-<li>Share data on proximity scenarios.</li>
-<li>Support remote QES and more use cases with the modules included.</li>
-</ol>
-<p>The EUDIW project provides through this repository an Android app. Please refer to the repositories listed in the following sections for more detailed information on how to get started, contribute, and engage with the EUDI Wallet Reference Implementation.</p>
-<h1 id="specifications-employed">💡 Specifications Employed</h1>
-<p>The app consumes the SDK called EUDIW Wallet core <a href="https://github.com/eu-digital-identity-wallet/eudi-lib-android-wallet-core">Wallet core</a> and a list of available libraries to facilitate remote presentation, proximity, and issuing test/demo functionality following specification of the <a href="https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework">ARF</a> including:</p>
-<ul>
-<li>
-<p>OpenID4VP - draft 19 (remote presentation), presentation exchange v2.0,</p>
-</li>
-<li>
-<p>ISO18013-5 (proximity presentation),</p>
-</li>
-<li>
-<p>OpenID4VCI draft 13 (issuing)</p>
-</li>
-<li>
-<p>Issuer functionality, to support development and testing, one can access an OID4VCI test/demo service for issuing at: </p>
-</li>
-<li>
-<p><a href="https://issuer.eudiw.dev/">EUDI Issuer (Draft 13)</a></p>
-</li>
-<li>
-<p><a href="https://github.com/eu-digital-identity-wallet/eudi-srv-web-issuing-eudiw-py">OpenID4VCI PID and mDL Issuer (python)</a></p>
-</li>
-<li>
-<p><a href="https://github.com/eu-digital-identity-wallet/eudi-srv-pid-issuer">OpenID4VCI PID and mDL Issuer (kotlin)</a></p>
-</li>
-</ul>
-<p>Relying Party functionality:</p>
-<p>To support development and testing, one can access a test/demo service for remote presentation at:</p>
-<ul>
-<li>
-<p><a href="https://verifier.eudiw.dev">EUDI Verifier</a> </p>
-</li>
-<li>
-<p><a href="https://github.com/eu-digital-identity-wallet/eudi-web-verifier">Web verifier source</a></p>
-</li>
-<li>
-<p><a href="https://github.com/eu-digital-identity-wallet/eudi-srv-web-verifier-endpoint-23220-4-kt">Verifier restful backend service source</a></p>
-</li>
-</ul>
-<p>To support proximity an Android Proximity Verifier is available as an app that can request PID and mDL with reader authentication available <a href="https://install.appcenter.ms/orgs/eu-digital-identity-wallet/apps/mdoc-verifier-testing/distribution_groups/eudi%20verifier%20(testing)%20public">here</a></p>
-<p>The issuer, verifier service, and verifier app authentication are based on the EUDIW development <a href="https://github.com/niscy-eudiw/eudi-app-android-wallet-ui/tree/main/resources-logic/src/main/res/raw">IACA</a></p>
-<h2 id="important-things-to-know">Important things to know</h2>
-<p>The main purpose of the reference implementation is to showcase the ecosystem and act as a technical example of how to integrate and use all of the available components.</p>
-<p>If you're planning to use this application in production, we recommend reviewing the following steps:
-- Configure the application properly by following the guide <a href="wiki/configuration/">here</a>
-- Ensure the Pin storage configuration matches your security requirements or provide your own by following this guide <a href="wiki/configuration/#pin-storage-configuration">Pin Storage Configuration</a>
-- Ensure the application meets the OWASP MASVS industry standard. Please refer to the following links for further information on the controls you must implement to ensure maximum compliance:
-    - <a href="https://mas.owasp.org/MASVS/">OWASP MASVS</a>
-    - <a href="https://developer.android.com/google/play/integrity">Play Integrity API</a></p>
-<h2 id="how-to-contribute">How to contribute</h2>
-<p>We welcome contributions to this project. To ensure that the process is smooth for everyone
-involved, follow the guidelines found in <a href="CONTRIBUTING/">CONTRIBUTING.md</a>.</p>
-<h2 id="demo-videos">Demo videos</h2>
-<p>Issuance</p>
-<p><a href="https://github.com/eu-digital-identity-wallet/eudi-app-android-wallet-ui/assets/129499766/60732c14-653a-46d5-a87a-8973f8823d0f">Issuance</a></p>
-<p>Presentation</p>
-<p><a href="https://github.com/eu-digital-identity-wallet/eudi-app-android-wallet-ui/assets/129499766/21050222-2c07-4bcd-983b-4f6d4cf20248">Presentation</a></p>
-<p>Proximity</p>
-<p><a href="https://github.com/eu-digital-identity-wallet/eudi-app-android-wallet-ui/assets/129499766/c92f1818-e64c-463d-98c5-4f9f87c61760">Proximity</a></p>
-<h2 id="how-to-use-the-application">How to use the application</h2>
-<h3 id="minimum-device-requirements">Minimum device requirements</h3>
-<ul>
-<li>API level 26.</li>
-</ul>
-<h3 id="prerequisites">Prerequisites</h3>
-<p>You can download the application <a href="https://install.appcenter.ms/orgs/eu-digital-identity-wallet/apps/eudi-reference-android/distribution_groups/eudi%20wallet%20(demo)%20public">here</a></p>
-<p>You will also need to download the Android Verifier app. More information can be found <a href="wiki/verifier_proximity/">here</a></p>
-<h3 id="app-launch">App launch</h3>
-<ol>
-<li>Launch the application</li>
-<li>You will be presented with a welcome screen where you will be asked to create a PIN for future logins.</li>
-</ol>
-<h3 id="issuance-flow-scoped">Issuance flow (Scoped)</h3>
-<ol>
-<li>Open the "Add document" screen or if it's the first time you open the app, you will be redirected there after you enter or set up your PIN.</li>
-<li>Pick "National ID".</li>
-<li>From the web view that appears select the "FormEU" option and tap submit.</li>
-<li>Fill in the form. Any data will do.</li>
-<li>You will be shown a success screen. Tap next.</li>
-<li>Your "National ID" is displayed. Tap "Continue".</li>
-<li>You are now on the "Dashboard" screen.</li>
-</ol>
-<h3 id="issuance-flow-credential-offer">Issuance flow (Credential Offer)</h3>
-<ol>
-<li>Open the "Add document" screen or if it's the first time you open the app, you will be redirected there after you enter or set up your PIN.</li>
-<li>Tap "SCAN QR".</li>
-<li>Scan The QR Code from the issuer's website <a href="https://issuer.eudiw.dev/credential_offer_choice">EUDI Issuer</a></li>
-<li>Review the documents contained in the credential offer and tap "Issue".</li>
-<li>You will be shown a success screen. Tap "Continue".</li>
-<li>You are now on the "Dashboard" screen.</li>
-</ol>
-<p>While on the "Dashboard" screen you can tap "Add doc" and issue a new document, e.g. "Driving License".</p>
-<p>If you want to re-issue a document, you must delete it first by tapping on it in the "Dashboard" screen and tapping the delete icon in the "Document details" view.</p>
-<h3 id="presentation-online-authenticationsame-device-flow">Presentation (Online authentication/Same device) flow.</h3>
-<ol>
-<li>Go to the browser application on your device and enter "<a href="https://verifier.eudiw.dev">https://verifier.eudiw.dev</a>"</li>
-<li>Select scenario "PID Authentication"</li>
-<li>Expand the Person Identification Data (PID) card and select "attributes by" -&gt; "Specific attributes" and "format" -&gt; the format of your choice.</li>
-<li>Press next and then "Select Attributes"</li>
-<li>Pick the fields you want to share (e.g. "Family Name" and "Given Name")</li>
-<li>Review your presentation request and then click next.</li>
-<li>When asked to open the wallet app tap "Open".</li>
-<li>You will be returned to the app's "Request" screen. Tap "Share."</li>
-<li>Enter the PIN you added in the initial steps.</li>
-<li>On success tap "Continue".</li>
-<li>A browser will open showing that the Verifier has accepted your request.</li>
-<li>Return to the app. You are back on the "Dashboard" screen, and the flow is complete.</li>
-</ol>
-<h3 id="proximity-flow">Proximity flow</h3>
-<ol>
-<li>The user logs in successfully to the EUDI Wallet app and views the dashboard.</li>
-<li>The user clicks the 'SHOW QR/TAP' button to display the QR code.</li>
-<li>The Relying Party scans the presented QR code.</li>
-<li>
-<p>EUDI Wallet User can view the requested data set from the relying party.</p>
-<ol>
-<li>The distinction between mandatory and optional data elements is depicted.</li>
-<li>The requestor (i.e. relying party) of the data is depicted.</li>
-<li>EUDI Wallet User may select additional optional attributes to be shared.</li>
-<li>EUDI Wallet User selects the option to share the attributes.</li>
-<li>EUDI Wallet authenticates to share data (quick PIN).</li>
-<li>User authorization is accepted - a corresponding message is displayed to the  EUDI Wallet User.</li>
-</ol>
-</li>
-</ol>
-<h2 id="how-to-build-quick-start-guide">How to build - Quick start guide</h2>
-<p><a href="wiki/how_to_build/">This document</a> describes how you can build the application and deploy the issuing and verification services locally.</p>
-<h2 id="application-configuration">Application configuration</h2>
-<p>You can find instructions on how to configure the application <a href="wiki/configuration/">here</a></p>
-<h2 id="disclaimer">Disclaimer</h2>
-<p>The released software is an initial development release version: 
--  The initial development release is an early endeavor reflecting the efforts of a short time-boxed period, and by no means can be considered as the final product.<br />
--  The initial development release may be changed substantially over time, might introduce new features but also may change or remove existing ones, potentially breaking compatibility with your existing code.
--  The initial development release is limited in functional scope.
--  The initial development release may contain errors or design flaws and other problems that could cause system or other failures and data loss.
--  The initial development release has reduced security, privacy, availability, and reliability standards relative to future releases. This could make the software slower, less reliable, or more vulnerable to attacks than mature software.
--  The initial development release is not yet comprehensively documented. 
--  Users of the software must perform sufficient engineering and additional testing to properly evaluate their application and determine whether any of the open-sourced components are suitable for use in that application.
--  We strongly recommend not putting this version of the software into production use.
--  Only the latest version of the software will be supported</p>
-<h2 id="package-structure">Package structure</h2>
-<p><em>assembly-logic</em>: App dependencies.</p>
-<p><em>build-logic</em>: Application gradle plugins.</p>
-<p><em>resources-logic</em>: All app resources reside here (images, etc.)</p>
-<p><em>analytics-logic</em>: Access to analytics providers. Capabilities for test monitoring analytics (i.e. crashes) can be added here (no functionality right now)</p>
-<p><em>business-logic</em>: App business logic.</p>
-<p><em>core-logic</em>: Wallet core logic.</p>
-<p><em>storage-logic</em>: Persistent storage cache.</p>
-<p><em>authentication-logic</em>: Pin/Biometry Storage and System Biometrics Logic.</p>
-<p><em>ui-logic</em>: Common UI components.</p>
-<p><em>common-feature</em>: Code that is common to all features.</p>
-<p><em>dashboard-feature</em>: The application main screen.</p>
-<p><em>startup-feature</em>: The initial screen of the app.</p>
-<p><em>presentation-feature</em>: Online authentication feature.</p>
-<p><em>issuance-feature</em>: Document issuance feature.</p>
-<p><em>proximity-feature</em>: Proximity scenarios feature.</p>
-<div class="highlight"><pre><span></span><code>graph TD;
-  startup-feature --&gt; assembly-logic
-  dashboard-feature --&gt; assembly-logic
-  presentation-feature --&gt; assembly-logic
-  proximity-feature --&gt; assembly-logic
-  issuance-feature --&gt; assembly-logic
-
-  common-feature --&gt; startup-feature
-  common-feature --&gt; dashboard-feature
-  common-feature --&gt; presentation-feature
-  common-feature --&gt; proximity-feature
-  common-feature --&gt; issuance-feature
-
-  business-logic --&gt;common-feature
-  ui-logic --&gt;common-feature
-  network-logic --&gt;common-feature
-  resources-logic --&gt;common-feature
-  analytics-logic --&gt;common-feature 
-  authentication-logic --&gt;common-feature 
-  core-logic --&gt;common-feature
-  storage-logic --&gt;common-feature 
-
-  business-logic --&gt;core-logic
-  resources-logic --&gt;core-logic
-  authentication-logic --&gt;core-logic
-
-  business-logic --&gt;ui-logic
-  resources-logic --&gt;ui-logic
-  analytics-logic --&gt;ui-logic
-
-  business-logic --&gt;network-logic
-
-  business-logic --&gt;storage-logic
-
-  resources-logic --&gt;storage-logic
-
-  resources-logic --&gt;business-logic
-
-  resources-logic --&gt; authentication-logic
-  business-logic --&gt; authentication-logic
-</code></pre></div>
-<h2 id="license">License</h2>
-<h3 id="license-details">License details</h3>
-<p>Copyright &copy; 2023 European Commission</p>
-<p>Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
-Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
-except in compliance with the Licence.</p>
-<p>You may obtain a copy of the Licence at:
-<a href="https://joinup.ec.europa.eu/software/page/eupl">https://joinup.ec.europa.eu/software/page/eupl</a></p>
-<p>Unless required by applicable law or agreed to in writing, software distributed under 
-the Licence is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF 
-ANY KIND, either express or implied. See the Licence for the specific language 
-governing permissions and limitations under the Licence.</p>
 
 
 

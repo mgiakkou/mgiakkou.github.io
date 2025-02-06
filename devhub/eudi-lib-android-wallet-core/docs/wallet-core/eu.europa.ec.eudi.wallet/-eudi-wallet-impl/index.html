@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#eudiwalletimpl" class="md-skip">
+        <a href="#index-of-eudi-lib-android-wallet-coredocswallet-coreeueuropaeceudiwallet-eudi-wallet-impl" class="md-skip">
           Skip to content
         </a>
       
@@ -204,7 +204,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="https://mgiakkou.github.io/devhub/" class="md-tabs__link">
+      <a href="../../../../../index.html" class="md-tabs__link">
         
   
     
@@ -333,7 +333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://mgiakkou.github.io/devhub/" class="md-nav__link">
+      <a href="../../../../../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -534,32 +534,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#properties" class="md-nav__link">
-    <span class="md-ellipsis">
-      Properties
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Functions
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -576,166 +550,19 @@
   
 
 
-<p><a href="/">Home</a> / <a href="/eudi-lib-android-wallet-core/">eudi-lib-android-wallet-core</a> / <a href="/eudi-lib-android-wallet-core/docs/">docs</a> / <a href="/eudi-lib-android-wallet-core/docs/wallet-core/">wallet-core</a> / <a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/">eu.europa.ec.eudi.wallet</a> / -eudi-wallet-impl
-//<a href="../../../">wallet-core</a>/<a href="../">eu.europa.ec.eudi.wallet</a>/<a href="./">EudiWalletImpl</a></p>
-<h1 id="eudiwalletimpl">EudiWalletImpl</h1>
-<p>[androidJvm]
-class <a href="./">EudiWalletImpl</a> : <a href="../-eudi-wallet/">EudiWallet</a>, DocumentManager, <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/">PresentationManager</a>, SampleDocumentManager</p>
-<p>Implementation of <a href="../-eudi-wallet/">EudiWallet</a></p>
-<h2 id="properties">Properties</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="config/">config</a></td>
-<td>[androidJvm]<br>open override val <a href="config/">config</a>: <a href="../-eudi-wallet-config/">EudiWalletConfig</a><br>the wallet configuration</td>
-</tr>
-<tr>
-<td><a href="context/">context</a></td>
-<td>[androidJvm]<br>val <a href="context/">context</a>: <a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><br>the android context</td>
-</tr>
-<tr>
-<td><a href="document-manager/">documentManager</a></td>
-<td>[androidJvm]<br>open override val <a href="document-manager/">documentManager</a>: DocumentManager<br>the document manager</td>
-</tr>
-<tr>
-<td><a href="./#208632125%2FProperties%2F1615067946">identifier</a></td>
-<td>[androidJvm]<br>open override val <a href="./#208632125%2FProperties%2F1615067946">identifier</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></td>
-</tr>
-<tr>
-<td><a href="logger/">logger</a></td>
-<td>[androidJvm]<br>open override val <a href="logger/">logger</a>: <a href="../../eu.europa.ec.eudi.wallet.logging/-logger/">Logger</a><br>the logger</td>
-</tr>
-<tr>
-<td><a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/nfc-engagement-service-class/">nfcEngagementServiceClass</a></td>
-<td>[androidJvm]<br>open override val <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/nfc-engagement-service-class/">nfcEngagementServiceClass</a>: <a href="https://developer.android.com/reference/kotlin/java/lang/Class.html">Class</a>&lt;out NfcEngagementService&gt;?</td>
-</tr>
-<tr>
-<td><a href="presentation-manager/">presentationManager</a></td>
-<td>[androidJvm]<br>open override val <a href="presentation-manager/">presentationManager</a>: <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/">PresentationManager</a><br>the presentation manager</td>
-</tr>
-<tr>
-<td><a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/#1164183302%2FProperties%2F1615067946">readerTrustStore</a></td>
-<td>[androidJvm]<br>open override var <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/#1164183302%2FProperties%2F1615067946">readerTrustStore</a>: ReaderTrustStore?</td>
-</tr>
-<tr>
-<td><a href="./#2086712120%2FProperties%2F1615067946">secureAreaRepository</a></td>
-<td>[androidJvm]<br>open override val <a href="./#2086712120%2FProperties%2F1615067946">secureAreaRepository</a>: SecureAreaRepository</td>
-</tr>
-<tr>
-<td><a href="./#226177815%2FProperties%2F1615067946">storageEngine</a></td>
-<td>[androidJvm]<br>open override val <a href="./#226177815%2FProperties%2F1615067946">storageEngine</a>: StorageEngine</td>
-</tr>
-<tr>
-<td><a href="transfer-manager/">transferManager</a></td>
-<td>[androidJvm]<br>open override val <a href="transfer-manager/">transferManager</a>: TransferManager<br>the transfer manager</td>
-</tr>
-</tbody>
-</table>
-<h2 id="functions">Functions</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/#-1321081126%2FFunctions%2F1615067946">addTransferEventListener</a></td>
-<td>[androidJvm]<br>open override fun <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/#-1321081126%2FFunctions%2F1615067946">addTransferEventListener</a>(listener: TransferEvent.Listener): TransferEvent.Listenable</td>
-</tr>
-<tr>
-<td><a href="./#-1785343993%2FFunctions%2F1615067946">createDocument</a></td>
-<td>[androidJvm]<br>open override fun <a href="./#-1785343993%2FFunctions%2F1615067946">createDocument</a>(format: DocumentFormat, createSettings: CreateDocumentSettings, documentMetaData: DocumentMetaData?): Outcome&lt;UnsignedDocument&gt;</td>
-</tr>
-<tr>
-<td><a href="create-open-id4-vci-manager/">createOpenId4VciManager</a></td>
-<td>[androidJvm]<br>open override fun <a href="create-open-id4-vci-manager/">createOpenId4VciManager</a>(): <a href="../../eu.europa.ec.eudi.wallet.issue.openid4vci/-open-id4-vci-manager/">OpenId4VciManager</a><br>Create an instance of <a href="../../eu.europa.ec.eudi.wallet.issue.openid4vci/-open-id4-vci-manager/">OpenId4VciManager</a> for the wallet to interact with the OpenId4Vci service</td>
-</tr>
-<tr>
-<td><a href="./#1380499670%2FFunctions%2F1615067946">deleteDocumentById</a></td>
-<td>[androidJvm]<br>open override fun <a href="./#1380499670%2FFunctions%2F1615067946">deleteDocumentById</a>(documentId: DocumentId): Outcome&lt;ProofOfDeletion?&gt;</td>
-</tr>
-<tr>
-<td><a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/disable-n-f-c-engagement/">disableNFCEngagement</a></td>
-<td>[androidJvm]<br>open override fun <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/disable-n-f-c-engagement/">disableNFCEngagement</a>(activity: <a href="https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity.html">ComponentActivity</a>): <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/">PresentationManager</a><br>Disable the NFC device engagement for the wallet. This method should be called in the activity's ComponentActivity.onPause method.</td>
-</tr>
-<tr>
-<td><a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/enable-n-f-c-engagement/">enableNFCEngagement</a></td>
-<td>[androidJvm]<br>open override fun <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/enable-n-f-c-engagement/">enableNFCEngagement</a>(activity: <a href="https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity.html">ComponentActivity</a>): <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/">PresentationManager</a><br>Enable the NFC device engagement for the wallet. This method should be called in the activity's ComponentActivity.onResume method.</td>
-</tr>
-<tr>
-<td><a href="../-eudi-wallet/enumerate-secure-areas/">enumerateSecureAreas</a></td>
-<td>[androidJvm]<br>open fun <a href="../-eudi-wallet/enumerate-secure-areas/">enumerateSecureAreas</a>(): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a>&gt;<br>Enumerate the secure areas available in the wallet</td>
-</tr>
-<tr>
-<td><a href="../../eu.europa.ec.eudi.wallet.document/-document-extensions/get-default-create-document-settings/">getDefaultCreateDocumentSettings</a></td>
-<td>[androidJvm]<br>@<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.jvm/-jvm-name/index.html">JvmName</a>(name = &quot;getDefaultCreateDocumentSettings&quot;)<br>@<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.jvm/-jvm-overloads/index.html">JvmOverloads</a><br>@<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html">JvmStatic</a><br>fun <a href="../-eudi-wallet/">EudiWallet</a>.<a href="../../eu.europa.ec.eudi.wallet.document/-document-extensions/get-default-create-document-settings/">getDefaultCreateDocumentSettings</a>(attestationChallenge: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a>? = null, configure: AndroidKeystoreCreateKeySettings.Builder.() -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html">Unit</a>? = null): CreateDocumentSettings<br>Returns the default CreateDocumentSettings for the <a href="../-eudi-wallet/">EudiWallet</a> instance. The default settings are based on the <a href="../-eudi-wallet-config/">EudiWalletConfig</a> and the first available AndroidKeystoreSecureArea implementation. The <a href="../../eu.europa.ec.eudi.wallet.document/-document-extensions/get-default-create-document-settings/">attestationChallenge</a> is generated using a <a href="https://developer.android.com/reference/kotlin/java/security/SecureRandom.html">SecureRandom</a> instance. The <a href="../../eu.europa.ec.eudi.wallet.document/-document-extensions/get-default-create-document-settings/">configure</a> lambda can be used to further customize the AndroidKeystoreCreateKeySettings. The first available AndroidKeystoreSecureArea implementation is used.</td>
-</tr>
-<tr>
-<td><a href="../../eu.europa.ec.eudi.wallet.document/-document-extensions/get-default-key-unlock-data/">getDefaultKeyUnlockData</a></td>
-<td>[androidJvm]<br>@<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.jvm/-jvm-name/index.html">JvmName</a>(name = &quot;getDefaultKeyUnlockData&quot;)<br>@<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html">JvmStatic</a><br>fun <a href="../-eudi-wallet/">EudiWallet</a>.<a href="../../eu.europa.ec.eudi.wallet.document/-document-extensions/get-default-key-unlock-data/">getDefaultKeyUnlockData</a>(documentId: DocumentId): AndroidKeystoreKeyUnlockData?<br>Returns the default AndroidKeystoreKeyUnlockData for the given DocumentId. The default key unlock data is based on the Document.keyAlias.</td>
-</tr>
-<tr>
-<td><a href="./#-233386509%2FFunctions%2F1615067946">getDocumentById</a></td>
-<td>[androidJvm]<br>open override fun <a href="./#-233386509%2FFunctions%2F1615067946">getDocumentById</a>(documentId: DocumentId): Document?</td>
-</tr>
-<tr>
-<td><a href="./#-1741352450%2FFunctions%2F1615067946">getDocuments</a></td>
-<td>[androidJvm]<br>open override fun <a href="./#-1741352450%2FFunctions%2F1615067946">getDocuments</a>(predicate: (Document) -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a>?): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a>&lt;Document&gt;</td>
-</tr>
-<tr>
-<td><a href="./#408834997%2FFunctions%2F1615067946">loadMdocSampleDocuments</a></td>
-<td>[androidJvm]<br>open override fun <a href="./#408834997%2FFunctions%2F1615067946">loadMdocSampleDocuments</a>(sampleData: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a>, createSettings: CreateDocumentSettings, documentNamesMap: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a>&lt;DocType, <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a>&gt;?): Outcome&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a>&lt;DocumentId&gt;&gt;</td>
-</tr>
-<tr>
-<td><a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/#-812467576%2FFunctions%2F1615067946">removeAllTransferEventListeners</a></td>
-<td>[androidJvm]<br>open override fun <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/#-812467576%2FFunctions%2F1615067946">removeAllTransferEventListeners</a>(): TransferEvent.Listenable</td>
-</tr>
-<tr>
-<td><a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/#1314902509%2FFunctions%2F1615067946">removeTransferEventListener</a></td>
-<td>[androidJvm]<br>open override fun <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/#1314902509%2FFunctions%2F1615067946">removeTransferEventListener</a>(listener: TransferEvent.Listener): TransferEvent.Listenable</td>
-</tr>
-<tr>
-<td><a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/send-response/">sendResponse</a></td>
-<td>[androidJvm]<br>open override fun <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/send-response/">sendResponse</a>(response: Response)<br>Send a response to verifier</td>
-</tr>
-<tr>
-<td><a href="set-reader-trust-store/">setReaderTrustStore</a></td>
-<td>[androidJvm]<br>open override fun <a href="set-reader-trust-store/">setReaderTrustStore</a>(readerTrustStore: ReaderTrustStore): <a href="./">EudiWalletImpl</a><br>Sets the reader trust store with the given ReaderTrustStore. This method is useful when the reader trust store is not set in the configuration object, or when the reader trust store needs to be updated at runtime.</td>
-</tr>
-<tr>
-<td><a href="set-trusted-reader-certificates/">setTrustedReaderCertificates</a></td>
-<td>[androidJvm]<br>open override fun <a href="set-trusted-reader-certificates/">setTrustedReaderCertificates</a>(vararg rawRes: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a>): <a href="./">EudiWalletImpl</a><br>Sets the reader trust store with the given list of raw resource IDs. This method is useful when the reader trust store is not set in the configuration object, or when the reader trust store needs to be updated at runtime.<br>[androidJvm]<br>open override fun <a href="set-trusted-reader-certificates/">setTrustedReaderCertificates</a>(trustedReaderCertificates: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a>&lt;<a href="https://developer.android.com/reference/kotlin/java/security/cert/X509Certificate.html">X509Certificate</a>&gt;): <a href="./">EudiWalletImpl</a><br>Sets the reader trust store with the given list of <a href="https://developer.android.com/reference/kotlin/java/security/cert/X509Certificate.html">X509Certificate</a>. This method is useful when the reader trust store is not set in the configuration object, or when the reader trust store needs to be updated at runtime.</td>
-</tr>
-<tr>
-<td><a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/start-proximity-presentation/">startProximityPresentation</a></td>
-<td>[androidJvm]<br>open override fun <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/start-proximity-presentation/">startProximityPresentation</a>()<br>Starts the proximity presentation. The QR code is available through the TransferEvent.QrEngagementReady event which is triggered almost immediately after calling this method. The wallet should display the QR code to the verifier in order to start the proximity presentation.</td>
-</tr>
-<tr>
-<td><a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/start-remote-presentation/">startRemotePresentation</a></td>
-<td>[androidJvm]<br>open override fun <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/start-remote-presentation/">startRemotePresentation</a>(uri: <a href="https://developer.android.com/reference/kotlin/android/net/Uri.html">Uri</a>)<br>Start a remote presentation with the given URI The URI could be either</td>
-</tr>
-<tr>
-<td><a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/stop-proximity-presentation/">stopProximityPresentation</a></td>
-<td>[androidJvm]<br>open override fun <a href="../../eu.europa.ec.eudi.wallet.presentation/-presentation-manager/stop-proximity-presentation/">stopProximityPresentation</a>(flags: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a>)<br>Stops the proximity presentation. Method receives flags that can be used to control the session termination. The available flags are:</td>
-</tr>
-<tr>
-<td><a href="./#144040139%2FFunctions%2F1615067946">storeDeferredDocument</a></td>
-<td>[androidJvm]<br>open override fun <a href="./#144040139%2FFunctions%2F1615067946">storeDeferredDocument</a>(unsignedDocument: UnsignedDocument, relatedData: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a>): Outcome&lt;DeferredDocument&gt;</td>
-</tr>
-<tr>
-<td><a href="./#-557883369%2FFunctions%2F1615067946">storeIssuedDocument</a></td>
-<td>[androidJvm]<br>open override fun <a href="./#-557883369%2FFunctions%2F1615067946">storeIssuedDocument</a>(unsignedDocument: UnsignedDocument, issuerProvidedData: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a>): Outcome&lt;IssuedDocument&gt;</td>
-</tr>
-</tbody>
-</table>
+<p><a href="/">Home</a> / <a href="/eudi-lib-android-wallet-core/">eudi-lib-android-wallet-core</a> / <a href="/eudi-lib-android-wallet-core/docs/">docs</a> / <a href="/eudi-lib-android-wallet-core/docs/wallet-core/">wallet-core</a> / <a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/">eu.europa.ec.eudi.wallet</a> / -eudi-wallet-impl</p>
+<h1 id="index-of-eudi-lib-android-wallet-coredocswallet-coreeueuropaeceudiwallet-eudi-wallet-impl">Index of eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-impl</h1>
+<ul>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-impl/config/">config</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-impl/context/">context</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-impl/create-open-id4-vci-manager/">create-open-id4-vci-manager</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-impl/document-manager/">document-manager</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-impl/logger/">logger</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-impl/presentation-manager/">presentation-manager</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-impl/set-reader-trust-store/">set-reader-trust-store</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-impl/set-trusted-reader-certificates/">set-trusted-reader-certificates</a></li>
+<li><a href="/eudi-lib-android-wallet-core/docs/wallet-core/eu.europa.ec.eudi.wallet/-eudi-wallet-impl/transfer-manager/">transfer-manager</a></li>
+</ul>
 
 
 
