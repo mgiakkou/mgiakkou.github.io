@@ -1115,7 +1115,7 @@
 <div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">document</span> <span class="p">=</span> <span class="k">try</span> <span class="k">await</span> <span class="n">wallet</span><span class="p">.</span><span class="n">loadDocument</span><span class="p">(</span><span class="n">id</span><span class="p">:</span> <span class="n">documentId</span><span class="p">,</span> <span class="n">status</span><span class="p">:</span> <span class="p">.</span><span class="n">issued</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="storage-manager">Storage manager</h2>
-<p>The read-only property <code>storage</code> is an instance of a <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-wallet-kit/documentation/eudiwalletkit/storagemanager">StorageManager</a> class.
+<p>The read-only property <code>storage</code> is an instance of a <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-wallet-kit/documentation/eudiwalletkit/storagemanager" target="_blank">StorageManager</a> class.
 Currently the keychain implementation is used. It provides document management functionality using the iOS KeyChain.</p>
 <p>The storage model provides the following models for the supported well-known document types:</p>
 <table>
@@ -1136,7 +1136,7 @@ Currently the keychain implementation is used. It provides document management f
 </tr>
 </tbody>
 </table>
-<p>Since the issued mDoc documents retrieved expose only basic metadata and the raw data, they must be decoded to the corresponding CBOR models. The library provides the <code>StorageManager\toClaimsModel</code> function to decode document raw CBOR data to strongly-typed models conforming to <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-iso18013-data-model/documentation/mdocdatamodel18013/DocClaimsDecodable">DocClaimsDecodable</a> protocol. </p>
+<p>Since the issued mDoc documents retrieved expose only basic metadata and the raw data, they must be decoded to the corresponding CBOR models. The library provides the <code>StorageManager\toClaimsModel</code> function to decode document raw CBOR data to strongly-typed models conforming to <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-iso18013-data-model/documentation/mdocdatamodel18013/docclaimsdecodable" target="_blank">DocClaimsDecodable</a> protocol. </p>
 <p>The loading functions automatically update the <code>StorageManager</code> members. The decoded issued documents are available in the <code>docModels</code> property. The deferred and pending documents are available in the <code>StorageManager\deferredDocuments</code> and <code>StorageManager\pendingDocuments</code> properties respectively.</p>
 <p>For other document types the <a href="https://eu-digital-identity-wallet.github.io/eudi-lib-ios-iso18013-data-model/documentation/mdocdatamodel18013/genericmdocmodel" target="_blank">GenericMdocModel</a> is provided.</p>
 <h2 id="deleting-a-document">Deleting a document</h2>
