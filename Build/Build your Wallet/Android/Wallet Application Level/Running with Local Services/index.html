@@ -1028,15 +1028,14 @@
 
 <p><a href="/">Home</a> / <a href="/Build/">Build</a> / <a href="/Build/Build%20your%20Wallet/">Build your Wallet</a> / <a href="/Build/Build%20your%20Wallet/Android/">Android</a> / <a href="/Build/Build%20your%20Wallet/Android/Wallet%20Application%20Level/">Wallet Application Level</a> / Running with Local Services</p>
 <h1 id="running-with-local-services">Running with local services</h1>
-<p>The first step here is to have all three services running locally on your machine,
+<p>The first step is to ensure all three services are running locally on your machine,
 you can follow these Repositories for further instructions:</p>
 <ul>
 <li><a href="https://github.com/eu-digital-identity-wallet/eudi-srv-web-issuing-eudiw-py" target="_blank">Issuer</a></li>
 <li><a href="https://github.com/eu-digital-identity-wallet/eudi-web-verifier" target="_blank">Web Verifier UI</a></li>
 <li><a href="https://github.com/eu-digital-identity-wallet/eudi-srv-web-verifier-endpoint-23220-4-kt" target="_blank">Web Verifier Endpoint</a></li>
 </ul>
-<p>After this, and assuming you are now running everything locally,
-you need to change the contents of the ConfigWalletCoreImpl file, from:
+<p>After this, assuming you have everything running locally, you need to change the contents of the ConfigWalletCoreImpl file from:
 <div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kd">companion</span><span class="w"> </span><span class="kd">object</span><span class="w"> </span><span class="err">{</span>
 <span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">VCI_ISSUER_URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://dev.issuer.eudiw.dev&quot;</span>
 <span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">VCI_CLIENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;wallet-dev&quot;</span>
@@ -1057,7 +1056,7 @@ into something like this:
 <span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">AUTHENTICATION_REQUIRED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div></p>
-<p>Finally, you have to also change the content of <strong><em>network_security_config.xml</em></strong> file and allow HTTP traffic, to this:
+<p>Finally, you also have to change the content of the network_security_config.xml file and allow HTTP traffic to this:
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;network-security-config&gt;</span>
 <span class="w">    </span><span class="nt">&lt;base-config</span><span class="w"> </span><span class="na">cleartextTrafficPermitted=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/network-security-config&gt;</span>

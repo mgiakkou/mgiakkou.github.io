@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-work-with-self-signed-certificates" class="md-skip">
+        <a href="#how-to-work-with-self-signed-certificates-on-android" class="md-skip">
           Skip to content
         </a>
       
@@ -1027,16 +1027,16 @@
 
 
 <p><a href="/">Home</a> / <a href="/Build/">Build</a> / <a href="/Build/Build%20your%20Wallet/">Build your Wallet</a> / <a href="/Build/Build%20your%20Wallet/Android/">Android</a> / <a href="/Build/Build%20your%20Wallet/Android/Wallet%20Application%20Level/">Wallet Application Level</a> / Self-signed Certificates</p>
-<h1 id="how-to-work-with-self-signed-certificates">How to work with self-signed certificates</h1>
-<p>This section describes configuring the application to interact with services utilizing self-signed certificates.</p>
+<h1 id="how-to-work-with-self-signed-certificates-on-android">How to work with self-signed certificates on Android</h1>
+<p>This section describes how to configure the application to interact with services utilizing self-signed certificates.</p>
 <ol>
 <li>Open the build.gradle.kts file of the "core-logic" module.</li>
 <li>In the 'dependencies' block add the following two:
     <div class="highlight"><pre><span></span><code>implementation(libs.ktor.android)
 implementation(libs.ktor.logging)
 </code></pre></div></li>
-<li>Now, you need to create a new kotlin file <em>ProvideKtorHttpClient</em> and place it into the <em>srcmainjavaeueuropaeccorelogicconfig</em> package.</li>
-<li>Copy and paste the following into your newly created <em>ProvideKtorHttpClient</em> kotlin file.
+<li>Now, you need to create a new Kotlin file <em>ProvideKtorHttpClient.kt</em> and place it into the <code>src\main\java\eu\europa\ec\corelogic\config</code> package.</li>
+<li>Copy and paste the following code into your newly created <em>ProvideKtorHttpClient.kt</em> file.
     <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">android.annotation.SuppressLint</span>
 <span class="k">import</span><span class="w"> </span><span class="nn">io.ktor.client.HttpClient</span>
 <span class="k">import</span><span class="w"> </span><span class="nn">io.ktor.client.engine.android.Android</span>
@@ -1090,7 +1090,7 @@ implementation(libs.ktor.logging)
 
 <span class="p">}</span>
 </code></pre></div></li>
-<li>Finally, add this custom HttpClient to the EudiWallet provider function <em>provideEudiWallet</em> located in <em>LogicCoreModule.kt</em>
+<li>Finally, add this custom HttpClient to the EUDI Wallet provider function <em>provideEudiWallet</em> located in <em>LogicCoreModule.kt</em>
     <div class="highlight"><pre><span></span><code><span class="nd">@Single</span>
 <span class="kd">fun</span><span class="w"> </span><span class="nf">provideEudiWallet</span><span class="p">(</span>
 <span class="n">context</span><span class="p">:</span><span class="w"> </span><span class="n">Context</span><span class="p">,</span>

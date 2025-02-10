@@ -1092,7 +1092,7 @@
 
 
 <p><a href="/">Home</a> / <a href="/Build/">Build</a> / <a href="/Build/Build%20your%20Wallet/">Build your Wallet</a> / <a href="/Build/Build%20your%20Wallet/Android/">Android</a> / <a href="/Build/Build%20your%20Wallet/Android/Library%20Level/">Library Level</a> / Manage Documents</p>
-<h1 id="manage-documents">Manage documents</h1>
+<h1 id="manage-documents">Manage Documents</h1>
 <p>The library provides a set of methods to work with documents.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">documents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wallet</span><span class="p">.</span><span class="na">getDocuments</span><span class="p">()</span>
 </code></pre></div>
@@ -1174,8 +1174,8 @@ library's default implementation of CreateDocumentSettings.</p>
 <span class="w">    </span><span class="n">TODO</span><span class="p">(</span><span class="s">&quot;Send publicKey and proof of possession signature to issuer and retrieve document&#39;s data&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><strong>Important!:</strong> In the case of <code>DocumentFormat.MsoMdoc</code>, <code>DocumentManager.storeIssuedDocument()</code>
-method expects document's data to be in CBOR bytes and have the IssuerSigned structure according to
+<p><strong>Important!:</strong> In the case of <code>DocumentFormat.MsoMdoc</code>, the <code>DocumentManager.storeIssuedDocument()</code> 
+method expects the document's data to be in CBOR bytes and have the IssuerSigned structure according to
 ISO 23220-4.</p>
 <p>Currently, the library does not support IssuerSigned structure without the <code>nameSpaces</code> field.</p>
 <p>The following CDDL schema describes the structure of the IssuerSigned structure:</p>
