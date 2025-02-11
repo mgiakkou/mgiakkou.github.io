@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/normal-reproduction-low-resolution.jpg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.d7758b05.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.0253249f.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-work-with-self-signed-certificates" class="md-skip">
+        <a href="#how-to-work-with-self-signed-certificates-on-android" class="md-skip">
           Skip to content
         </a>
       
@@ -344,7 +344,6 @@
   
   <span class="md-ellipsis">
     Get Started
-    
   </span>
   
 
@@ -381,7 +380,6 @@
   
   <span class="md-ellipsis">
     Resources
-    
   </span>
   
 
@@ -424,7 +422,6 @@
   
   <span class="md-ellipsis">
     Reference Implementation
-    
   </span>
   
 
@@ -471,7 +468,6 @@
   
   <span class="md-ellipsis">
     Build
-    
   </span>
   
 
@@ -497,7 +493,6 @@
   
   <span class="md-ellipsis">
     Introduction
-    
   </span>
   
 
@@ -536,7 +531,6 @@
   
   <span class="md-ellipsis">
     Build your Wallet
-    
   </span>
   
 
@@ -562,7 +556,6 @@
   
   <span class="md-ellipsis">
     Introduction
-    
   </span>
   
 
@@ -601,7 +594,6 @@
   
   <span class="md-ellipsis">
     Android
-    
   </span>
   
 
@@ -644,7 +636,6 @@
   
   <span class="md-ellipsis">
     Wallet Application Level
-    
   </span>
   
 
@@ -670,7 +661,6 @@
   
   <span class="md-ellipsis">
     Build the App
-    
   </span>
   
 
@@ -692,7 +682,6 @@
   
   <span class="md-ellipsis">
     Running with Remote Services
-    
   </span>
   
 
@@ -714,7 +703,6 @@
   
   <span class="md-ellipsis">
     Running with Local Services
-    
   </span>
   
 
@@ -745,7 +733,6 @@
   
   <span class="md-ellipsis">
     Self-signed Certificates
-    
   </span>
   
 
@@ -792,7 +779,6 @@
   
   <span class="md-ellipsis">
     Library Level
-    
   </span>
   
 
@@ -847,7 +833,6 @@
   
   <span class="md-ellipsis">
     iOS
-    
   </span>
   
 
@@ -901,7 +886,6 @@
   
   <span class="md-ellipsis">
     Build your Issuer
-    
   </span>
   
 
@@ -945,7 +929,6 @@
   
   <span class="md-ellipsis">
     Build your Verifier
-    
   </span>
   
 
@@ -996,7 +979,6 @@
   
   <span class="md-ellipsis">
     Test
-    
   </span>
   
 
@@ -1044,18 +1026,17 @@
                   
 
 
-
 <p><a href="/">Home</a> / <a href="/Build/">Build</a> / <a href="/Build/Build%20your%20Wallet/">Build your Wallet</a> / <a href="/Build/Build%20your%20Wallet/Android/">Android</a> / <a href="/Build/Build%20your%20Wallet/Android/Wallet%20Application%20Level/">Wallet Application Level</a> / Self-signed Certificates</p>
-<h1 id="how-to-work-with-self-signed-certificates">How to work with self-signed certificates</h1>
-<p>This section describes configuring the application to interact with services utilizing self-signed certificates.</p>
+<h1 id="how-to-work-with-self-signed-certificates-on-android">How to work with self-signed certificates on Android</h1>
+<p>This section describes how to configure the application to interact with services utilizing self-signed certificates.</p>
 <ol>
 <li>Open the build.gradle.kts file of the "core-logic" module.</li>
 <li>In the 'dependencies' block add the following two:
     <div class="highlight"><pre><span></span><code>implementation(libs.ktor.android)
 implementation(libs.ktor.logging)
 </code></pre></div></li>
-<li>Now, you need to create a new kotlin file <em>ProvideKtorHttpClient</em> and place it into the <em>srcmainjavaeueuropaeccorelogicconfig</em> package.</li>
-<li>Copy and paste the following into your newly created <em>ProvideKtorHttpClient</em> kotlin file.
+<li>Now, you need to create a new Kotlin file <em>ProvideKtorHttpClient.kt</em> and place it into the <code>src\main\java\eu\europa\ec\corelogic\config</code> package.</li>
+<li>Copy and paste the following code into your newly created <em>ProvideKtorHttpClient.kt</em> file.
     <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">android.annotation.SuppressLint</span>
 <span class="k">import</span><span class="w"> </span><span class="nn">io.ktor.client.HttpClient</span>
 <span class="k">import</span><span class="w"> </span><span class="nn">io.ktor.client.engine.android.Android</span>
@@ -1109,7 +1090,7 @@ implementation(libs.ktor.logging)
 
 <span class="p">}</span>
 </code></pre></div></li>
-<li>Finally, add this custom HttpClient to the EudiWallet provider function <em>provideEudiWallet</em> located in <em>LogicCoreModule.kt</em>
+<li>Finally, add this custom HttpClient to the EUDI Wallet provider function <em>provideEudiWallet</em> located in <em>LogicCoreModule.kt</em>
     <div class="highlight"><pre><span></span><code><span class="nd">@Single</span>
 <span class="kd">fun</span><span class="w"> </span><span class="nf">provideEudiWallet</span><span class="p">(</span>
 <span class="n">context</span><span class="p">:</span><span class="w"> </span><span class="n">Context</span><span class="p">,</span>
@@ -1251,10 +1232,10 @@ implementation(libs.ktor.logging)
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer", "navigation.instant"], "search": "../../../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer", "navigation.instant"], "search": "../../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.f13b1293.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>
