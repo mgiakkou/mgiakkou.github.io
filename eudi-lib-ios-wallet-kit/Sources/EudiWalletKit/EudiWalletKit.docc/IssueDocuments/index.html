@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../../../../../assets/normal-reproduction-low-resolution.jpg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.2">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -338,6 +338,7 @@
   
   <span class="md-ellipsis">
     Get Started
+    
   </span>
   
 
@@ -374,6 +375,7 @@
   
   <span class="md-ellipsis">
     Resources
+    
   </span>
   
 
@@ -416,6 +418,7 @@
   
   <span class="md-ellipsis">
     Reference Implementation
+    
   </span>
   
 
@@ -458,6 +461,7 @@
   
   <span class="md-ellipsis">
     Build
+    
   </span>
   
 
@@ -500,6 +504,7 @@
   
   <span class="md-ellipsis">
     Test
+    
   </span>
   
 
@@ -608,6 +613,7 @@
                 
                   
 
+
   
   
 
@@ -629,36 +635,36 @@ After issuing a document, the document data and corresponding private key are st
 public/private key pair.</li>
 </ul>
 <p>The following example shows how to issue an EUDI Personal ID document using OpenID4VCI:</p>
-<div class="highlight"><pre><span></span><code><span class="n">wallet</span><span class="p">.</span><span class="n">openID4VciIssuerUrl</span> <span class="p">=</span> <span class="s">&quot;https://issuer.eudiw.dev&quot;</span> 
-<span class="n">wallet</span><span class="p">.</span><span class="n">openID4VciClientId</span> <span class="p">=</span> <span class="s">&quot;wallet-dev&quot;</span>
-<span class="n">wallet</span><span class="p">.</span><span class="n">openID4VciRedirectUri</span> <span class="p">=</span> <span class="s">&quot;eudi-openid4ci://authorize/&quot;</span> 
-<span class="k">do</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nv">doc</span> <span class="p">=</span> <span class="k">try</span> <span class="k">await</span> <span class="n">userWallet</span><span class="p">.:</span> <span class="n">EuPidModel</span><span class="p">.</span><span class="n">euPidDocType</span><span class="p">)</span>
-    <span class="c1">// document has been added to wallet storage, you can display it</span>
+<div class="highlight"><pre><span></span><code><span class="n">wallet</span><span class="p">.</span><span class="n">openID4VciIssuerUrl</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;https://issuer.eudiw.dev&quot;</span><span class="w"> </span>
+<span class="n">wallet</span><span class="p">.</span><span class="n">openID4VciClientId</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;wallet-dev&quot;</span>
+<span class="n">wallet</span><span class="p">.</span><span class="n">openID4VciRedirectUri</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;eudi-openid4ci://authorize/&quot;</span><span class="w"> </span>
+<span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">doc</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">userWallet</span><span class="p">.:</span><span class="w"> </span><span class="n">EuPidModel</span><span class="p">.</span><span class="n">euPidDocType</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// document has been added to wallet storage, you can display it</span>
 <span class="p">}</span>
-<span class="k">catch</span> <span class="p">{</span>
-    <span class="c1">// display error</span>
+<span class="k">catch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// display error</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>You can also issue a document by passing configuration <code>identifier</code> parameter the <code>identifier</code>. The configuration identifiers can be retrieved from the issuer's metadata,  using the <code>getIssuerMetadata</code> method.</p>
-<div class="highlight"><pre><span></span><code>  <span class="c1">// get current issuer metadata</span>
-  <span class="kd">let</span> <span class="nv">configuration</span> <span class="p">=</span> <span class="k">try</span> <span class="k">await</span> <span class="n">wallet</span><span class="p">.</span><span class="n">getIssuerMetadata</span><span class="p">()</span>
-  <span class="p">...</span>
-  <span class="kd">let</span> <span class="nv">doc</span> <span class="p">=</span> <span class="k">try</span> <span class="k">await</span> <span class="n">userWallet</span><span class="p">.</span><span class="n">issueDocument</span><span class="p">(</span><span class="n">identifier</span><span class="p">:</span> <span class="s">&quot;eu.europa.ec.eudi.pid_vc_sd_jwt&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="c1">// get current issuer metadata</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nv">configuration</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">wallet</span><span class="p">.</span><span class="n">getIssuerMetadata</span><span class="p">()</span>
+<span class="w">  </span><span class="p">...</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nv">doc</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">userWallet</span><span class="p">.</span><span class="n">issueDocument</span><span class="p">(</span><span class="n">identifier</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;eu.europa.ec.eudi.pid_vc_sd_jwt&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="resolving-credential-offer">Resolving Credential offer</h3>
 <p>The library provides the <code>EudiWallet/resolveOfferUrlDocTypes(uriOffer:)</code> method that resolves the credential offer URI.
 The method returns the resolved <code>OfferedIssuanceModel</code> object that contains the offer's data (offered document types, issuer name and transaction code specification for pre-authorized flow). The offer's data can be displayed to the
 user.</p>
 <p>The following example shows how to resolve a credential offer:</p>
-<div class="highlight"><pre><span></span><code> <span class="kd">func</span> <span class="nf">resolveOfferUrlDocTypes</span><span class="p">(</span><span class="n">uriOffer</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="k">async</span> <span class="kr">throws</span> <span class="p">-&gt;</span> <span class="n">OfferedIssuanceModel</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="k">try</span> <span class="k">await</span> <span class="n">wallet</span><span class="p">.</span><span class="n">resolveOfferUrlDocTypes</span><span class="p">(</span><span class="n">uriOffer</span><span class="p">:</span> <span class="n">uriOffer</span><span class="p">)</span>
-    <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="kd">func</span><span class="w"> </span><span class="nf">resolveOfferUrlDocTypes</span><span class="p">(</span><span class="n">uriOffer</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kr">throws</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">OfferedIssuanceModel</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">wallet</span><span class="p">.</span><span class="n">resolveOfferUrlDocTypes</span><span class="p">(</span><span class="n">uriOffer</span><span class="p">:</span><span class="w"> </span><span class="n">uriOffer</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
 </code></pre></div>
 <p>After user acceptance of the offer, the selected documents can be issued using the <code>EudiWallet/issueDocumentsByOfferUrl(offerUri:docTypes:docTypeKeyOptions:txCodeValue:promptMessage:claimSet:)</code> method.
 The <code>txCodeValue</code> parameter is not used in the case of the authorization code flow.</p>
 <p>The following example shows how to issue documents by offer URL:
-<div class="highlight"><pre><span></span><code> <span class="kd">let</span> <span class="nv">documents</span> <span class="p">=</span> <span class="k">try</span> <span class="k">await</span> <span class="n">walletController</span><span class="p">.</span><span class="n">issueDocumentsByOfferUrl</span><span class="p">(</span><span class="n">offerUri</span><span class="p">:</span> <span class="n">uri</span><span class="p">,</span>  <span class="n">docTypes</span><span class="p">:</span> <span class="n">docOffers</span><span class="p">,</span> <span class="n">txCodeValue</span><span class="p">:</span> <span class="n">txCodeValue</span> <span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nv">documents</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">walletController</span><span class="p">.</span><span class="n">issueDocumentsByOfferUrl</span><span class="p">(</span><span class="n">offerUri</span><span class="p">:</span><span class="w"> </span><span class="n">uri</span><span class="p">,</span><span class="w">  </span><span class="n">docTypes</span><span class="p">:</span><span class="w"> </span><span class="n">docOffers</span><span class="p">,</span><span class="w"> </span><span class="n">txCodeValue</span><span class="p">:</span><span class="w"> </span><span class="n">txCodeValue</span><span class="w"> </span><span class="p">)</span>
 </code></pre></div></p>
 <h3 id="authorization-code-flow">Authorization code flow</h3>
 <p>For the authorization code flow to work, the redirect URI must be specified specified by setting the the <code>EudiWallet/openID4VciConfig</code> property.
@@ -677,9 +683,9 @@ When the transaction code is provided, the issuance process can be resumed by ca
 <h3 id="dynamic-issuance">Dynamic issuance</h3>
 <p>Wallet kit supports the Dynamic <a href="https://github.com/eu-digital-identity-wallet/eudi-wallet-product-roadmap/issues/82">PID based issuance</a></p>
 <p>After calling <code>EudiWallet/issueDocument(docType:scope:identifier:keyOptions:promptMessage:)</code> or <code>EudiWallet/issueDocumentsByOfferUrl(offerUri:docTypes:docTypeKeyOptions:txCodeValue:promptMessage:claimSet:)</code> the wallet application need to check if the doc is pending and has a <code>authorizePresentationUrl</code> property. If the property is present, the application should perform the OpenID4VP presentation using the presentation URL. On success, the <code>EudiWallet/resumePendingIssuance(pendingDoc:webUrl:)</code> method should be called with the authorization URL provided by the server.
-<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="kd">let</span> <span class="nv">urlString</span> <span class="p">=</span> <span class="n">newDocs</span><span class="p">.</span><span class="bp">last</span><span class="p">?.</span><span class="n">authorizePresentationUrl</span> <span class="p">{</span> 
-    <span class="c1">// perform openid4vp presentation using the urlString </span>
-    <span class="c1">// on success call resumePendingIssuance using the authorization url  </span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nv">urlString</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">newDocs</span><span class="p">.</span><span class="bp">last</span><span class="p">?.</span><span class="n">authorizePresentationUrl</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">// perform openid4vp presentation using the urlString </span>
+<span class="w">    </span><span class="c1">// on success call resumePendingIssuance using the authorization url  </span>
 </code></pre></div></p>
 
 
@@ -770,10 +776,10 @@ When the transaction code is provided, the issuance process can be resumed by ca
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer", "navigation.instant"], "search": "../../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer", "navigation.instant"], "search": "../../../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.f13b1293.min.js"></script>
       
     
   </body>

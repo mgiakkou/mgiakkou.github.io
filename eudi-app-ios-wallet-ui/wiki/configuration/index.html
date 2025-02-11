@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../../../assets/normal-reproduction-low-resolution.jpg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.2">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.d7758b05.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -338,6 +338,7 @@
   
   <span class="md-ellipsis">
     Get Started
+    
   </span>
   
 
@@ -374,6 +375,7 @@
   
   <span class="md-ellipsis">
     Resources
+    
   </span>
   
 
@@ -416,6 +418,7 @@
   
   <span class="md-ellipsis">
     Reference Implementation
+    
   </span>
   
 
@@ -458,6 +461,7 @@
   
   <span class="md-ellipsis">
     Build
+    
   </span>
   
 
@@ -500,6 +504,7 @@
   
   <span class="md-ellipsis">
     Test
+    
   </span>
   
 
@@ -626,6 +631,7 @@
                 
                   
 
+
   
   
 
@@ -648,153 +654,153 @@
 <li>Issuing API</li>
 </ol>
 <p>Via the <em>WalletKitConfig</em> protocol inside the logic-core module.</p>
-<p><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="nc">WalletKitConfig</span> <span class="p">{</span>
-  <span class="cm">/**</span>
+<p><div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">protocol</span><span class="w"> </span><span class="nc">WalletKitConfig</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="cm">/**</span>
 <span class="cm">   * VCI Configuration</span>
 <span class="cm">   */</span>
-  <span class="kd">var</span> <span class="nv">vciConfig</span><span class="p">:</span> <span class="n">VciConfig</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">vciConfig</span><span class="p">:</span><span class="w"> </span><span class="n">VciConfig</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kr">get</span><span class="w"> </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 Based on the Build Variant of the Wallet (e.g. Dev)</p>
-<div class="highlight"><pre><span></span><code><span class="kd">struct</span> <span class="nc">WalletKitConfigImpl</span><span class="p">:</span> <span class="n">WalletKitConfig</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">struct</span><span class="w"> </span><span class="nc">WalletKitConfigImpl</span><span class="p">:</span><span class="w"> </span><span class="n">WalletKitConfig</span><span class="w"> </span><span class="p">{</span>
 
-  <span class="kd">let</span> <span class="nv">configLogic</span><span class="p">:</span> <span class="n">ConfigLogic</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nv">configLogic</span><span class="p">:</span><span class="w"> </span><span class="n">ConfigLogic</span>
 
-  <span class="kd">init</span><span class="p">(</span><span class="n">configLogic</span><span class="p">:</span> <span class="n">ConfigLogic</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kc">self</span><span class="p">.</span><span class="n">configLogic</span> <span class="p">=</span> <span class="n">configLogic</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kd">init</span><span class="p">(</span><span class="n">configLogic</span><span class="p">:</span><span class="w"> </span><span class="n">ConfigLogic</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kc">self</span><span class="p">.</span><span class="n">configLogic</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">configLogic</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kd">var</span> <span class="nv">vciConfig</span><span class="p">:</span> <span class="n">VciConfig</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">switch</span> <span class="n">configLogic</span><span class="p">.</span><span class="n">appBuildVariant</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="p">.</span><span class="n">DEMO</span><span class="p">:</span>
-        <span class="p">.</span><span class="kd">init</span><span class="p">(</span>
-          <span class="n">issuerUrl</span><span class="p">:</span> <span class="s">&quot;your_demo_url&quot;</span><span class="p">,</span>
-          <span class="n">clientId</span><span class="p">:</span> <span class="s">&quot;your_demo_clientid&quot;</span><span class="p">,</span>
-          <span class="n">redirectUri</span><span class="p">:</span> <span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="s">&quot;your_demo_redirect&quot;</span><span class="p">)</span><span class="o">!</span>
-        <span class="p">)</span>
-    <span class="k">case</span> <span class="p">.</span><span class="n">DEV</span><span class="p">:</span>
-        <span class="p">.</span><span class="kd">init</span><span class="p">(</span>
-          <span class="n">issuerUrl</span><span class="p">:</span> <span class="s">&quot;your_dev_url&quot;</span><span class="p">,</span>
-          <span class="n">clientId</span><span class="p">:</span> <span class="s">&quot;your_dev_clientid&quot;</span><span class="p">,</span>
-          <span class="n">redirectUri</span><span class="p">:</span> <span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="s">&quot;your_dev_redirect&quot;</span><span class="p">)</span><span class="o">!</span>
-        <span class="p">)</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">vciConfig</span><span class="p">:</span><span class="w"> </span><span class="n">VciConfig</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="n">configLogic</span><span class="p">.</span><span class="n">appBuildVariant</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">DEMO</span><span class="p">:</span>
+<span class="w">        </span><span class="p">.</span><span class="kd">init</span><span class="p">(</span>
+<span class="w">          </span><span class="n">issuerUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your_demo_url&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="n">clientId</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your_demo_clientid&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="n">redirectUri</span><span class="p">:</span><span class="w"> </span><span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your_demo_redirect&quot;</span><span class="p">)</span><span class="o">!</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">DEV</span><span class="p">:</span>
+<span class="w">        </span><span class="p">.</span><span class="kd">init</span><span class="p">(</span>
+<span class="w">          </span><span class="n">issuerUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your_dev_url&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="n">clientId</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your_dev_clientid&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="n">redirectUri</span><span class="p">:</span><span class="w"> </span><span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your_dev_redirect&quot;</span><span class="p">)</span><span class="o">!</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <ol>
 <li>Trusted certificates</li>
 </ol>
 <p>Via the <em>WalletKitConfig</em> protocol inside the logic-core module.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="nc">WalletKitConfig</span> <span class="p">{</span>
-  <span class="cm">/**</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">protocol</span><span class="w"> </span><span class="nc">WalletKitConfig</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="cm">/**</span>
 <span class="cm">   * Reader Configuration</span>
 <span class="cm">   */</span>
-  <span class="kd">var</span> <span class="nv">readerConfig</span><span class="p">:</span> <span class="n">ReaderConfig</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">readerConfig</span><span class="p">:</span><span class="w"> </span><span class="n">ReaderConfig</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kr">get</span><span class="w"> </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">struct</span> <span class="nc">ReaderConfig</span> <span class="p">{</span>
-  <span class="kd">public</span> <span class="kd">let</span> <span class="nv">trustedCerts</span><span class="p">:</span> <span class="p">[</span><span class="n">Data</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="nc">ReaderConfig</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nv">trustedCerts</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="n">Data</span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>The <em>WalletKitConfigImpl</em> implementation of the <em>WalletKitConfig</em> protocol can be located inside the logic-core module.</p>
 <p>The application's IACA certificates are located <a href="https://github.com/eu-digital-identity-wallet/eudi-app-ios-wallet-ui/tree/main/Wallet/Sample">here</a></p>
-<div class="highlight"><pre><span></span><code>  <span class="kd">var</span> <span class="nv">readerConfigConfig</span><span class="p">:</span> <span class="n">ReaderConfig</span> <span class="p">{</span>
-    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">cert</span> <span class="p">=</span> <span class="n">Data</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;eudi_pid_issuer_ut&quot;</span><span class="p">,</span> <span class="n">ext</span><span class="p">:</span> <span class="s">&quot;der&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="p">.</span><span class="kd">init</span><span class="p">(</span><span class="n">trustedCerts</span><span class="p">:</span> <span class="p">[])</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="p">.</span><span class="kd">init</span><span class="p">(</span><span class="n">trustedCerts</span><span class="p">:</span> <span class="p">[</span><span class="n">cert</span><span class="p">])</span>
-  <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">readerConfigConfig</span><span class="p">:</span><span class="w"> </span><span class="n">ReaderConfig</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">guard</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nv">cert</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;eudi_pid_issuer_ut&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ext</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;der&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">.</span><span class="kd">init</span><span class="p">(</span><span class="n">trustedCerts</span><span class="p">:</span><span class="w"> </span><span class="p">[])</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">.</span><span class="kd">init</span><span class="p">(</span><span class="n">trustedCerts</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="n">cert</span><span class="p">])</span>
+<span class="w">  </span><span class="p">}</span>
 </code></pre></div>
 <ol>
 <li>Preregistered Client Scheme</li>
 </ol>
 <p>If you plan to use the Preregistered for OpenId4VP configuration, please add the following to the <em>WalletKitConfigImpl</em> initializer.</p>
-<div class="highlight"><pre><span></span><code><span class="n">wallet</span><span class="p">.</span><span class="n">verifierApiUri</span> <span class="p">=</span> <span class="s">&quot;your_verifier_url&quot;</span>
-<span class="n">wallet</span><span class="p">.</span><span class="n">verifierLegalName</span> <span class="p">=</span> <span class="s">&quot;your_verifier_legal_name&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">wallet</span><span class="p">.</span><span class="n">verifierApiUri</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;your_verifier_url&quot;</span>
+<span class="n">wallet</span><span class="p">.</span><span class="n">verifierLegalName</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;your_verifier_legal_name&quot;</span>
 </code></pre></div>
 <ol>
 <li>RQES</li>
 </ol>
 <p>Via the <em>RQESConfig</em> struct, which implements the <em>EudiRQESUiConfig</em> protocol from the RQESUi SDK, inside the logic-business module.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">final</span> <span class="kd">class</span> <span class="nc">RQESConfig</span><span class="p">:</span> <span class="n">EudiRQESUiConfig</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kr">final</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">RQESConfig</span><span class="p">:</span><span class="w"> </span><span class="n">EudiRQESUiConfig</span><span class="w"> </span><span class="p">{</span>
 
-  <span class="kd">let</span> <span class="nv">buildVariant</span><span class="p">:</span> <span class="n">AppBuildVariant</span>
-  <span class="kd">let</span> <span class="nv">buildType</span><span class="p">:</span> <span class="n">AppBuildType</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nv">buildVariant</span><span class="p">:</span><span class="w"> </span><span class="n">AppBuildVariant</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nv">buildType</span><span class="p">:</span><span class="w"> </span><span class="n">AppBuildType</span>
 
-  <span class="kd">init</span><span class="p">(</span><span class="n">buildVariant</span><span class="p">:</span> <span class="n">AppBuildVariant</span><span class="p">,</span> <span class="n">buildType</span><span class="p">:</span> <span class="n">AppBuildType</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kc">self</span><span class="p">.</span><span class="n">buildVariant</span> <span class="p">=</span> <span class="n">buildVariant</span>
-    <span class="kc">self</span><span class="p">.</span><span class="n">buildType</span> <span class="p">=</span> <span class="n">buildType</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kd">init</span><span class="p">(</span><span class="n">buildVariant</span><span class="p">:</span><span class="w"> </span><span class="n">AppBuildVariant</span><span class="p">,</span><span class="w"> </span><span class="n">buildType</span><span class="p">:</span><span class="w"> </span><span class="n">AppBuildType</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kc">self</span><span class="p">.</span><span class="n">buildVariant</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">buildVariant</span>
+<span class="w">    </span><span class="kc">self</span><span class="p">.</span><span class="n">buildType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">buildType</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kd">var</span> <span class="nv">rssps</span><span class="p">:</span> <span class="p">[</span><span class="n">QTSPData</span><span class="p">]</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">rssps</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="n">QTSPData</span><span class="p">]</span>
 
-  <span class="c1">// Optional. Default is false.</span>
-  <span class="kd">var</span> <span class="nv">printLogs</span><span class="p">:</span> <span class="nb">Bool</span>
+<span class="w">  </span><span class="c1">// Optional. Default is false.</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">printLogs</span><span class="p">:</span><span class="w"> </span><span class="nb">Bool</span>
 
-  <span class="kd">var</span> <span class="nv">rQESConfig</span><span class="p">:</span> <span class="n">RqesServiceConfig</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">rQESConfig</span><span class="p">:</span><span class="w"> </span><span class="n">RqesServiceConfig</span>
 
-  <span class="c1">// Optional. Default English translations will be used if not set.</span>
-  <span class="kd">var</span> <span class="nv">translations</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span> <span class="p">:</span> <span class="p">[</span><span class="n">LocalizableKey</span> <span class="p">:</span> <span class="nb">String</span><span class="p">]]</span>
+<span class="w">  </span><span class="c1">// Optional. Default English translations will be used if not set.</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">translations</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">String</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="n">LocalizableKey</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">]]</span>
 
-  <span class="c1">// Optional. Default theme will be used if not set.</span>
-  <span class="kd">var</span> <span class="nv">theme</span><span class="p">:</span> <span class="n">ThemeProtocol</span>
+<span class="w">  </span><span class="c1">// Optional. Default theme will be used if not set.</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">theme</span><span class="p">:</span><span class="w"> </span><span class="n">ThemeProtocol</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Based on the Build Variant and Type of the Wallet (e.g. Dev Debug)</p>
-<div class="highlight"><pre><span></span><code><span class="kr">final</span> <span class="kd">class</span> <span class="nc">RQESConfig</span><span class="p">:</span> <span class="n">EudiRQESUiConfig</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kr">final</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">RQESConfig</span><span class="p">:</span><span class="w"> </span><span class="n">EudiRQESUiConfig</span><span class="w"> </span><span class="p">{</span>
 
-  <span class="kd">let</span> <span class="nv">buildVariant</span><span class="p">:</span> <span class="n">AppBuildVariant</span>
-  <span class="kd">let</span> <span class="nv">buildType</span><span class="p">:</span> <span class="n">AppBuildType</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nv">buildVariant</span><span class="p">:</span><span class="w"> </span><span class="n">AppBuildVariant</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nv">buildType</span><span class="p">:</span><span class="w"> </span><span class="n">AppBuildType</span>
 
-  <span class="kd">init</span><span class="p">(</span><span class="n">buildVariant</span><span class="p">:</span> <span class="n">AppBuildVariant</span><span class="p">,</span> <span class="n">buildType</span><span class="p">:</span> <span class="n">AppBuildType</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kc">self</span><span class="p">.</span><span class="n">buildVariant</span> <span class="p">=</span> <span class="n">buildVariant</span>
-    <span class="kc">self</span><span class="p">.</span><span class="n">buildType</span> <span class="p">=</span> <span class="n">buildType</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kd">init</span><span class="p">(</span><span class="n">buildVariant</span><span class="p">:</span><span class="w"> </span><span class="n">AppBuildVariant</span><span class="p">,</span><span class="w"> </span><span class="n">buildType</span><span class="p">:</span><span class="w"> </span><span class="n">AppBuildType</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kc">self</span><span class="p">.</span><span class="n">buildVariant</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">buildVariant</span>
+<span class="w">    </span><span class="kc">self</span><span class="p">.</span><span class="n">buildType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">buildType</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kd">var</span> <span class="nv">rssps</span><span class="p">:</span> <span class="p">[</span><span class="n">QTSPData</span><span class="p">]</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">switch</span> <span class="n">buildVariant</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="p">.</span><span class="n">DEV</span><span class="p">:</span>
-      <span class="p">[</span>
-        <span class="p">.</span><span class="kd">init</span><span class="p">(</span>
-          <span class="n">name</span><span class="p">:</span> <span class="s">&quot;your_dev_name&quot;</span><span class="p">,</span>
-          <span class="n">uri</span><span class="p">:</span> <span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="s">&quot;your_dev_uri&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">,</span>
-          <span class="n">scaURL</span><span class="p">:</span> <span class="s">&quot;your_dev_sca&quot;</span>
-        <span class="p">)</span>
-      <span class="p">]</span>
-    <span class="k">case</span> <span class="p">.</span><span class="n">DEMO</span><span class="p">:</span>
-      <span class="p">[</span>
-        <span class="p">.</span><span class="kd">init</span><span class="p">(</span>
-          <span class="n">name</span><span class="p">:</span> <span class="s">&quot;your_demo_name&quot;</span><span class="p">,</span>
-          <span class="n">uri</span><span class="p">:</span> <span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="s">&quot;your_demo_uri&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">,</span>
-          <span class="n">scaURL</span><span class="p">:</span> <span class="s">&quot;your_demo_sca&quot;</span>
-        <span class="p">)</span>
-      <span class="p">]</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">rssps</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="n">QTSPData</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="n">buildVariant</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">DEV</span><span class="p">:</span>
+<span class="w">      </span><span class="p">[</span>
+<span class="w">        </span><span class="p">.</span><span class="kd">init</span><span class="p">(</span>
+<span class="w">          </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your_dev_name&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="n">uri</span><span class="p">:</span><span class="w"> </span><span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your_dev_uri&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">,</span>
+<span class="w">          </span><span class="n">scaURL</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your_dev_sca&quot;</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">DEMO</span><span class="p">:</span>
+<span class="w">      </span><span class="p">[</span>
+<span class="w">        </span><span class="p">.</span><span class="kd">init</span><span class="p">(</span>
+<span class="w">          </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your_demo_name&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="n">uri</span><span class="p">:</span><span class="w"> </span><span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your_demo_uri&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">,</span>
+<span class="w">          </span><span class="n">scaURL</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your_demo_sca&quot;</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kd">var</span> <span class="nv">printLogs</span><span class="p">:</span> <span class="nb">Bool</span> <span class="p">{</span>
-    <span class="n">buildType</span> <span class="p">==</span> <span class="p">.</span><span class="n">DEBUG</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">printLogs</span><span class="p">:</span><span class="w"> </span><span class="nb">Bool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">buildType</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="p">.</span><span class="n">DEBUG</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kd">var</span> <span class="nv">rQESConfig</span><span class="p">:</span> <span class="n">RqesServiceConfig</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">switch</span> <span class="n">buildVariant</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="p">.</span><span class="n">DEV</span><span class="p">:</span>
-        <span class="p">.</span><span class="kd">init</span><span class="p">(</span>
-          <span class="n">clientId</span><span class="p">:</span> <span class="s">&quot;your_dev_clientid&quot;</span><span class="p">,</span>
-          <span class="n">clientSecret</span><span class="p">:</span> <span class="s">&quot;your_dev_secret&quot;</span><span class="p">,</span>
-          <span class="n">authFlowRedirectionURI</span><span class="p">:</span> <span class="s">&quot;your_dev_redirect&quot;</span><span class="p">,</span>
-          <span class="n">hashAlgorithm</span><span class="p">:</span> <span class="p">.</span><span class="n">SHA256</span>
-        <span class="p">)</span>
-    <span class="k">case</span> <span class="p">.</span><span class="n">DEMO</span><span class="p">:</span>
-        <span class="p">.</span><span class="kd">init</span><span class="p">(</span>
-          <span class="n">clientId</span><span class="p">:</span> <span class="s">&quot;your_demo_clientid&quot;</span><span class="p">,</span>
-          <span class="n">clientSecret</span><span class="p">:</span> <span class="s">&quot;your_demo_secret&quot;</span><span class="p">,</span>
-          <span class="n">authFlowRedirectionURI</span><span class="p">:</span> <span class="s">&quot;your_demo_redirect&quot;</span><span class="p">,</span>
-          <span class="n">hashAlgorithm</span><span class="p">:</span> <span class="p">.</span><span class="n">SHA256</span>
-        <span class="p">)</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">rQESConfig</span><span class="p">:</span><span class="w"> </span><span class="n">RqesServiceConfig</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="n">buildVariant</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">DEV</span><span class="p">:</span>
+<span class="w">        </span><span class="p">.</span><span class="kd">init</span><span class="p">(</span>
+<span class="w">          </span><span class="n">clientId</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your_dev_clientid&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="n">clientSecret</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your_dev_secret&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="n">authFlowRedirectionURI</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your_dev_redirect&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="n">hashAlgorithm</span><span class="p">:</span><span class="w"> </span><span class="p">.</span><span class="n">SHA256</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">DEMO</span><span class="p">:</span>
+<span class="w">        </span><span class="p">.</span><span class="kd">init</span><span class="p">(</span>
+<span class="w">          </span><span class="n">clientId</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your_demo_clientid&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="n">clientSecret</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your_demo_secret&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="n">authFlowRedirectionURI</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your_demo_redirect&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="n">hashAlgorithm</span><span class="p">:</span><span class="w"> </span><span class="p">.</span><span class="n">SHA256</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="deeplink-schemas-configuration">DeepLink Schemas configuration</h2>
@@ -836,54 +842,54 @@ Based on the Build Variant of the Wallet (e.g. Dev)</p>
 </code></pre></div>
 <p>After the <em>Wallet.plist</em> adjustment, you must also adjust the <em>DeepLinkController</em> inside the logic-ui module.</p>
 <p>Current Implementation:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">extension</span> <span class="nc">DeepLink</span> <span class="p">{</span>
-  <span class="kd">enum</span> <span class="nc">Action</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nb">Equatable</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">extension</span><span class="w"> </span><span class="nc">DeepLink</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">enum</span><span class="w"> </span><span class="nc">Action</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nb">Equatable</span><span class="w"> </span><span class="p">{</span>
 
-    <span class="k">case</span> <span class="n">openid4vp</span>
-    <span class="k">case</span> <span class="n">credential_offer</span>
-    <span class="k">case</span> <span class="n">external</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">openid4vp</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">credential_offer</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">external</span>
 
-    <span class="kd">static</span> <span class="kd">func</span> <span class="nf">parseType</span><span class="p">(</span>
-      <span class="n">with</span> <span class="n">scheme</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="n">and</span> <span class="n">urlSchemaController</span><span class="p">:</span> <span class="n">UrlSchemaController</span>
-    <span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Action</span><span class="p">?</span> <span class="p">{</span>
-      <span class="k">switch</span> <span class="n">scheme</span> <span class="p">{</span>
-      <span class="k">case</span> <span class="kc">_</span> <span class="k">where</span> <span class="n">openid4vp</span><span class="p">.</span><span class="n">getSchemas</span><span class="p">(</span><span class="n">with</span><span class="p">:</span> <span class="n">urlSchemaController</span><span class="p">).</span><span class="bp">contains</span><span class="p">(</span><span class="n">scheme</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">.</span><span class="n">openid4vp</span>
-      <span class="k">case</span> <span class="kc">_</span> <span class="k">where</span> <span class="n">credential_offer</span><span class="p">.</span><span class="n">getSchemas</span><span class="p">(</span><span class="n">with</span><span class="p">:</span> <span class="n">urlSchemaController</span><span class="p">).</span><span class="bp">contains</span><span class="p">(</span><span class="n">scheme</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">.</span><span class="n">credential_offer</span>
-      <span class="k">default</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">.</span><span class="n">external</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">func</span><span class="w"> </span><span class="nf">parseType</span><span class="p">(</span>
+<span class="w">      </span><span class="n">with</span><span class="w"> </span><span class="n">scheme</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
+<span class="w">      </span><span class="n">and</span><span class="w"> </span><span class="n">urlSchemaController</span><span class="p">:</span><span class="w"> </span><span class="n">UrlSchemaController</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Action</span><span class="p">?</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">switch</span><span class="w"> </span><span class="n">scheme</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="kc">_</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">openid4vp</span><span class="p">.</span><span class="n">getSchemas</span><span class="p">(</span><span class="n">with</span><span class="p">:</span><span class="w"> </span><span class="n">urlSchemaController</span><span class="p">).</span><span class="bp">contains</span><span class="p">(</span><span class="n">scheme</span><span class="p">):</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">.</span><span class="n">openid4vp</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="kc">_</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">credential_offer</span><span class="p">.</span><span class="n">getSchemas</span><span class="p">(</span><span class="n">with</span><span class="p">:</span><span class="w"> </span><span class="n">urlSchemaController</span><span class="p">).</span><span class="bp">contains</span><span class="p">(</span><span class="n">scheme</span><span class="p">):</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">.</span><span class="n">credential_offer</span>
+<span class="w">      </span><span class="k">default</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">.</span><span class="n">external</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Adjusted with the new schema:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">extension</span> <span class="nc">DeepLink</span> <span class="p">{</span>
-  <span class="kd">enum</span> <span class="nc">Action</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nb">Equatable</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">extension</span><span class="w"> </span><span class="nc">DeepLink</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">enum</span><span class="w"> </span><span class="nc">Action</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nb">Equatable</span><span class="w"> </span><span class="p">{</span>
 
-    <span class="k">case</span> <span class="n">openid4vp</span>
-    <span class="k">case</span> <span class="n">credential_offer</span>
-    <span class="k">case</span> <span class="n">custom_my_offer</span>
-    <span class="k">case</span> <span class="n">external</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">openid4vp</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">credential_offer</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">custom_my_offer</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">external</span>
 
-    <span class="kd">static</span> <span class="kd">func</span> <span class="nf">parseType</span><span class="p">(</span>
-      <span class="n">with</span> <span class="n">scheme</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="n">and</span> <span class="n">urlSchemaController</span><span class="p">:</span> <span class="n">UrlSchemaController</span>
-    <span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Action</span><span class="p">?</span> <span class="p">{</span>
-      <span class="k">switch</span> <span class="n">scheme</span> <span class="p">{</span>
-      <span class="k">case</span> <span class="kc">_</span> <span class="k">where</span> <span class="n">openid4vp</span><span class="p">.</span><span class="n">getSchemas</span><span class="p">(</span><span class="n">with</span><span class="p">:</span> <span class="n">urlSchemaController</span><span class="p">).</span><span class="bp">contains</span><span class="p">(</span><span class="n">scheme</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">.</span><span class="n">openid4vp</span>
-      <span class="k">case</span> <span class="kc">_</span> <span class="k">where</span> <span class="n">credential_offer</span><span class="p">.</span><span class="n">getSchemas</span><span class="p">(</span><span class="n">with</span><span class="p">:</span> <span class="n">urlSchemaController</span><span class="p">).</span><span class="bp">contains</span><span class="p">(</span><span class="n">scheme</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">.</span><span class="n">credential_offer</span>
-      <span class="k">case</span> <span class="kc">_</span> <span class="k">where</span> <span class="n">custom_my_offer</span><span class="p">.</span><span class="n">getSchemas</span><span class="p">(</span><span class="n">with</span><span class="p">:</span> <span class="n">urlSchemaController</span><span class="p">).</span><span class="bp">contains</span><span class="p">(</span><span class="n">scheme</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">.</span><span class="n">credential_offer</span>
-      <span class="k">default</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">.</span><span class="n">external</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">func</span><span class="w"> </span><span class="nf">parseType</span><span class="p">(</span>
+<span class="w">      </span><span class="n">with</span><span class="w"> </span><span class="n">scheme</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
+<span class="w">      </span><span class="n">and</span><span class="w"> </span><span class="n">urlSchemaController</span><span class="p">:</span><span class="w"> </span><span class="n">UrlSchemaController</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Action</span><span class="p">?</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">switch</span><span class="w"> </span><span class="n">scheme</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="kc">_</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">openid4vp</span><span class="p">.</span><span class="n">getSchemas</span><span class="p">(</span><span class="n">with</span><span class="p">:</span><span class="w"> </span><span class="n">urlSchemaController</span><span class="p">).</span><span class="bp">contains</span><span class="p">(</span><span class="n">scheme</span><span class="p">):</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">.</span><span class="n">openid4vp</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="kc">_</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">credential_offer</span><span class="p">.</span><span class="n">getSchemas</span><span class="p">(</span><span class="n">with</span><span class="p">:</span><span class="w"> </span><span class="n">urlSchemaController</span><span class="p">).</span><span class="bp">contains</span><span class="p">(</span><span class="n">scheme</span><span class="p">):</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">.</span><span class="n">credential_offer</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="kc">_</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">custom_my_offer</span><span class="p">.</span><span class="n">getSchemas</span><span class="p">(</span><span class="n">with</span><span class="p">:</span><span class="w"> </span><span class="n">urlSchemaController</span><span class="p">).</span><span class="bp">contains</span><span class="p">(</span><span class="n">scheme</span><span class="p">):</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">.</span><span class="n">credential_offer</span>
+<span class="w">      </span><span class="k">default</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">.</span><span class="n">external</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="scoped-issuance-document-configuration">Scoped Issuance Document Configuration</h2>
@@ -892,38 +898,38 @@ If you want to add or adjust the displayed scoped documents, you must modify the
 <h2 id="how-to-work-with-self-signed-certificates">How to work with self-signed certificates</h2>
 <p>This section describes configuring the application to interact with services utilizing self-signed certificates.</p>
 <p>Add these lines of code to the top of the file <em>WalletKitController</em>, inside the logic-core module, just below the import statements. </p>
-<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">SelfSignedDelegate</span><span class="p">:</span> <span class="bp">NSObject</span><span class="p">,</span> <span class="n">URLSessionDelegate</span> <span class="p">{</span>
-  <span class="kd">func</span> <span class="nf">urlSession</span><span class="p">(</span>
-    <span class="kc">_</span> <span class="n">session</span><span class="p">:</span> <span class="n">URLSession</span><span class="p">,</span>
-    <span class="n">didReceive</span> <span class="n">challenge</span><span class="p">:</span> <span class="n">URLAuthenticationChallenge</span><span class="p">,</span>
-    <span class="n">completionHandler</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">(</span><span class="n">URLSession</span><span class="p">.</span><span class="n">AuthChallengeDisposition</span><span class="p">,</span> <span class="n">URLCredential</span><span class="p">?)</span> <span class="p">-&gt;</span> <span class="nb">Void</span>
-  <span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Check if the challenge is for a self-signed certificate</span>
-    <span class="k">if</span> <span class="n">challenge</span><span class="p">.</span><span class="n">protectionSpace</span><span class="p">.</span><span class="n">authenticationMethod</span> <span class="p">==</span> <span class="n">NSURLAuthenticationMethodServerTrust</span><span class="p">,</span>
-       <span class="kd">let</span> <span class="nv">trust</span> <span class="p">=</span> <span class="n">challenge</span><span class="p">.</span><span class="n">protectionSpace</span><span class="p">.</span><span class="n">serverTrust</span> <span class="p">{</span>
-      <span class="c1">// Create a URLCredential with the self-signed certificate</span>
-      <span class="kd">let</span> <span class="nv">credential</span> <span class="p">=</span> <span class="n">URLCredential</span><span class="p">(</span><span class="n">trust</span><span class="p">:</span> <span class="n">trust</span><span class="p">)</span>
-      <span class="c1">// Call the completion handler with the credential to accept the self-signed certificate</span>
-      <span class="n">completionHandler</span><span class="p">(.</span><span class="n">useCredential</span><span class="p">,</span> <span class="n">credential</span><span class="p">)</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="c1">// For other authentication methods, call the completion handler with a nil credential to reject the request</span>
-      <span class="n">completionHandler</span><span class="p">(.</span><span class="n">cancelAuthenticationChallenge</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">SelfSignedDelegate</span><span class="p">:</span><span class="w"> </span><span class="bp">NSObject</span><span class="p">,</span><span class="w"> </span><span class="n">URLSessionDelegate</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">func</span><span class="w"> </span><span class="nf">urlSession</span><span class="p">(</span>
+<span class="w">    </span><span class="kc">_</span><span class="w"> </span><span class="n">session</span><span class="p">:</span><span class="w"> </span><span class="n">URLSession</span><span class="p">,</span>
+<span class="w">    </span><span class="n">didReceive</span><span class="w"> </span><span class="n">challenge</span><span class="p">:</span><span class="w"> </span><span class="n">URLAuthenticationChallenge</span><span class="p">,</span>
+<span class="w">    </span><span class="n">completionHandler</span><span class="p">:</span><span class="w"> </span><span class="p">@</span><span class="n">escaping</span><span class="w"> </span><span class="p">(</span><span class="n">URLSession</span><span class="p">.</span><span class="n">AuthChallengeDisposition</span><span class="p">,</span><span class="w"> </span><span class="n">URLCredential</span><span class="p">?)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Void</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Check if the challenge is for a self-signed certificate</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">challenge</span><span class="p">.</span><span class="n">protectionSpace</span><span class="p">.</span><span class="n">authenticationMethod</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">NSURLAuthenticationMethodServerTrust</span><span class="p">,</span>
+<span class="w">       </span><span class="kd">let</span><span class="w"> </span><span class="nv">trust</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">challenge</span><span class="p">.</span><span class="n">protectionSpace</span><span class="p">.</span><span class="n">serverTrust</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Create a URLCredential with the self-signed certificate</span>
+<span class="w">      </span><span class="kd">let</span><span class="w"> </span><span class="nv">credential</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">URLCredential</span><span class="p">(</span><span class="n">trust</span><span class="p">:</span><span class="w"> </span><span class="n">trust</span><span class="p">)</span>
+<span class="w">      </span><span class="c1">// Call the completion handler with the credential to accept the self-signed certificate</span>
+<span class="w">      </span><span class="n">completionHandler</span><span class="p">(.</span><span class="n">useCredential</span><span class="p">,</span><span class="w"> </span><span class="n">credential</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// For other authentication methods, call the completion handler with a nil credential to reject the request</span>
+<span class="w">      </span><span class="n">completionHandler</span><span class="p">(.</span><span class="n">cancelAuthenticationChallenge</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">let</span> <span class="nv">walletSession</span><span class="p">:</span> <span class="n">URLSession</span> <span class="p">=</span> <span class="p">{</span>
-  <span class="kd">let</span> <span class="nv">delegate</span> <span class="p">=</span> <span class="n">SelfSignedDelegate</span><span class="p">()</span>
-  <span class="kd">let</span> <span class="nv">configuration</span> <span class="p">=</span> <span class="n">URLSessionConfiguration</span><span class="p">.</span><span class="k">default</span>
-  <span class="k">return</span> <span class="n">URLSession</span><span class="p">(</span>
-    <span class="n">configuration</span><span class="p">:</span> <span class="n">configuration</span><span class="p">,</span>
-    <span class="n">delegate</span><span class="p">:</span> <span class="n">delegate</span><span class="p">,</span>
-    <span class="n">delegateQueue</span><span class="p">:</span> <span class="kc">nil</span>
-  <span class="p">)</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">walletSession</span><span class="p">:</span><span class="w"> </span><span class="n">URLSession</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nv">delegate</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">SelfSignedDelegate</span><span class="p">()</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nv">configuration</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">URLSessionConfiguration</span><span class="p">.</span><span class="k">default</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">URLSession</span><span class="p">(</span>
+<span class="w">    </span><span class="n">configuration</span><span class="p">:</span><span class="w"> </span><span class="n">configuration</span><span class="p">,</span>
+<span class="w">    </span><span class="n">delegate</span><span class="p">:</span><span class="w"> </span><span class="n">delegate</span><span class="p">,</span>
+<span class="w">    </span><span class="n">delegateQueue</span><span class="p">:</span><span class="w"> </span><span class="kc">nil</span>
+<span class="w">  </span><span class="p">)</span>
 <span class="p">}()</span>
 </code></pre></div>
 <p>Once the above is in place add the following:</p>
-<div class="highlight"><pre><span></span><code><span class="n">wallet</span><span class="p">.</span><span class="n">urlSession</span> <span class="p">=</span> <span class="n">walletSession</span>
+<div class="highlight"><pre><span></span><code><span class="n">wallet</span><span class="p">.</span><span class="n">urlSession</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">walletSession</span>
 </code></pre></div>
 <p>in the initializer. This change will allow the app to interact with web services that rely on self-signed certificates.</p>
 <h2 id="theme-configuration">Theme configuration</h2>
@@ -944,40 +950,40 @@ If you want to add or adjust the displayed scoped documents, you must modify the
 <li>Pin matching and validity</li>
 </ol>
 <p>Via the <em>LogicAuthAssembly</em> inside the logic-authentication module.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kr">final</span> <span class="kd">class</span> <span class="nc">LogicAuthAssembly</span><span class="p">:</span> <span class="n">Assembly</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kr">final</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">LogicAuthAssembly</span><span class="p">:</span><span class="w"> </span><span class="n">Assembly</span><span class="w"> </span><span class="p">{</span>
 
-  <span class="kd">public</span> <span class="kd">init</span><span class="p">()</span> <span class="p">{}</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">init</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 
-  <span class="kd">public</span> <span class="kd">func</span> <span class="nf">assemble</span><span class="p">(</span><span class="n">container</span><span class="p">:</span> <span class="n">Container</span><span class="p">)</span> <span class="p">{</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">func</span><span class="w"> </span><span class="nf">assemble</span><span class="p">(</span><span class="n">container</span><span class="p">:</span><span class="w"> </span><span class="n">Container</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>You can provide your storage implementation by implementing the <em>PinStorageProvider</em> protocol and then providing the implementation inside the Assembly DI Graph <em>LogicAuthAssembly</em></p>
 <p>Implementation Example:</p>
-<div class="highlight"><pre><span></span><code><span class="kr">final</span> <span class="kd">class</span> <span class="nc">KeychainPinStorageProvider</span><span class="p">:</span> <span class="n">PinStorageProvider</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kr">final</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">KeychainPinStorageProvider</span><span class="p">:</span><span class="w"> </span><span class="n">PinStorageProvider</span><span class="w"> </span><span class="p">{</span>
 
-  <span class="kd">private</span> <span class="kd">let</span> <span class="nv">keyChainController</span><span class="p">:</span> <span class="n">KeyChainController</span>
+<span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nv">keyChainController</span><span class="p">:</span><span class="w"> </span><span class="n">KeyChainController</span>
 
-  <span class="kd">init</span><span class="p">(</span><span class="n">keyChainController</span><span class="p">:</span> <span class="n">KeyChainController</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kc">self</span><span class="p">.</span><span class="n">keyChainController</span> <span class="p">=</span> <span class="n">keyChainController</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kd">init</span><span class="p">(</span><span class="n">keyChainController</span><span class="p">:</span><span class="w"> </span><span class="n">KeyChainController</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kc">self</span><span class="p">.</span><span class="n">keyChainController</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">keyChainController</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kd">func</span> <span class="nf">retrievePin</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span><span class="p">?</span> <span class="p">{</span>
-    <span class="n">keyChainController</span><span class="p">.</span><span class="n">getValue</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="n">KeychainIdentifier</span><span class="p">.</span><span class="n">devicePin</span><span class="p">)</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kd">func</span><span class="w"> </span><span class="nf">retrievePin</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="p">?</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">keyChainController</span><span class="p">.</span><span class="n">getValue</span><span class="p">(</span><span class="n">key</span><span class="p">:</span><span class="w"> </span><span class="n">KeychainIdentifier</span><span class="p">.</span><span class="n">devicePin</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kd">func</span> <span class="nf">setPin</span><span class="p">(</span><span class="n">with</span> <span class="n">pin</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">keyChainController</span><span class="p">.</span><span class="n">storeValue</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="n">KeychainIdentifier</span><span class="p">.</span><span class="n">devicePin</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">pin</span><span class="p">)</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kd">func</span><span class="w"> </span><span class="nf">setPin</span><span class="p">(</span><span class="n">with</span><span class="w"> </span><span class="n">pin</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">keyChainController</span><span class="p">.</span><span class="n">storeValue</span><span class="p">(</span><span class="n">key</span><span class="p">:</span><span class="w"> </span><span class="n">KeychainIdentifier</span><span class="p">.</span><span class="n">devicePin</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">:</span><span class="w"> </span><span class="n">pin</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kd">func</span> <span class="nf">isPinValid</span><span class="p">(</span><span class="n">with</span> <span class="n">pin</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
-    <span class="n">keyChainController</span><span class="p">.</span><span class="n">getValue</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="n">KeychainIdentifier</span><span class="p">.</span><span class="n">devicePin</span><span class="p">)</span> <span class="p">==</span> <span class="n">pin</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kd">func</span><span class="w"> </span><span class="nf">isPinValid</span><span class="p">(</span><span class="n">with</span><span class="w"> </span><span class="n">pin</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Bool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">keyChainController</span><span class="p">.</span><span class="n">getValue</span><span class="p">(</span><span class="n">key</span><span class="p">:</span><span class="w"> </span><span class="n">KeychainIdentifier</span><span class="p">.</span><span class="n">devicePin</span><span class="p">)</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">pin</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Config Example:</p>
-<div class="highlight"><pre><span></span><code><span class="n">container</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="n">PinStorageProvider</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span> <span class="p">{</span> <span class="n">r</span> <span class="k">in</span>
-  <span class="n">KeychainPinStorageProvider</span><span class="p">(</span><span class="n">keyChainController</span><span class="p">:</span> <span class="n">r</span><span class="p">.</span><span class="n">force</span><span class="p">(</span><span class="n">KeyChainController</span><span class="p">.</span><span class="kc">self</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="n">container</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="n">PinStorageProvider</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="k">in</span>
+<span class="w">  </span><span class="n">KeychainPinStorageProvider</span><span class="p">(</span><span class="n">keyChainController</span><span class="p">:</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">force</span><span class="p">(</span><span class="n">KeyChainController</span><span class="p">.</span><span class="kc">self</span><span class="p">))</span>
 <span class="p">}</span>
 <span class="p">.</span><span class="n">inObjectScope</span><span class="p">(</span><span class="n">ObjectScope</span><span class="p">.</span><span class="n">graph</span><span class="p">)</span>
 </code></pre></div>
@@ -989,49 +995,49 @@ If you want to add or adjust the displayed scoped documents, you must modify the
 <li>Event logging</li>
 </ol>
 <p>Via the <em>AnalyticsConfig</em> and <em>LogicAnalyticsAssembly</em> inside the logic-analytics module.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">protocol</span> <span class="nc">AnalyticsConfig</span> <span class="p">{</span>
-  <span class="cm">/**</span>
+<div class="highlight"><pre><span></span><code><span class="kd">protocol</span><span class="w"> </span><span class="nc">AnalyticsConfig</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="cm">/**</span>
 <span class="cm">   * Supported Analytics Provider, e.g. Firebase</span>
 <span class="cm">   */</span>
-  <span class="kd">var</span> <span class="nv">analyticsProviders</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="n">AnalyticsProvider</span><span class="p">]</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">analyticsProviders</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">String</span><span class="p">:</span><span class="w"> </span><span class="n">AnalyticsProvider</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kr">get</span><span class="w"> </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>You can provide your implementation by implementing the <em>AnalyticsProvider</em> protocol and then adding it to your <em>AnalyticsConfigImpl</em> analyticsProviders variable.
 You will also need the provider's token/key, thus requiring a [String: AnalyticsProvider] configuration.
 The project utilizes Dependency Injection (DI), thus requiring adjustment of the <em>LogicAnalyticsAssembly</em> graph to provide the configuration.</p>
 <p>Implementation Example:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">struct</span> <span class="nc">AppCenterProvider</span><span class="p">:</span> <span class="n">AnalyticsProvider</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">struct</span><span class="w"> </span><span class="nc">AppCenterProvider</span><span class="p">:</span><span class="w"> </span><span class="n">AnalyticsProvider</span><span class="w"> </span><span class="p">{</span>
 
-  <span class="kd">func</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">AppCenter</span><span class="p">.</span><span class="n">start</span><span class="p">(</span>
-      <span class="n">withAppSecret</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span>
-      <span class="n">services</span><span class="p">:</span> <span class="p">[</span>
-        <span class="n">Analytics</span><span class="p">.</span><span class="kc">self</span>
-      <span class="p">]</span>
-    <span class="p">)</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kd">func</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="n">key</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">AppCenter</span><span class="p">.</span><span class="n">start</span><span class="p">(</span>
+<span class="w">      </span><span class="n">withAppSecret</span><span class="p">:</span><span class="w"> </span><span class="n">key</span><span class="p">,</span>
+<span class="w">      </span><span class="n">services</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="n">Analytics</span><span class="p">.</span><span class="kc">self</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kd">func</span> <span class="nf">logScreen</span><span class="p">(</span><span class="n">screen</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">arguments</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">String</span><span class="p">])</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="n">Analytics</span><span class="p">.</span><span class="n">enabled</span> <span class="p">{</span>
-      <span class="n">logEvent</span><span class="p">(</span><span class="n">event</span><span class="p">:</span> <span class="n">screen</span><span class="p">,</span> <span class="n">arguments</span><span class="p">:</span> <span class="n">arguments</span><span class="p">)</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kd">func</span><span class="w"> </span><span class="nf">logScreen</span><span class="p">(</span><span class="n">screen</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">arguments</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">String</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">Analytics</span><span class="p">.</span><span class="n">enabled</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">logEvent</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="n">screen</span><span class="p">,</span><span class="w"> </span><span class="n">arguments</span><span class="p">:</span><span class="w"> </span><span class="n">arguments</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
-  <span class="kd">func</span> <span class="nf">logEvent</span><span class="p">(</span><span class="n">event</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">arguments</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">String</span><span class="p">])</span> <span class="p">{</span>
-    <span class="n">Analytics</span><span class="p">.</span><span class="n">trackEvent</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">withProperties</span><span class="p">:</span> <span class="n">arguments</span><span class="p">)</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kd">func</span><span class="w"> </span><span class="nf">logEvent</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">arguments</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">String</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Analytics</span><span class="p">.</span><span class="n">trackEvent</span><span class="p">(</span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="n">withProperties</span><span class="p">:</span><span class="w"> </span><span class="n">arguments</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Config Example:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">struct</span> <span class="nc">AnalyticsConfigImpl</span><span class="p">:</span> <span class="n">AnalyticsConfig</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nv">analyticsProviders</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="n">AnalyticsProvider</span><span class="p">]</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">[</span><span class="s">&quot;YOUR_OWN_KEY&quot;</span><span class="p">:</span> <span class="n">AppCenterProvider</span><span class="p">()]</span>
-  <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="kd">struct</span><span class="w"> </span><span class="nc">AnalyticsConfigImpl</span><span class="p">:</span><span class="w"> </span><span class="n">AnalyticsConfig</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">analyticsProviders</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">String</span><span class="p">:</span><span class="w"> </span><span class="n">AnalyticsProvider</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;YOUR_OWN_KEY&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">AppCenterProvider</span><span class="p">()]</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Config Construction via DI Graph Example:</p>
-<div class="highlight"><pre><span></span><code><span class="n">container</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="n">AnalyticsConfig</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span> <span class="p">{</span> <span class="kc">_</span> <span class="k">in</span>
- <span class="n">AnalyticsConfigImpl</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">container</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="n">AnalyticsConfig</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kc">_</span><span class="w"> </span><span class="k">in</span>
+<span class="w"> </span><span class="n">AnalyticsConfigImpl</span><span class="p">()</span>
 <span class="p">}</span>
 <span class="p">.</span><span class="n">inObjectScope</span><span class="p">(</span><span class="n">ObjectScope</span><span class="p">.</span><span class="n">graph</span><span class="p">)</span>
 </code></pre></div>
@@ -1124,10 +1130,10 @@ The project utilizes Dependency Injection (DI), thus requiring adjustment of the
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer", "navigation.instant"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer", "navigation.instant"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.f13b1293.min.js"></script>
       
     
   </body>
