@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#v093" class="md-skip">
+        <a href="#v095" class="md-skip">
           Skip to content
         </a>
       
@@ -204,7 +204,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../index.html" class="md-tabs__link">
+      <a href="../../Get Started/index.html" class="md-tabs__link">
         
   
     
@@ -333,7 +333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../index.html" class="md-nav__link">
+      <a href="../../Get Started/index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -539,6 +539,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#v095" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.9.5
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v0.9.5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#breaking-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Breaking changes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v094" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.9.4
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#v093" class="md-nav__link">
     <span class="md-ellipsis">
       v0.9.3
@@ -603,7 +636,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#breaking-changes" class="md-nav__link">
+  <a href="#breaking-changes_1" class="md-nav__link">
     <span class="md-ellipsis">
       Breaking changes
     </span>
@@ -636,7 +669,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#breaking-changes_1" class="md-nav__link">
+  <a href="#breaking-changes_2" class="md-nav__link">
     <span class="md-ellipsis">
       Breaking changes
     </span>
@@ -1408,6 +1441,25 @@
   <h1>Changelog</h1>
 
 <p><a href="/">Home</a> / <a href="/eudi-lib-ios-wallet-kit/">eudi-lib-ios-wallet-kit</a> / changelog</p>
+<h2 id="v095">v0.9.5</h2>
+<ul>
+<li>Updated <code>eudi-lib-ios-openid4vci-swift</code> library to version <a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-openid4vci-swift/releases/tag/v0.12.0">v0.12.0</a></li>
+<li><code>openID4VciConfig</code> now accepts a <code>DPoPConstructorType</code>.</li>
+<li>Updated <code>eudi-lib-ios-siop-openid4vp-swift</code> library to version <a href="https://github.com/eu-digital-identity-wallet/eudi-lib-ios-siop-openid4vp-swift/releases/tag/v0.7.0">v0.7.0</a></li>
+</ul>
+<h3 id="breaking-changes">Breaking changes</h3>
+<ul>
+<li><code>ElementViewModel</code>: removed <code>elementIdentifier</code> and <code>displayName</code> properties and added <code>elementPath</code> and <code>displayNames</code> properties:
+<div class="highlight"><pre><span></span><code>/// path to locate the element
+public let elementPath: [String]
+// display names of the component paths 
+public let displayNames: [String?]
+</code></pre></div></li>
+</ul>
+<h2 id="v094">v0.9.4</h2>
+<ul>
+<li>Added properties to <code>DocClaimsDecodable</code> protocol: <code>validFrom</code>, <code>validUntil</code></li>
+</ul>
 <h2 id="v093">v0.9.3</h2>
 <ul>
 <li>Fixed bug for OpenID4VP presentation for more than 2 documents</li>
@@ -1442,7 +1494,7 @@
 <ul>
 <li>Feature/dpop nonce</li>
 </ul>
-<h3 id="breaking-changes">Breaking changes</h3>
+<h3 id="breaking-changes_1">Breaking changes</h3>
 <ul>
 <li><code>StorageManager</code> property <code>mdocModels</code> renamed to <code>docModels</code></li>
 <li><code>MdocDecodable</code> protocol renamed to <code>DocClaimDecodable</code></li>
@@ -1455,7 +1507,7 @@
 <li>Use @MainActor for issuing methods due to authentication UI</li>
 </ul>
 <h2 id="v081">v0.8.1</h2>
-<h3 id="breaking-changes_1">Breaking changes</h3>
+<h3 id="breaking-changes_2">Breaking changes</h3>
 <ul>
 <li><code>SecureArea</code> protocol static factory method added: <code>nonisolated public static func create(storage: any SecureKeyStorage) -&gt; Self</code></li>
 <li>Removed <code>SecureArea</code> protocol initializer: <code>init(storage: any SecureKeyStorage)</code> (use the static factory method instead)</li>

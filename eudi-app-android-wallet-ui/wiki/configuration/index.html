@@ -204,7 +204,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../index.html" class="md-tabs__link">
+      <a href="../../../Get Started/index.html" class="md-tabs__link">
         
   
     
@@ -333,7 +333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../index.html" class="md-nav__link">
+      <a href="../../../Get Started/index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -654,7 +654,7 @@
 </code></pre></div>
 <p>You can configure the <em>EudiWalletConfig</em> per flavor. You can find both implementations inside the core-logic module at src/demo/config/WalletCoreConfigImpl and src/dev/config/WalletCoreConfigImpl</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">companion</span><span class="w"> </span><span class="kd">object</span><span class="w"> </span><span class="err">{</span>
-<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">VCI_ISSUER_URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://issuer.eudiw.dev/oidc&quot;</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">VCI_ISSUER_URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://issuer.eudiw.dev&quot;</span>
 <span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">VCI_CLIENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;wallet-demo&quot;</span>
 <span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">AUTHENTICATION_REQUIRED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
 <span class="w">    </span><span class="p">}</span>
@@ -668,9 +668,9 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>Same as the Verifier and Issuing APIs you can configure the Trusted certificates for the <em>EudiWalletConfig</em> per flavor inside the core-logic module at src/demo/config/WalletCoreConfigImpl and src/dev/config/WalletCoreConfigImpl</p>
-<div class="highlight"><pre><span></span><code><span class="n">_config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EudiWalletConfig</span><span class="p">.</span><span class="na">Builder</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">trustedReaderCertificates</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">raw</span><span class="p">.</span><span class="na">eudi_pid_issuer_ut</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">_config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EudiWalletConfig</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">configureReaderTrustStore</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="p">.</span><span class="na">raw</span><span class="p">.</span><span class="na">eudi_pid_issuer_ut</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>The application's IACA certificates are located <a href="https://github.com/eu-digital-identity-wallet/eudi-app-android-wallet-ui/tree/main/resources-logic/src/main/res/raw">here</a></p>
 <ol>
