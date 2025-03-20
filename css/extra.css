@@ -21,3 +21,8 @@
 .md-tabs__item--active {
   background: rgb(0 0 0 / 25%);
 }
+
+tr:hover {
+  background-color: ;
+  box-shadow: ;
+}
