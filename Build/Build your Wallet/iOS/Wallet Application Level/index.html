@@ -71,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#building-the-app" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -445,11 +450,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Resources/Architecture%20Reference%20Implementation/" class="md-nav__link">
+      <a href="../../../../Resources/Architecture%20and%20Reference%20Implementation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Architecture Reference Framework
+    Architecture and Reference Framework
   </span>
   
 
@@ -1609,7 +1614,7 @@
         
   
   <span class="md-ellipsis">
-    New Attestations
+    New Attestation
   </span>
   
 
@@ -2005,6 +2010,34 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-eudi-wallet-application-on-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup EUDI Wallet application on iOS
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2019,10 +2052,49 @@
                   
 
 
-  <h1>Index</h1>
-
-<p><a href="/">Home</a>
-<meta http-equiv="refresh" content="0; url=./Build the App/" /></p>
+<p><a href="/">Home</a></p>
+<h1 id="building-the-app">Building the App</h1>
+<h2 id="overview">Overview</h2>
+<p>This guide aims to assist developers to build the EUDI Wallet application on iOS.</p>
+<h2 id="setup-eudi-wallet-application-on-ios">Setup EUDI Wallet application on iOS</h2>
+<ol>
+<li>Download and install Xcode and its associated tools by following the official <a href="https://xcodereleases.com" target="_blank">setup guide</a>. Using the latest stable version is recommended.</li>
+<li>Clone the <a href="https://github.com/eu-digital-identity-wallet/eudi-app-ios-wallet-ui" target="_blank">iOS repository</a> using the following command:
+    <code>git clone git@github.com:eu-digital-identity-wallet/eudi-app-ios-wallet-ui.git</code></li>
+<li>Open the project file in Xcode.</li>
+<li>
+<p>The application has two schemes: "EUDI Wallet Dev" and "EUDI Wallet Demo" that can be configured in the xcconfig files located under the Config folder in the project.</p>
+<p>The application has two product flavors:</p>
+<div class="highlight"><pre><span></span><code>- &quot;Dev&quot;, which communicates with the services deployed in an environment based on the latest main branch.
+- &quot;Demo&quot;, which communicates with the services deployed in an environment based on the latest main branch.
+</code></pre></div>
+<p>and two Build Types:</p>
+<div class="highlight"><pre><span></span><code>- &quot;Debug&quot;, which has full logging enabled, used when running the app from within Xcode.
+- &quot;Release&quot;, which has no logging enabled, used when running the app after it has been distributed via a distribution platform, currently TestFlight.
+</code></pre></div>
+<p>which, ultimately, result in the following Build Variants:</p>
+<div class="highlight"><pre><span></span><code>- &quot;devDebug&quot;, &quot;devRelease&quot;, &quot;demoDebug&quot;, &quot;demoRelease&quot;
+</code></pre></div>
+</li>
+<li>
+<p>The App can be executed both on a device or on an emulator:</p>
+<ol>
+<li>To run the app on the simulator, select your app schema and press Run.</li>
+<li>To run the app on a device, follow similar steps to running it on the simulator. Additionally, you need to supply your own provisioning profile and signing certificate in the Signing &amp; Capabilities tab of your app target.</li>
+</ol>
+</li>
+<li>
+<p>Finally, the App needs to be connected with an Issuer and a Verifier either locally, or remotely.</p>
+<ol>
+<li><a href="../Running with Remote Services">Follow the instructions</a> to run remotely.</li>
+<li><a href="../Running with Local Services">Follow the instructions</a> to run locally.</li>
+</ol>
+</li>
+<li>
+<p>(Optional) <a href="../Self-signed Certificates">Follow the instructions</a> if self-signed certificates are required.</p>
+</li>
+</ol>
+<p>For a complete list of all configuration options please refer to <a href="https://github.com/eu-digital-identity-wallet/eudi-app-ios-wallet-ui/blob/main/wiki/configuration.md" target="_blank">this document</a></p>
 
 
 

@@ -71,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#building-the-app" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -445,11 +450,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Resources/Architecture%20Reference%20Implementation/" class="md-nav__link">
+      <a href="../../../../Resources/Architecture%20and%20Reference%20Implementation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Architecture Reference Framework
+    Architecture and Reference Framework
   </span>
   
 
@@ -1609,7 +1614,7 @@
         
   
   <span class="md-ellipsis">
-    New Attestations
+    New Attestation
   </span>
   
 
@@ -2005,6 +2010,34 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-eudi-wallet-application-on-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup EUDI Wallet application on Android
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2019,10 +2052,50 @@
                   
 
 
-  <h1>Index</h1>
-
-<p><a href="/">Home</a>
-<meta http-equiv="refresh" content="0; url=./Build the App/" /></p>
+<p><a href="/">Home</a></p>
+<h1 id="building-the-app">Building the App</h1>
+<h2 id="overview">Overview</h2>
+<p>This guide assists developers in building the EUDI Wallet application on Android.</p>
+<h2 id="setup-eudi-wallet-application-on-android">Setup EUDI Wallet application on Android</h2>
+<p>To build the application using the source code and connect it with the issuer and verifier, please follow the next steps:</p>
+<ol>
+<li>Download and install Android Studio and its associated tools by following the official <a href="https://developer.android.com/studio" target="_blank">setup guide</a>. Using the latest stable version is recommended.</li>
+<li>Clone the <a href="https://github.com/eu-digital-identity-wallet/eudi-app-android-wallet-ui" target="_blank">Android repository</a> using the following command:
+    <code>git clone git@github.com:eu-digital-identity-wallet/eudi-app-android-wallet-ui.git</code></li>
+<li>Open the project in Android Studio.</li>
+<li>
+<p>Configure the Build Variant by navigating to Build -&gt; Select Build Variant and from the tool window you can click on the "Active Build Variant" of the module ":app" and select the one you prefer. It will automatically apply to the other modules as well.</p>
+<p>The application has two product flavors:</p>
+<div class="highlight"><pre><span></span><code>- &quot;Dev&quot;, which communicates with the services deployed in an environment based on the latest main branch.
+- &quot;Demo&quot;, which communicates with the services deployed in an environment based on the latest main branch.
+</code></pre></div>
+<p>and two Build Types:</p>
+<div class="highlight"><pre><span></span><code>- &quot;Debug&quot;, which has full logging enabled.
+- &quot;Release&quot;, which has no logging enabled.
+</code></pre></div>
+<p>which, ultimately, result in the following Build Variants:</p>
+<div class="highlight"><pre><span></span><code>- &quot;devDebug&quot;, &quot;devRelease&quot;, &quot;demoDebug&quot;, &quot;demoRelease&quot;
+</code></pre></div>
+</li>
+<li>
+<p>The App can be executed both on a device or on an emulator:</p>
+<ol>
+<li>To run the App on a device, firstly you must connect your device with the Android Studio, and then go to Run -&gt; Run 'app'.</li>
+<li>To run the App on an emulator, simply go to Run -&gt; Run 'app'.</li>
+</ol>
+</li>
+<li>
+<p>Finally, the App needs to be connected with an Issuer and a Verifier either locally, or remotely.</p>
+<ol>
+<li><a href="../Running with Remote Services">Follow the instructions</a> to run remotely.</li>
+<li><a href="../Running with Local Services">Follow the instructions</a> to run locally.</li>
+</ol>
+</li>
+<li>
+<p>(Optional) <a href="../Self-signed Certificates">Follow the instructions</a> if self-signed certificates are required.</p>
+</li>
+</ol>
+<p><a href="https://github.com/eu-digital-identity-wallet/eudi-app-android-wallet-ui/blob/main/wiki/configuration.md" target="_blank">Check the full list of configuration options</a></p>
 
 
 

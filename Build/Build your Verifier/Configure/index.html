@@ -456,11 +456,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Resources/Architecture%20Reference%20Implementation/" class="md-nav__link">
+      <a href="../../../Resources/Architecture%20and%20Reference%20Implementation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Architecture Reference Framework
+    Architecture and Reference Framework
   </span>
   
 
@@ -1623,7 +1623,7 @@
         
   
   <span class="md-ellipsis">
-    New Attestations
+    New Attestation
   </span>
   
 
@@ -1738,6 +1738,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Configure
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1747,6 +1758,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#use-your-custom-relying-party-certificate-with-the-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use your custom relying party certificate with the verifier
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2032,6 +2071,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#use-your-custom-relying-party-certificate-with-the-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use your custom relying party certificate with the verifier
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2047,6 +2103,32 @@
 
 <p><a href="/">Home</a> / Build / Build your Verifier</p>
 <h1 id="configure-your-verifier">Configure your Verifier</h1>
+<h2 id="use-your-custom-relying-party-certificate-with-the-verifier">Use your custom relying party certificate with the verifier</h2>
+<p>In order to use your own certificate with the verifier, the <code>VERIFIER_JAR_SIGNING_KEY</code> needs to be set to <code>LoadFromKeystore</code>. Moreover, the following environment variables must also be configured accordingly.</p>
+<p>Variable: <code>VERIFIER_JAR_SIGNING_ALGORITHM</code><br />
+Description: Algorithm used to sign Authorization Request <br />
+Possible values: Any <code>Algorithm Name</code> of an IANA registered asymmetric signature algorithm (i.e. Usage is <code>alg</code>):
+<a href="https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms">https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms</a> <br />
+Note: The configured signing algorithm must be compatible with the configured signing key<br />
+Default value: <code>ES256</code></p>
+<p>Variable: <code>VERIFIER_JAR_SIGNING_KEY</code><br />
+Description: Key to use for Authorization Request signing<br />
+Possible values: <code>GenerateRandom</code>, <code>LoadFromKeystore</code><br />
+Setting this value to <code>GenerateRandom</code> will result in the generation of a random <code>EC</code> key using the curve <code>P-256</code> <br />
+Note: The configured signing key must be compatible with the configured signing algorithm<br />
+Default value: <code>GenerateRandom</code></p>
+<p>Variable: <code>VERIFIER_JAR_SIGNING_KEY_KEYSTORE</code><br />
+Description: URL of the Keystore from which to load the Key to use for JAR signing<br />
+Examples: <code>classpath:keystore.jks</code>, <code>file:///keystore.jks</code></p>
+<p>Variable: <code>VERIFIER_JAR_SIGNING_KEY_KEYSTORE_TYPE</code><br />
+Description: Type of the Keystore from which to load the Key to use for JAR signing<br />
+Examples: <code>jks</code>, <code>pkcs12</code></p>
+<p>Variable: <code>VERIFIER_JAR_SIGNING_KEY_KEYSTORE_PASSWORD</code><br />
+Description: Password of the Keystore from which to load the Key to use for JAR signing</p>
+<p>Variable: <code>VERIFIER_JAR_SIGNING_KEY_ALIAS</code><br />
+Description: Alias of the Key to use for JAR signing, in the configured Keystore</p>
+<p>Variable: <code>VERIFIER_JAR_SIGNING_KEY_PASSWORD</code><br />
+Description: Password of the Key to use for JAR signing, in the configured Keystore</p>
 
 
 
