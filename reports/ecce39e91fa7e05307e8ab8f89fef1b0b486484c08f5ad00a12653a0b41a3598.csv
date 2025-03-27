@@ -1,8 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"Issuing reservation confirmation to EUDI Wallet","User selects to issue a reservation confirmation attestation","SUCCESS","2024-10-08T14:29:12.338826+03:00[Europe/Athens]","0.0","6.62"
-"Issuing reservation confirmation to EUDI Wallet","Successful authentication in EUDI Wallet","SUCCESS","2024-10-08T14:29:18.970839+03:00[Europe/Athens]","0.0","6.63"
-"Issuing reservation confirmation to EUDI Wallet","Display options modal","SUCCESS","2024-10-08T14:29:25.615709+03:00[Europe/Athens]","0.0","6.63"
-"Issuing reservation confirmation to EUDI Wallet","Open camera for QR code scanning","SUCCESS","2024-10-08T14:29:32.261482+03:00[Europe/Athens]","0.0","6.64"
-"Issuing reservation confirmation to EUDI Wallet","Inform user of attestation offer after QR code scan","SUCCESS","2024-10-08T14:29:38.917006+03:00[Europe/Athens]","0.0","6.67"
-"Issuing reservation confirmation to EUDI Wallet","Issuer sends credential to Wallet","SUCCESS","2024-10-08T14:29:45.596603+03:00[Europe/Athens]","0.0","6.64"
-"Issuing reservation confirmation to EUDI Wallet","Confirming Credential Addition","SUCCESS","2024-10-08T14:29:52.255531+03:00[Europe/Athens]","0.0","6.66"

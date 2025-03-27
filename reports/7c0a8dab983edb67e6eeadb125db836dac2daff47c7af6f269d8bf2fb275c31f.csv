@@ -1,8 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"Age verification attestation same device","Age Verification via EUDI Wallet","SUCCESS","2024-10-08T15:17:12.640677+03:00[Europe/Athens]","0.0","6.69"
-"Age verification attestation same device","Redirect to EUDI Wallet for successful authentication","SUCCESS","2024-10-08T15:17:19.341683+03:00[Europe/Athens]","0.0","6.59"
-"Age verification attestation same device","Inform user about Age Verification Attestation request","SUCCESS","2024-10-08T15:17:25.93996+03:00[Europe/Athens]","0.0","6.77"
-"Age verification attestation same device","User authorization for attestation release","SUCCESS","2024-10-08T15:17:32.727903+03:00[Europe/Athens]","0.0","6.52"
-"Age verification attestation same device","User enters incorrect PIN","SUCCESS","2024-10-08T15:17:39.262116+03:00[Europe/Athens]","0.0","6.81"
-"Age verification attestation same device","User re-enters correct PIN","SUCCESS","2024-10-08T15:17:46.086536+03:00[Europe/Athens]","0.0","6.74"
-"Age verification attestation same device","Relying Party receives age verification attestation","SUCCESS","2024-10-08T15:17:52.83693+03:00[Europe/Athens]","0.0","6.58"

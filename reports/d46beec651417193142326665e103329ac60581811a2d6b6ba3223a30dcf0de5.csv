@@ -1,6 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"EUDI Wallet Booking Reservation Presentation","Successful Authentication","SUCCESS","2024-10-08T15:14:05.353243+03:00[Europe/Athens]","0.0","6.77"
-"EUDI Wallet Booking Reservation Presentation","Display QR code","SUCCESS","2024-10-08T15:14:12.133021+03:00[Europe/Athens]","0.0","6.54"
-"EUDI Wallet Booking Reservation Presentation","Inform user of attestation request after QR code scan","SUCCESS","2024-10-08T15:14:18.688285+03:00[Europe/Athens]","0.0","6.7"
-"EUDI Wallet Booking Reservation Presentation","Display PIN after credential consent","SUCCESS","2024-10-08T15:14:25.408259+03:00[Europe/Athens]","0.0","6.64"
-"EUDI Wallet Booking Reservation Presentation","Display success message and attestation to Relying Party","SUCCESS","2024-10-08T15:14:32.065177+03:00[Europe/Athens]","0.0","6.66"

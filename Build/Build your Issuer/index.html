@@ -944,6 +944,8 @@
     
       
         
+          
+        
       
         
       
@@ -966,16 +968,24 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_2_1" >
         
           
-          <label class="md-nav__link" for="__nav_4_2_2_1" id="__nav_4_2_2_1_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Build%20your%20Wallet/Android/Wallet%20Application%20Level/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     Wallet Application Level
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2_2_1" id="__nav_4_2_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_2_2_1">
@@ -984,25 +994,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Build%20your%20Wallet/Android/Wallet%20Application%20Level/Build%20the%20App/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Build the App
-  </span>
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -1016,7 +1007,7 @@
         
   
   <span class="md-ellipsis">
-    Running with Remote Services
+    Run with Remote Services
   </span>
   
 
@@ -1037,7 +1028,7 @@
         
   
   <span class="md-ellipsis">
-    Running with Local Services
+    Run with Local Services
   </span>
   
 
@@ -1250,6 +1241,8 @@
     
       
         
+          
+        
       
         
       
@@ -1272,16 +1265,24 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_3_1" >
         
           
-          <label class="md-nav__link" for="__nav_4_2_3_1" id="__nav_4_2_3_1_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Build%20your%20Wallet/iOS/Wallet%20Application%20Level/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     Wallet Application Level
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2_3_1" id="__nav_4_2_3_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_3_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_2_3_1">
@@ -1290,25 +1291,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Build%20your%20Wallet/iOS/Wallet%20Application%20Level/Build%20the%20App/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Build the App
-  </span>
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -1322,7 +1304,7 @@
         
   
   <span class="md-ellipsis">
-    Running with Remote Services
+    Run with Remote Services
   </span>
   
 
@@ -1343,7 +1325,7 @@
         
   
   <span class="md-ellipsis">
-    Running with Local Services
+    Run with Local Services
   </span>
   
 
@@ -1602,7 +1584,7 @@
         
   
   <span class="md-ellipsis">
-    Configure
+    Configure your Issuer
   </span>
   
 
@@ -1623,7 +1605,7 @@
         
   
   <span class="md-ellipsis">
-    New Attestation
+    Add Attestations
   </span>
   
 
@@ -1733,7 +1715,7 @@
         
   
   <span class="md-ellipsis">
-    Configure
+    Configure your Verifier
   </span>
   
 
@@ -2040,7 +2022,7 @@
         <li class="md-nav__item">
   <a href="#openid4vci-coverage" class="md-nav__link">
     <span class="md-ellipsis">
-      OpenId4VCI coverage
+      OpenId4VCI Coverage
     </span>
   </a>
   
@@ -2064,7 +2046,7 @@
 <p><a href="/">Home</a> / Build / Build your Issuer</p>
 <h1 id="build-your-issuer">Build your Issuer</h1>
 <h2 id="overview">Overview</h2>
-<p>The EUDIW Issuer is an implementation of  the PID and (Q)EAA Provider service, supporting the OpenID4VCI (draft 13) protocol.</p>
+<p>The Issuer is an implementation of  the PID and (Q)EAA Provider service, supporting the OpenID4VCI (draft 13) protocol.</p>
 <p>The service provides, by default, support for <code>mso_mdoc</code> and <code>SD-JWT-VC</code>formats, for the following credentials:</p>
 <table>
 <thead>
@@ -2093,8 +2075,8 @@
 </tbody>
 </table>
 <p>For authenticating the user, it requires the use of an eIDAS node, an OAUTH2 server or a simple form (for testing purposes).</p>
-<h2 id="openid4vci-coverage">OpenId4VCI coverage</h2>
-<p>This version of the EUDIW Issuer supports the <a href="https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0-13.html" target="_blank">OpenId for Verifiable Credential Issuance (draft 13)</a> protocol with the following coverage:</p>
+<h2 id="openid4vci-coverage">OpenId4VCI Coverage</h2>
+<p>This version of the Issuer supports the <a href="https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0-13.html" target="_blank">OpenId for Verifiable Credential Issuance (draft 13)</a> protocol with the following coverage:</p>
 <table>
 <thead>
 <tr>
@@ -2133,7 +2115,7 @@
 </tr>
 <tr>
 <td><a href="https://github.com/eu-digital-identity-wallet/eudi-srv-web-issuing-eudiw-py/tree/main/api_docs/credential_offer.md" target="_blank">Credential Offer</a></td>
-<td>✅ <code>authorization_code</code> , ✅ <code>pre-authorized_code</code></td>
+<td>✅ <code>authorization_code</code>, ✅ <code>pre-authorized_code</code></td>
 </tr>
 <tr>
 <td><a href="https://github.com/eu-digital-identity-wallet/eudi-srv-web-issuing-eudiw-py/tree/main/api_docs/credential.md" target="_blank">Credential Endpoint</a></td>
@@ -2161,7 +2143,7 @@
 </tr>
 </tbody>
 </table>
-<p>You can use the EUDIW Issuer at <a href="https://issuer.eudiw.dev/" target="_blank">https://issuer.eudiw.dev/</a>, or <a href="./Steps to Build">install it locally</a>.</p>
+<p>You can use the Issuer at <a href="https://issuer.eudiw.dev/" target="_blank">https://issuer.eudiw.dev/</a>, or <a href="./Steps to Build">install it locally</a>.</p>
 
 
 

@@ -1,8 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"Booking Service Reservation with EUDI Wallet (cross device)","User fills in the booking reservation form and presents identity attestations","SUCCESS","2024-10-08T15:10:29.020587+03:00[Europe/Athens]","0.0","7.2"
-"Booking Service Reservation with EUDI Wallet (cross device)","User selects to present attestations with the EUDI Wallet and scans QR-code","SUCCESS","2024-10-08T15:10:36.236984+03:00[Europe/Athens]","0.0","6.69"
-"Booking Service Reservation with EUDI Wallet (cross device)","Open camera for QR scan","SUCCESS","2024-10-08T15:10:42.937839+03:00[Europe/Athens]","0.0","6.78"
-"Booking Service Reservation with EUDI Wallet (cross device)","Display booking request after QR scan","SUCCESS","2024-10-08T15:10:49.72492+03:00[Europe/Athens]","0.0","6.9"
-"Booking Service Reservation with EUDI Wallet (cross device)","Consent and PIN for booking service request","SUCCESS","2024-10-08T15:10:56.63681+03:00[Europe/Athens]","0.0","6.85"
-"Booking Service Reservation with EUDI Wallet (cross device)","Show reservation preview","SUCCESS","2024-10-08T15:11:03.50158+03:00[Europe/Athens]","0.0","6.94"
-"Booking Service Reservation with EUDI Wallet (cross device)","Booking Service offers additional options to the user","SUCCESS","2024-10-08T15:11:10.459024+03:00[Europe/Athens]","0.0","20.7"

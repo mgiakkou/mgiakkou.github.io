@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="Request/Issue mDL" skipped="0" tests="3" time="123.43" timestamp="2024-10-08 04:05:29"><testcase name="Select document for issuance"/><testcase name="Country and credential provider selection"/><testcase name="Register personal data and view driving license"/></testsuite>

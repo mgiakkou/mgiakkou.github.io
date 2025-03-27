@@ -1,3 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"Deleting a mDL document","User enters PIN and selects a mDL","SUCCESS","2024-10-08T14:46:31.150481+03:00[Europe/Athens]","0.0","41.42"
-"Deleting a mDL document","User deletes the document","SUCCESS","2024-10-08T14:47:12.581724+03:00[Europe/Athens]","0.0","44.79"

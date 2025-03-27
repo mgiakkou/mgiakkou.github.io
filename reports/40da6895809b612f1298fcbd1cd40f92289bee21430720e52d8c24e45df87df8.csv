@@ -1,6 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"Age verification attestation (proximity)","User successfully logs in and sees the dashboard","SUCCESS","2024-10-08T14:31:51.915033+03:00[Europe/Athens]","0.0","6.62"
-"Age verification attestation (proximity)","User shares age verification through QR code scan","SUCCESS","2024-10-08T14:31:58.551243+03:00[Europe/Athens]","0.0","6.52"
-"Age verification attestation (proximity)","Verifier scans the QR code for age verification","SUCCESS","2024-10-08T14:32:05.0816+03:00[Europe/Athens]","0.0","6.59"
-"Age verification attestation (proximity)","User proceeds with the verifier's request","SUCCESS","2024-10-08T14:32:11.681462+03:00[Europe/Athens]","0.0","6.7"
-"Age verification attestation (proximity)","User enters the PIN and shares information","SUCCESS","2024-10-08T14:32:18.392339+03:00[Europe/Athens]","0.0","6.71"

@@ -1,8 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"Credential issuance process for cross device","Opening the EUDI Wallet and viewing the dashboard","SUCCESS","2024-10-08T15:21:09.334448+03:00[Europe/Athens]","0.0","6.37"
-"Credential issuance process for cross device","Navigating to the 'Add document' page","SUCCESS","2024-10-08T15:21:15.711374+03:00[Europe/Athens]","0.0","6.4"
-"Credential issuance process for cross device","Initiating the QR code scanning for document addition","SUCCESS","2024-10-08T15:21:22.12159+03:00[Europe/Athens]","0.0","6.8"
-"Credential issuance process for cross device","Scanning the QR code and viewing credential details","SUCCESS","2024-10-08T15:21:28.937152+03:00[Europe/Athens]","0.0","6.29"
-"Credential issuance process for cross device","Issuing the new document via QR code","SUCCESS","2024-10-08T15:21:35.244364+03:00[Europe/Athens]","0.0","6.69"
-"Credential issuance process for cross device","Completing the issuance process and viewing the success message","SUCCESS","2024-10-08T15:21:41.943668+03:00[Europe/Athens]","0.0","6.48"
-"Credential issuance process for cross device","Viewing the newly added document on the dashboard","SUCCESS","2024-10-08T15:21:48.439004+03:00[Europe/Athens]","0.0","6.61"

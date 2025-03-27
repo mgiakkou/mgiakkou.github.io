@@ -1,4 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"View mDL document","User closes the mDL document and returns to the dashboard","SUCCESS","2024-10-08T15:07:34.389937+03:00[Europe/Athens]","0.0","45.57"
-"View mDL document","User successfully logs in and sees the dashboard","SUCCESS","2024-10-08T16:10:55.781156+03:00[Europe/Athens]","0.0","40.05"
-"View mDL document","User opens the mDL document from the dashboard","SUCCESS","2024-10-08T16:11:35.836488+03:00[Europe/Athens]","0.0","44.92"

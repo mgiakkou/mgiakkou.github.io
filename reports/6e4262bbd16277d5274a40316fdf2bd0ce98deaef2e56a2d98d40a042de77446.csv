@@ -1,6 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"Pre-authorization code same device","User selects to issue a credential","SUCCESS","2024-10-08T15:20:36.383929+03:00[Europe/Athens]","0.0","6.35"
-"Pre-authorization code same device","User proceeds with the doc issuance","SUCCESS","2024-10-08T15:20:42.748413+03:00[Europe/Athens]","0.0","6.57"
-"Pre-authorization code same device","Handling issuer request on wallet app","SUCCESS","2024-10-08T15:20:49.333185+03:00[Europe/Athens]","0.0","6.67"
-"Pre-authorization code same device","Transaction code entry","SUCCESS","2024-10-08T15:20:56.012566+03:00[Europe/Athens]","0.0","6.68"
-"Pre-authorization code same device","Document display","SUCCESS","2024-10-08T15:21:02.704415+03:00[Europe/Athens]","0.0","6.62"

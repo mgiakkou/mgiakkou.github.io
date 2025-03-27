@@ -1,5 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"Online Identification & Authentication (same-device)","User successfully logs in and sees the dashboard","SUCCESS","2024-10-08T14:42:39.231395+03:00[Europe/Athens]","0.0","34.41"
-"Online Identification & Authentication (same-device)","Dashboard page is displayed","SUCCESS","2024-10-08T14:43:13.65067+03:00[Europe/Athens]","0.0","51.23"
-"Online Identification & Authentication (same-device)","User authorizes data disclosure","SUCCESS","2024-10-08T14:45:40.044499+03:00[Europe/Athens]","0.0","51.09"
-"Online Identification & Authentication (same-device)","User selects data to share","SUCCESS","2024-10-08T16:01:10.383994+03:00[Europe/Athens]","0.0","42.71"
