@@ -1,0 +1,14 @@
+<html>  
+<head>  
+<script type = "text/javascript">
+    window.open('https://ec.europa.eu/digital-building-blocks/sites/display/EUDIGITALIDENTITYWALLET/EU+Digital+Identity+Wallet+Home', '_blank').focus();
+    history.back();
+</script>  
+
+</head>  
+
+<body>  
+
+</body>  
+
+</html>  
