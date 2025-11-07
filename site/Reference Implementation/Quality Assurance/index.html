@@ -1135,6 +1135,8 @@
       
         
       
+        
+      
     
     
       
@@ -1235,6 +1237,28 @@
   
   <span class="md-ellipsis">
     Add Attestations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Build/Build%20your%20Issuer/Build%20your%20Trust%20List%20Service/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Build your Trust List Service
     
   </span>
   
@@ -1381,6 +1405,8 @@
       
         
       
+        
+      
     
     
       
@@ -1432,11 +1458,33 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Build/Build%20your%20Proximity%20Verifier/Steps%20to%20Build/" class="md-nav__link">
+      <a href="../../Build/Build%20your%20Proximity%20Verifier/Build%20your%20Proximity%20Verifier%20App%20for%20Android/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Steps to build
+    Build your Proximity Verifier App for Android
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Build/Build%20your%20Proximity%20Verifier/Build%20your%20Proximity%20Verifier%20Core%20for%20Android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Build your Proximity Verifier Core for Android
     
   </span>
   
@@ -1466,6 +1514,10 @@
       
         
           
+        
+      
+        
+      
         
       
         
@@ -1547,11 +1599,55 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Build/Build%20your%20rQES/Build%20your%20rQES%20SDK%20UI%20for%20Android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Build your rQES SDK UI for Android
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Build/Build%20your%20rQES/Build%20your%20rQES%20Core%20for%20Android/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Build your rQES Core for Android
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Build/Build%20your%20rQES/Build%20your%20rQES%20SDK%20UI%20for%20iOS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Build your rQES SDK UI for iOS
     
   </span>
   
@@ -2893,6 +2989,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#code-quality-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      💎 Code Quality Controls
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#test-types" class="md-nav__link">
     <span class="md-ellipsis">
       🧩 Test Types
@@ -3007,6 +3112,33 @@
 <p>Releases undergo full verification and validation through a combination of <strong>manual and automated testing</strong>, with QA activities integrated across all development phases to detect and prevent defects early.</p>
 <p>All testing artefacts are managed in GitHub under:<br />
 <a href="https://github.com/eu-digital-identity-wallet/eudi-doc-testing-application-internal">eu-digital-identity-wallet/eudi-doc-testing-application-internal</a></p>
+<h2 id="code-quality-controls">💎 Code Quality Controls</h2>
+<p>SonarCloud works on a set of code quality checks and analyzes code for multiple quality dimensions, across all stacks (Swift, Kotlin, Java, Python). The checks conducted can be further grouped into the following categories:</p>
+<ul>
+<li>
+<p>Security (protecting software from threats, attacks, and unauthorized access):</p>
+<ul>
+<li>Security Vulnerabilities: Flaws in code or configuration that attackers can exploit to compromise the system (e.g., SQL injection, cross-site scripting).</li>
+<li>Security Hotspots: Sections of code that aren’t necessarily vulnerable but deserve security review (e.g., cryptography use, authentication logic).</li>
+<li>OWASP Top 10 / CWE Mappings: OWASP Top 10 refers to a list of the ten most critical web application security risks (e.g., injection, broken authentication) that can be found <a href="https://owasp.org/www-project-top-ten/">here</a>. CWE (Common Weakness Enumeration) refers to a standardized catalog of software weakness types. Vulnerabilities and hotspots can be mapped to these categories for classification. The relevant information can be found <a href="https://cwe.mitre.org/top25/">here</a>.</li>
+</ul>
+</li>
+<li>
+<p>Maintainability (measures how easily code can be understood, modified, and extended):</p>
+<ul>
+<li>Code Smells: Patterns in code that indicate potential design or implementation issues (e.g., long methods, duplicated logic, large classes). They aren’t bugs but suggest future maintenance challenges.</li>
+<li>Cognitive Complexity: A metric indicating how difficult code is to understand. It increases with nested logic, branching, and poor readability.</li>
+<li>Duplications: Repeated blocks of code. High duplication leads to more effort in applying changes and increases the risk of inconsistency.</li>
+</ul>
+</li>
+<li>
+<p>Reliability (reflects how consistently software functions without failures):</p>
+<ul>
+<li>Bugs: Errors or flaws in code that cause incorrect or unexpected behavior during execution.</li>
+<li>Unit Test Coverage: A measure of how much of the code is exercised by automated tests. Higher coverage generally increases confidence in reliability but doesn’t guarantee the absence of bugs.</li>
+</ul>
+</li>
+</ul>
 <h2 id="test-types">🧩 Test Types</h2>
 <p>Testing is organised across multiple levels to validate functionality, performance, and security, ensuring comprehensive coverage throughout the development lifecycle:</p>
 <table>
@@ -3050,7 +3182,7 @@
 <ul>
 <li><strong>Objectives:</strong> Functional and end-to-end (E2E) testing ensures that each release behaves as expected according to defined epics and user stories.</li>
 <li><strong>Requirements:</strong> The Functional Requirements can be found <a href="https://github.com/eu-digital-identity-wallet/eudi-wallet-product-roadmap/blob/main/EUDI%20Wallet%20Reference%20Implementation%20-%20Feature%20Map.md">here</a>.</li>
-<li><strong>Specifications:</strong> The Functional Testing Specifications can be found here:<ul>
+<li><strong>Test Specifications:</strong> The Functional Testing Specifications can be found here:<ul>
 <li><a href="https://github.com/eu-digital-identity-wallet/eudi-doc-testing-application-internal/tree/main/src/test/resources/features">Manual Testing</a>.</li>
 <li><a href="https://github.com/eu-digital-identity-wallet/eudi-doc-testing-application-internal/tree/main">Automated Testing</a>.</li>
 </ul>
@@ -3061,7 +3193,7 @@
 <h3 id="security-testing">Security Testing</h3>
 <ul>
 <li><strong>Objectives:</strong> Security testing ensures the continuous security, integrity, and resilience of the EUDI Wallet applications throughout their lifecycle. By integrating automated and manual security testing within a Secure Software Development Life Cycle (SDLC) and aligning with OWASP MASVS and MASTG standards, the framework enables early detection and remediation of vulnerabilities. It combines code analysis, penetration testing, and vulnerability management using tools such as SonarQube, OWASP Dependency-Check, and DefectDojo to maintain compliance with recognized security standards and safeguard user trust in the EUDI Wallet ecosystem.</li>
-<li><strong>Requirements and Specifications:</strong> The Security Requirements and Specifications can be found <a href="https://github.com/eu-digital-identity-wallet/eudi-doc-reference-implementation-architecture/blob/main/security-requirements.md">here</a>.</li>
+<li><strong>Requirements and Test Specifications:</strong> The Security Requirements and Security Test Specifications can be found <a href="https://github.com/eu-digital-identity-wallet/eudi-doc-testing-application/blob/milestone/2025.Q4/doc/security/EUDI-Wallet-NiScy_Security_Requirements_and_Controls_Documentation.md">here</a>.</li>
 <li><strong>Tools:</strong> <a href="#-test-tools">Security Testing Tools</a>.</li>
 </ul>
 <hr />
@@ -3069,7 +3201,7 @@
 <ul>
 <li><strong>Objectives:</strong> Performance tests to evaluate the performance of the EUDI Wallet application under average user load across various mobile devices. This testing focuses on CPU and memory usage, as well as network activity during common scenarios.</li>
 <li><strong>Requirements:</strong> The Performance Requirements can be found <a href="https://github.com/eu-digital-identity-wallet/eudi-doc-testing-application/blob/milestone/2025.Q4/doc/performance/performance_requirements.md">here</a>.</li>
-<li><strong>Specifications</strong>: The Performance Test Specifications can be found <a href="https://github.com/eu-digital-identity-wallet/eudi-doc-testing-application/blob/milestone/2025.Q4/doc/performance/performance_specifications.md">here</a>.</li>
+<li><strong>Test Specifications</strong>: The Performance Test Specifications can be found <a href="https://github.com/eu-digital-identity-wallet/eudi-doc-testing-application/blob/milestone/2025.Q4/doc/performance/performance_specifications.md">here</a>.</li>
 <li><strong>Tools:</strong> <a href="#-test-tools">Performance Testing Tools</a>.</li>
 </ul>
 <h2 id="test-tools">💼 Test Tools</h2>
@@ -3096,20 +3228,20 @@
 <tr>
 <td>2025.07.28 - Demo</td>
 <td>Functional <br/> Security <br/> Performance</td>
-<td>GitHub Action Report</td>
+<td><a href="https://mgiakkou.github.io/testing/2025_q3/">Functional test results</a> <br/> <a href="https://github.com/eu-digital-identity-wallet/eudi-doc-testing-application/raw/refs/heads/milestone/2025.Q4/doc/security/EUDI-Wallet-NiScy_Security%20Testing%20Results-Version_2025.07.28-Demo.xlsx">Security test results</a> <br/> <a href="https://github.com/eu-digital-identity-wallet/eudi-doc-testing-application/blob/milestone/2025.Q4/doc/performance/preformance_test_results.md">Performance test results</a></td>
 <td>✅ Released</td>
 </tr>
 <tr>
 <td>2025.10.31 - Demo</td>
 <td>Functional</td>
-<td>GitHub Action Report</td>
-<td>🔄 In progress</td>
+<td><a href="https://mgiakkou.github.io/testing/2025_q4/">Functional test results</a></td>
+<td>✅ Released</td>
 </tr>
 <tr>
 <td>2025.12.xx - xxx</td>
-<td></td>
 <td>(to be added)</td>
-<td>⏳ Planned</td>
+<td>(to be added)</td>
+<td>🔄 In progress</td>
 </tr>
 </tbody>
 </table>
