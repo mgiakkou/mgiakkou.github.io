@@ -3224,16 +3224,16 @@
 </ul>
 <h2 id="issuing-authority-ca-iaca">Issuing Authority CA (IACA)</h2>
 <ul>
-<li>Issuing Authority CA is the certificate authority operated by or on behalf of an issuing authority ([ISO/IEC 18013-5] section 3.14)</li>
-<li>The IACA issues the IACA root certificate, IACA link certificate, and mDL document signer certificate</li>
-<li>It serves as the root of trust for all mDL verifiers to securely validate the integrity and authenticity of mDLs issued by the respective Issuing Authority (IA)</li>
+<li>Issuing Authority CA is the certificate authority operated by or on behalf of an issuing authority ([ISO/IEC 18013-5] section 3.14).</li>
+<li>The IACA issues the IACA root certificate, IACA link certificate, and mDL document signer certificate.</li>
+<li>It serves as the root of trust for all mDL verifiers to securely validate the integrity and authenticity of mDLs issued by the respective Issuing Authority (IA).</li>
 </ul>
 <h2 id="revocation-lists-manager">Revocation Lists Manager</h2>
 <ul>
-<li>The mDL Issuer Organisation uses this component to manage (create and update) the revocation status list or revocation identifier list of the mDLs</li>
-<li>It creates a status list and identifier list. The Manager component supports both revocation list types (status and identifier)</li>
+<li>The mDL Issuer Organisation uses this component to manage (create and update) the revocation status list or revocation identifier list of the mDLs.</li>
+<li>It creates a status list and identifier list. The Manager component supports both revocation list types (status and identifier).</li>
 <li>When an mDL is issued, then mDL Issuer component must register it in the status list using this component’s API. It shall register its unique identifier (e.g., a serial number, a unique hash, or an index) and position in the list and then initialize it (e.g. set to “VALID” or “0”).</li>
-<li>When an mDL is revoked then the mDL Issuer shall invoke this component’s API to either add the unique identifier in the identifier list or set the status to “INVALID” or “1” in the status list</li>
+<li>When an mDL is revoked then the mDL Issuer shall invoke this component’s API to either add the unique identifier in the identifier list or set the status to “INVALID” or “1” in the status list.</li>
 </ul>
 <h2 id="revocation-lists-publisher">Revocation Lists Publisher</h2>
 <ul>
