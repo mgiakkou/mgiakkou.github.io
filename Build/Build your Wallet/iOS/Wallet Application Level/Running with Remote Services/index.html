@@ -2991,7 +2991,7 @@
 
 <p><a href="/">Home</a> / Build / Build your Wallet / iOS / Wallet Application Level</p>
 <h1 id="run-with-remote-services">Run with Remote Services</h1>
-<p>The app is configured to the type (debug/release) and variant (dev/demo) in the four xcconfig files. These are the contents of the xcconfig file and you don't need to change anything if you don't want to:</p>
+<p>The app is configured to the type (debug/release) and variant (dev/demo) in the four xcconfig files. These are the contents of the xcconfig file, and you don't need to change anything if you don't want to:</p>
 <div class="highlight"><pre><span></span><code>BUILD_TYPE = RELEASE
 BUILD_VARIANT = DEMO
 </code></pre></div>
@@ -3009,24 +3009,37 @@ BUILD_VARIANT = DEMO
 </code></pre></div>
 <p>Using this parsed information, instances such as <code>WalletKitConfig</code> and <code>RQESConfig</code> can determine and assign their specific configurations based on the defined build type and variant.</p>
 <p>For instance, here's how <code>WalletKitConfig</code> resolves its configuration for OpenID4VCI remote services based on the build variant:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">vciConfig</span><span class="p">:</span><span class="w"> </span><span class="n">VciConfig</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">vciConfig</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">String</span><span class="p">:</span><span class="w"> </span><span class="n">OpenId4VciConfiguration</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nv">openId4VciConfigurations</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="n">OpenId4VciConfiguration</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="n">configLogic</span><span class="p">.</span><span class="n">appBuildVariant</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">DEMO</span><span class="p">:</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">.</span><span class="kd">init</span><span class="p">(</span>
-<span class="w">            </span><span class="n">issuerUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://issuer.eudiw.dev&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="n">clientId</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wallet-dev&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="n">redirectUri</span><span class="p">:</span><span class="w"> </span><span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;eu.europa.ec.euidi://authorization&quot;</span><span class="p">)</span><span class="o">!</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">.</span><span class="kd">init</span><span class="p">(</span>
+<span class="w">          </span><span class="n">credentialIssuerURL</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://ec.issuer.eudiw.dev&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="n">client</span><span class="p">:</span><span class="w"> </span><span class="p">.</span><span class="kd">public</span><span class="p">(</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wallet-dev&quot;</span><span class="p">),</span>
+<span class="w">          </span><span class="n">authFlowRedirectionURI</span><span class="p">:</span><span class="w"> </span><span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;eu.europa.ec.euidi://authorization&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">,</span>
+<span class="w">          </span><span class="n">usePAR</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">          </span><span class="n">useDpopIfSupported</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">          </span><span class="n">cacheIssuerMetadata</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
 <span class="w">        </span><span class="p">)</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">DEV</span><span class="p">:</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">.</span><span class="kd">init</span><span class="p">(</span>
-<span class="w">            </span><span class="n">issuerUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://dev.issuer.eudiw.dev&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="n">clientId</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wallet-dev&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="n">redirectUri</span><span class="p">:</span><span class="w"> </span><span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;eu.europa.ec.euidi://authorization&quot;</span><span class="p">)</span><span class="o">!</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">.</span><span class="kd">init</span><span class="p">(</span>
+<span class="w">          </span><span class="n">credentialIssuerURL</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://ec.dev.issuer.eudiw.dev&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="n">client</span><span class="p">:</span><span class="w"> </span><span class="p">.</span><span class="kd">public</span><span class="p">(</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wallet-dev&quot;</span><span class="p">),</span>
+<span class="w">          </span><span class="n">authFlowRedirectionURI</span><span class="p">:</span><span class="w"> </span><span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;eu.europa.ec.euidi://authorization&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">,</span>
+<span class="w">          </span><span class="n">usePAR</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">          </span><span class="n">useDpopIfSupported</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">          </span><span class="n">cacheIssuerMetadata</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
 <span class="w">        </span><span class="p">)</span>
+<span class="w">      </span><span class="p">]</span>
 <span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}()</span>
+
+<span class="w">  </span><span class="c1">// ...</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>In this example, the <code>vciConfig</code> property dynamically assigns configurations such as <code>issuerUrl</code>, <code>clientId</code>, and <code>redirectUri</code> based on the current appBuildVariant. This ensures that the appropriate settings are applied for each variant (e.g., .<code>DEMO</code> or <code>.DEV</code>).</p>
+<p>In this example, the <code>vciConfig</code> property dynamically assigns configurations, such as <code>issuerUrl</code>, <code>clientId</code>, <code>redirectUri</code>, <code>usePAR</code>, <code>useDPoP</code>, and <code>metadataCache</code>, based on the current <code>appBuildVariant</code>. This ensures that the appropriate settings are applied for each variant (e.g., <code>.DEMO</code> or <code>.DEV</code>).</p>
 
 
 

@@ -3053,7 +3053,7 @@ implementation(libs.ktor.logging)
 
 <span class="p">}</span>
 </code></pre></div></li>
-<li>Finally, add this custom HttpClient to the EUDI Wallet provider function <em>provideEudiWallet</em> located in <em>LogicCoreModule.kt</em>
+<li>Also, add this custom HttpClient to the EUDI Wallet provider function <em>provideEudiWallet</em> located in <em>LogicCoreModule.kt</em>
     <div class="highlight"><pre><span></span><code><span class="nd">@Single</span>
 <span class="kd">fun</span><span class="w"> </span><span class="nf">provideEudiWallet</span><span class="p">(</span>
 <span class="n">context</span><span class="p">:</span><span class="w"> </span><span class="n">Context</span><span class="p">,</span>
@@ -3067,7 +3067,31 @@ implementation(libs.ktor.logging)
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></li>
+<li>Finally, you need to use the preregistered clientId scheme instead of X509.</li>
 </ol>
+<p>Change this:
+   <div class="highlight"><pre><span></span><code><span class="n">withClientIdSchemes</span><span class="p">(</span>
+<span class="w"> </span><span class="n">listOf</span><span class="p">(</span><span class="n">ClientIdScheme</span><span class="p">.</span><span class="na">X509SanDns</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="w"> </span><span class="err">```</span>
+
+<span class="n">into</span><span class="w"> </span><span class="n">something</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="k">this</span><span class="p">:</span>
+<span class="err">```</span><span class="n">Kotlin</span>
+<span class="n">withClientIdSchemes</span><span class="p">(</span>
+<span class="w"> </span><span class="n">listOf</span><span class="p">(</span>
+<span class="w">     </span><span class="n">ClientIdScheme</span><span class="p">.</span><span class="na">Preregistered</span><span class="p">(</span>
+<span class="w">         </span><span class="n">preregisteredVerifiers</span><span class="w"> </span><span class="o">=</span>
+<span class="w">             </span><span class="n">listOf</span><span class="p">(</span>
+<span class="w">                 </span><span class="n">PreregisteredVerifier</span><span class="p">(</span>
+<span class="w">                     </span><span class="n">clientId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Verifier&quot;</span><span class="p">,</span>
+<span class="w">                     </span><span class="n">legalName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Verifier&quot;</span><span class="p">,</span>
+<span class="w">                     </span><span class="n">verifierApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://10.0.2.2&quot;</span>
+<span class="w">                 </span><span class="p">)</span>
+<span class="w">             </span><span class="p">)</span>
+<span class="w">         </span><span class="p">)</span>
+<span class="w">     </span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div></p>
 
 
 
