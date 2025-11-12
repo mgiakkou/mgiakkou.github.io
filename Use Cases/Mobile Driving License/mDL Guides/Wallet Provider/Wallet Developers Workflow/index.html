@@ -3168,39 +3168,51 @@
 <p>Nevertheless, this section outlines essential integration dependencies and pre-requisites for Member State organisations or entities mandated or recognized by Member States to successfully launch their EUDI Wallet Provider solution using the EUDI Wallet Reference Implementation for mDL support.</p>
 <p><strong>Platform Requirements</strong></p>
 <p>Your EUDI Wallet implementation must support the following platform specifications:</p>
-<p><strong>Android Implementation</strong>
-- Target Operating Systems: Android 8.0+ (API 26+)
-- Programming Language: Kotlin
-- Development Framework: Native Android</p>
-<p><strong>iOS Implementation</strong>
-- Target Operating Systems: iOS 17+
-- Programming Language: Swift
-- Development Framework: Native iOS</p>
+<p><strong>Android Implementation</strong></p>
+<ul>
+<li>Target Operating Systems: Android 10.0+ (API 29+)</li>
+<li>Programming Language: Kotlin</li>
+<li>Development Framework: Native Android</li>
+</ul>
+<p><strong>iOS Implementation</strong></p>
+<ul>
+<li>Target Operating Systems: iOS 17+</li>
+<li>Programming Language: Swift</li>
+<li>Development Framework: Native iOS</li>
+</ul>
 <h2 id="mdl-core-functionalities">mDL Core Functionalities</h2>
 <p>The mDL Use Case target solution for the EUDI Wallet shall support the following core functionalities. </p>
 <p><strong>mDL Attestation Issuance</strong></p>
 <p>Your EUDI Wallet implementation must support issuance of the mDL according to the OpenID4VCI v1.0 specification based on ARF and ISO/IEC 18013-5 (CBOR) standard for remote flows based on specifications from the 4<sup>th</sup> Driving License Directive.</p>
 <p><strong>Remote Presentation Flow Implementation</strong></p>
 <p>Your EUDI Wallet must support remote presentation flow with requirements as follows:</p>
-<p><strong>Data retrieval not based on user agent (Digital Credentials API)</strong>
-- Shall be according to ISO/IEC 18013-5 (CBOR), OpenID4VP v1.0 specification instead of ISO/IEC 18013-7 (Annex B) where Draft 18 of OpenID4VP is used</p>
-<p><strong>Data retrieval based on user agent (Digital Credentials API) - Optional</strong>
-- According to ISO/IEC 18013-5 (CBOR), ISO/IEC 18013-7 (Annex C – Digital credentials API retrieval)
-- According to OpenID4VP (Appendix A. OpenID4VP over the Digital Credentials API)</p>
+<p><strong>Data retrieval not based on user agent (Digital Credentials API)</strong></p>
+<ul>
+<li>Shall be according to ISO/IEC 18013-5 (CBOR), OpenID4VP v1.0 specification instead of ISO/IEC 18013-7 (Annex B) where Draft 18 of OpenID4VP is used</li>
+</ul>
+<p><strong>Data retrieval based on user agent (Digital Credentials API) - Optional</strong></p>
+<ul>
+<li>According to ISO/IEC 18013-5 (CBOR), ISO/IEC 18013-7 (Annex C – Digital credentials API retrieval)</li>
+<li>According to OpenID4VP (Appendix A. OpenID4VP over the Digital Credentials API)</li>
+</ul>
 <p><strong>Proximity Presentation Flow Implementation</strong></p>
 <p>Your EUDI Wallet must support proximity presentation flow of the mDL according to ISO/IEC 18013-5 (CBOR) standard.</p>
 <h2 id="trust-and-security-implementation">Trust and Security Implementation</h2>
 <p>Your EUDI Wallet implementation must include the following trust and security mechanisms:</p>
-<p><strong>Trust Relationships</strong>
-- Authenticate mDL Issuer using the access certificate (IACA)
-- Verify authenticity of mDL attestations
-- Download mDL Issuer Access CA Trusted Lists from relevant Trusted List Providers
-- Check registration certificates or online services of Registrars</p>
-<p><strong>Security Mechanisms</strong>
-- Implement session encryption (mandatory for proximity flows)
-- Support mDL issuer data authentication
-- Enable mdoc authentication (device binding) to prevent cloning of the mDL
-- Implement mdoc Reader authentication for proximity flows (mandatory) and remote flows (optional)</p>
+<p><strong>Trust Relationships</strong></p>
+<ul>
+<li>Authenticate mDL Issuer using the access certificate (IACA)</li>
+<li>Verify authenticity of mDL attestations</li>
+<li>Download mDL Issuer Access CA Trusted Lists from relevant Trusted List Providers</li>
+<li>Check registration certificates or online services of Registrars</li>
+</ul>
+<p><strong>Security Mechanisms</strong></p>
+<ul>
+<li>Implement session encryption (mandatory for proximity flows)</li>
+<li>Support mDL issuer data authentication</li>
+<li>Enable mdoc authentication (device binding) to prevent cloning of the mDL</li>
+<li>Implement mdoc Reader authentication for proximity flows (mandatory) and remote flows (optional)</li>
+</ul>
 <h2 id="wallet-provider-registration">Wallet Provider Registration</h2>
 <p>To operate as a trusted Wallet Provider within the EUDI Wallet ecosystem, your organisation must complete the registration and notification process as specified in the ARF.</p>
 <p><strong>Registration Process</strong></p>
